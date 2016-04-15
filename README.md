@@ -19,6 +19,6 @@ Settings provides a table view with a range of modifiable settings from personal
 * FacebookSDK - Login users
 * Parse/CloudKit - Backend storage of workout data
 
-## ThirdParty Code 
+## Third Party Credits 
 * YZSwipeBetweenViewController - https://github.com/yichizhang/YZSwipeBetweenViewController
 * BEMSimpleLineGraph - https://github.com/Boris-Em/BEMSimpleLineGraph
