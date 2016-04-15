@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "068D05AFFEAD5FD701B68BEFB2802151A8ED154C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "068D05AFFEAD5FD701B68BEFB2802151A8ED154C" : 0,
+    "AAFAC2263DADD6E725349EC784F299EFEAB04C8C" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3001708F-A12D-49B6-9F34-759E65464DC0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "068D05AFFEAD5FD701B68BEFB2802151A8ED154C" : "HeartBeat",
+    "AAFAC2263DADD6E725349EC784F299EFEAB04C8C" : "mxtapes\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Heart Beat",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Heart Beat.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/hermes.noriega.private\/git\/HeartBeat-Repo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "068D05AFFEAD5FD701B68BEFB2802151A8ED154C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/yulianii\/mxtapes.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AAFAC2263DADD6E725349EC784F299EFEAB04C8C"
+    }
+  ]
+}
