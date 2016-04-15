@@ -1,6 +1,6 @@
 # HeartBeat
 Health Fitness App for working out with bluetooth heart rate monitor written in Objectic C
-![alt tag](http://i.imgur.com/f0QqzMt.jpg =100x20)![alt tag](http://i.imgur.com/QJ2za48.jpg =100x20)![alt tag](http://i.imgur.com/RMOTeXO.jpg =100x20)
+![image](http://i.imgur.com/f0QqzMt.jpg =100x20)![image](http://i.imgur.com/QJ2za48.jpg =100x20)![image](http://i.imgur.com/RMOTeXO.jpg = 250x)
 ## User Interface
 User interface takes cues from social networking app Snapchat. Three way slide Interface with the starting view displays a screen with options to begin a workout. The app uses transparencies views with a map of the users location in the background
 ### Main Screen
