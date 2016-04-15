@@ -8,7 +8,7 @@ The app automatically connects to a bluetooth heart rate monitor and begins disp
 ### History Screen
 History provides a table view of all your finished workouts sorted from most recent to least. Each cell provides minor details of the workout such as Duration, Type of workout and The average heart rate of the workout. Clicking on a cell opens a more detailed view of the workout with a graph that allows you to pan threw it. At the top theres a back button, type of workout in the middle and a share button that opens the share dialog and shares a screenshot of the current view. At the bottom Information about calories burned, minimun/average and max heart rate are displayed.
 ### Setting Screen
-Settings provides a table view with a range of modifiable settings from personal info to app details. 
+Settings provides a table view with a range of modifiable settings from personal info to app details. User is allowed to change age, weight, sex. Remove or include health access. Change between units, connect or disconnect bluetooth heart rate monitors and log out from the app.
 
 ## Techonologies/Frameworks Used
 * CoreBluetooth - For access heart rate monitor data
