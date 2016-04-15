@@ -16,7 +16,9 @@ Settings provides a table view with a range of modifiable settings from personal
 * HealthKit - For store workout data, retreive personal data such as sex, age, weight
 * AVFoundation - For speech utterance 
 * MapKit/CLLocation - For displaying map in the background and storing run distances
-* CoreGraphics - For displaying workout data in line graphs
 * FacebookSDK - Login users
 * Parse/CloudKit - Backend storage of workout data
 
+## ThirdParty Code 
+* YZSwipeBetweenViewController - https://github.com/yichizhang/YZSwipeBetweenViewController
+* BEMSimpleLineGraph - https://github.com/Boris-Em/BEMSimpleLineGraph
