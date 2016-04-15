@@ -1,5 +1,5 @@
 # HeartBeat
- <img src="http://i.imgur.com/QJ2za48.jpg" width="248" height="400">     <img src="http://i.imgur.com/f0QqzMt.jpg" width="300" height="400">     <img src="http://i.imgur.com/RMOTeXO.jpg" width="278" height="450">
+ <img src="http://i.imgur.com/QJ2za48.jpg" width="280" height="450">     <img src="http://i.imgur.com/f0QqzMt.jpg" width="280" height="450">     <img src="http://i.imgur.com/RMOTeXO.jpg" width="280" height="450">
 
 Health Fitness App for working out with bluetooth heart rate monitor written in Objectic C
 ## User Interface
