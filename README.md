@@ -14,7 +14,7 @@ History provides a table view of all your finished workouts sorted from most rec
 ### Setting Screen
 Settings provides a table view with a range of modifiable settings from personal info to app details. User is allowed to change age, weight, sex. Remove or include health access. Change between units, connect or disconnect bluetooth heart rate monitors and log out from the app.
 
-## Techonologies/Frameworks Used
+## Techonologies/Frameworks 
 * CoreBluetooth - For access heart rate monitor data
 * HealthKit - For store workout data, retreive personal data such as sex, age, weight
 * AVFoundation - For speech utterance 
