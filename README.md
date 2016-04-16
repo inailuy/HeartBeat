@@ -22,7 +22,7 @@ Settings provides a table view with a range of modifiable settings from personal
 * FacebookSDK - Login users
 * Parse/CloudKit - Backend storage of workout data
 
-### Todo 
+## Todo 
 * Login flow
 * Share dialog
 * End workout view
