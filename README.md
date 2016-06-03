@@ -16,7 +16,7 @@ Settings provides a table view with a range of modifiable settings from personal
 
 ## Techonologies/Frameworks 
 * CoreBluetooth - For access heart rate monitor data
-* HealthKit - For store workout data, retreive personal data such as sex, age, weight
+* HealthKit - For store workout data, retrieve personal data such as sex, age, weight
 * AVFoundation - For speech utterance 
 * MapKit/CLLocation - For displaying map in the background and storing run distances
 * FacebookSDK - Login users
