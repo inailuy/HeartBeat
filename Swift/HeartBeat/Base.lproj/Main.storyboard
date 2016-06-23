@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--MainVC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="mainID" id="BYZ-38-t0r" customClass="MainVC" customModule="HeartBeat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmc-OX-8HS">
+                                <rect key="frame" x="150" y="334" width="300" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="Wh7-2Y-ksG"/>
+                                    <constraint firstAttribute="height" constant="52" id="eJO-yW-Ywe"/>
+                                    <constraint firstAttribute="width" constant="300" id="uFK-rf-nKZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="36"/>
+                                <state key="normal" title="Start Workout">
+                                    <color key="titleColor" red="1" green="0.1868079134" blue="0.2451716672" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="eJO-yW-Ywe"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="Wh7-2Y-ksG"/>
+                                        <include reference="eJO-yW-Ywe"/>
+                                        <exclude reference="uFK-rf-nKZ"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 bpm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7u4-nM-lbO">
+                                <rect key="frame" x="185" y="214" width="228" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="228" id="LLz-rX-Dr0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="55"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
+                                <variation key="heightClass=compact" misplaced="YES">
+                                    <rect key="frame" x="174" y="47" width="251" height="63"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="74" y="47" width="251" height="63"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="274" y="47" width="251" height="63"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="LLz-rX-Dr0"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7u4-nM-lbO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1fh-Pl-ziX"/>
+                            <constraint firstItem="7u4-nM-lbO" firstAttribute="centerX" secondItem="fmc-OX-8HS" secondAttribute="centerX" id="77o-Tz-VTx"/>
+                            <constraint firstItem="fmc-OX-8HS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="OQg-AC-ceI"/>
+                            <constraint firstItem="fmc-OX-8HS" firstAttribute="top" secondItem="7u4-nM-lbO" secondAttribute="bottom" constant="20" id="ORO-Lo-bZ1">
+                                <variation key="widthClass=compact" constant="48"/>
+                            </constraint>
+                            <constraint firstItem="fmc-OX-8HS" firstAttribute="top" secondItem="7u4-nM-lbO" secondAttribute="bottom" constant="20" id="Pqv-U0-9Ys"/>
+                            <constraint firstItem="fmc-OX-8HS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zc3-RY-v4a"/>
+                            <constraint firstItem="7u4-nM-lbO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="173" id="ffT-Mu-0JL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fmc-OX-8HS" secondAttribute="bottom" constant="207" id="fjv-G4-qsg"/>
+                            <constraint firstItem="7u4-nM-lbO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="194" id="sYJ-9t-QSq">
+                                <variation key="widthClass=compact" constant="173"/>
+                            </constraint>
+                            <constraint firstItem="7u4-nM-lbO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="66" id="uj6-JI-8vz"/>
+                            <constraint firstItem="7u4-nM-lbO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="185" id="w9Y-Kb-9q9">
+                                <variation key="widthClass=compact" constant="86"/>
+                            </constraint>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fmc-OX-8HS" secondAttribute="bottom" constant="214" id="z4X-w7-lqX">
+                                <variation key="widthClass=compact" constant="207"/>
+                            </constraint>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1fh-Pl-ziX"/>
+                                <exclude reference="77o-Tz-VTx"/>
+                                <exclude reference="ffT-Mu-0JL"/>
+                                <exclude reference="uj6-JI-8vz"/>
+                                <exclude reference="OQg-AC-ceI"/>
+                                <exclude reference="Pqv-U0-9Ys"/>
+                                <exclude reference="fjv-G4-qsg"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="1fh-Pl-ziX"/>
+                                <include reference="77o-Tz-VTx"/>
+                                <include reference="ffT-Mu-0JL"/>
+                                <exclude reference="sYJ-9t-QSq"/>
+                                <include reference="uj6-JI-8vz"/>
+                                <exclude reference="w9Y-Kb-9q9"/>
+                                <include reference="OQg-AC-ceI"/>
+                                <exclude reference="ORO-Lo-bZ1"/>
+                                <include reference="Pqv-U0-9Ys"/>
+                                <exclude reference="Zc3-RY-v4a"/>
+                                <include reference="fjv-G4-qsg"/>
+                                <exclude reference="z4X-w7-lqX"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="bpmLabel" destination="7u4-nM-lbO" id="GVu-7g-PPy"/>
+                        <outlet property="startWorkoutLabel" destination="fmc-OX-8HS" id="tbU-dZ-mo3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="229" y="395"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kNO-1L-KHL">
+            <objects>
+                <navigationController id="6ah-Xa-R1u" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zFf-Rw-31O">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ioj-ly-day" kind="relationship" relationship="rootViewController" id="OdS-pC-IXg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f3w-XB-jTL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="287" y="1306"/>
+        </scene>
+        <!--WorkoutVC-->
+        <scene sceneID="pvC-HY-GJU">
+            <objects>
+                <viewController id="ioj-ly-day" customClass="WorkoutVC" customModule="HeartBeat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QD3-aG-sRx"/>
+                        <viewControllerLayoutGuide type="bottom" id="ehE-9E-dxb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0Jb-r0-sgS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="FMa-uJ-T7P"/>
+                    <connections>
+                        <segue destination="obG-38-Tps" kind="show" id="SSA-dr-g8K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A1K-uS-umz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="287" y="2195"/>
+        </scene>
+        <!--HistoryVC-->
+        <scene sceneID="Cd9-CO-GcM">
+            <objects>
+                <viewController storyboardIdentifier="historyID" id="IbF-Zr-IAy" customClass="HistoryVC" customModule="HeartBeat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dq6-Vz-V3S"/>
+                        <viewControllerLayoutGuide type="bottom" id="vZg-rq-Mvj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="art-6r-Lj0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Qvv-9t-nC3"/>
+                    <connections>
+                        <segue destination="obG-38-Tps" kind="show" id="kjb-1j-rN3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="myM-eH-sie" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1557" y="482"/>
+        </scene>
+        <!--Workout SummaryVC-->
+        <scene sceneID="cTR-EP-hAj">
+            <objects>
+                <viewController id="obG-38-Tps" customClass="WorkoutSummaryVC" customModule="HeartBeat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j8k-yA-uDC"/>
+                        <viewControllerLayoutGuide type="bottom" id="xjd-KL-3tm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t6H-Lb-2qa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X3Z-CK-S67" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1547" y="3045"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Oug-Yd-0yS">
+            <objects>
+                <navigationController id="v8H-As-qkd" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ejy-mW-046">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="IbF-Zr-IAy" kind="relationship" relationship="rootViewController" id="tvH-ZC-GIM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hYp-ft-PNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-747" y="411"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4Ok-Cr-FwF">
+            <objects>
+                <navigationController id="Fwy-fu-an6" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="te0-0I-MvM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ou6-JE-IzB" kind="relationship" relationship="rootViewController" id="Vkh-7b-ZcO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C1v-kT-HtO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1079" y="371"/>
+        </scene>
+        <!--SettingsVC-->
+        <scene sceneID="p0x-me-UfB">
+            <objects>
+                <viewController storyboardIdentifier="settingsID" id="ou6-JE-IzB" customClass="SettingsVC" customModule="HeartBeat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N5q-aF-KvW"/>
+                        <viewControllerLayoutGuide type="bottom" id="ca1-Xa-sK9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="08S-7f-ZhP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3lc-an-Yrp"/>
+                    <connections>
+                        <segue destination="BpF-sM-wqx" kind="show" id="Jvk-GI-wmn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y4p-kW-hRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1763" y="364"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cvq-QU-uTB">
+            <objects>
+                <navigationController id="26H-UB-0Qb" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZQv-q9-PZq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="eiF-CA-kJ7" kind="relationship" relationship="rootViewController" id="XJU-vp-Lwp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xvT-2C-jWa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1321" y="1517"/>
+        </scene>
+        <!--Workout TypeVC-->
+        <scene sceneID="m19-bD-eOq">
+            <objects>
+                <viewController id="eiF-CA-kJ7" customClass="WorkoutTypeVC" customModule="HeartBeat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KiC-xg-MKl"/>
+                        <viewControllerLayoutGuide type="bottom" id="odn-oU-6kR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0Tr-qm-vrs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="odB-9a-TcW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="27d-2d-Qk9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2090" y="1485"/>
+        </scene>
+        <!--LoginVC-->
+        <scene sceneID="pyo-HR-lIk">
+            <objects>
+                <viewController id="Z31-re-lrV" customClass="LoginVC" customModule="HeartBeat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lpu-Mx-KEO"/>
+                        <viewControllerLayoutGuide type="bottom" id="ogw-HR-J7z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SN7-BX-SwM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="WBR-pN-dbf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NHJ-n9-b2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="275" y="-1314"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cYb-lZ-KoS">
+            <objects>
+                <navigationController id="fCn-2o-C0q" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ClO-2B-z5E">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Z31-re-lrV" kind="relationship" relationship="rootViewController" id="cGA-AI-GzB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q9N-aj-N26" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="287" y="-409"/>
+        </scene>
+        <!--Audio CuesTVC-->
+        <scene sceneID="IHs-os-zH6">
+            <objects>
+                <viewController id="BpF-sM-wqx" customClass="AudioCuesTVC" customModule="HeartBeat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mdU-2e-XIF"/>
+                        <viewControllerLayoutGuide type="bottom" id="SZw-Am-SQA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mbA-Jl-h70">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ylM-5T-Cj7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2441" y="364"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="kjb-1j-rN3"/>
+    </inferredMetricsTieBreakers>
+</document>
