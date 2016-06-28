@@ -14,15 +14,14 @@ import HealthKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let swipeBetweenVC: YZSwipeBetweenViewController! = YZSwipeBetweenViewController()
+    let swipeBetweenVC: YZSwipeBetweenViewController = YZSwipeBetweenViewController()
     var instance: AppDelegate!
     var healthStore = HKHealthStore()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //Setting Up SnapChatUI
         setUpStoryboardUI()
-        var v : Int = flo
-        
+
         return true
     }
 
@@ -128,9 +127,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         swipeBetweenVC.viewControllers = [nav1,nav2,nav3]
         //Add everything into UIWindow
         let frame = UIScreen.mainScreen().bounds
-        window = UIWindow(frame: frame)
-        window?.rootViewController = swipeBetweenVC as YZSwipeBetweenViewController
-        window?.makeKeyAndVisible()
+        window?.frame = frame
+        window!.rootViewController = swipeBetweenVC
+        window!.makeKeyAndVisible()
     }
     
 }

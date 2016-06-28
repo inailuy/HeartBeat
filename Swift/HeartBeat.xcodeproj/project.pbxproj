@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33389B081D2071F2002F09FA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33389B071D2071F2002F09FA /* MapKit.framework */; };
+		33389B091D2071F2002F09FA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33389B071D2071F2002F09FA /* MapKit.framework */; };
+		33389B0A1D2071F2002F09FA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33389B071D2071F2002F09FA /* MapKit.framework */; };
+		33389B141D21E091002F09FA /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33389B131D21E091002F09FA /* SettingsTableViewCell.swift */; };
+		336AF2811D231BA100D70DA9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2801D231BA100D70DA9 /* UserModel.swift */; };
+		336AF2821D231BA100D70DA9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2801D231BA100D70DA9 /* UserModel.swift */; };
+		336AF2831D231BA100D70DA9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2801D231BA100D70DA9 /* UserModel.swift */; };
 		337469291D12416C008F38C4 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469271D12416C008F38C4 /* BaseVC.swift */; };
 		3374692B1D12416C008F38C4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469281D12416C008F38C4 /* MainVC.swift */; };
 		337469311D124192008F38C4 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469301D124192008F38C4 /* SettingsVC.swift */; };
-		337469321D124192008F38C4 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469301D124192008F38C4 /* SettingsVC.swift */; };
 		337469341D12419F008F38C4 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469331D12419F008F38C4 /* LoginVC.swift */; };
-		337469351D12419F008F38C4 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469331D12419F008F38C4 /* LoginVC.swift */; };
 		337469371D1241B4008F38C4 /* WorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469361D1241B4008F38C4 /* WorkoutVC.swift */; };
 		337469381D1241B4008F38C4 /* WorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469361D1241B4008F38C4 /* WorkoutVC.swift */; };
 		3374693D1D1241CE008F38C4 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374693C1D1241CE008F38C4 /* HistoryVC.swift */; };
-		3374693E1D1241CE008F38C4 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374693C1D1241CE008F38C4 /* HistoryVC.swift */; };
 		337469401D1241F2008F38C4 /* WorkoutSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374693F1D1241F2008F38C4 /* WorkoutSummaryVC.swift */; };
 		337469411D1241F2008F38C4 /* WorkoutSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374693F1D1241F2008F38C4 /* WorkoutSummaryVC.swift */; };
 		337469431D124212008F38C4 /* WorkoutTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469421D124212008F38C4 /* WorkoutTypeVC.swift */; };
@@ -56,6 +60,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		33389B071D2071F2002F09FA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
+		33389B0D1D21DE75002F09FA /* HeartBeatUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeartBeatUITests-Bridging-Header.h"; sourceTree = "<group>"; };
+		33389B131D21E091002F09FA /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewCell.swift; path = ThirdParty/SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		336AF2801D231BA100D70DA9 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = Models/UserModel.swift; sourceTree = "<group>"; };
 		337469271D12416C008F38C4 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseVC.swift; path = ViewController/BaseVC.swift; sourceTree = "<group>"; };
 		337469281D12416C008F38C4 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainVC.swift; path = ViewController/MainVC.swift; sourceTree = "<group>"; };
 		337469301D124192008F38C4 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsVC.swift; path = ViewController/SettingsVC.swift; sourceTree = "<group>"; };
@@ -93,6 +101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33F271E21D123F1300588247 /* AVFoundation.framework in Frameworks */,
+				33389B081D2071F2002F09FA /* MapKit.framework in Frameworks */,
 				337469531D126920008F38C4 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33389B091D2071F2002F09FA /* MapKit.framework in Frameworks */,
 				337469541D126920008F38C4 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,12 +119,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33389B0A1D2071F2002F09FA /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33389B0C1D21DE2F002F09FA /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				33389B131D21E091002F09FA /* SettingsTableViewCell.swift */,
+			);
+			name = "Custom Classes";
+			sourceTree = "<group>";
+		};
+		336AF27F1D231B7100D70DA9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				336AF2801D231BA100D70DA9 /* UserModel.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		337469261D124157008F38C4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +170,7 @@
 		337469491D124811008F38C4 /* BridgeFiles */ = {
 			isa = PBXGroup;
 			children = (
+				33389B0D1D21DE75002F09FA /* HeartBeatUITests-Bridging-Header.h */,
 				3374694A1D124845008F38C4 /* HeartBeat-Bridging-Header.h */,
 				3374694B1D124846008F38C4 /* HeartBeatTests-Bridging-Header.h */,
 			);
@@ -152,6 +180,7 @@
 		337469501D12485A008F38C4 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				33389B0C1D21DE2F002F09FA /* Custom Classes */,
 				337469481D124808008F38C4 /* SnapChatUI */,
 				337469491D124811008F38C4 /* BridgeFiles */,
 			);
@@ -161,6 +190,7 @@
 		337469511D1268FD008F38C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				33389B071D2071F2002F09FA /* MapKit.framework */,
 				337469521D126920008F38C4 /* HealthKit.framework */,
 				33F271E11D123F1300588247 /* AVFoundation.framework */,
 			);
@@ -193,6 +223,7 @@
 				33F272431D123FA400588247 /* HeartBeat.entitlements */,
 				33F271B41D123D8500588247 /* Main.storyboard */,
 				33F271B01D123D8500588247 /* AppDelegate.swift */,
+				336AF27F1D231B7100D70DA9 /* Models */,
 				337469261D124157008F38C4 /* ViewControllers */,
 				337469501D12485A008F38C4 /* ThirdParty */,
 				337469511D1268FD008F38C4 /* Frameworks */,
@@ -366,9 +397,11 @@
 				337469551D126DB2008F38C4 /* AppDelegate.swift in Sources */,
 				33F271B91D123D8500588247 /* HeartBeat.xcdatamodeld in Sources */,
 				3374693D1D1241CE008F38C4 /* HistoryVC.swift in Sources */,
+				33389B141D21E091002F09FA /* SettingsTableViewCell.swift in Sources */,
 				3374692B1D12416C008F38C4 /* MainVC.swift in Sources */,
 				337469461D124221008F38C4 /* AudioCuesTVC.swift in Sources */,
 				337469341D12419F008F38C4 /* LoginVC.swift in Sources */,
+				336AF2811D231BA100D70DA9 /* UserModel.swift in Sources */,
 				337469431D124212008F38C4 /* WorkoutTypeVC.swift in Sources */,
 				337469291D12416C008F38C4 /* BaseVC.swift in Sources */,
 				337469371D1241B4008F38C4 /* WorkoutVC.swift in Sources */,
@@ -382,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33F271C91D123D8500588247 /* HeartBeatTests.swift in Sources */,
+				336AF2821D231BA100D70DA9 /* UserModel.swift in Sources */,
 				3374694F1D124846008F38C4 /* YZSwipeBetweenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,13 +425,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				337469561D126E6A008F38C4 /* AppDelegate.swift in Sources */,
+				336AF2831D231BA100D70DA9 /* UserModel.swift in Sources */,
 				33F271D41D123D8500588247 /* HeartBeatUITests.swift in Sources */,
-				337469351D12419F008F38C4 /* LoginVC.swift in Sources */,
 				337469381D1241B4008F38C4 /* WorkoutVC.swift in Sources */,
 				337469471D124221008F38C4 /* AudioCuesTVC.swift in Sources */,
-				3374693E1D1241CE008F38C4 /* HistoryVC.swift in Sources */,
 				337469441D124212008F38C4 /* WorkoutTypeVC.swift in Sources */,
-				337469321D124192008F38C4 /* SettingsVC.swift in Sources */,
 				337469411D1241F2008F38C4 /* WorkoutSummaryVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,11 +557,12 @@
 		33F271D91D123D8500588247 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HeartBeat/HeartBeat.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = HeartBeat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inailuy.HeartBeat;
@@ -542,11 +575,12 @@
 		33F271DA1D123D8500588247 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HeartBeat/HeartBeat.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = HeartBeat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inailuy.HeartBeat;
@@ -587,10 +621,13 @@
 		33F271DF1D123D8500588247 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HeartBeatUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = inailuy.HeartBeatUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/HeartBeatUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_TARGET_NAME = HeartBeat;
 			};
 			name = Debug;
@@ -598,10 +635,12 @@
 		33F271E01D123D8500588247 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HeartBeatUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = inailuy.HeartBeatUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/HeartBeatUITests-Bridging-Header.h";
 				TEST_TARGET_NAME = HeartBeat;
 			};
 			name = Release;

@@ -8,10 +8,6 @@
 
 #import "SettingsTableViewCell.h"
 
-//@property (weak, nonatomic) IBOutlet UISwitch *switchCell;
-//@property (weak, nonatomic) IBOutlet UISegmentedControl *segementedControl;
-//@property (weak, nonatomic) IBOutlet UITextField *textfield;
-
 @interface SettingsTableViewCell() <UITextFieldDelegate>
 
 @end

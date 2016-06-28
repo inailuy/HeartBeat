@@ -42,6 +42,9 @@
                                         <exclude reference="uFK-rf-nKZ"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="startWorkoutButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FAl-VL-ePp"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 bpm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7u4-nM-lbO">
                                 <rect key="frame" x="185" y="214" width="228" height="100"/>
@@ -68,7 +71,7 @@
                                 </variation>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7u4-nM-lbO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1fh-Pl-ziX"/>
                             <constraint firstItem="7u4-nM-lbO" firstAttribute="centerX" secondItem="fmc-OX-8HS" secondAttribute="centerX" id="77o-Tz-VTx"/>
@@ -231,7 +234,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="ou6-JE-IzB" kind="relationship" relationship="rootViewController" id="Vkh-7b-ZcO"/>
+                        <segue destination="ou6-JE-IzB" kind="relationship" relationship="rootViewController" id="DRE-qc-5zS"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C1v-kT-HtO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -249,10 +252,150 @@
                     <view key="view" contentMode="scaleToFill" id="08S-7f-ZhP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="70" sectionHeaderHeight="40" sectionFooterHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="wRI-TU-Nb3">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="switchCell" id="VQI-cl-BxU" customClass="SettingsTableViewCell" customModule="HeartBeat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="104" width="600" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VQI-cl-BxU" id="tqp-ot-i78">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7mU-t2-EYN">
+                                                    <rect key="frame" x="538" y="19" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="switchPressed:" destination="VQI-cl-BxU" eventType="valueChanged" id="CK3-XA-bVZ"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="7mU-t2-EYN" secondAttribute="trailing" constant="5" id="LPZ-jL-nLR"/>
+                                                <constraint firstItem="7mU-t2-EYN" firstAttribute="centerY" secondItem="tqp-ot-i78" secondAttribute="centerY" id="dxL-RT-Cej"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="switchCell" destination="7mU-t2-EYN" id="Ed7-03-g0U"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="segmentedMetricCell" id="Htw-eb-8Xk" customClass="SettingsTableViewCell" customModule="HeartBeat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="174" width="600" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Htw-eb-8Xk" id="8qY-ZF-jct">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gh4-cd-vZC">
+                                                    <rect key="frame" x="512" y="21" width="73" height="29"/>
+                                                    <segments>
+                                                        <segment title="lbs"/>
+                                                        <segment title="kgs"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="segmentedControlPressed:" destination="Htw-eb-8Xk" eventType="valueChanged" id="EjQ-vF-ddT"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="gh4-cd-vZC" firstAttribute="centerY" secondItem="8qY-ZF-jct" secondAttribute="centerY" id="0hG-CV-I8N"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="gh4-cd-vZC" secondAttribute="trailing" constant="7" id="MyU-xR-ppu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="segmentedControl" destination="gh4-cd-vZC" id="fp8-P9-xIn"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textfieldCell" id="UIz-1k-4Ec" customClass="SettingsTableViewCell" customModule="HeartBeat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="244" width="600" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UIz-1k-4Ec" id="1X6-ra-AEA">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" tag="102" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FgQ-X1-2ZF">
+                                                    <rect key="frame" x="532" y="23" width="60" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="qx6-Tz-Aoq"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <connections>
+                                                        <action selector="textFieldDidChange:" destination="UIz-1k-4Ec" eventType="editingChanged" id="qel-s9-DrJ"/>
+                                                        <outlet property="delegate" destination="UIz-1k-4Ec" id="zgU-d3-J8a"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FgQ-X1-2ZF" firstAttribute="centerY" secondItem="1X6-ra-AEA" secondAttribute="centerY" id="DeM-J7-kbC"/>
+                                                <constraint firstItem="FgQ-X1-2ZF" firstAttribute="trailing" secondItem="1X6-ra-AEA" secondAttribute="trailingMargin" id="rgn-12-nfI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="textField" destination="FgQ-X1-2ZF" id="6v2-6r-wiv"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="normalCell" id="pYs-rh-iLW" customClass="SettingsTableViewCell" customModule="HeartBeat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="314" width="600" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pYs-rh-iLW" id="dWu-1Y-S9r">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="segmentedSexCell" id="l9l-is-HBT" customClass="SettingsTableViewCell" customModule="HeartBeat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="384" width="600" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l9l-is-HBT" id="UrE-7z-0fG">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JZG-dC-LAt">
+                                                    <rect key="frame" x="474" y="21" width="111" height="29"/>
+                                                    <segments>
+                                                        <segment title="male"/>
+                                                        <segment title="female"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="segmentedControlPressed:" destination="l9l-is-HBT" eventType="valueChanged" id="obX-DP-51o"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="JZG-dC-LAt" secondAttribute="trailing" constant="7" id="OtQ-pm-lhl"/>
+                                                <constraint firstItem="JZG-dC-LAt" firstAttribute="centerY" secondItem="UrE-7z-0fG" secondAttribute="centerY" id="VYl-4O-dXj"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="segmentedControl" destination="JZG-dC-LAt" id="ffk-Uf-c8Z"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ou6-JE-IzB" id="WzR-BS-pJp"/>
+                                    <outlet property="delegate" destination="ou6-JE-IzB" id="k8U-gv-ZoG"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wRI-TU-Nb3" firstAttribute="top" secondItem="08S-7f-ZhP" secondAttribute="top" constant="64" id="0Va-Tl-6ys"/>
+                            <constraint firstItem="wRI-TU-Nb3" firstAttribute="leading" secondItem="08S-7f-ZhP" secondAttribute="leading" id="KJU-uG-lRs"/>
+                            <constraint firstItem="wRI-TU-Nb3" firstAttribute="bottom" secondItem="ca1-Xa-sK9" secondAttribute="top" id="gyZ-B0-e1C"/>
+                            <constraint firstAttribute="trailing" secondItem="wRI-TU-Nb3" secondAttribute="trailing" id="jDm-br-kua"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3lc-an-Yrp"/>
                     <connections>
+                        <outlet property="tableView" destination="wRI-TU-Nb3" id="dyo-Sq-fZ2"/>
                         <segue destination="BpF-sM-wqx" kind="show" id="Jvk-GI-wmn"/>
                     </connections>
                 </viewController>

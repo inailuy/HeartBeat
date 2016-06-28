@@ -11,4 +11,11 @@ import UIKit
 
 class HistoryVC: BaseVC {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "history"
+        
+        createBlurEffect()
+        createHeartNavigationButton(Direction.right.rawValue)
+    }
 }
