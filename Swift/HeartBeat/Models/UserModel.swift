@@ -87,4 +87,8 @@ class UserModel {
         }
         return  number
     }
+    
+    func weightInt() -> Int {
+        return Int(weight)
+    }
 }

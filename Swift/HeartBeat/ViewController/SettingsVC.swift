@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
+class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate {
     //identifiers 
     enum IDENTIFIER:String {
         case textfieldCell
@@ -20,7 +20,7 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBOutlet weak var tableView: UITableView!
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "settings"
@@ -29,7 +29,7 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
         createHeartNavigationButton(Direction.left.rawValue)
         UserModel.sharedInstance.loadFromDisk()
     }
-    
+    // MARK: - TableView Delegate/DataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var title = ""
         var reuseID = ""
@@ -47,7 +47,7 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
             case 1: //Weight
                 title = "Weight"
                 reuseID = IDENTIFIER.textfieldCell.rawValue
-                text = String(UserModel.sharedInstance.weight)
+                text = String(UserModel.sharedInstance.weightInt())
                 break
             case 2: //SEX
                 title = "Sex"
@@ -159,4 +159,51 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
         
         return headerView
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! SettingsTableViewCell
+        if cell.reuseIdentifier == IDENTIFIER.textfieldCell.rawValue {
+            cell.textField.becomeFirstResponder()
+        }
+        
+        switch indexPath.section {
+        case 1:
+            switch indexPath.row {
+            case 2://Audio Segue
+                performSegueWithIdentifier("audioSegue", sender: self)
+                break
+            case 3://Bluetooth
+                //TODO: isPeripheralConnected
+                break
+            default: break
+            }
+            break
+        case 2:
+            switch indexPath.row {
+            case 0://Debug
+                break
+            case 1://LogOut
+                let alertController = UIAlertController(title: nil, message: "Are you sure you want to log out?", preferredStyle: .ActionSheet)
+                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in}
+                let destroyAction = UIAlertAction(title: "Logout", style: .Destructive) { (action) in
+                  //TODO: perform Logout Function
+                }
+                alertController.addAction(cancelAction)
+                alertController.addAction(destroyAction)
+                
+                self.presentViewController(alertController, animated: true) {
+                    // ...
+                }
+                break
+            default: break
+            }
+        default: break
+        }
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    }
+    // MARK: - End Editing
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        view.window?.endEditing(true)
+    }
+    // TODO: create tap gesture to cancel textfield input
 }

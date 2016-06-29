@@ -114,7 +114,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Misc
     func setUpStoryboardUI() {
-        swipeBetweenVC.initialViewControllerIndex = 1
+        swipeBetweenVC.initialViewControllerIndex = 2
         swipeBetweenVC.scrollView.alwaysBounceVertical = false
         //Creating ViewControllers and NavigationsControllers
         let storyBoard = UIStoryboard(name:"Main", bundle: nil)

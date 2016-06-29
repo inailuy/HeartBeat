@@ -15,32 +15,35 @@ class SettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var textField : UITextField!
 
     func updateSettings() {
-        var text = textField.text
-        if text == "" { text = "0" }
+        var text = "0"
+        if textField != nil {
+            text = textField.text!
+        }
         
+        let userModel = UserModel.sharedInstance
         switch textLabel!.text! {
         case "Sex":
-            UserModel.sharedInstance.sex = segmentedControl.selectedSegmentIndex
+            userModel.sex = segmentedControl.selectedSegmentIndex
             break
         case "Units":
-            UserModel.sharedInstance.unit = segmentedControl.selectedSegmentIndex
+            userModel.unit = segmentedControl.selectedSegmentIndex
             break
         case "Health App":
-            UserModel.sharedInstance.healthEnable = switchCell.on
+            userModel.healthEnable = switchCell.on
             break
         case "Debug Mode":
-            UserModel.sharedInstance.debug = switchCell.on
+            userModel.debug = switchCell.on
             break
         case "Age":
-            UserModel.sharedInstance.age = Int(text!)!
+            userModel.age = Int(text)!
             break
         case "Weight":
-            UserModel.sharedInstance.weight = Float(text!)!
+            userModel.weight = Float(text)!
             break
         default: break
         }
         //Save Data Call here
-        UserModel.sharedInstance.saveToDisk()
+        userModel.saveToDisk()
         resignFirstResponder()
     }
     
