@@ -25,7 +25,6 @@ class MainVC: BaseVC {
         navigationItem.leftBarButtonItem = historyButton
         navigationItem.rightBarButtonItem = settingsButton
         
-        createBlurEffect()
     }
     
     func historyButtonPressed() {

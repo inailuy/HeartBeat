@@ -15,7 +15,6 @@ class HistoryVC: BaseVC {
         super.viewDidLoad()
         title = "history"
         
-        createBlurEffect()
         createHeartNavigationButton(Direction.right.rawValue)
     }
 }

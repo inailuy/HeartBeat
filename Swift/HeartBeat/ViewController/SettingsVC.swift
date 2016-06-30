@@ -24,8 +24,7 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "settings"
-        
-        createBlurEffect()
+
         createHeartNavigationButton(Direction.left.rawValue)
         UserModel.sharedInstance.loadFromDisk()
     }
@@ -133,8 +132,11 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var title = "Personal Info"
+        var title = ""
         switch section {
+        case 0:
+            title = "Personal Info"
+            break
         case 1:
             title = "App Details"
             break
@@ -143,21 +145,7 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
             break
         default: break
         }
-        
-        let frame = CGRectMake(20, 0, tableView.bounds.size.width, 40)
-        let headerView = UIView(frame: frame)
-        let label = UILabel(frame: frame)
-        label.font = UIFont(name: "HelveticaNeue-Thin", size: 20.0)
-        
-        let style = NSParagraphStyle.defaultParagraphStyle().mutableCopy()
-        let attrText = NSAttributedString(string: title, attributes: [NSParagraphStyleAttributeName: style])
-        label.numberOfLines = 0
-        label.attributedText = attrText
-        
-        headerView.addSubview(label)
-        headerView.backgroundColor = UIColor(white: 0.7, alpha: 0.35)
-        
-        return headerView
+        return createSectionHeaderView(title)
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -206,4 +194,5 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
         view.window?.endEditing(true)
     }
     // TODO: create tap gesture to cancel textfield input
+    // add to view when keyboard is displayed, removed when editing is done
 }

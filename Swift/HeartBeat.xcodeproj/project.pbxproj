@@ -14,6 +14,9 @@
 		336AF2811D231BA100D70DA9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2801D231BA100D70DA9 /* UserModel.swift */; };
 		336AF2821D231BA100D70DA9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2801D231BA100D70DA9 /* UserModel.swift */; };
 		336AF2831D231BA100D70DA9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2801D231BA100D70DA9 /* UserModel.swift */; };
+		336AF2841D2450A100D70DA9 /* AudioCuesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469451D124221008F38C4 /* AudioCuesVC.swift */; };
+		336AF2851D2450AB00D70DA9 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469271D12416C008F38C4 /* BaseVC.swift */; };
+		336AF2861D2450AC00D70DA9 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469271D12416C008F38C4 /* BaseVC.swift */; };
 		337469291D12416C008F38C4 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469271D12416C008F38C4 /* BaseVC.swift */; };
 		3374692B1D12416C008F38C4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469281D12416C008F38C4 /* MainVC.swift */; };
 		337469311D124192008F38C4 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469301D124192008F38C4 /* SettingsVC.swift */; };
@@ -25,8 +28,8 @@
 		337469411D1241F2008F38C4 /* WorkoutSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374693F1D1241F2008F38C4 /* WorkoutSummaryVC.swift */; };
 		337469431D124212008F38C4 /* WorkoutTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469421D124212008F38C4 /* WorkoutTypeVC.swift */; };
 		337469441D124212008F38C4 /* WorkoutTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469421D124212008F38C4 /* WorkoutTypeVC.swift */; };
-		337469461D124221008F38C4 /* AudioCuesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469451D124221008F38C4 /* AudioCuesTVC.swift */; };
-		337469471D124221008F38C4 /* AudioCuesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469451D124221008F38C4 /* AudioCuesTVC.swift */; };
+		337469461D124221008F38C4 /* AudioCuesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469451D124221008F38C4 /* AudioCuesVC.swift */; };
+		337469471D124221008F38C4 /* AudioCuesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469451D124221008F38C4 /* AudioCuesVC.swift */; };
 		3374694F1D124846008F38C4 /* YZSwipeBetweenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3374694D1D124846008F38C4 /* YZSwipeBetweenViewController.m */; };
 		337469531D126920008F38C4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 337469521D126920008F38C4 /* HealthKit.framework */; };
 		337469541D126920008F38C4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 337469521D126920008F38C4 /* HealthKit.framework */; };
@@ -72,7 +75,7 @@
 		3374693C1D1241CE008F38C4 /* HistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryVC.swift; path = ViewController/HistoryVC.swift; sourceTree = "<group>"; };
 		3374693F1D1241F2008F38C4 /* WorkoutSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutSummaryVC.swift; path = ViewController/WorkoutSummaryVC.swift; sourceTree = "<group>"; };
 		337469421D124212008F38C4 /* WorkoutTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutTypeVC.swift; path = ViewController/WorkoutTypeVC.swift; sourceTree = "<group>"; };
-		337469451D124221008F38C4 /* AudioCuesTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioCuesTVC.swift; path = ViewController/AudioCuesTVC.swift; sourceTree = "<group>"; };
+		337469451D124221008F38C4 /* AudioCuesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioCuesVC.swift; path = ViewController/AudioCuesVC.swift; sourceTree = "<group>"; };
 		3374694A1D124845008F38C4 /* HeartBeat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeartBeat-Bridging-Header.h"; sourceTree = "<group>"; };
 		3374694B1D124846008F38C4 /* HeartBeatTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeartBeatTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		3374694C1D124846008F38C4 /* YZSwipeBetweenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZSwipeBetweenViewController.h; path = ThirdParty/SnapChatUI/YZSwipeBetweenViewController.h; sourceTree = "<group>"; };
@@ -145,7 +148,7 @@
 		337469261D124157008F38C4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				337469451D124221008F38C4 /* AudioCuesTVC.swift */,
+				337469451D124221008F38C4 /* AudioCuesVC.swift */,
 				337469271D12416C008F38C4 /* BaseVC.swift */,
 				3374693C1D1241CE008F38C4 /* HistoryVC.swift */,
 				337469331D12419F008F38C4 /* LoginVC.swift */,
@@ -399,7 +402,7 @@
 				3374693D1D1241CE008F38C4 /* HistoryVC.swift in Sources */,
 				33389B141D21E091002F09FA /* SettingsTableViewCell.swift in Sources */,
 				3374692B1D12416C008F38C4 /* MainVC.swift in Sources */,
-				337469461D124221008F38C4 /* AudioCuesTVC.swift in Sources */,
+				337469461D124221008F38C4 /* AudioCuesVC.swift in Sources */,
 				337469341D12419F008F38C4 /* LoginVC.swift in Sources */,
 				336AF2811D231BA100D70DA9 /* UserModel.swift in Sources */,
 				337469431D124212008F38C4 /* WorkoutTypeVC.swift in Sources */,
@@ -417,6 +420,8 @@
 				33F271C91D123D8500588247 /* HeartBeatTests.swift in Sources */,
 				336AF2821D231BA100D70DA9 /* UserModel.swift in Sources */,
 				3374694F1D124846008F38C4 /* YZSwipeBetweenViewController.m in Sources */,
+				336AF2841D2450A100D70DA9 /* AudioCuesVC.swift in Sources */,
+				336AF2861D2450AC00D70DA9 /* BaseVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,8 +432,9 @@
 				337469561D126E6A008F38C4 /* AppDelegate.swift in Sources */,
 				336AF2831D231BA100D70DA9 /* UserModel.swift in Sources */,
 				33F271D41D123D8500588247 /* HeartBeatUITests.swift in Sources */,
+				336AF2851D2450AB00D70DA9 /* BaseVC.swift in Sources */,
 				337469381D1241B4008F38C4 /* WorkoutVC.swift in Sources */,
-				337469471D124221008F38C4 /* AudioCuesTVC.swift in Sources */,
+				337469471D124221008F38C4 /* AudioCuesVC.swift in Sources */,
 				337469441D124212008F38C4 /* WorkoutTypeVC.swift in Sources */,
 				337469411D1241F2008F38C4 /* WorkoutSummaryVC.swift in Sources */,
 			);

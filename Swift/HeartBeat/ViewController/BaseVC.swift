@@ -23,6 +23,7 @@ class BaseVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        createBlurEffect()
         
         if self.healthStore == nil {
             healthStore = appDelegate.healthStore
@@ -59,6 +60,23 @@ class BaseVC: UIViewController {
             break
         default: break
         }
+    }
+    
+    func createSectionHeaderView(title: String) -> UIView {
+        let frame = CGRectMake(20, 0, view.bounds.size.width, 40)
+        let headerView = UIView(frame: frame)
+        let label = UILabel(frame: frame)
+        label.font = UIFont(name: "HelveticaNeue-Thin", size: 20.0)
+        
+        let style = NSParagraphStyle.defaultParagraphStyle().mutableCopy()
+        let attrText = NSAttributedString(string: title, attributes: [NSParagraphStyleAttributeName: style])
+        label.numberOfLines = 0
+        label.attributedText = attrText
+        
+        headerView.addSubview(label)
+        headerView.backgroundColor = UIColor(white: 0.7, alpha: 0.35)
+        
+        return headerView
     }
     
     func backButtonPressed() {

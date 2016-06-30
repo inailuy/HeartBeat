@@ -25,6 +25,8 @@ class UserModel {
         case debug = "DebugKey"
         case health = "HealthKey"
         case session = "SessionKey"
+        case audioTiming = "AudioTimingKey"
+        case spokenCues = "SpokenCuesKey"
     }
     var weight = Float()
     var age = Int()
@@ -33,6 +35,8 @@ class UserModel {
     var debug = Bool()
     var healthEnable = Bool()
     var sessionActive = Bool()
+    var audioTiming = Int()
+    var spokenCues = NSMutableArray()
     static let sharedInstance = UserModel()
     
     init () {
@@ -54,6 +58,14 @@ class UserModel {
         healthEnable = numberObject.boolValue
         numberObject = numberObjectForKey(Key.session.rawValue)
         sessionActive = numberObject.boolValue
+        numberObject = numberObjectForKey(Key.audioTiming.rawValue)
+        audioTiming = numberObject.integerValue
+        if (NSUserDefaults.standardUserDefaults().objectForKey(Key.spokenCues.rawValue) != nil) {
+            let arr = NSUserDefaults.standardUserDefaults().objectForKey(Key.spokenCues.rawValue) as! NSArray
+            spokenCues = NSMutableArray(array: arr)
+        } else {
+            spokenCues = [0,0,0,0]
+        }
     }
     
     func saveToDisk() {
@@ -65,6 +77,9 @@ class UserModel {
         userDefaults.setBool(debug, forKey: Key.debug.rawValue)
         userDefaults.setBool(healthEnable, forKey: Key.health.rawValue)
         userDefaults.setBool(sessionActive, forKey: Key.session.rawValue)
+        userDefaults.setInteger(audioTiming, forKey: Key.audioTiming.rawValue)
+        userDefaults.setObject(spokenCues, forKey: Key.spokenCues.rawValue)
+        print(spokenCues)
         userDefaults.synchronize()
     }
     
@@ -76,6 +91,8 @@ class UserModel {
         debug = false
         healthEnable = false
         sessionActive = false
+        audioTiming = 0
+        spokenCues = [0,0,0,0]
         saveToDisk()
     }
     
@@ -90,5 +107,13 @@ class UserModel {
     
     func weightInt() -> Int {
         return Int(weight)
+    }
+    
+    func checkSpokenCueIndex(index:Int) -> Bool {
+        let check = spokenCues[index] as! NSNumber
+        if check.boolValue {
+            return true
+        }
+        return false
     }
 }

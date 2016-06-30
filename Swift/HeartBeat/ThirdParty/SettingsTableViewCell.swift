@@ -15,12 +15,12 @@ class SettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var textField : UITextField!
 
     func updateSettings() {
-        var text = "0"
+        var text = ""
         if textField != nil {
             text = textField.text!
         }
-        
         let userModel = UserModel.sharedInstance
+        
         switch textLabel!.text! {
         case "Sex":
             userModel.sex = segmentedControl.selectedSegmentIndex
@@ -35,10 +35,12 @@ class SettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
             userModel.debug = switchCell.on
             break
         case "Age":
-            userModel.age = Int(text)!
+            let num = Int(text)
+            if num != nil { userModel.age = num! }
             break
         case "Weight":
-            userModel.weight = Float(text)!
+            let num = Float(text)
+            if num != nil { userModel.weight = num! }
             break
         default: break
         }
@@ -48,6 +50,7 @@ class SettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
+        if textField.text == "0" { textField.text = "" }
         textField.becomeFirstResponder()
     }
     
