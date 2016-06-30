@@ -11,12 +11,15 @@
 		33389B091D2071F2002F09FA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33389B071D2071F2002F09FA /* MapKit.framework */; };
 		33389B0A1D2071F2002F09FA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33389B071D2071F2002F09FA /* MapKit.framework */; };
 		33389B141D21E091002F09FA /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33389B131D21E091002F09FA /* SettingsTableViewCell.swift */; };
-		336AF2811D231BA100D70DA9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2801D231BA100D70DA9 /* UserModel.swift */; };
-		336AF2821D231BA100D70DA9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2801D231BA100D70DA9 /* UserModel.swift */; };
-		336AF2831D231BA100D70DA9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2801D231BA100D70DA9 /* UserModel.swift */; };
+		336AF2811D231BA100D70DA9 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2801D231BA100D70DA9 /* UserSettings.swift */; };
+		336AF2821D231BA100D70DA9 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2801D231BA100D70DA9 /* UserSettings.swift */; };
+		336AF2831D231BA100D70DA9 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2801D231BA100D70DA9 /* UserSettings.swift */; };
 		336AF2841D2450A100D70DA9 /* AudioCuesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469451D124221008F38C4 /* AudioCuesVC.swift */; };
 		336AF2851D2450AB00D70DA9 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469271D12416C008F38C4 /* BaseVC.swift */; };
 		336AF2861D2450AC00D70DA9 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469271D12416C008F38C4 /* BaseVC.swift */; };
+		336AF2891D2591E400D70DA9 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2881D2591E400D70DA9 /* Health.swift */; };
+		336AF2921D25A3C300D70DA9 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2881D2591E400D70DA9 /* Health.swift */; };
+		336AF2931D25A3C400D70DA9 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2881D2591E400D70DA9 /* Health.swift */; };
 		337469291D12416C008F38C4 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469271D12416C008F38C4 /* BaseVC.swift */; };
 		3374692B1D12416C008F38C4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469281D12416C008F38C4 /* MainVC.swift */; };
 		337469311D124192008F38C4 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469301D124192008F38C4 /* SettingsVC.swift */; };
@@ -64,9 +67,12 @@
 
 /* Begin PBXFileReference section */
 		33389B071D2071F2002F09FA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
-		33389B0D1D21DE75002F09FA /* HeartBeatUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeartBeatUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 		33389B131D21E091002F09FA /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewCell.swift; path = ThirdParty/SettingsTableViewCell.swift; sourceTree = "<group>"; };
-		336AF2801D231BA100D70DA9 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = Models/UserModel.swift; sourceTree = "<group>"; };
+		336AF2801D231BA100D70DA9 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSettings.swift; path = Models/UserSettings.swift; sourceTree = "<group>"; };
+		336AF2881D2591E400D70DA9 /* Health.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Health.swift; path = Controllers/Health.swift; sourceTree = "<group>"; };
+		336AF28F1D25A0BC00D70DA9 /* HeartBeat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeartBeat-Bridging-Header.h"; sourceTree = "<group>"; };
+		336AF2901D25A0BC00D70DA9 /* HeartBeatTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeartBeatTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		336AF2911D25A0BC00D70DA9 /* HeartBeatUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeartBeatUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 		337469271D12416C008F38C4 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseVC.swift; path = ViewController/BaseVC.swift; sourceTree = "<group>"; };
 		337469281D12416C008F38C4 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainVC.swift; path = ViewController/MainVC.swift; sourceTree = "<group>"; };
 		337469301D124192008F38C4 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsVC.swift; path = ViewController/SettingsVC.swift; sourceTree = "<group>"; };
@@ -76,8 +82,6 @@
 		3374693F1D1241F2008F38C4 /* WorkoutSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutSummaryVC.swift; path = ViewController/WorkoutSummaryVC.swift; sourceTree = "<group>"; };
 		337469421D124212008F38C4 /* WorkoutTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutTypeVC.swift; path = ViewController/WorkoutTypeVC.swift; sourceTree = "<group>"; };
 		337469451D124221008F38C4 /* AudioCuesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioCuesVC.swift; path = ViewController/AudioCuesVC.swift; sourceTree = "<group>"; };
-		3374694A1D124845008F38C4 /* HeartBeat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeartBeat-Bridging-Header.h"; sourceTree = "<group>"; };
-		3374694B1D124846008F38C4 /* HeartBeatTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeartBeatTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		3374694C1D124846008F38C4 /* YZSwipeBetweenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZSwipeBetweenViewController.h; path = ThirdParty/SnapChatUI/YZSwipeBetweenViewController.h; sourceTree = "<group>"; };
 		3374694D1D124846008F38C4 /* YZSwipeBetweenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZSwipeBetweenViewController.m; path = ThirdParty/SnapChatUI/YZSwipeBetweenViewController.m; sourceTree = "<group>"; };
 		337469521D126920008F38C4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -140,9 +144,17 @@
 		336AF27F1D231B7100D70DA9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				336AF2801D231BA100D70DA9 /* UserModel.swift */,
+				336AF2801D231BA100D70DA9 /* UserSettings.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		336AF2871D2580FB00D70DA9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				336AF2881D2591E400D70DA9 /* Health.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		337469261D124157008F38C4 /* ViewControllers */ = {
@@ -173,9 +185,9 @@
 		337469491D124811008F38C4 /* BridgeFiles */ = {
 			isa = PBXGroup;
 			children = (
-				33389B0D1D21DE75002F09FA /* HeartBeatUITests-Bridging-Header.h */,
-				3374694A1D124845008F38C4 /* HeartBeat-Bridging-Header.h */,
-				3374694B1D124846008F38C4 /* HeartBeatTests-Bridging-Header.h */,
+				336AF28F1D25A0BC00D70DA9 /* HeartBeat-Bridging-Header.h */,
+				336AF2901D25A0BC00D70DA9 /* HeartBeatTests-Bridging-Header.h */,
+				336AF2911D25A0BC00D70DA9 /* HeartBeatUITests-Bridging-Header.h */,
 			);
 			name = BridgeFiles;
 			sourceTree = "<group>";
@@ -227,6 +239,7 @@
 				33F271B41D123D8500588247 /* Main.storyboard */,
 				33F271B01D123D8500588247 /* AppDelegate.swift */,
 				336AF27F1D231B7100D70DA9 /* Models */,
+				336AF2871D2580FB00D70DA9 /* Controllers */,
 				337469261D124157008F38C4 /* ViewControllers */,
 				337469501D12485A008F38C4 /* ThirdParty */,
 				337469511D1268FD008F38C4 /* Frameworks */,
@@ -404,11 +417,12 @@
 				3374692B1D12416C008F38C4 /* MainVC.swift in Sources */,
 				337469461D124221008F38C4 /* AudioCuesVC.swift in Sources */,
 				337469341D12419F008F38C4 /* LoginVC.swift in Sources */,
-				336AF2811D231BA100D70DA9 /* UserModel.swift in Sources */,
+				336AF2811D231BA100D70DA9 /* UserSettings.swift in Sources */,
 				337469431D124212008F38C4 /* WorkoutTypeVC.swift in Sources */,
 				337469291D12416C008F38C4 /* BaseVC.swift in Sources */,
 				337469371D1241B4008F38C4 /* WorkoutVC.swift in Sources */,
 				337469401D1241F2008F38C4 /* WorkoutSummaryVC.swift in Sources */,
+				336AF2891D2591E400D70DA9 /* Health.swift in Sources */,
 				337469311D124192008F38C4 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,7 +432,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				33F271C91D123D8500588247 /* HeartBeatTests.swift in Sources */,
-				336AF2821D231BA100D70DA9 /* UserModel.swift in Sources */,
+				336AF2921D25A3C300D70DA9 /* Health.swift in Sources */,
+				336AF2821D231BA100D70DA9 /* UserSettings.swift in Sources */,
 				3374694F1D124846008F38C4 /* YZSwipeBetweenViewController.m in Sources */,
 				336AF2841D2450A100D70DA9 /* AudioCuesVC.swift in Sources */,
 				336AF2861D2450AC00D70DA9 /* BaseVC.swift in Sources */,
@@ -430,12 +445,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				337469561D126E6A008F38C4 /* AppDelegate.swift in Sources */,
-				336AF2831D231BA100D70DA9 /* UserModel.swift in Sources */,
+				336AF2831D231BA100D70DA9 /* UserSettings.swift in Sources */,
 				33F271D41D123D8500588247 /* HeartBeatUITests.swift in Sources */,
 				336AF2851D2450AB00D70DA9 /* BaseVC.swift in Sources */,
 				337469381D1241B4008F38C4 /* WorkoutVC.swift in Sources */,
 				337469471D124221008F38C4 /* AudioCuesVC.swift in Sources */,
 				337469441D124212008F38C4 /* WorkoutTypeVC.swift in Sources */,
+				336AF2931D25A3C400D70DA9 /* Health.swift in Sources */,
 				337469411D1241F2008F38C4 /* WorkoutSummaryVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

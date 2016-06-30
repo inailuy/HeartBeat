@@ -15,12 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let swipeBetweenVC: YZSwipeBetweenViewController = YZSwipeBetweenViewController()
-    var instance: AppDelegate!
-    var healthStore = HKHealthStore()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //Setting Up SnapChatUI
         setUpStoryboardUI()
+        Health.sharedInstance.askPermissionForHealth()
+        UserSettings.sharedInstance.loadInstances()
         
         return true
     }

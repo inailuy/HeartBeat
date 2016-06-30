@@ -11,6 +11,7 @@ import UIKit
 
 class AudioCuesVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
+    var user = UserSettings.sharedInstance
     var selectedIndexPath = NSIndexPath()
     let minutesArray = [0, 1, 2, 5, 10]
     let typesArray = ["Elapsed Time", "Current Heartbeat", "Average Heartbeat", "Calories Burned"]
@@ -18,7 +19,7 @@ class AudioCuesVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Audio Cues"
-        let index = minutesArray.indexOf(UserModel.sharedInstance.audioTiming)
+        let index = minutesArray.indexOf(user.audioTiming)
         selectedIndexPath = NSIndexPath(forItem: index!, inSection: 0)
     }
     
@@ -39,7 +40,7 @@ class AudioCuesVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("audioCell", forIndexPath: indexPath)
-        cell.textLabel!.font = UIFont(name: "HelveticaNeue-Thin", size: 22.0)
+        cell.textLabel!.font = UIFont(name: helveticaFont, size: 22.0)
         
         switch indexPath.section {
         case 0:
@@ -50,7 +51,7 @@ class AudioCuesVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
             break
         case 1:
             cell.textLabel!.text = String(format:"     %@", typesArray[indexPath.row])
-            if UserModel.sharedInstance.checkSpokenCueIndex(indexPath.row) {
+            if user.checkSpokenCueIndex(indexPath.row) {
                 cell.accessoryType = .Checkmark
             }
             break
@@ -85,8 +86,8 @@ class AudioCuesVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0://Audio Timing
             let number = minutesArray[indexPath.row] as NSNumber
-            UserModel.sharedInstance.audioTiming = number.integerValue
-            UserModel.sharedInstance.saveToDisk()
+            user.audioTiming = number.integerValue
+            user.saveToDisk()
             break
         case 1://Spoken Cues
             var check = false
@@ -94,8 +95,8 @@ class AudioCuesVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
             if currentCell?.accessoryType == .Checkmark {
                 check = true
             }
-            UserModel.sharedInstance.spokenCues.replaceObjectAtIndex(indexPath.row, withObject: NSNumber(bool: check))
-            UserModel.sharedInstance.saveToDisk()
+            user.spokenCues.replaceObjectAtIndex(indexPath.row, withObject: NSNumber(bool: check))
+            user.saveToDisk()
             break
         default: break
         }

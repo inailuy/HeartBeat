@@ -25,8 +25,9 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
         super.viewDidLoad()
         title = "settings"
 
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingsVC.observeredUnitsChange), name: "Units_Changed", object: nil)
         createHeartNavigationButton(Direction.left.rawValue)
-        UserModel.sharedInstance.loadFromDisk()
+        UserSettings.sharedInstance.loadFromDisk()
     }
     // MARK: - TableView Delegate/DataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -34,38 +35,38 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
         var reuseID = ""
         var itemBool = false
         var text = ""
-        
+        let user = UserSettings.sharedInstance
         switch indexPath.section {
-        case 0:
+        case 0://Section
             switch indexPath.row {
             case 0: //AGE
                 title = "Age"
                 reuseID = IDENTIFIER.textfieldCell.rawValue
-                text = String(UserModel.sharedInstance.age)
+                text = String(user.age)
                 break
             case 1: //Weight
                 title = "Weight"
                 reuseID = IDENTIFIER.textfieldCell.rawValue
-                text = String(UserModel.sharedInstance.weightInt())
+                text = String(user.weightWithDisplayFormat())
                 break
             case 2: //SEX
                 title = "Sex"
                 reuseID = IDENTIFIER.segmentedSexCell.rawValue
-                itemBool = Bool(UserModel.sharedInstance.sex)
+                itemBool = Bool(user.sex)
                 break
             default: break
             }
-        case 1:
+        case 1://Section
             switch indexPath.row {
             case 0: //Units
                 title = "Units"
                 reuseID = IDENTIFIER.segmentedMetricCell.rawValue
-                itemBool = Bool(UserModel.sharedInstance.unit)
+                itemBool = Bool(user.unit)
                 break
             case 1: //Health
                 title = "Health App"
                 reuseID = IDENTIFIER.switchCell.rawValue
-                itemBool = UserModel.sharedInstance.healthEnable
+                itemBool = user.userEnabledHealth
                 break
             case 2: //Audio
                 title = "Audio Cues"
@@ -77,12 +78,12 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
                 break
             default: break
             }
-        case 2:
+        case 2://Section
             switch indexPath.row {
             case 0: //Debug
                 title = "Debug Mode"
                 reuseID = IDENTIFIER.switchCell.rawValue
-                itemBool = UserModel.sharedInstance.debug
+                itemBool = user.debug
                 break
             case 1: //LogOut
                 title = "Log Out"
@@ -110,7 +111,7 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
         
         cell.backgroundColor = UIColor(white: 0.9, alpha: 0.4)
         cell.textLabel?.text = title
-        cell.textLabel?.font = UIFont(name: "HelveticaNeue-Thin", size: 22.0)
+        cell.textLabel?.font = UIFont(name: helveticaFont, size: 22.0)
         
         return cell
     }
@@ -192,6 +193,10 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
     // MARK: - End Editing
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         view.window?.endEditing(true)
+    }
+    
+    func observeredUnitsChange() {
+        tableView.reloadData()//Needs better implementation
     }
     // TODO: create tap gesture to cancel textfield input
     // add to view when keyboard is displayed, removed when editing is done

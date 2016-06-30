@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class SettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
+    var user = UserSettings.sharedInstance
     @IBOutlet weak var switchCell: UISwitch!
     @IBOutlet weak var segmentedControl : UISegmentedControl!
     @IBOutlet weak var textField : UITextField!
@@ -19,33 +20,33 @@ class SettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
         if textField != nil {
             text = textField.text!
         }
-        let userModel = UserModel.sharedInstance
         
         switch textLabel!.text! {
         case "Sex":
-            userModel.sex = segmentedControl.selectedSegmentIndex
+            user.sex = segmentedControl.selectedSegmentIndex
             break
         case "Units":
-            userModel.unit = segmentedControl.selectedSegmentIndex
+            user.unit = segmentedControl.selectedSegmentIndex
+            NSNotificationCenter.defaultCenter().postNotificationName("Units_Changed", object: nil)
             break
         case "Health App":
-            userModel.healthEnable = switchCell.on
+            user.userEnabledHealth = switchCell.on
             break
         case "Debug Mode":
-            userModel.debug = switchCell.on
+            user.debug = switchCell.on
             break
         case "Age":
             let num = Int(text)
-            if num != nil { userModel.age = num! }
+            if num != nil { user.age = num! }
             break
         case "Weight":
             let num = Float(text)
-            if num != nil { userModel.weight = num! }
+            if num != nil { user.modifyWeight(num!) }
             break
         default: break
         }
         //Save Data Call here
-        userModel.saveToDisk()
+        user.saveToDisk()
         resignFirstResponder()
     }
     

@@ -296,8 +296,8 @@
                                                         <constraint firstAttribute="width" constant="110" id="3aF-Yx-vN4"/>
                                                     </constraints>
                                                     <segments>
-                                                        <segment title="lbs"/>
                                                         <segment title="kgs"/>
+                                                        <segment title="lbs"/>
                                                     </segments>
                                                     <connections>
                                                         <action selector="segmentedControlPressed:" destination="Htw-eb-8Xk" eventType="valueChanged" id="EjQ-vF-ddT"/>

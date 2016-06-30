@@ -8,10 +8,10 @@
 
 import Foundation
 
-class UserModel {
+class UserSettings {
     enum Sex:Int {
-        case female = 0
-        case male
+        case male = 0
+        case female
     }
     enum Unit:Int {
         case metric = 0
@@ -23,24 +23,29 @@ class UserModel {
         case unit = "UnitKey"
         case sex = "SexKey"
         case debug = "DebugKey"
-        case health = "HealthKey"
+        case userEnabledHealth = "userEnabledHealthKey"
         case session = "SessionKey"
         case audioTiming = "AudioTimingKey"
         case spokenCues = "SpokenCuesKey"
     }
-    var weight = Float()
+    var weight = Float() //Always store in kg
     var age = Int()
     var unit = Int()
     var sex = Int()
     var debug = Bool()
-    var healthEnable = Bool()
+    var userEnabledHealth = Bool()
     var sessionActive = Bool()
     var audioTiming = Int()
     var spokenCues = NSMutableArray()
-    static let sharedInstance = UserModel()
+    static let sharedInstance = UserSettings()
     
     init () {
         loadFromDisk()
+    }
+    
+    func loadInstances() {
+            loadFromDisk()
+            loadFromHealthKit()
     }
     
     func loadFromDisk() {
@@ -54,8 +59,8 @@ class UserModel {
         sex = numberObject.integerValue
         numberObject = numberObjectForKey(Key.debug.rawValue)
         debug = numberObject.boolValue
-        numberObject = numberObjectForKey(Key.health.rawValue)
-        healthEnable = numberObject.boolValue
+        numberObject = numberObjectForKey(Key.userEnabledHealth.rawValue)
+        userEnabledHealth = numberObject.boolValue
         numberObject = numberObjectForKey(Key.session.rawValue)
         sessionActive = numberObject.boolValue
         numberObject = numberObjectForKey(Key.audioTiming.rawValue)
@@ -68,6 +73,41 @@ class UserModel {
         }
     }
     
+    func loadFromHealthKit() {
+        let health = Health.sharedInstance
+        if userEnabledHealth && health.isHealthKitEnabled {
+            do {// Age
+                let birthDay = try health.healthStore.dateOfBirth()
+                age = NSCalendar.currentCalendar().components(.Year, fromDate: birthDay, toDate: NSDate(), options: []).year
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+            do {// Sex
+                let bioSexObject = try health.healthStore.biologicalSex()
+                switch bioSexObject.biologicalSex {
+                case .Female:
+                    sex = Sex.female.rawValue
+                    break
+                case .Male:
+                    sex = Sex.male.rawValue
+                    break
+                default: break
+                }
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+            // Weight
+            health.weight({ (result: Float) in
+                self.weight = result
+                self.saveToDisk()
+                dispatch_async(dispatch_get_main_queue()) {
+                    NSNotificationCenter.defaultCenter().postNotificationName("Units_Changed", object: nil)
+                }
+            })
+        }
+        saveToDisk()
+    }
+    
     func saveToDisk() {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         userDefaults.setFloat(weight, forKey: Key.weight.rawValue)
@@ -75,11 +115,11 @@ class UserModel {
         userDefaults.setInteger(unit, forKey: Key.unit.rawValue)
         userDefaults.setInteger(sex, forKey: Key.sex.rawValue)
         userDefaults.setBool(debug, forKey: Key.debug.rawValue)
-        userDefaults.setBool(healthEnable, forKey: Key.health.rawValue)
+        userDefaults.setBool(userEnabledHealth, forKey: Key.userEnabledHealth.rawValue)
         userDefaults.setBool(sessionActive, forKey: Key.session.rawValue)
         userDefaults.setInteger(audioTiming, forKey: Key.audioTiming.rawValue)
         userDefaults.setObject(spokenCues, forKey: Key.spokenCues.rawValue)
-        print(spokenCues)
+        
         userDefaults.synchronize()
     }
     
@@ -89,7 +129,7 @@ class UserModel {
         unit = 0
         sex = 0
         debug = false
-        healthEnable = false
+        userEnabledHealth = false
         sessionActive = false
         audioTiming = 0
         spokenCues = [0,0,0,0]
@@ -105,8 +145,18 @@ class UserModel {
         return  number
     }
     
-    func weightInt() -> Int {
+    func weightWithDisplayFormat() -> Int {
+        var weight = self.weight
+        if Unit.imperial.rawValue == unit {
+            weight = weight * 2.2046
+        }
         return Int(weight)
+    }
+    
+    func modifyWeight(value:Float) {
+        if Unit.imperial.rawValue == unit {
+            weight = value / 2.2046
+        }
     }
     
     func checkSpokenCueIndex(index:Int) -> Bool {

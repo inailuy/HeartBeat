@@ -13,21 +13,19 @@ import HealthKit
 class BaseVC: UIViewController {
     var healthStore : HKHealthStore!
     var workoutTypesArray = NSArray()
-    var appDelegate : AppDelegate!
+    var appDelegate : AppDelegate! //Might Delete
     var blurView = UIView()
     
     enum Direction:Int{
         case left = 0, right = 1
     }
     
+    let helveticaFont = "HelveticaNeue-Thin"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         createBlurEffect()
-        
-        if self.healthStore == nil {
-            healthStore = appDelegate.healthStore
-        }
     }
     
     func createBlurEffect() {
@@ -66,7 +64,7 @@ class BaseVC: UIViewController {
         let frame = CGRectMake(20, 0, view.bounds.size.width, 40)
         let headerView = UIView(frame: frame)
         let label = UILabel(frame: frame)
-        label.font = UIFont(name: "HelveticaNeue-Thin", size: 20.0)
+        label.font = UIFont(name: helveticaFont, size: 20.0)
         
         let style = NSParagraphStyle.defaultParagraphStyle().mutableCopy()
         let attrText = NSAttributedString(string: title, attributes: [NSParagraphStyleAttributeName: style])
