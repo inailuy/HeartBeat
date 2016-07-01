@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setUpStoryboardUI()
         Health.sharedInstance.askPermissionForHealth()
         UserSettings.sharedInstance.loadInstances()
+        Bluetooth.sharedInstance.load()
         
         return true
     }
@@ -114,7 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Misc
     func setUpStoryboardUI() {
-        swipeBetweenVC.initialViewControllerIndex = 2
+        swipeBetweenVC.initialViewControllerIndex = 1
         swipeBetweenVC.scrollView.alwaysBounceVertical = false
         //Creating ViewControllers and NavigationsControllers
         let storyBoard = UIStoryboard(name:"Main", bundle: nil)

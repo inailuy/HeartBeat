@@ -20,6 +20,12 @@
 		336AF2891D2591E400D70DA9 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2881D2591E400D70DA9 /* Health.swift */; };
 		336AF2921D25A3C300D70DA9 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2881D2591E400D70DA9 /* Health.swift */; };
 		336AF2931D25A3C400D70DA9 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2881D2591E400D70DA9 /* Health.swift */; };
+		336AF2951D25DCC100D70DA9 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2941D25DCC100D70DA9 /* Bluetooth.swift */; };
+		336AF2961D25DCC100D70DA9 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2941D25DCC100D70DA9 /* Bluetooth.swift */; };
+		336AF2971D25DCC100D70DA9 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2941D25DCC100D70DA9 /* Bluetooth.swift */; };
+		336AF2991D25DF9A00D70DA9 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336AF2981D25DF9A00D70DA9 /* CoreBluetooth.framework */; };
+		336AF29A1D25DF9A00D70DA9 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336AF2981D25DF9A00D70DA9 /* CoreBluetooth.framework */; };
+		336AF29B1D25DF9A00D70DA9 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336AF2981D25DF9A00D70DA9 /* CoreBluetooth.framework */; };
 		337469291D12416C008F38C4 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469271D12416C008F38C4 /* BaseVC.swift */; };
 		3374692B1D12416C008F38C4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469281D12416C008F38C4 /* MainVC.swift */; };
 		337469311D124192008F38C4 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469301D124192008F38C4 /* SettingsVC.swift */; };
@@ -73,6 +79,8 @@
 		336AF28F1D25A0BC00D70DA9 /* HeartBeat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeartBeat-Bridging-Header.h"; sourceTree = "<group>"; };
 		336AF2901D25A0BC00D70DA9 /* HeartBeatTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeartBeatTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		336AF2911D25A0BC00D70DA9 /* HeartBeatUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeartBeatUITests-Bridging-Header.h"; sourceTree = "<group>"; };
+		336AF2941D25DCC100D70DA9 /* Bluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bluetooth.swift; path = Controllers/Bluetooth.swift; sourceTree = "<group>"; };
+		336AF2981D25DF9A00D70DA9 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		337469271D12416C008F38C4 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseVC.swift; path = ViewController/BaseVC.swift; sourceTree = "<group>"; };
 		337469281D12416C008F38C4 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainVC.swift; path = ViewController/MainVC.swift; sourceTree = "<group>"; };
 		337469301D124192008F38C4 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsVC.swift; path = ViewController/SettingsVC.swift; sourceTree = "<group>"; };
@@ -109,6 +117,7 @@
 			files = (
 				33F271E21D123F1300588247 /* AVFoundation.framework in Frameworks */,
 				33389B081D2071F2002F09FA /* MapKit.framework in Frameworks */,
+				336AF2991D25DF9A00D70DA9 /* CoreBluetooth.framework in Frameworks */,
 				337469531D126920008F38C4 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,6 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33389B091D2071F2002F09FA /* MapKit.framework in Frameworks */,
+				336AF29A1D25DF9A00D70DA9 /* CoreBluetooth.framework in Frameworks */,
 				337469541D126920008F38C4 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				336AF29B1D25DF9A00D70DA9 /* CoreBluetooth.framework in Frameworks */,
 				33389B0A1D2071F2002F09FA /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				336AF2881D2591E400D70DA9 /* Health.swift */,
+				336AF2941D25DCC100D70DA9 /* Bluetooth.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -205,6 +217,7 @@
 		337469511D1268FD008F38C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				336AF2981D25DF9A00D70DA9 /* CoreBluetooth.framework */,
 				33389B071D2071F2002F09FA /* MapKit.framework */,
 				337469521D126920008F38C4 /* HealthKit.framework */,
 				33F271E11D123F1300588247 /* AVFoundation.framework */,
@@ -409,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				336AF2951D25DCC100D70DA9 /* Bluetooth.swift in Sources */,
 				33BA773E1D187E72009BD322 /* YZSwipeBetweenViewController.m in Sources */,
 				337469551D126DB2008F38C4 /* AppDelegate.swift in Sources */,
 				33F271B91D123D8500588247 /* HeartBeat.xcdatamodeld in Sources */,
@@ -437,6 +451,7 @@
 				3374694F1D124846008F38C4 /* YZSwipeBetweenViewController.m in Sources */,
 				336AF2841D2450A100D70DA9 /* AudioCuesVC.swift in Sources */,
 				336AF2861D2450AC00D70DA9 /* BaseVC.swift in Sources */,
+				336AF2961D25DCC100D70DA9 /* Bluetooth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +465,7 @@
 				336AF2851D2450AB00D70DA9 /* BaseVC.swift in Sources */,
 				337469381D1241B4008F38C4 /* WorkoutVC.swift in Sources */,
 				337469471D124221008F38C4 /* AudioCuesVC.swift in Sources */,
+				336AF2971D25DCC100D70DA9 /* Bluetooth.swift in Sources */,
 				337469441D124212008F38C4 /* WorkoutTypeVC.swift in Sources */,
 				336AF2931D25A3C400D70DA9 /* Health.swift in Sources */,
 				337469411D1241F2008F38C4 /* WorkoutSummaryVC.swift in Sources */,

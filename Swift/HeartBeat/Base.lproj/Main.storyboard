@@ -47,11 +47,11 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 bpm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7u4-nM-lbO">
-                                <rect key="frame" x="185" y="214" width="228" height="100"/>
+                                <rect key="frame" x="150" y="214" width="300" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="228" id="LLz-rX-Dr0"/>
+                                    <constraint firstAttribute="width" constant="300" id="LLz-rX-Dr0"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="55"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="50"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="0.0" height="2"/>
@@ -87,7 +87,7 @@
                                 <variation key="widthClass=compact" constant="173"/>
                             </constraint>
                             <constraint firstItem="7u4-nM-lbO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="66" id="uj6-JI-8vz"/>
-                            <constraint firstItem="7u4-nM-lbO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="185" id="w9Y-Kb-9q9">
+                            <constraint firstItem="7u4-nM-lbO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="150" id="w9Y-Kb-9q9">
                                 <variation key="widthClass=compact" constant="86"/>
                             </constraint>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fmc-OX-8HS" secondAttribute="bottom" constant="214" id="z4X-w7-lqX">
@@ -318,13 +318,13 @@
                                         <rect key="frame" x="0.0" y="244" width="600" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UIz-1k-4Ec" id="1X6-ra-AEA">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" tag="102" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FgQ-X1-2ZF">
-                                                    <rect key="frame" x="532" y="23" width="60" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FgQ-X1-2ZF">
+                                                    <rect key="frame" x="532" y="24" width="60" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="qx6-Tz-Aoq"/>
+                                                        <constraint firstAttribute="width" constant="60" id="6FA-r0-buj"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -335,8 +335,9 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="FgQ-X1-2ZF" firstAttribute="centerY" secondItem="1X6-ra-AEA" secondAttribute="centerY" id="DeM-J7-kbC"/>
-                                                <constraint firstItem="FgQ-X1-2ZF" firstAttribute="trailing" secondItem="1X6-ra-AEA" secondAttribute="trailingMargin" id="rgn-12-nfI"/>
+                                                <constraint firstItem="FgQ-X1-2ZF" firstAttribute="top" secondItem="1X6-ra-AEA" secondAttribute="topMargin" constant="16" id="A2d-i5-Mk3"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="FgQ-X1-2ZF" secondAttribute="bottom" constant="7.5" id="ebU-s5-Udr"/>
+                                                <constraint firstItem="FgQ-X1-2ZF" firstAttribute="trailing" secondItem="1X6-ra-AEA" secondAttribute="trailingMargin" id="gDT-ZG-b3g"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

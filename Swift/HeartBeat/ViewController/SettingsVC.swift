@@ -162,7 +162,12 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
                 performSegueWithIdentifier("audioSegue", sender: self)
                 break
             case 3://Bluetooth
-                //TODO: isPeripheralConnected
+                let bluetooth = Bluetooth.sharedInstance
+                if bluetooth.isPeripheralConnected() {
+                    bluetooth.disconnectPeripheral()
+                } else {
+                    bluetooth.connectPeripheral()
+                }
                 break
             default: break
             }

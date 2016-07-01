@@ -25,6 +25,7 @@ class MainVC: BaseVC {
         navigationItem.leftBarButtonItem = historyButton
         navigationItem.rightBarButtonItem = settingsButton
         
+        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(MainVC.updateBluetoothData), userInfo:nil, repeats: true)
     }
     
     func historyButtonPressed() {
@@ -36,5 +37,9 @@ class MainVC: BaseVC {
     }
     @IBAction func startWorkoutButtonPressed(sender: UIButton) {
         print("startWorkoutButtonPressed")
+    }
+    
+    func updateBluetoothData() {
+        bpmLabel.text = String(Bluetooth.sharedInstance.beatPerMinuteValue) + " bpm"
     }
 }

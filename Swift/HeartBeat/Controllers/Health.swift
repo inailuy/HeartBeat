@@ -31,7 +31,6 @@ class Health {
                     UserSettings.sharedInstance.loadInstances()
                 }
             }
-            
             let writeDataTypes = dataTypesToWrite() as! Set<HKSampleType>
             let readDataTypes = dataTypesToRead() as! Set<HKObjectType>//{ (success: Bool!, error: NSError!) -> Void in
             healthStore.requestAuthorizationToShareTypes(writeDataTypes, readTypes: readDataTypes, completion: newCompletion)
@@ -40,24 +39,16 @@ class Health {
     //MARK: Retreive Data
     func weight(completion: (weight: Float) -> Void)  {
         let sampleType = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
-        
-        // 2. Call the method to read the most recent weight sample
         readMostRecentSample(sampleType!, completion: { (mostRecentWeight, error) -> Void in
-            
             if( error != nil ) {
                 print("Error reading weight from HealthKit Store: \(error.localizedDescription)")
                 return;
             }
-            // 3. Format the weight to display it on the screen
             let weightSample = mostRecentWeight as! HKQuantitySample
             let kilograms = weightSample.quantity.doubleValueForUnit(HKUnit.gramUnitWithMetricPrefix(.Kilo))
-            let weightFormatter = NSMassFormatter()
-            weightFormatter.forPersonMassUse = true;
             completion(weight: Float(kilograms))
-            
         })
     }
-    
     // Function from HealthKit Tutorial with Swift: Getting Started
     // www.raywenderlich.com/86336/ios-8-healthkit-swift-getting-started
     func readMostRecentSample(sampleType:HKSampleType , completion: ((HKSample!, NSError!) -> Void)!) {
@@ -86,7 +77,6 @@ class Health {
         // 5. Execute the Query
         healthStore.executeQuery(sampleQuery)
     }
-    
     //MARK: Modify/Save
     func saveWorkoutToHealthKit() {
         //TODO: Save WorkoutModel to healthkit
