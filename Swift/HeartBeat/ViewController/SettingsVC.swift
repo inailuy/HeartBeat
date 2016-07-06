@@ -185,9 +185,7 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
                 alertController.addAction(cancelAction)
                 alertController.addAction(destroyAction)
                 
-                self.presentViewController(alertController, animated: true) {
-                    // ...
-                }
+                self.presentViewController(alertController, animated: true) { }
                 break
             default: break
             }
@@ -201,7 +199,7 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
     }
     
     func observeredUnitsChange() {
-        tableView.reloadData()//Needs better implementation
+        tableView.reloadData()//needs better implementation
     }
     // TODO: create tap gesture to cancel textfield input
     // add to view when keyboard is displayed, removed when editing is done

@@ -28,15 +28,20 @@ class BaseVC: UIViewController {
         createBlurEffect()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        view.hidden = false
+    }
+    
     func createBlurEffect() {
         //creating blurs variables
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         //modifying properties
         blurView.frame = view.frame
-        blurView.backgroundColor = UIColor.clearColor()
+        blurView.backgroundColor = UIColor.whiteColor()
         view.backgroundColor = UIColor.clearColor()
-        blurView.alpha = 0.8
+        blurView.alpha = 0.6
         //adding subviews
         blurView.addSubview(blurEffectView)
         view.addSubview(blurView)
@@ -79,5 +84,10 @@ class BaseVC: UIViewController {
     
     func backButtonPressed() {
         appDelegate.swipeBetweenVC.scrollToViewControllerAtIndex(1, animated: true)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
+        view.hidden = true
     }
 }

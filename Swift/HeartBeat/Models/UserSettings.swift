@@ -28,6 +28,7 @@ class UserSettings {
         case audioTiming = "AudioTimingKey"
         case spokenCues = "SpokenCuesKey"
     }
+
     var weight = Float() //Always store in kg
     var age = Int()
     var unit = Int()

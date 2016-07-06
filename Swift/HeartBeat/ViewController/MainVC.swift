@@ -11,8 +11,6 @@ import UIKit
 
 
 class MainVC: BaseVC {
-    //2 labels
-    //perfromLoginOperation class method
     
     @IBOutlet weak var bpmLabel: UILabel!
     @IBOutlet weak var startWorkoutLabel: UIButton!
@@ -26,6 +24,8 @@ class MainVC: BaseVC {
         navigationItem.rightBarButtonItem = settingsButton
         
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(MainVC.updateBluetoothData), userInfo:nil, repeats: true)
+        
+        performSegueWithIdentifier("workoutSegue", sender: nil)
     }
     
     func historyButtonPressed() {
@@ -36,7 +36,8 @@ class MainVC: BaseVC {
         appDelegate.swipeBetweenVC.scrollToViewControllerAtIndex(2, animated: true)
     }
     @IBAction func startWorkoutButtonPressed(sender: UIButton) {
-        print("startWorkoutButtonPressed")
+        Workout.sharedInstance.startWorkout()
+        performSegueWithIdentifier("workoutSegue", sender: nil)
     }
     
     func updateBluetoothData() {

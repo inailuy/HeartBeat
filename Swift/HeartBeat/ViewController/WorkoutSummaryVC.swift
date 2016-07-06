@@ -11,4 +11,11 @@ import UIKit
 
 class WorkoutSummaryVC: BaseVC {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    @IBAction func exitButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }

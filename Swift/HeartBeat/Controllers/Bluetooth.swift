@@ -123,6 +123,9 @@ class Bluetooth: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         data?.getBytes(&array, length: count * sizeof(__uint8_t))
         if(( (characteristic.value)) != nil) {
             beatPerMinuteValue = Int(array[1])
+            if UserSettings.sharedInstance.debug {
+                beatPerMinuteValue += 75
+            }
         }
     }
     //MARK: Misc
@@ -148,7 +151,7 @@ class Bluetooth: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     func printStatus() {
         if UserSettings.sharedInstance.debug {
-            print(peripheralStatusString)
+            //print(peripheralStatusString)
         }
     }
 }

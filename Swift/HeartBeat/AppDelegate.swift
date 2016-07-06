@@ -17,11 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let swipeBetweenVC: YZSwipeBetweenViewController = YZSwipeBetweenViewController()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        //Setting Up SnapChatUI
+        //setting Up SnapChatUI
         setUpStoryboardUI()
         Health.sharedInstance.askPermissionForHealth()
         UserSettings.sharedInstance.loadInstances()
         Bluetooth.sharedInstance.load()
+        Workout.sharedInstance.startWorkout()
         
         return true
     }
@@ -117,7 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setUpStoryboardUI() {
         swipeBetweenVC.initialViewControllerIndex = 1
         swipeBetweenVC.scrollView.alwaysBounceVertical = false
-        //Creating ViewControllers and NavigationsControllers
+        //creating ViewControllers and NavigationsControllers
         let storyBoard = UIStoryboard(name:"Main", bundle: nil)
         let historyVC = storyBoard.instantiateViewControllerWithIdentifier("historyID")
         let mainVC = storyBoard.instantiateViewControllerWithIdentifier("mainID")
@@ -126,7 +127,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let nav2 = UINavigationController(rootViewController: mainVC)
         let nav3 = UINavigationController(rootViewController: settingsVC)
         swipeBetweenVC.viewControllers = [nav1,nav2,nav3]
-        //Add everything into UIWindow
+        //add everything into UIWindow
         let frame = UIScreen.mainScreen().bounds
         window?.frame = frame
         window!.rootViewController = swipeBetweenVC
