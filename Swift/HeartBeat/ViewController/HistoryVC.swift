@@ -16,7 +16,6 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
         title = "history"
         
         createHeartNavigationButton(Direction.right.rawValue)
-        self.performSegueWithIdentifier("WorkoutSummarySegue", sender: nil)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -35,6 +34,7 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
         if segue.identifier == "WorkoutSummarySegue" {
             let vc = segue.destinationViewController as! WorkoutSummaryVC
             vc.shouldDisplaySaveOptions = false

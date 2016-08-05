@@ -22,7 +22,7 @@ class SpeechUtterance: NSObject, AVSpeechSynthesizerDelegate {
     }
     // Create All Spoken Cues
     func speakStartWorkoutController() {
-        let utter = "starting WorkoutController"
+        let utter = "starting workout"
         speak(utter)
     }
     
@@ -60,15 +60,15 @@ class SpeechUtterance: NSObject, AVSpeechSynthesizerDelegate {
     }
     
     func speakPauseValues() {
-        var utter = "resuming WorkoutController"
+        var utter = "resuming workout"
         if WorkoutController.sharedInstance.pause {
-            utter = "pausing WorkoutController"
+            utter = "pausing workout"
         }
         speak(utter)
     }
     
     func speakCompletedWorkoutControllerValues() {//TODO: better complete sentence
-        let utter = "WorkoutController complete"
+        let utter = "workout complete"
         speak(utter)
     }
     // Talk

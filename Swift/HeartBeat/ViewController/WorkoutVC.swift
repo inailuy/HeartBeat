@@ -50,6 +50,10 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
         UserSettings.sharedInstance.mute = sender.selected
         UserSettings.sharedInstance.saveToDisk()
     }
+
+    @IBAction func utterSummary(sender: UIButton) {
+        SpeechUtterance.sharedInstance.speakWorkoutControllerValues()
+    }
     
     @IBAction func endButtonPressed(sender: AnyObject) {
         let alertController = UIAlertController(title: nil, message: "Are you sure you want to end workout?", preferredStyle: .ActionSheet)
@@ -76,6 +80,8 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
     
     
     @IBAction func hideGraphButtonPressed(sender: AnyObject) {
+        if WorkoutController.sharedInstance.seconds < 10 { return }
+        
         if disclousureBool {
             lineGraphView.hidden = false
             blurView.hidden = false
@@ -87,19 +93,34 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
     }
     //MARK: WorkoutControllerDelegate
     func updateUI(sender: WorkoutController) {
-        if sender.seconds > 10 {
+        if sender.seconds > 9 {
             averageBPMLabel.text = sender.averageBPMString() + " Average bpm"
             currentBPMLabel.text = sender.currentBPM() + " Current bpm"
             caloriesBurnedLabel.text = sender.grabVO2MaxData() + " Calories burned"
-            if sender.minutes < 4 && sender.seconds % 5 == 0 {
-                lineGraphView.reloadGraph()
-            } else if sender.seconds % 15 == 0 {
-                lineGraphView.reloadGraph()
+            if disclousureBool != true {
+                lineGraphView.hidden = false
+                if sender.minutes < 4 && sender.seconds % 5 == 0 {
+                    lineGraphView.reloadGraph()
+                } else if sender.seconds % 10 == 0 {
+                    lineGraphView.reloadGraph()
+                }
             }
+        } else {
+            lineGraphView.hidden = true
         }
         timerLabel.text = sender.getTimeStr()
         currentBPMLabel.text = sender.currentBPM() + " Current bpm"
     }
+    //MARK: Map & CLLocation Delegates
+    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+        //TODO: Tracking GPS Distance for running
+        
+        if (mapView.showsUserLocation){
+            let region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 100, 100)
+            mapView.setRegion(region, animated: true)
+        }
+    }
+    
     //MARK: BEMSimpleLineGraphView DataSource/Delegate
     func numberOfPointsInLineGraph(graph: BEMSimpleLineGraphView) -> Int {
         return WorkoutController.sharedInstance.heartBeatArray.count
@@ -158,6 +179,13 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
     }
     
     func mapSetup()  {
+        let authstate = CLLocationManager.authorizationStatus()
+        if authstate == CLAuthorizationStatus.NotDetermined {
+            locationManager.requestAlwaysAuthorization()
+        } else if authstate == CLAuthorizationStatus.Denied {
+            //TODO: defend against rejection
+        }
+        
         mapView.frame = view.frame
         view.addSubview(mapView)
         view.sendSubviewToBack(mapView)
@@ -168,6 +196,7 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
             locationManager.distanceFilter = 5
+            self.mapView.showsUserLocation = true;
         }
     }
     

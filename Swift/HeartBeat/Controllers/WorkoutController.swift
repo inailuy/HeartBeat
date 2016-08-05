@@ -54,8 +54,7 @@ class WorkoutController {
     }
     
     @objc func secondsInterval()  {
-        let ran = Int(arc4random_uniform(200) + 1)
-        let bpm = /*Bluetooth.sharedInstance.beatPerMinuteValue*/ran
+        let bpm = Bluetooth.sharedInstance.beatPerMinuteValue
         //add beats to array
         heartBeatArray.addObject(bpm)
         //modify variables

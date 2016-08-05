@@ -133,6 +133,7 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
         if shouldDisplaySaveOptions {
             mapView.setRegion(region!, animated: false)
             mapView.hidden = false
+            view.sendSubviewToBack(mapView)
             
             let height:CGFloat = 75
             let y = self.view.frame.size.height - height
@@ -231,7 +232,7 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
         lineGraphView.enableReferenceXAxisLines = true
         lineGraphView.enableReferenceYAxisLines = true
         lineGraphView.enableBezierCurve = true
-        lineGraphView.animationGraphStyle = .None
+        lineGraphView.animationGraphStyle = .Draw
         
         lineGraphView.reloadGraph()
         cell.contentView.addSubview(lineGraphView)

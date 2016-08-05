@@ -23,6 +23,8 @@ class MainVC: BaseVC {
         navigationItem.rightBarButtonItem = settingsButton
         
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(MainVC.updateBluetoothData), userInfo:nil, repeats: true)
+        
+        startWorkoutButtonPressed(UIButton())
     }
     
     func historyButtonPressed() {
