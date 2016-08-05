@@ -67,7 +67,7 @@ struct VO2Max {
         }
     }
     
-    func calculateVO2Max(age:Double, weight:Double, bpm:Double, minutes:Double) -> Double {
+    func calculateVO2Max(age:Double, weight:Double, bpm:Double, minutes:Double) -> Int {
         var result = age + weight + bpm
         if sex == UserSettings.Sex.male.rawValue {
             result = result - Minutes.male.rawValue
@@ -75,6 +75,6 @@ struct VO2Max {
             result = result - Minutes.female.rawValue
         }
         result = result * minutes
-        return result / 4.184
+        return Int(result / 4.184)
     }
 }

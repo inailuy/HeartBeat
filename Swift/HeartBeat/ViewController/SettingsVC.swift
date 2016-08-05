@@ -111,7 +111,7 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
         
         cell.backgroundColor = UIColor(white: 0.9, alpha: 0.4)
         cell.textLabel?.text = title
-        cell.textLabel?.font = UIFont(name: helveticaFont, size: 22.0)
+        cell.textLabel?.font = UIFont(name: helveticaThinFont, size: 22.0)
         
         return cell
     }

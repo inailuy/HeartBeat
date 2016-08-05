@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Health.sharedInstance.askPermissionForHealth()
         UserSettings.sharedInstance.loadInstances()
         Bluetooth.sharedInstance.load()
-        Workout.sharedInstance.startWorkout()
+        WorkoutController.sharedInstance.startWorkout()
         
         return true
     }

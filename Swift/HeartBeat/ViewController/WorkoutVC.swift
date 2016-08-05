@@ -10,32 +10,33 @@ import Foundation
 import UIKit
 import MapKit
 
-class WorkoutVC: BaseVC, WorkoutDelegate, BEMSimpleLineGraphDelegate, BEMSimpleLineGraphDataSource {
+class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, BEMSimpleLineGraphDataSource,CLLocationManagerDelegate {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var averageBPMLabel: UILabel!
     @IBOutlet weak var currentBPMLabel: UILabel!
     @IBOutlet weak var caloriesBurnedLabel: UILabel!
-    @IBOutlet weak var endWorkoutButton: UIButton!
-    @IBOutlet weak var pauseWorkoutButton: UIButton!
+    @IBOutlet weak var endWorkoutControllerButton: UIButton!
+    @IBOutlet weak var pauseWorkoutControllerButton: UIButton!
     @IBOutlet weak var disclousureButton: UIButton!
     @IBOutlet weak var activityButton: UIButton!
+    @IBOutlet weak var muteButton: UIButton!
     @IBOutlet weak var lineGraphView: BEMSimpleLineGraphView!
     
     var disclousureBool = Bool()
     let mapView = MKMapView()
+    let locationManager = CLLocationManager()
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        muteButton.selected = UserSettings.sharedInstance.mute
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Workout.sharedInstance.delegate = self
+        WorkoutController.sharedInstance.delegate = self
         //map setup
-        mapView.frame = view.frame
-        view.addSubview(mapView)
-        view.sendSubviewToBack(mapView)
+        mapSetup()
         //line graph setup
         lineGraphSetup()
     }
@@ -46,15 +47,16 @@ class WorkoutVC: BaseVC, WorkoutDelegate, BEMSimpleLineGraphDelegate, BEMSimpleL
     
     @IBAction func muteButtonPressed(sender: UIButton) {
         sender.selected = !sender.selected
-        //TODO: mute speech utterance
+        UserSettings.sharedInstance.mute = sender.selected
+        UserSettings.sharedInstance.saveToDisk()
     }
     
     @IBAction func endButtonPressed(sender: AnyObject) {
-        Workout.sharedInstance.endWorkout()
         let alertController = UIAlertController(title: nil, message: "Are you sure you want to end workout?", preferredStyle: .ActionSheet)
         let cancelAction = UIAlertAction(title: "cancel", style: .Cancel) { (action) in}
         let destroyAction = UIAlertAction(title: "end", style: .Destructive) { (action) in
-              self.performSegueWithIdentifier("endWorkoutSegue", sender: nil)
+            WorkoutController.sharedInstance.endWorkoutController()
+            self.performSegueWithIdentifier("WorkoutSummarySegue", sender: nil)
         }
         
         alertController.addAction(cancelAction)
@@ -64,12 +66,12 @@ class WorkoutVC: BaseVC, WorkoutDelegate, BEMSimpleLineGraphDelegate, BEMSimpleL
     }
     
     @IBAction func pauseButtonPressed(sender: UIButton) {
-        if Workout.sharedInstance.pause {
+        if WorkoutController.sharedInstance.pause {
             sender.setTitle("pause", forState:.Normal)
         } else {
             sender.setTitle("resume", forState:.Normal)
         }
-        Workout.sharedInstance.pauseWorkout()
+        WorkoutController.sharedInstance.pauseWorkoutController()
     }
     
     
@@ -83,8 +85,8 @@ class WorkoutVC: BaseVC, WorkoutDelegate, BEMSimpleLineGraphDelegate, BEMSimpleL
         }
         disclousureBool = !disclousureBool
     }
-    //MARK: WorkoutDelegate
-    func updateUI(sender: Workout) {
+    //MARK: WorkoutControllerDelegate
+    func updateUI(sender: WorkoutController) {
         if sender.seconds > 10 {
             averageBPMLabel.text = sender.averageBPMString() + " Average bpm"
             currentBPMLabel.text = sender.currentBPM() + " Current bpm"
@@ -100,11 +102,11 @@ class WorkoutVC: BaseVC, WorkoutDelegate, BEMSimpleLineGraphDelegate, BEMSimpleL
     }
     //MARK: BEMSimpleLineGraphView DataSource/Delegate
     func numberOfPointsInLineGraph(graph: BEMSimpleLineGraphView) -> Int {
-        return Workout.sharedInstance.heartBeatArray.count
+        return WorkoutController.sharedInstance.heartBeatArray.count
     }
     
     func lineGraph(graph: BEMSimpleLineGraphView, labelOnXAxisForIndex index: Int) -> String {
-            return Workout.sharedInstance.getTimeFromSeconds(index)
+            return WorkoutController.sharedInstance.getTimeFromSeconds(index)
     }
     
     
@@ -113,17 +115,17 @@ class WorkoutVC: BaseVC, WorkoutDelegate, BEMSimpleLineGraphDelegate, BEMSimpleL
     }
 
     func numberOfGapsBetweenLabelsOnLineGraph(graph: BEMSimpleLineGraphView) -> Int {
-        return Workout.sharedInstance.heartBeatArray.count / 5
+        return WorkoutController.sharedInstance.heartBeatArray.count / 5
     }
     
     func lineGraph(graph: BEMSimpleLineGraphView, valueForPointAtIndex index: Int) -> CGFloat {
-        let point = Workout.sharedInstance.heartBeatArray[index]
+        let point = WorkoutController.sharedInstance.heartBeatArray[index]
         return CGFloat(point.doubleValue)
     }
     
     func maxValueForLineGraph(graph: BEMSimpleLineGraphView) -> CGFloat {
         var max = 0
-        for num in Workout.sharedInstance.heartBeatArray {
+        for num in WorkoutController.sharedInstance.heartBeatArray {
             let n = num as! NSNumber
             if max < n.integerValue {
                 max = n.integerValue
@@ -134,7 +136,7 @@ class WorkoutVC: BaseVC, WorkoutDelegate, BEMSimpleLineGraphDelegate, BEMSimpleL
     
     func minValueForLineGraph(graph: BEMSimpleLineGraphView) -> CGFloat {
         var min = 200
-        for num in Workout.sharedInstance.heartBeatArray {
+        for num in WorkoutController.sharedInstance.heartBeatArray {
             let n = num as! NSNumber
             if min > n.integerValue {
                 min = n.integerValue
@@ -153,5 +155,30 @@ class WorkoutVC: BaseVC, WorkoutDelegate, BEMSimpleLineGraphDelegate, BEMSimpleL
         lineGraphView.enableReferenceYAxisLines = true
         lineGraphView.enableBezierCurve = true
         lineGraphView.animationGraphStyle = .None
+    }
+    
+    func mapSetup()  {
+        mapView.frame = view.frame
+        view.addSubview(mapView)
+        view.sendSubviewToBack(mapView)
+        
+        mapView.showsUserLocation = true
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+            locationManager.distanceFilter = 5
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "WorkoutSummarySegue" {
+            let vc = segue.destinationViewController as! WorkoutSummaryVC
+            vc.shouldDisplaySaveOptions = true
+            vc.region = mapView.region
+            vc.workout = WorkoutController.sharedInstance.workout!
+        } else if segue.identifier == "WorkoutTypeSegue" {
+            
+        }
     }
 }

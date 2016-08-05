@@ -10,14 +10,11 @@ import Foundation
 import HealthKit
 
 class Health {
-    let healthStore = HKHealthStore()
-    var isHealthKitEnabled = Bool()
-    let user = UserSettings.sharedInstance
     static let sharedInstance = Health()
+    let healthStore = HKHealthStore()
+    let user = UserSettings.sharedInstance
+    var isHealthKitEnabled = Bool()
     
-    init () {
-        
-    }
     //MARK: Permission/Acess
     func askPermissionForHealth() {
         if HKHealthStore.isHealthDataAvailable() {
@@ -88,7 +85,7 @@ class Health {
         set.addObject(HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierDistanceWalkingRunning)!)
         set.addObject(HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierActiveEnergyBurned)!)
         set.addObject(HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)!)
-        set.addObject(HKObjectType.workoutType())
+        //set.addObject(HKObjectType.WorkoutControllerType())
         
         return set
     }

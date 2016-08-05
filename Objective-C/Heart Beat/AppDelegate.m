@@ -53,7 +53,6 @@ struct hrflags
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //test 4
     
-    
     // Override point for customization after application launch.
     self.healthStore = [[HKHealthStore alloc] init];
     [self askPermissionForHealth];
@@ -75,7 +74,7 @@ struct hrflags
        /* [PFTwitterUtils initializeWithConsumerKey:@"rJBmCmcVldebgVvc4IKiVvTmP"
                                    consumerSecret:@"JYUCTKufdW2PebY71D7bHzOerg6rArAewwc5JdxZylL7l98RUH"];*/
     });
-    [FBAppEvents activateApp];
+    //[FBAppEvents activateApp];
     self.heartBeatString = @"0 bpm";
     self.centralManager = [[CBCentralManager alloc] initWithDelegate:self
                                                                queue:nil
@@ -156,7 +155,7 @@ struct hrflags
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    [FBSDKAppEvents activateApp];
+    //[FBSDKAppEvents activateApp];
     //[FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
 }
 

@@ -12,7 +12,7 @@ import HealthKit
 
 class BaseVC: UIViewController {
     var healthStore : HKHealthStore!
-    var workoutTypesArray = NSArray()
+    var WorkoutControllerTypesArray = NSArray()
     var appDelegate : AppDelegate! //Might Delete
     var blurView = UIView()
     
@@ -20,7 +20,10 @@ class BaseVC: UIViewController {
         case left = 0, right = 1
     }
     
-    let helveticaFont = "HelveticaNeue-Thin"
+    let helveticaThinFont = "HelveticaNeue-Thin"
+    let helveticaLightFont = "HelveticaNeue-Light"
+    let helveticaFont = "HelveticaNeue"
+    let helveticaMediumFont = "HelveticaNeue-Medium"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +44,7 @@ class BaseVC: UIViewController {
         blurView.frame = view.frame
         blurView.backgroundColor = UIColor.whiteColor()
         view.backgroundColor = UIColor.clearColor()
-        blurView.alpha = 0.6
+        blurView.alpha = 0.35
         //adding subviews
         blurView.addSubview(blurEffectView)
         view.addSubview(blurView)
@@ -69,7 +72,7 @@ class BaseVC: UIViewController {
         let frame = CGRectMake(20, 0, view.bounds.size.width, 40)
         let headerView = UIView(frame: frame)
         let label = UILabel(frame: frame)
-        label.font = UIFont(name: helveticaFont, size: 20.0)
+        label.font = UIFont(name: helveticaThinFont, size: 20.0)
         
         let style = NSParagraphStyle.defaultParagraphStyle().mutableCopy()
         let attrText = NSAttributedString(string: title, attributes: [NSParagraphStyleAttributeName: style])

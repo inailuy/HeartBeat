@@ -89,7 +89,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Location is used to determine distance during workouts</string>
+	<string>Location is used to determine distance during WorkoutControllers</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>

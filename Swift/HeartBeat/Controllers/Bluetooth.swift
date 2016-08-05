@@ -20,14 +20,14 @@ class Bluetooth: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         case ManufacturerName = "2A29"
     }
     
+    static let sharedInstance = Bluetooth()
     var beatPerMinuteValue = 0
     var centralManager = CBCentralManager()
     var activePeripheral : CBPeripheral!
     var peripheralStatusString = String()
     var peripheralArray = NSMutableArray()
     var isFirstLaunch = Bool()
-    var isWorkoutActive = Bool()
-    static let sharedInstance = Bluetooth()
+    var isWorkoutControllerActive = Bool()
     
     func load() {
         centralManager = CBCentralManager(delegate: self, queue: nil)
@@ -51,7 +51,7 @@ class Bluetooth: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         activePeripheral = peripheral
         peripheralArray.addObject(peripheral)
         peripheral.delegate = self
-        if isWorkoutActive || isFirstLaunch {
+        if isWorkoutControllerActive || isFirstLaunch {
             centralManager.connectPeripheral(activePeripheral, options: nil)
             isFirstLaunch = false
         }
@@ -107,9 +107,9 @@ class Bluetooth: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             print(errorMessage)
             return
         }
-        // Updated value for heart rate measurement received
+        //updated value for heart rate measurement received
         if characteristic.UUID == CBUUID(string: PolarCharacteristicUUID.Measurement.rawValue) {
-            // Get the Heart Rate Monitor BPM
+            //get the Heart Rate Monitor BPM
             getHeartBPMData(characteristic)
         }
         printStatus()

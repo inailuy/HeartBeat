@@ -40,7 +40,7 @@ class AudioCuesVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("audioCell", forIndexPath: indexPath)
-        cell.textLabel!.font = UIFont(name: helveticaFont, size: 22.0)
+        cell.textLabel!.font = UIFont(name: helveticaThinFont, size: 22.0)
         
         switch indexPath.section {
         case 0:

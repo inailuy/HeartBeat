@@ -26,9 +26,11 @@ class UserSettings {
         case userEnabledHealth = "userEnabledHealthKey"
         case session = "SessionKey"
         case audioTiming = "AudioTimingKey"
+        case mute = "MuteKey"
         case spokenCues = "SpokenCuesKey"
     }
 
+    static let sharedInstance = UserSettings()
     var weight = Float() //Always store in kg
     var age = Int()
     var unit = Int()
@@ -37,8 +39,8 @@ class UserSettings {
     var userEnabledHealth = Bool()
     var sessionActive = Bool()
     var audioTiming = Int()
+    var mute = Bool()
     var spokenCues = NSMutableArray()
-    static let sharedInstance = UserSettings()
     
     init () {
         loadFromDisk()
@@ -66,6 +68,9 @@ class UserSettings {
         sessionActive = numberObject.boolValue
         numberObject = numberObjectForKey(Key.audioTiming.rawValue)
         audioTiming = numberObject.integerValue
+        numberObject = numberObjectForKey(Key.mute.rawValue)
+        mute = numberObject.boolValue
+        
         if (NSUserDefaults.standardUserDefaults().objectForKey(Key.spokenCues.rawValue) != nil) {
             let arr = NSUserDefaults.standardUserDefaults().objectForKey(Key.spokenCues.rawValue) as! NSArray
             spokenCues = NSMutableArray(array: arr)
@@ -120,6 +125,7 @@ class UserSettings {
         userDefaults.setBool(sessionActive, forKey: Key.session.rawValue)
         userDefaults.setInteger(audioTiming, forKey: Key.audioTiming.rawValue)
         userDefaults.setObject(spokenCues, forKey: Key.spokenCues.rawValue)
+        userDefaults.setObject(mute, forKey: Key.mute.rawValue)
         
         userDefaults.synchronize()
     }
@@ -132,6 +138,7 @@ class UserSettings {
         debug = false
         userEnabledHealth = false
         sessionActive = false
+        mute = false
         audioTiming = 0
         spokenCues = [0,0,0,0]
         saveToDisk()
