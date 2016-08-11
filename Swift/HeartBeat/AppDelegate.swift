@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import HealthKit
+import CloudKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,12 +18,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let swipeBetweenVC: YZSwipeBetweenViewController = YZSwipeBetweenViewController()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // Register for push notifications
+        let notificationSettings = UIUserNotificationSettings(forTypes: .Alert, categories: nil)
+        application.registerUserNotificationSettings(notificationSettings)
+        application.registerForRemoteNotifications()
+        
         //setting Up SnapChatUI
         setUpStoryboardUI()
         Health.sharedInstance.askPermissionForHealth()
         UserSettings.sharedInstance.loadInstances()
         Bluetooth.sharedInstance.load()
         
+        CloudKitWrapper.sharedInstance.queryPrivateDatabaseForRecord(recordType, with: Workout.SortDescriptor())
+        
+        //Navigation Appearance
+        let barButtonAppearance = [NSFontAttributeName : UIFont(name: helveticaLightFont, size: 18)!]
+        let navBarApearance = [NSFontAttributeName : UIFont(name: helveticaLightFont, size: 24)!,
+                               NSForegroundColorAttributeName: UIColor.darkGrayColor()]
+        UIBarButtonItem.appearance().setTitleTextAttributes(barButtonAppearance, forState: .Normal)
+        UINavigationBar.appearance().titleTextAttributes = navBarApearance
+
         return true
     }
 
@@ -133,5 +148,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.makeKeyAndVisible()
     }
     
+    // MARK: - Notifications
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        let ckNotification = CKNotification(fromRemoteNotificationDictionary: userInfo as! [String : NSObject])
+        if ckNotification.notificationType == .Query,
+            let queryNotification = ckNotification as? CKQueryNotification
+        {
+            if queryNotification.queryNotificationReason == .RecordCreated {
+                CloudKitWrapper.sharedInstance.queryPrivateDatabaseWithRecordID(queryNotification.recordID!)
+            } else if queryNotification.queryNotificationReason == .RecordDeleted {
+                // delete
+            } else if queryNotification.queryNotificationReason == .RecordUpdated {
+                // updated
+            }
+        }
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        print(error.localizedDescription)
+    }
 }
 

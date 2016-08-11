@@ -43,6 +43,10 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
     }
     
     func pressedOptionSaveButton(sender: UIButton!) {
+        if sender.titleLabel?.text == "save" {
+            WorkoutController.sharedInstance.saveWorkout()
+        }
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
     //MARK: TableView Delegate/Datasource
@@ -128,7 +132,7 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
         }
         return height
     }
-    
+    //MARK: Views Setup
     func createSaveOptionView(){
         if shouldDisplaySaveOptions {
             mapView.setRegion(region!, animated: false)
@@ -140,7 +144,7 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
             let frame = CGRect(x: 0, y: y, width: self.view.frame.width, height: height)
             // creating bottom button
             bottomView = UIView(frame: frame)
-            bottomView.backgroundColor = UIColor.init(white: 1.0, alpha: 0.75)
+            bottomView.backgroundColor = UIColor.init(white: 0.65, alpha: 0.75)
             
             let buttonWidth = bottomView.frame.size.width / 2
             let font = UIFont(name: helveticaThinFont, size: 22)
@@ -163,7 +167,7 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
             view.addSubview(bottomView)
         }
     }
-    //MARK: Views Setup
+    
     func adjustTableview() {
         //Adjusting tableview because of navigationbar
         if shouldDisplaySaveOptions {
@@ -232,7 +236,7 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
         lineGraphView.enableReferenceXAxisLines = true
         lineGraphView.enableReferenceYAxisLines = true
         lineGraphView.enableBezierCurve = true
-        lineGraphView.animationGraphStyle = .Draw
+        lineGraphView.animationGraphStyle = .None
         
         lineGraphView.reloadGraph()
         cell.contentView.addSubview(lineGraphView)

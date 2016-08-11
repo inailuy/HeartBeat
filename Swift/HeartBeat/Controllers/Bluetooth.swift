@@ -23,7 +23,7 @@ class Bluetooth: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     static let sharedInstance = Bluetooth()
     var beatPerMinuteValue = 0
     var centralManager = CBCentralManager()
-    var activePeripheral : CBPeripheral!
+    var activePeripheral : CBPeripheral?
     var peripheralStatusString = String()
     var peripheralArray = NSMutableArray()
     var isFirstLaunch = Bool()
@@ -52,7 +52,7 @@ class Bluetooth: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         peripheralArray.addObject(peripheral)
         peripheral.delegate = self
         if isWorkoutControllerActive || isFirstLaunch {
-            centralManager.connectPeripheral(activePeripheral, options: nil)
+            centralManager.connectPeripheral(activePeripheral!, options: nil)
             isFirstLaunch = false
         }
         printStatus()
@@ -131,19 +131,19 @@ class Bluetooth: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     //MARK: Misc
     func connectPeripheral() {
         if activePeripheral != nil {
-            centralManager.connectPeripheral(activePeripheral, options: nil)
+            centralManager.connectPeripheral(activePeripheral!, options: nil)
         }
     }
     
     func disconnectPeripheral() {
         if activePeripheral != nil {
-            centralManager.cancelPeripheralConnection(activePeripheral)
+            centralManager.cancelPeripheralConnection(activePeripheral!)
         }
     }
     
     func isPeripheralConnected() -> Bool {
         var connected = false
-        if activePeripheral.state == .Connected {
+        if activePeripheral?.state == .Connected {
             connected = true
         }
         return connected

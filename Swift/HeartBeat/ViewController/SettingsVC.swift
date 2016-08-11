@@ -177,9 +177,9 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
             case 0://Debug
                 break
             case 1://LogOut
-                let alertController = UIAlertController(title: nil, message: "Are you sure you want to log out?", preferredStyle: .ActionSheet)
-                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in}
-                let destroyAction = UIAlertAction(title: "Logout", style: .Destructive) { (action) in
+                let alertController = UIAlertController(title: nil, message: "are you sure you want to log out?", preferredStyle: .ActionSheet)
+                let cancelAction = UIAlertAction(title: "cancel", style: .Cancel) { (action) in}
+                let destroyAction = UIAlertAction(title: "logout", style: .Destructive) { (action) in
                   //TODO: perform Logout Function
                 }
                 alertController.addAction(cancelAction)

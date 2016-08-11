@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 import HealthKit
 
+let helveticaThinFont = "HelveticaNeue-Thin"
+let helveticaLightFont = "HelveticaNeue-Light"
+let helveticaFont = "HelveticaNeue"
+let helveticaMediumFont = "HelveticaNeue-Medium"
+
 class BaseVC: UIViewController {
     var healthStore : HKHealthStore!
     var WorkoutControllerTypesArray = NSArray()
@@ -19,11 +24,6 @@ class BaseVC: UIViewController {
     enum Direction:Int{
         case left = 0, right = 1
     }
-    
-    let helveticaThinFont = "HelveticaNeue-Thin"
-    let helveticaLightFont = "HelveticaNeue-Light"
-    let helveticaFont = "HelveticaNeue"
-    let helveticaMediumFont = "HelveticaNeue-Medium"
     
     override func viewDidLoad() {
         super.viewDidLoad()

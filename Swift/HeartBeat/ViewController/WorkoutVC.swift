@@ -52,14 +52,14 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
     }
 
     @IBAction func utterSummary(sender: UIButton) {
-        SpeechUtterance.sharedInstance.speakWorkoutControllerValues()
+        SpeechUtterance.sharedInstance.speakWorkoutValues()
     }
     
     @IBAction func endButtonPressed(sender: AnyObject) {
-        let alertController = UIAlertController(title: nil, message: "Are you sure you want to end workout?", preferredStyle: .ActionSheet)
+        let alertController = UIAlertController(title: nil, message: "are you sure you want to end workout?", preferredStyle: .ActionSheet)
         let cancelAction = UIAlertAction(title: "cancel", style: .Cancel) { (action) in}
         let destroyAction = UIAlertAction(title: "end", style: .Destructive) { (action) in
-            WorkoutController.sharedInstance.endWorkoutController()
+            WorkoutController.sharedInstance.endWorkout()
             self.performSegueWithIdentifier("WorkoutSummarySegue", sender: nil)
         }
         
@@ -75,7 +75,7 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
         } else {
             sender.setTitle("resume", forState:.Normal)
         }
-        WorkoutController.sharedInstance.pauseWorkoutController()
+        WorkoutController.sharedInstance.pauseWorkout()
     }
     
     

@@ -11,6 +11,7 @@ import Foundation
 class WorkoutController {
     static let sharedInstance = WorkoutController()
     var workout :Workout?
+    var workoutArray :[Workout]?
     
     var pause = Bool()
     var caloriesBurned = Int()
@@ -22,15 +23,16 @@ class WorkoutController {
     
     func startWorkout() {
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(WorkoutController.secondsInterval), userInfo: nil, repeats: true)
+        heartBeatArray.removeAllObjects()
         seconds = 0
         pause = false
-        SpeechUtterance.sharedInstance.speakStartWorkoutController()
+        SpeechUtterance.sharedInstance.speakStartWorkout()
         
         workout = Workout()
         workout?.startTime = NSDate()
     }
     
-    func pauseWorkoutController() {
+    func pauseWorkout() {
         if pause == false {
             timer.pause()
         } else {
@@ -40,17 +42,20 @@ class WorkoutController {
         SpeechUtterance.sharedInstance.speakPauseValues()
     }
     
-    func endWorkoutController() {
+    func endWorkout() {
         timer.pause()
-        SpeechUtterance.sharedInstance.speakCompletedWorkoutControllerValues()
+        SpeechUtterance.sharedInstance.speakCompletedWorkoutValues()
         //populating workout
         workout!.arrayBeatsPerMinute = heartBeatArray
         workout!.caloriesBurned = caloriesBurned
         workout!.secondsElapsed = seconds
         workout!.beatsPerMinuteAverage = averageBPMInt()
         workout!.endTime = NSDate()
-        print(workout.debugDescription)
-        //TODO: create a save model mechanism
+    }
+    
+    func saveWorkout() {
+        Health.sharedInstance.saveWorkoutToHealthKit()
+        CloudKitWrapper.sharedInstance.saveRecordToPrivateDatabase((workout?.record())!)
     }
     
     @objc func secondsInterval()  {
@@ -64,7 +69,7 @@ class WorkoutController {
         //speech utter
         let audioTiming = UserSettings.sharedInstance.audioTiming
         if audioTiming != 0 && minutes % audioTiming == 0 && seconds % 60 == 0 {
-            SpeechUtterance.sharedInstance.speakWorkoutControllerValues()
+            SpeechUtterance.sharedInstance.speakWorkoutValues()
         }
     }
     

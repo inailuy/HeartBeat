@@ -21,12 +21,12 @@ class SpeechUtterance: NSObject, AVSpeechSynthesizerDelegate {
         speechSynthesizer.delegate = self
     }
     // Create All Spoken Cues
-    func speakStartWorkoutController() {
+    func speakStartWorkout() {
         let utter = "starting workout"
         speak(utter)
     }
     
-    func speakWorkoutControllerValues() {
+    func speakWorkoutValues() {
         let workoutController = WorkoutController.sharedInstance
         let user = UserSettings.sharedInstance
         let comma = ", "
@@ -67,13 +67,13 @@ class SpeechUtterance: NSObject, AVSpeechSynthesizerDelegate {
         speak(utter)
     }
     
-    func speakCompletedWorkoutControllerValues() {//TODO: better complete sentence
+    func speakCompletedWorkoutValues() {//TODO: better complete sentence
         let utter = "workout complete"
         speak(utter)
     }
     // Talk
     func speak(utter:String) {
-        if UserSettings.sharedInstance.mute { return } //TODO: initual launch unmutes *BUG*
+        if UserSettings.sharedInstance.mute { return }
         
         speechUtterance = AVSpeechUtterance(string: utter)
         speechUtterance.rate = UTTERANCE_RATE

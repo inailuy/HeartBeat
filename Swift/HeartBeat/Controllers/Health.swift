@@ -75,8 +75,15 @@ class Health {
         healthStore.executeQuery(sampleQuery)
     }
     //MARK: Modify/Save
-    func saveWorkoutToHealthKit() {
+    func saveWorkoutToHealthKit(workout:Workout) {
         //TODO: Save WorkoutModel to healthkit
+        //1.check if can/should save
+        
+        //2.create all variables
+        
+        //3.create hkworkout object
+        
+        //4.call healthkit save function
     }
     //MARK: Misc
     func dataTypesToWrite() -> NSSet {

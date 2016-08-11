@@ -486,6 +486,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Qvv-9t-nC3"/>
                     <connections>
+                        <outlet property="tableView" destination="b0j-r0-Ljg" id="QPz-CV-WED"/>
                         <segue destination="obG-38-Tps" kind="show" identifier="WorkoutSummarySegue" id="kjb-1j-rN3"/>
                     </connections>
                 </viewController>
@@ -877,6 +878,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SSA-dr-g8K"/>
+        <segue reference="kjb-1j-rN3"/>
     </inferredMetricsTieBreakers>
 </document>
