@@ -14,12 +14,15 @@ let helveticaThinFont = "HelveticaNeue-Thin"
 let helveticaLightFont = "HelveticaNeue-Light"
 let helveticaFont = "HelveticaNeue"
 let helveticaMediumFont = "HelveticaNeue-Medium"
+let helveticaUltraLightFont = "HelveticaNeue-UltraLight"
 
 class BaseVC: UIViewController {
     var healthStore : HKHealthStore!
     var WorkoutControllerTypesArray = NSArray()
     var appDelegate : AppDelegate! //Might Delete
     var blurView = UIView()
+    
+    var activityIndicatorView :DGActivityIndicatorView?
     
     enum Direction:Int{
         case left = 0, right = 1
@@ -29,6 +32,7 @@ class BaseVC: UIViewController {
         super.viewDidLoad()
         appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         createBlurEffect()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -92,5 +96,21 @@ class BaseVC: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
         view.hidden = true
+    }
+    
+    func startSpinner() {
+        if activityIndicatorView == nil {
+            activityIndicatorView = DGActivityIndicatorView(type: .DoubleBounce, tintColor: UIColor.darkGrayColor(), size: 75.0)
+            activityIndicatorView!.frame = self.view.frame
+        }
+        view.addSubview(activityIndicatorView!)
+        activityIndicatorView!.startAnimating()
+    }
+    
+    func stopSpinner() {
+        if activityIndicatorView != nil {
+            activityIndicatorView!.stopAnimating()
+            activityIndicatorView!.removeFromSuperview()
+        }
     }
 }

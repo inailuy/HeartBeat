@@ -9,3 +9,4 @@
 #import "BEMLine.h"
 #import "BEMPermanentPopupView.h"
 #import "BEMSimpleLineGraphView.h"
+#import "DGActivityIndicatorView.h"

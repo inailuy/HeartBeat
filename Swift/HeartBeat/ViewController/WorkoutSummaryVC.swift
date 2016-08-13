@@ -40,6 +40,8 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
         
         lineGraphView.delegate = self
         lineGraphView.dataSource = self
+        
+        title = workout.workoutType
     }
     
     func pressedOptionSaveButton(sender: UIButton!) {

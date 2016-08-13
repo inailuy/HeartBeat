@@ -54,7 +54,7 @@ class WorkoutController {
     }
     
     func saveWorkout() {
-        Health.sharedInstance.saveWorkoutToHealthKit()
+        Health.sharedInstance.saveWorkoutToHealthKit(workout!)
         CloudKitWrapper.sharedInstance.saveRecordToPrivateDatabase((workout?.record())!)
     }
     
@@ -120,7 +120,7 @@ class WorkoutController {
     }
     
     func currentBPM() -> String {
-        return String(Bluetooth.sharedInstance.beatPerMinuteValue)
+        return String(heartBeatArray.lastObject!)
     }
 }
 

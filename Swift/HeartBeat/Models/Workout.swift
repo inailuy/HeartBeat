@@ -21,15 +21,16 @@ struct Workout {
     var distancedTraveled :Double?
     var arrayGPSCoordinates :[Double]?//TODO: Wrong array type
     
-    var workoutType :String?
+    var workoutType :String!
     var interations :Int?
     
     var recordID :CKRecordID?
     
     var savedToHealthKit :Bool?
    
-    init() {
     
+    init() {
+        workoutType = "Cardio"
     }
     
     init(record:CKRecord) {
@@ -43,6 +44,7 @@ struct Workout {
         temp = record.valueForKey("secondsElapsed") as! NSNumber
         secondsElapsed = temp.integerValue
         recordID = record.recordID
+        workoutType = record.valueForKey("workoutType") as? String
     }
     
     func minutes() -> Int {
@@ -72,7 +74,8 @@ struct Workout {
         record.setValue(endTime, forKey: "endTime")
         record.setValue(secondsElapsed, forKey: "secondsElapsed")
         record.setValue(caloriesBurned, forKey: "caloriesBurned")
-
+        record.setValue(workoutType, forKey: "workoutType")
+        
         return record
     }
     

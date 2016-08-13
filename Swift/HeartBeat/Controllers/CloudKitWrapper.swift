@@ -129,7 +129,7 @@ class CloudKitWrapper {
             } else {
                 let arr = WorkoutController.sharedInstance.workoutArray!.filter( {$0.recordID != recordID} )
                 WorkoutController.sharedInstance.workoutArray = arr
-                NSNotificationCenter.defaultCenter().postNotificationName(CloudKitWrapperNotificationId, object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName(CloudKitWrapperNotificationId, object: recordID)
             }
         })
     }

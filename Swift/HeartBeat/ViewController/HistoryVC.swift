@@ -37,7 +37,7 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
             self.refreshControl.endRefreshing()
             self.tableView.reloadData()
-            //TODO:remove spinner!
+            self.stopSpinner()
         }
     }
     
@@ -45,16 +45,21 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
         CloudKitWrapper.sharedInstance.queryPrivateDatabaseForRecord(recordType, with: Workout.SortDescriptor())
     }
     
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cellId")
         let workout = WorkoutController.sharedInstance.workoutArray![indexPath.row]
-        
+        //
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "HH:mm MM/dd"
+        dateFormatter.dateFormat = "MM/dd"
         let dateInFormat = dateFormatter.stringFromDate(workout.endTime!)
+        //
         
-        cell!.textLabel!.text = dateInFormat
-        
+        cell?.textLabel?.font = UIFont(name: helveticaUltraLightFont, size: 30)
+        cell?.detailTextLabel?.font = UIFont(name: helveticaUltraLightFont, size: 15)
+        cell!.textLabel!.text = String(format: "   %i min",workout.minutes())
+        cell!.detailTextLabel!.text = String(format: "      %@  -  %@bpm  -  %@", workout.workoutType, workout.averageBPMString(), dateInFormat)
         return cell!
     }
     
@@ -76,9 +81,9 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
             let touchPoint = longPressGestureRecognizer.locationInView(tableView)
             if let indexPath = tableView.indexPathForRowAtPoint(touchPoint) {
                 let alertController = UIAlertController(title: nil, message: "are you sure you want to delete this workout?", preferredStyle: .ActionSheet)
-                let cancelAction = UIAlertAction(title: "cancel", style: .Cancel) { (action) in}
+                let cancelAction = UIAlertAction(title: "cancel", style: .Cancel) { (action) in }
                 let destroyAction = UIAlertAction(title: "delete", style: .Destructive) { (action) in
-                    //TODO:create spinner!
+                    self.startSpinner()
                     let workout = WorkoutController.sharedInstance.workoutArray![indexPath.row]
                     CloudKitWrapper.sharedInstance.deleteRecordFromPrivateDatabase(workout.recordID!)
                 }

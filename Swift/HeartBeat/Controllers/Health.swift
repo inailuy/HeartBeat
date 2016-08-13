@@ -76,14 +76,38 @@ class Health {
     }
     //MARK: Modify/Save
     func saveWorkoutToHealthKit(workout:Workout) {
-        //TODO: Save WorkoutModel to healthkit
         //1.check if can/should save
-        
-        //2.create all variables
-        
-        //3.create hkworkout object
-        
-        //4.call healthkit save function
+        if HKHealthStore.isHealthDataAvailable() && UserSettings.sharedInstance.userEnabledHealth {
+            //2.create all variables
+            let energyBurnedQuantity = HKQuantity(unit: HKUnit.kilocalorieUnit(), doubleValue: Double(workout.caloriesBurned!))
+            let metadata: [String: AnyObject] = [
+                HKMetadataKeyGroupFitness: false,
+                HKMetadataKeyIndoorWorkout: false,
+                HKMetadataKeyCoachedWorkout: true
+            ]
+            //3.create hkworkout object
+            let workoutSample = HKWorkout(
+                activityType: .FunctionalStrengthTraining,
+                startDate: workout.startTime!,
+                endDate: workout.endTime!,
+                workoutEvents: nil,
+                totalEnergyBurned: energyBurnedQuantity,
+                totalDistance: nil,
+                device: nil,
+                metadata: metadata
+            )
+            //4.call healthkit save function
+            healthStore.saveObject(workoutSample) { (success: Bool, error: NSError?) -> Void in
+                if success {
+                    // Workout was successfully saved
+                    print("Success")
+                }
+                else {
+                    // Workout was not successfully saved
+                    print(error?.localizedDescription)
+                }
+            }
+        }
     }
     //MARK: Misc
     func dataTypesToWrite() -> NSSet {
@@ -92,7 +116,7 @@ class Health {
         set.addObject(HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierDistanceWalkingRunning)!)
         set.addObject(HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierActiveEnergyBurned)!)
         set.addObject(HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)!)
-        //set.addObject(HKObjectType.WorkoutControllerType())
+        set.addObject(HKObjectType.workoutType())
         
         return set
     }
