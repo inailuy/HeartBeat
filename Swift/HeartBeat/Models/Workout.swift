@@ -9,7 +9,7 @@
 import Foundation
 import CloudKit
 
-struct Workout {
+class Workout {
     var arrayBeatsPerMinute :NSMutableArray?
     var beatsPerMinuteAverage :Int?
     var caloriesBurned :Int?

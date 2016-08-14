@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //setting Up SnapChatUI
         setUpStoryboardUI()
-        Health.sharedInstance.askPermissionForHealth()
+        //Health.sharedInstance.askPermissionForHealth()
         UserSettings.sharedInstance.loadInstances()
         Bluetooth.sharedInstance.load()
         
