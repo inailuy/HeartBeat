@@ -44,7 +44,6 @@ class WorkoutController {
     
     func endWorkout() {
         timer.pause()
-        SpeechUtterance.sharedInstance.speakCompletedWorkoutValues()
         //populating workout
         workout!.arrayBeatsPerMinute = heartBeatArray
         workout!.caloriesBurned = caloriesBurned
@@ -54,6 +53,7 @@ class WorkoutController {
     }
     
     func saveWorkout() {
+        SpeechUtterance.sharedInstance.speakCompletedWorkoutValues()
         Health.sharedInstance.saveWorkoutToHealthKit(workout!)
         CloudKitWrapper.sharedInstance.saveRecordToPrivateDatabase((workout?.record())!)
     }
@@ -71,6 +71,7 @@ class WorkoutController {
         if audioTiming != 0 && minutes % audioTiming == 0 && seconds % 60 == 0 {
             SpeechUtterance.sharedInstance.speakWorkoutValues()
         }
+        SpeechUtterance.sharedInstance.speakBPMValue()
     }
     
     func grabVO2MaxData()  -> String{

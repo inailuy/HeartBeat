@@ -98,11 +98,7 @@ class Health {
             )
             //4.call healthkit save function
             healthStore.saveObject(workoutSample) { (success: Bool, error: NSError?) -> Void in
-                if success {
-                    // Workout was successfully saved
-                    print("Success")
-                }
-                else {
+                if success == false {
                     // Workout was not successfully saved
                     print(error?.localizedDescription)
                 }

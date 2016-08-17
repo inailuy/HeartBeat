@@ -124,7 +124,7 @@ class Bluetooth: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         if(( (characteristic.value)) != nil) {
             beatPerMinuteValue = Int(array[1])
             if UserSettings.sharedInstance.debug {
-                beatPerMinuteValue += 175
+                beatPerMinuteValue += 75
             }
         }
     }

@@ -48,7 +48,7 @@ class BaseVC: UIViewController {
         blurView.frame = view.frame
         blurView.backgroundColor = UIColor.whiteColor()
         view.backgroundColor = UIColor.clearColor()
-        blurView.alpha = 0.35
+        blurView.alpha = 0.45
         //adding subviews
         blurView.addSubview(blurEffectView)
         view.addSubview(blurView)

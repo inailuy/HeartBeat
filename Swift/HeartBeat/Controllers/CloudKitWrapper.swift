@@ -103,7 +103,6 @@ class CloudKitWrapper {
     
     func queryWithRecordID(recordID:CKRecordID, with databse: CKDatabase) {
         privateDB.fetchRecordWithID(recordID, completionHandler: { record, error in
-            print(record)
             if error == true {
                 self.printError(error!)
             } else {

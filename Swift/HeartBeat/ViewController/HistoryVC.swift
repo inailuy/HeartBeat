@@ -22,6 +22,10 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         title = "history"
         
+        //TODO:implement maybe later?
+        //let btnBack = UIBarButtonItem(title: "edit", style: .Plain, target: self, action: #selector(HistoryVC.backButtonPressed))
+        //navigationItem.leftBarButtonItem = btnBack
+        
         createHeartNavigationButton(Direction.right.rawValue)
         NSNotificationCenter.defaultCenter().addObserver(
             self,
@@ -40,7 +44,7 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
             if notification.object != nil && self.selectedIndexPath != nil {
                 let recordID = notification.object as! CKRecordID
-                let arr = self.tableviewArray[self.selectedIndexPath!.section]
+                let arr = self.tableviewArray[self.selectedIndexPath!.section] as! NSMutableArray
                 let workout = arr[self.selectedIndexPath!.row] as! Workout
                 
                 if workout.recordID == recordID {
@@ -68,7 +72,7 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cellId")
         
-        let arr = tableviewArray[indexPath.section]
+        let arr = tableviewArray[indexPath.section] as! NSMutableArray
         let workout = arr[indexPath.row] as! Workout
 
         cell?.textLabel?.font = UIFont(name: helveticaUltraLightFont, size: 30)
@@ -94,7 +98,7 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         //grab workout in array
-        let array = tableviewArray[section]
+        let array = tableviewArray[section] as! NSMutableArray
         let workout = array[0] as! Workout
         //create date formatter
         let dateFormatter = NSDateFormatter()
@@ -131,13 +135,12 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
         //start loop from workouts
         for workout in WorkoutController.sharedInstance.workoutArray! {
             var shouldCreateNewArray = true
-            for tmpArr in arr {
+            for i in arr {
                 //grab each arrays first value
+                let tmpArr = i as! NSMutableArray
                 if tmpArr.count > 0 {
                     let w = tmpArr[0] as! Workout
                     //check if current value matches first arrays value
-                    print(w.startTime)
-                    print(workout.startTime)
                     if NSCalendar.currentCalendar().isDate(w.startTime!, inSameDayAsDate: workout.startTime!){
                         shouldCreateNewArray = false
                         tmpArr.addObject(workout)
@@ -161,7 +164,7 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
         if segue.identifier == "WorkoutSummarySegue" {
             let vc = segue.destinationViewController as! WorkoutSummaryVC
             vc.shouldDisplaySaveOptions = false
-            let arr = tableviewArray[selectedIndexPath!.section]
+            let arr = tableviewArray[selectedIndexPath!.section] as! NSMutableArray
             vc.workout = arr[selectedIndexPath!.row] as! Workout
         }
     }

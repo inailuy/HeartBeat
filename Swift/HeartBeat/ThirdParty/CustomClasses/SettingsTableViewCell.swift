@@ -43,6 +43,14 @@ class SettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
             let num = Float(text)
             if num != nil { user.modifyWeight(num!) }
             break
+        case "     Minimum":
+            let num = Int(text)
+            if num != nil { user.minimumBPM = num! }
+            break
+        case "     Maximum":
+            let num = Int(text)
+            if num != nil { user.maximunBPM = num! }
+            break
         default: break
         }
         //Save Data Call here

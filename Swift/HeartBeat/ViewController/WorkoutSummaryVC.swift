@@ -44,11 +44,7 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
         title = workout.workoutType
     }
     
-    func pressedOptionSaveButton(sender: UIButton!) {
-        if sender.titleLabel?.text == "save" {
-            WorkoutController.sharedInstance.saveWorkout()
-        }
-        
+    func pressedOptionHideButton(sender: UIButton!) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     //MARK: TableView Delegate/Datasource
@@ -148,22 +144,14 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
             bottomView = UIView(frame: frame)
             bottomView.backgroundColor = UIColor.init(white: 0.65, alpha: 0.75)
             
-            let buttonWidth = bottomView.frame.size.width / 2
+            let buttonWidth = bottomView.frame.size.width
             let font = UIFont(name: helveticaThinFont, size: 22)
-            // creating delete button
-            let deleteButton = UIButton(type: .System)
-            deleteButton.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: height)
-            deleteButton.setTitle("delete", forState: UIControlState.Normal)
-            deleteButton.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
-            deleteButton.titleLabel?.font = font
-            deleteButton.addTarget(self, action: #selector(WorkoutSummaryVC.pressedOptionSaveButton(_:)), forControlEvents: .TouchUpInside)
-            bottomView.addSubview(deleteButton)
             // creating save button
             let saveButton = UIButton(type: .System)
-            saveButton.frame = CGRect(x: buttonWidth, y: 0, width: buttonWidth, height: height)
-            saveButton.setTitle("save", forState: UIControlState.Normal)
+            saveButton.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: height)
+            saveButton.setTitle("hide", forState: UIControlState.Normal)
             saveButton.titleLabel?.font = font
-            saveButton.addTarget(self, action: #selector(WorkoutSummaryVC.pressedOptionSaveButton(_:)), forControlEvents: .TouchUpInside)
+            saveButton.addTarget(self, action: #selector(WorkoutSummaryVC.pressedOptionHideButton(_:)), forControlEvents: .TouchUpInside)
             bottomView.addSubview(saveButton)
             
             view.addSubview(bottomView)

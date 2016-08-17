@@ -28,6 +28,8 @@ class UserSettings {
         case audioTiming = "AudioTimingKey"
         case mute = "MuteKey"
         case spokenCues = "SpokenCuesKey"
+        case minimumBPM = "minimumBPM"
+        case maximumBPM = "maximumBPM"
     }
 
     static let sharedInstance = UserSettings()
@@ -41,6 +43,8 @@ class UserSettings {
     var audioTiming = Int()
     var mute = Bool()
     var spokenCues = NSMutableArray()
+    var minimumBPM = Int()
+    var maximunBPM = Int()
     
     init () {
         loadFromDisk()
@@ -70,6 +74,10 @@ class UserSettings {
         audioTiming = numberObject.integerValue
         numberObject = numberObjectForKey(Key.mute.rawValue)
         mute = numberObject.boolValue
+        numberObject = numberObjectForKey(Key.minimumBPM.rawValue)
+        minimumBPM = numberObject.integerValue
+        numberObject = numberObjectForKey(Key.maximumBPM.rawValue)
+        maximunBPM = numberObject.integerValue
         
         if (NSUserDefaults.standardUserDefaults().objectForKey(Key.spokenCues.rawValue) != nil) {
             let arr = NSUserDefaults.standardUserDefaults().objectForKey(Key.spokenCues.rawValue) as! NSArray
@@ -126,6 +134,8 @@ class UserSettings {
         userDefaults.setInteger(audioTiming, forKey: Key.audioTiming.rawValue)
         userDefaults.setObject(spokenCues, forKey: Key.spokenCues.rawValue)
         userDefaults.setObject(mute, forKey: Key.mute.rawValue)
+        userDefaults.setInteger(minimumBPM, forKey: Key.minimumBPM.rawValue)
+        userDefaults.setInteger(maximunBPM, forKey: Key.maximumBPM.rawValue)
         
         userDefaults.synchronize()
     }
@@ -141,6 +151,9 @@ class UserSettings {
         mute = false
         audioTiming = 0
         spokenCues = [0,0,0,0]
+        minimumBPM = 0
+        maximunBPM = 0
+        
         saveToDisk()
     }
     

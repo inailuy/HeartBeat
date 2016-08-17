@@ -43,6 +43,7 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
     
     @IBAction func activityButtonPressed(sender: AnyObject) {
         //might delete feature
+        self.performSegueWithIdentifier("SegueCues", sender: nil)
     }
     
     @IBAction func muteButtonPressed(sender: UIButton) {
@@ -58,13 +59,19 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
     @IBAction func endButtonPressed(sender: AnyObject) {
         let alertController = UIAlertController(title: nil, message: "are you sure you want to end workout?", preferredStyle: .ActionSheet)
         let cancelAction = UIAlertAction(title: "cancel", style: .Cancel) { (action) in}
-        let destroyAction = UIAlertAction(title: "end", style: .Destructive) { (action) in
+        let deleteAction = UIAlertAction(title: "delete", style: .Destructive) { (action) in
             WorkoutController.sharedInstance.endWorkout()
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        let saveAction = UIAlertAction(title: "save", style: .Default) { (action) in
+            WorkoutController.sharedInstance.endWorkout()
+            WorkoutController.sharedInstance.saveWorkout()
             self.performSegueWithIdentifier("WorkoutSummarySegue", sender: nil)
         }
         
         alertController.addAction(cancelAction)
-        alertController.addAction(destroyAction)
+        alertController.addAction(deleteAction)
+        alertController.addAction(saveAction)
         
         self.presentViewController(alertController, animated: true) { }
     }
@@ -94,6 +101,7 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
     //MARK: WorkoutControllerDelegate
     func updateUI(sender: WorkoutController) {
         if sender.seconds > 9 {
+            
             averageBPMLabel.text = sender.averageBPMString() + " Average bpm"
             currentBPMLabel.text = sender.currentBPM() + " Current bpm"
             caloriesBurnedLabel.text = sender.grabVO2MaxData() + " Calories burned"
@@ -206,8 +214,10 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
             vc.shouldDisplaySaveOptions = true
             vc.region = mapView.region
             vc.workout = WorkoutController.sharedInstance.workout!
-        } else if segue.identifier == "WorkoutTypeSegue" {
-            
+        } else if segue.identifier == "SegueCues" {
+             let nc = segue.destinationViewController as! UINavigationController
+            let vc = nc.viewControllers[0] as! AudioCuesVC
+            vc.didAppearModally = true
         }
     }
 }

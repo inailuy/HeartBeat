@@ -14,11 +14,16 @@ class SpeechUtterance: NSObject, AVSpeechSynthesizerDelegate {
     let UTTERANCE_RATE :Float = 0.45 //speed in which to speak values
     var speechUtterance = AVSpeechUtterance()
     let speechSynthesizer = AVSpeechSynthesizer()
+    var canSpeakLimitsValues = Bool()
 
     // Initiate Class
     override init() {
         super.init()
         speechSynthesizer.delegate = self
+        
+        let session = AVAudioSession.sharedInstance()
+        try! session.setCategory(AVAudioSessionCategoryPlayback, withOptions: .DuckOthers)
+        try! session.setActive(true)
     }
     // Create All Spoken Cues
     func speakStartWorkout() {
@@ -71,6 +76,28 @@ class SpeechUtterance: NSObject, AVSpeechSynthesizerDelegate {
         let utter = "workout complete"
         speak(utter)
     }
+    
+    func speakBPMValue() {
+        if canSpeakLimitsValues == false {
+            var speech = ""
+            if Bluetooth.sharedInstance.beatPerMinuteValue > UserSettings.sharedInstance.maximunBPM &&
+            UserSettings.sharedInstance.maximunBPM != 0{
+                speech = String(format: "You have passed your max limit of %i bpm", UserSettings.sharedInstance.maximunBPM)
+            } else if Bluetooth.sharedInstance.beatPerMinuteValue < UserSettings.sharedInstance.minimumBPM &&
+            UserSettings.sharedInstance.minimumBPM != 0{
+                speech = String(format: "You have passed your minimum limit of %i bpm", UserSettings.sharedInstance.minimumBPM)
+            }
+            if speech != "" {
+                canSpeakLimitsValues = true
+                NSTimer.scheduledTimerWithTimeInterval(45.0, target: self, selector: #selector(SpeechUtterance.resetSpeechLimits), userInfo:nil, repeats: false)
+            }
+        }
+    }
+    
+    func resetSpeechLimits() {
+        canSpeakLimitsValues = false
+    }
+    
     // Talk
     func speak(utter:String) {
         if UserSettings.sharedInstance.mute { return }
@@ -83,7 +110,9 @@ class SpeechUtterance: NSObject, AVSpeechSynthesizerDelegate {
     func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didStartSpeechUtterance utterance: AVSpeechUtterance) {
         do {
             try AVAudioSession.sharedInstance().setActive(true)
-        } catch { }
+        } catch {
+        
+        }
     }
     
     func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didFinishSpeechUtterance utterance: AVSpeechUtterance) {
