@@ -36,12 +36,21 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HeartBeat/ViewController/WorkoutVC.swift"
+<<<<<<< HEAD
             timestampString = "499764961.102038"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "215"
             endingLineNumber = "215"
             landmarkName = "prepareForSegue(_:sender:)"
+=======
+            timestampString = "493082039.099804"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
+            landmarkName = "prepareForSegue(segue:sender:)"
+>>>>>>> 7ab179ad5445ae4bdfb32d6f897ec6be9c8ab888
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -61,6 +70,7 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+<<<<<<< HEAD
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
@@ -77,5 +87,7 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+=======
+>>>>>>> 7ab179ad5445ae4bdfb32d6f897ec6be9c8ab888
    </Breakpoints>
 </Bucket>

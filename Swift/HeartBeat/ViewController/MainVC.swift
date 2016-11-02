@@ -16,7 +16,6 @@ class MainVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         self.title = "heartbeat"
         let historyButton = UIBarButtonItem(title: "History", style: UIBarButtonItemStyle.Done, target: self, action: #selector(historyButtonPressed))
         let settingsButton = UIBarButtonItem(title: "Settings", style: UIBarButtonItemStyle.Done, target: self, action: #selector(settingsButtonPressed))
@@ -24,9 +23,8 @@ class MainVC: BaseVC {
         navigationItem.rightBarButtonItem = settingsButton
         
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(MainVC.updateBluetoothData), userInfo:nil, repeats: true)
-
         //startWorkoutButtonPressed(UIButton())
-        
+        //startWorkoutButtonPressed(UIButton())
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -34,7 +34,6 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         createSaveOptionView()
         adjustTableview()
         

@@ -11,8 +11,6 @@ import Foundation
 class WorkoutController {
     static let sharedInstance = WorkoutController()
     var workout :Workout?
-    //TODO: var workoutArray :[Workout]?
-    
     
     var pause = Bool()
     var caloriesBurned = Int()

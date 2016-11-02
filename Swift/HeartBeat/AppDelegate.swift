@@ -21,8 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //Register FacebookSDK
         //FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-
-        
         // Register for push notifications
         let notificationSettings = UIUserNotificationSettings(forTypes: .Alert, categories: nil)
         application.registerUserNotificationSettings(notificationSettings)
@@ -35,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Bluetooth.sharedInstance.load()
         
         DataController.sharedInstance.load()
-        
         //Navigation Appearance
         let barButtonAppearance = [NSFontAttributeName : UIFont(name: helveticaLightFont, size: 18)!]
         let navBarApearance = [NSFontAttributeName : UIFont(name: helveticaLightFont, size: 24)!,
