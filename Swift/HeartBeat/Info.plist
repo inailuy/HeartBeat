@@ -38,16 +38,22 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb568773256603355</string>
+				<string>fb116922828756432</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>568773256603355</string>
+	<string>116947618753953</string>
+	<key>AccountKitClientToken</key>
+	<string>f4e4a2bd5f34cf51c4550957976c80f1</string>
 	<key>FacebookDisplayName</key>
-	<string>Heart Beat</string>
+	<string>HeartBeat</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Save Workout Data</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Data to determine calorie burn</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -89,7 +95,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Location is used to determine distance during workouts</string>
+	<string>Location is used to determine distance during WorkoutControllers</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>

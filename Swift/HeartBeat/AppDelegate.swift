@@ -9,20 +9,40 @@
 import UIKit
 import CoreData
 import HealthKit
+import CloudKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let swipeBetweenVC: YZSwipeBetweenViewController! = YZSwipeBetweenViewController()
-    var instance: AppDelegate!
-    var healthStore = HKHealthStore()
+    let swipeBetweenVC: YZSwipeBetweenViewController = YZSwipeBetweenViewController()
+    static let sharedInstance = AppDelegate()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        //Setting Up SnapChatUI
-        setUpStoryboardUI()
-        var v : Int = flo
+        //Register FacebookSDK
+        //FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+
         
+        // Register for push notifications
+        let notificationSettings = UIUserNotificationSettings(forTypes: .Alert, categories: nil)
+        application.registerUserNotificationSettings(notificationSettings)
+        application.registerForRemoteNotifications()
+        
+        //setting Up SnapChatUI
+        setUpStoryboardUI()
+        Health.sharedInstance.askPermissionForHealth()
+        UserSettings.sharedInstance.loadInstances()
+        Bluetooth.sharedInstance.load()
+        
+        DataController.sharedInstance.load()
+        
+        //Navigation Appearance
+        let barButtonAppearance = [NSFontAttributeName : UIFont(name: helveticaLightFont, size: 18)!]
+        let navBarApearance = [NSFontAttributeName : UIFont(name: helveticaLightFont, size: 24)!,
+                               NSForegroundColorAttributeName: UIColor.darkGrayColor()]
+        UIBarButtonItem.appearance().setTitleTextAttributes(barButtonAppearance, forState: .Normal)
+        UINavigationBar.appearance().titleTextAttributes = navBarApearance
+
         return true
     }
 
@@ -42,6 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        //FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -49,7 +70,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
-
+    /*
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+    }
+    */
     // MARK: - Core Data stack
 
     lazy var applicationDocumentsDirectory: NSURL = {
@@ -117,7 +142,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setUpStoryboardUI() {
         swipeBetweenVC.initialViewControllerIndex = 1
         swipeBetweenVC.scrollView.alwaysBounceVertical = false
-        //Creating ViewControllers and NavigationsControllers
+        //creating ViewControllers and NavigationsControllers
         let storyBoard = UIStoryboard(name:"Main", bundle: nil)
         let historyVC = storyBoard.instantiateViewControllerWithIdentifier("historyID")
         let mainVC = storyBoard.instantiateViewControllerWithIdentifier("mainID")
@@ -126,12 +151,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let nav2 = UINavigationController(rootViewController: mainVC)
         let nav3 = UINavigationController(rootViewController: settingsVC)
         swipeBetweenVC.viewControllers = [nav1,nav2,nav3]
-        //Add everything into UIWindow
+        //add everything into UIWindow
         let frame = UIScreen.mainScreen().bounds
-        window = UIWindow(frame: frame)
-        window?.rootViewController = swipeBetweenVC as YZSwipeBetweenViewController
-        window?.makeKeyAndVisible()
+        window?.frame = frame
+        window!.rootViewController = swipeBetweenVC
+        window!.makeKeyAndVisible()
     }
     
+    // MARK: - Notifications
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        let ckNotification = CKNotification(fromRemoteNotificationDictionary: userInfo as! [String : NSObject])
+        if ckNotification.notificationType == .Query,
+            let queryNotification = ckNotification as? CKQueryNotification
+        {
+            if queryNotification.queryNotificationReason == .RecordCreated {
+                CloudKit.sharedInstance.queryPrivateDatabaseWithRecordID(queryNotification.recordID!)
+            } else if queryNotification.queryNotificationReason == .RecordDeleted {
+                // delete
+            } else if queryNotification.queryNotificationReason == .RecordUpdated {
+                // updated
+            }
+        }
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        //print(error.localizedDescription)
+    }
 }
 

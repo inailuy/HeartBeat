@@ -11,21 +11,30 @@ import UIKit
 
 
 class MainVC: BaseVC {
-    //2 labels
-    //perfromLoginOperation class method
-    
     @IBOutlet weak var bpmLabel: UILabel!
-    @IBOutlet weak var startWorkoutLabel: UIButton!
+    @IBOutlet weak var startWorkoutControllerLabel: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
+        self.title = "heartbeat"
         let historyButton = UIBarButtonItem(title: "History", style: UIBarButtonItemStyle.Done, target: self, action: #selector(historyButtonPressed))
         let settingsButton = UIBarButtonItem(title: "Settings", style: UIBarButtonItemStyle.Done, target: self, action: #selector(settingsButtonPressed))
         navigationItem.leftBarButtonItem = historyButton
         navigationItem.rightBarButtonItem = settingsButton
         
+        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(MainVC.updateBluetoothData), userInfo:nil, repeats: true)
+
+        //startWorkoutButtonPressed(UIButton())
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        //let loginVC = LoginVC()
+        //self.presentViewController(loginVC, animated: false, completion: nil)
     }
     
     func historyButtonPressed() {
@@ -34,5 +43,13 @@ class MainVC: BaseVC {
     
     func settingsButtonPressed() {
         appDelegate.swipeBetweenVC.scrollToViewControllerAtIndex(2, animated: true)
+    }
+    @IBAction func startWorkoutButtonPressed(sender: UIButton) {
+        WorkoutController.sharedInstance.startWorkout()
+        performSegueWithIdentifier("WorkoutSegue", sender: nil)
+    }
+    
+    func updateBluetoothData() {
+        bpmLabel.text = String(Bluetooth.sharedInstance.beatPerMinuteValue) + " bpm"
     }
 }

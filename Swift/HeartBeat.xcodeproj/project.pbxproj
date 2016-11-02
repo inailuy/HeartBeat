@@ -7,55 +7,166 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3300CD521D5C40B3007F0A99 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD511D5C40B3007F0A99 /* UserSettings.swift */; };
+		3300CD581D5D2DEA007F0A99 /* DGActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD571D5D2DEA007F0A99 /* DGActivityIndicatorView.m */; };
+		3300CDA01D5D2F1F007F0A99 /* DGActivityIndicatorAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD5D1D5D2F1F007F0A99 /* DGActivityIndicatorAnimation.m */; };
+		3300CDA31D5D2F1F007F0A99 /* DGActivityIndicatorBallBeatAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD5F1D5D2F1F007F0A99 /* DGActivityIndicatorBallBeatAnimation.m */; };
+		3300CDA61D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD611D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotateAnimation.m */; };
+		3300CDA91D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotateMultipleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD631D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotateMultipleAnimation.m */; };
+		3300CDAC1D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotatePulseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD651D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotatePulseAnimation.m */; };
+		3300CDAF1D5D2F1F007F0A99 /* DGActivityIndicatorBallGridBeatAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD671D5D2F1F007F0A99 /* DGActivityIndicatorBallGridBeatAnimation.m */; };
+		3300CDB21D5D2F1F007F0A99 /* DGActivityIndicatorBallGridPulseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD691D5D2F1F007F0A99 /* DGActivityIndicatorBallGridPulseAnimation.m */; };
+		3300CDB51D5D2F1F007F0A99 /* DGActivityIndicatorBallPulseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD6B1D5D2F1F007F0A99 /* DGActivityIndicatorBallPulseAnimation.m */; };
+		3300CDB81D5D2F1F007F0A99 /* DGActivityIndicatorBallPulseSyncAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD6D1D5D2F1F007F0A99 /* DGActivityIndicatorBallPulseSyncAnimation.m */; };
+		3300CDBB1D5D2F1F007F0A99 /* DGActivityIndicatorBallRotateAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD6F1D5D2F1F007F0A99 /* DGActivityIndicatorBallRotateAnimation.m */; };
+		3300CDBE1D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD711D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleAnimation.m */; };
+		3300CDC11D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleMultipleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD731D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleMultipleAnimation.m */; };
+		3300CDC41D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleRippleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD751D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleRippleAnimation.m */; };
+		3300CDC71D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD771D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m */; };
+		3300CDCA1D5D2F1F007F0A99 /* DGActivityIndicatorBallSpinFadeLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD791D5D2F1F007F0A99 /* DGActivityIndicatorBallSpinFadeLoader.m */; };
+		3300CDCD1D5D2F1F007F0A99 /* DGActivityIndicatorBallTrianglePathAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD7B1D5D2F1F007F0A99 /* DGActivityIndicatorBallTrianglePathAnimation.m */; };
+		3300CDD01D5D2F1F007F0A99 /* DGActivityIndicatorBallZigZagAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD7D1D5D2F1F007F0A99 /* DGActivityIndicatorBallZigZagAnimation.m */; };
+		3300CDD31D5D2F1F007F0A99 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD7F1D5D2F1F007F0A99 /* DGActivityIndicatorBallZigZagDeflectAnimation.m */; };
+		3300CDD61D5D2F1F007F0A99 /* DGActivityIndicatorCookieTerminatorAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD811D5D2F1F007F0A99 /* DGActivityIndicatorCookieTerminatorAnimation.m */; };
+		3300CDD91D5D2F1F007F0A99 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD831D5D2F1F007F0A99 /* DGActivityIndicatorDoubleBounceAnimation.m */; };
+		3300CDDC1D5D2F1F007F0A99 /* DGActivityIndicatorFiveDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD851D5D2F1F007F0A99 /* DGActivityIndicatorFiveDotsAnimation.m */; };
+		3300CDDF1D5D2F1F007F0A99 /* DGActivityIndicatorLineScaleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD871D5D2F1F007F0A99 /* DGActivityIndicatorLineScaleAnimation.m */; };
+		3300CDE21D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePartyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD891D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePartyAnimation.m */; };
+		3300CDE51D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePulseOutAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD8B1D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePulseOutAnimation.m */; };
+		3300CDE81D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD8D1D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m */; };
+		3300CDEB1D5D2F1F007F0A99 /* DGActivityIndicatorNineDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD8F1D5D2F1F007F0A99 /* DGActivityIndicatorNineDotsAnimation.m */; };
+		3300CDEE1D5D2F1F007F0A99 /* DGActivityIndicatorRotatingSandglassAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD911D5D2F1F007F0A99 /* DGActivityIndicatorRotatingSandglassAnimation.m */; };
+		3300CDF11D5D2F1F007F0A99 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD931D5D2F1F007F0A99 /* DGActivityIndicatorRotatingSquaresAnimation.m */; };
+		3300CDF41D5D2F1F007F0A99 /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD951D5D2F1F007F0A99 /* DGActivityIndicatorRotatingTrigonAnimation.m */; };
+		3300CDF71D5D2F1F007F0A99 /* DGActivityIndicatorThreeDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD971D5D2F1F007F0A99 /* DGActivityIndicatorThreeDotsAnimation.m */; };
+		3300CDFA1D5D2F1F007F0A99 /* DGActivityIndicatorTriangleSkewSpinAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD991D5D2F1F007F0A99 /* DGActivityIndicatorTriangleSkewSpinAnimation.m */; };
+		3300CDFD1D5D2F1F007F0A99 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD9B1D5D2F1F007F0A99 /* DGActivityIndicatorTriplePulseAnimation.m */; };
+		3300CE001D5D2F1F007F0A99 /* DGActivityIndicatorTripleRingsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD9D1D5D2F1F007F0A99 /* DGActivityIndicatorTripleRingsAnimation.m */; };
+		3300CE031D5D2F1F007F0A99 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD9F1D5D2F1F007F0A99 /* DGActivityIndicatorTwoDotsAnimation.m */; };
+		33193DCE1D7BD1C800624956 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33193DCD1D7BD1C800624956 /* DataController.swift */; };
+		33389B081D2071F2002F09FA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33389B071D2071F2002F09FA /* MapKit.framework */; };
+		334130781D500FBB00758A80 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334130771D500FBB00758A80 /* Workout.swift */; };
+		33550AC61D53E64E0036122A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33550AC51D53E64E0036122A /* CloudKit.framework */; };
+		33550AC91D53F4F90036122A /* QuickSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33550AC81D53F4F90036122A /* QuickSort.swift */; };
+		336AF2891D2591E400D70DA9 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2881D2591E400D70DA9 /* Health.swift */; };
+		336AF2951D25DCC100D70DA9 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2941D25DCC100D70DA9 /* Bluetooth.swift */; };
+		336AF2991D25DF9A00D70DA9 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336AF2981D25DF9A00D70DA9 /* CoreBluetooth.framework */; };
 		337469291D12416C008F38C4 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469271D12416C008F38C4 /* BaseVC.swift */; };
 		3374692B1D12416C008F38C4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469281D12416C008F38C4 /* MainVC.swift */; };
 		337469311D124192008F38C4 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469301D124192008F38C4 /* SettingsVC.swift */; };
-		337469321D124192008F38C4 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469301D124192008F38C4 /* SettingsVC.swift */; };
 		337469341D12419F008F38C4 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469331D12419F008F38C4 /* LoginVC.swift */; };
-		337469351D12419F008F38C4 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469331D12419F008F38C4 /* LoginVC.swift */; };
 		337469371D1241B4008F38C4 /* WorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469361D1241B4008F38C4 /* WorkoutVC.swift */; };
-		337469381D1241B4008F38C4 /* WorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469361D1241B4008F38C4 /* WorkoutVC.swift */; };
 		3374693D1D1241CE008F38C4 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374693C1D1241CE008F38C4 /* HistoryVC.swift */; };
-		3374693E1D1241CE008F38C4 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374693C1D1241CE008F38C4 /* HistoryVC.swift */; };
 		337469401D1241F2008F38C4 /* WorkoutSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374693F1D1241F2008F38C4 /* WorkoutSummaryVC.swift */; };
-		337469411D1241F2008F38C4 /* WorkoutSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374693F1D1241F2008F38C4 /* WorkoutSummaryVC.swift */; };
 		337469431D124212008F38C4 /* WorkoutTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469421D124212008F38C4 /* WorkoutTypeVC.swift */; };
-		337469441D124212008F38C4 /* WorkoutTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469421D124212008F38C4 /* WorkoutTypeVC.swift */; };
-		337469461D124221008F38C4 /* AudioCuesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469451D124221008F38C4 /* AudioCuesTVC.swift */; };
-		337469471D124221008F38C4 /* AudioCuesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469451D124221008F38C4 /* AudioCuesTVC.swift */; };
-		3374694F1D124846008F38C4 /* YZSwipeBetweenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3374694D1D124846008F38C4 /* YZSwipeBetweenViewController.m */; };
+		337469461D124221008F38C4 /* AudioCuesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469451D124221008F38C4 /* AudioCuesVC.swift */; };
 		337469531D126920008F38C4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 337469521D126920008F38C4 /* HealthKit.framework */; };
-		337469541D126920008F38C4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 337469521D126920008F38C4 /* HealthKit.framework */; };
 		337469551D126DB2008F38C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F271B01D123D8500588247 /* AppDelegate.swift */; };
-		337469561D126E6A008F38C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F271B01D123D8500588247 /* AppDelegate.swift */; };
+		3377FEB81D2899B400D0BA98 /* BEMAverageLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEAF1D2899B400D0BA98 /* BEMAverageLine.m */; };
+		3377FEB91D2899B400D0BA98 /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEB11D2899B400D0BA98 /* BEMCircle.m */; };
+		3377FEBA1D2899B400D0BA98 /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEB31D2899B400D0BA98 /* BEMLine.m */; };
+		3377FEBB1D2899B400D0BA98 /* BEMPermanentPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEB51D2899B400D0BA98 /* BEMPermanentPopupView.m */; };
+		3377FEBC1D2899B400D0BA98 /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEB71D2899B400D0BA98 /* BEMSimpleLineGraphView.m */; };
+		3377FEBE1D289E0200D0BA98 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEBD1D289E0200D0BA98 /* WorkoutController.swift */; };
+		3377FEC41D28D5CD00D0BA98 /* NSTimer+Pause.m in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEC31D28D5CD00D0BA98 /* NSTimer+Pause.m */; };
+		3377FED21D2C793F00D0BA98 /* VO2Max.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3377FED11D2C793F00D0BA98 /* VO2Max.swift */; };
+		33858BCE1D5554600078127B /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33858BCD1D5554600078127B /* CloudKit.swift */; };
+		33A93BE61D75216100770375 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A93BE51D75216100770375 /* CoreData.swift */; };
 		33BA773E1D187E72009BD322 /* YZSwipeBetweenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3374694D1D124846008F38C4 /* YZSwipeBetweenViewController.m */; };
+		33DE2B711D2CD57D00D78811 /* SpeechUtterance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DE2B701D2CD57D00D78811 /* SpeechUtterance.swift */; };
 		33F271B61D123D8500588247 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33F271B41D123D8500588247 /* Main.storyboard */; };
 		33F271B91D123D8500588247 /* HeartBeat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33F271B71D123D8500588247 /* HeartBeat.xcdatamodeld */; };
 		33F271BB1D123D8500588247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33F271BA1D123D8500588247 /* Assets.xcassets */; };
 		33F271BE1D123D8500588247 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33F271BC1D123D8500588247 /* LaunchScreen.storyboard */; };
-		33F271C91D123D8500588247 /* HeartBeatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F271C81D123D8500588247 /* HeartBeatTests.swift */; };
-		33F271D41D123D8500588247 /* HeartBeatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F271D31D123D8500588247 /* HeartBeatUITests.swift */; };
 		33F271E21D123F1300588247 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33F271E11D123F1300588247 /* AVFoundation.framework */; };
+		33FF20C11D5FF12200EBAFDD /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FF20C01D5FF12200EBAFDD /* SettingsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		33F271C51D123D8500588247 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 33F271A51D123D8500588247 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 33F271AC1D123D8500588247;
-			remoteInfo = HeartBeat;
-		};
-		33F271D01D123D8500588247 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 33F271A51D123D8500588247 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 33F271AC1D123D8500588247;
-			remoteInfo = HeartBeat;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		3300CD511D5C40B3007F0A99 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSettings.swift; path = Controllers/UserSettings.swift; sourceTree = "<group>"; };
+		3300CD561D5D2DEA007F0A99 /* DGActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorView.h; path = ThirdParty/Spinner/DGActivityIndicatorView.h; sourceTree = "<group>"; };
+		3300CD571D5D2DEA007F0A99 /* DGActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorView.m; path = ThirdParty/Spinner/DGActivityIndicatorView.m; sourceTree = "<group>"; };
+		3300CD5C1D5D2F1F007F0A99 /* DGActivityIndicatorAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorAnimation.h; sourceTree = "<group>"; };
+		3300CD5D1D5D2F1F007F0A99 /* DGActivityIndicatorAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorAnimation.m; sourceTree = "<group>"; };
+		3300CD5E1D5D2F1F007F0A99 /* DGActivityIndicatorBallBeatAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorBallBeatAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallBeatAnimation.h; sourceTree = "<group>"; };
+		3300CD5F1D5D2F1F007F0A99 /* DGActivityIndicatorBallBeatAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorBallBeatAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallBeatAnimation.m; sourceTree = "<group>"; };
+		3300CD601D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotateAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorBallClipRotateAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallClipRotateAnimation.h; sourceTree = "<group>"; };
+		3300CD611D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotateAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorBallClipRotateAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallClipRotateAnimation.m; sourceTree = "<group>"; };
+		3300CD621D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotateMultipleAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorBallClipRotateMultipleAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallClipRotateMultipleAnimation.h; sourceTree = "<group>"; };
+		3300CD631D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotateMultipleAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorBallClipRotateMultipleAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallClipRotateMultipleAnimation.m; sourceTree = "<group>"; };
+		3300CD641D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotatePulseAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorBallClipRotatePulseAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallClipRotatePulseAnimation.h; sourceTree = "<group>"; };
+		3300CD651D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotatePulseAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorBallClipRotatePulseAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallClipRotatePulseAnimation.m; sourceTree = "<group>"; };
+		3300CD661D5D2F1F007F0A99 /* DGActivityIndicatorBallGridBeatAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorBallGridBeatAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallGridBeatAnimation.h; sourceTree = "<group>"; };
+		3300CD671D5D2F1F007F0A99 /* DGActivityIndicatorBallGridBeatAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorBallGridBeatAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallGridBeatAnimation.m; sourceTree = "<group>"; };
+		3300CD681D5D2F1F007F0A99 /* DGActivityIndicatorBallGridPulseAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorBallGridPulseAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallGridPulseAnimation.h; sourceTree = "<group>"; };
+		3300CD691D5D2F1F007F0A99 /* DGActivityIndicatorBallGridPulseAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorBallGridPulseAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallGridPulseAnimation.m; sourceTree = "<group>"; };
+		3300CD6A1D5D2F1F007F0A99 /* DGActivityIndicatorBallPulseAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorBallPulseAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallPulseAnimation.h; sourceTree = "<group>"; };
+		3300CD6B1D5D2F1F007F0A99 /* DGActivityIndicatorBallPulseAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorBallPulseAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallPulseAnimation.m; sourceTree = "<group>"; };
+		3300CD6C1D5D2F1F007F0A99 /* DGActivityIndicatorBallPulseSyncAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorBallPulseSyncAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallPulseSyncAnimation.h; sourceTree = "<group>"; };
+		3300CD6D1D5D2F1F007F0A99 /* DGActivityIndicatorBallPulseSyncAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorBallPulseSyncAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallPulseSyncAnimation.m; sourceTree = "<group>"; };
+		3300CD6E1D5D2F1F007F0A99 /* DGActivityIndicatorBallRotateAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorBallRotateAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallRotateAnimation.h; sourceTree = "<group>"; };
+		3300CD6F1D5D2F1F007F0A99 /* DGActivityIndicatorBallRotateAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorBallRotateAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallRotateAnimation.m; sourceTree = "<group>"; };
+		3300CD701D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorBallScaleAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallScaleAnimation.h; sourceTree = "<group>"; };
+		3300CD711D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorBallScaleAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallScaleAnimation.m; sourceTree = "<group>"; };
+		3300CD721D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleMultipleAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorBallScaleMultipleAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallScaleMultipleAnimation.h; sourceTree = "<group>"; };
+		3300CD731D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleMultipleAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorBallScaleMultipleAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallScaleMultipleAnimation.m; sourceTree = "<group>"; };
+		3300CD741D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleRippleAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorBallScaleRippleAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallScaleRippleAnimation.h; sourceTree = "<group>"; };
+		3300CD751D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleRippleAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorBallScaleRippleAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallScaleRippleAnimation.m; sourceTree = "<group>"; };
+		3300CD761D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorBallScaleRippleMultipleAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallScaleRippleMultipleAnimation.h; sourceTree = "<group>"; };
+		3300CD771D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorBallScaleRippleMultipleAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallScaleRippleMultipleAnimation.m; sourceTree = "<group>"; };
+		3300CD781D5D2F1F007F0A99 /* DGActivityIndicatorBallSpinFadeLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorBallSpinFadeLoader.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallSpinFadeLoader.h; sourceTree = "<group>"; };
+		3300CD791D5D2F1F007F0A99 /* DGActivityIndicatorBallSpinFadeLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorBallSpinFadeLoader.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallSpinFadeLoader.m; sourceTree = "<group>"; };
+		3300CD7A1D5D2F1F007F0A99 /* DGActivityIndicatorBallTrianglePathAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorBallTrianglePathAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallTrianglePathAnimation.h; sourceTree = "<group>"; };
+		3300CD7B1D5D2F1F007F0A99 /* DGActivityIndicatorBallTrianglePathAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorBallTrianglePathAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallTrianglePathAnimation.m; sourceTree = "<group>"; };
+		3300CD7C1D5D2F1F007F0A99 /* DGActivityIndicatorBallZigZagAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorBallZigZagAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallZigZagAnimation.h; sourceTree = "<group>"; };
+		3300CD7D1D5D2F1F007F0A99 /* DGActivityIndicatorBallZigZagAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorBallZigZagAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallZigZagAnimation.m; sourceTree = "<group>"; };
+		3300CD7E1D5D2F1F007F0A99 /* DGActivityIndicatorBallZigZagDeflectAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorBallZigZagDeflectAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallZigZagDeflectAnimation.h; sourceTree = "<group>"; };
+		3300CD7F1D5D2F1F007F0A99 /* DGActivityIndicatorBallZigZagDeflectAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorBallZigZagDeflectAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorBallZigZagDeflectAnimation.m; sourceTree = "<group>"; };
+		3300CD801D5D2F1F007F0A99 /* DGActivityIndicatorCookieTerminatorAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorCookieTerminatorAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorCookieTerminatorAnimation.h; sourceTree = "<group>"; };
+		3300CD811D5D2F1F007F0A99 /* DGActivityIndicatorCookieTerminatorAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorCookieTerminatorAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorCookieTerminatorAnimation.m; sourceTree = "<group>"; };
+		3300CD821D5D2F1F007F0A99 /* DGActivityIndicatorDoubleBounceAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorDoubleBounceAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorDoubleBounceAnimation.h; sourceTree = "<group>"; };
+		3300CD831D5D2F1F007F0A99 /* DGActivityIndicatorDoubleBounceAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorDoubleBounceAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorDoubleBounceAnimation.m; sourceTree = "<group>"; };
+		3300CD841D5D2F1F007F0A99 /* DGActivityIndicatorFiveDotsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorFiveDotsAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorFiveDotsAnimation.h; sourceTree = "<group>"; };
+		3300CD851D5D2F1F007F0A99 /* DGActivityIndicatorFiveDotsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorFiveDotsAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorFiveDotsAnimation.m; sourceTree = "<group>"; };
+		3300CD861D5D2F1F007F0A99 /* DGActivityIndicatorLineScaleAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorLineScaleAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorLineScaleAnimation.h; sourceTree = "<group>"; };
+		3300CD871D5D2F1F007F0A99 /* DGActivityIndicatorLineScaleAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorLineScaleAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorLineScaleAnimation.m; sourceTree = "<group>"; };
+		3300CD881D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePartyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorLineScalePartyAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorLineScalePartyAnimation.h; sourceTree = "<group>"; };
+		3300CD891D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePartyAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorLineScalePartyAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorLineScalePartyAnimation.m; sourceTree = "<group>"; };
+		3300CD8A1D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePulseOutAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorLineScalePulseOutAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorLineScalePulseOutAnimation.h; sourceTree = "<group>"; };
+		3300CD8B1D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePulseOutAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorLineScalePulseOutAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorLineScalePulseOutAnimation.m; sourceTree = "<group>"; };
+		3300CD8C1D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorLineScalePulseOutRapidAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorLineScalePulseOutRapidAnimation.h; sourceTree = "<group>"; };
+		3300CD8D1D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorLineScalePulseOutRapidAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorLineScalePulseOutRapidAnimation.m; sourceTree = "<group>"; };
+		3300CD8E1D5D2F1F007F0A99 /* DGActivityIndicatorNineDotsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorNineDotsAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorNineDotsAnimation.h; sourceTree = "<group>"; };
+		3300CD8F1D5D2F1F007F0A99 /* DGActivityIndicatorNineDotsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorNineDotsAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorNineDotsAnimation.m; sourceTree = "<group>"; };
+		3300CD901D5D2F1F007F0A99 /* DGActivityIndicatorRotatingSandglassAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorRotatingSandglassAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorRotatingSandglassAnimation.h; sourceTree = "<group>"; };
+		3300CD911D5D2F1F007F0A99 /* DGActivityIndicatorRotatingSandglassAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorRotatingSandglassAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorRotatingSandglassAnimation.m; sourceTree = "<group>"; };
+		3300CD921D5D2F1F007F0A99 /* DGActivityIndicatorRotatingSquaresAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorRotatingSquaresAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorRotatingSquaresAnimation.h; sourceTree = "<group>"; };
+		3300CD931D5D2F1F007F0A99 /* DGActivityIndicatorRotatingSquaresAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorRotatingSquaresAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorRotatingSquaresAnimation.m; sourceTree = "<group>"; };
+		3300CD941D5D2F1F007F0A99 /* DGActivityIndicatorRotatingTrigonAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorRotatingTrigonAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorRotatingTrigonAnimation.h; sourceTree = "<group>"; };
+		3300CD951D5D2F1F007F0A99 /* DGActivityIndicatorRotatingTrigonAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorRotatingTrigonAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorRotatingTrigonAnimation.m; sourceTree = "<group>"; };
+		3300CD961D5D2F1F007F0A99 /* DGActivityIndicatorThreeDotsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorThreeDotsAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorThreeDotsAnimation.h; sourceTree = "<group>"; };
+		3300CD971D5D2F1F007F0A99 /* DGActivityIndicatorThreeDotsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorThreeDotsAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorThreeDotsAnimation.m; sourceTree = "<group>"; };
+		3300CD981D5D2F1F007F0A99 /* DGActivityIndicatorTriangleSkewSpinAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorTriangleSkewSpinAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorTriangleSkewSpinAnimation.h; sourceTree = "<group>"; };
+		3300CD991D5D2F1F007F0A99 /* DGActivityIndicatorTriangleSkewSpinAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorTriangleSkewSpinAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorTriangleSkewSpinAnimation.m; sourceTree = "<group>"; };
+		3300CD9A1D5D2F1F007F0A99 /* DGActivityIndicatorTriplePulseAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorTriplePulseAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorTriplePulseAnimation.h; sourceTree = "<group>"; };
+		3300CD9B1D5D2F1F007F0A99 /* DGActivityIndicatorTriplePulseAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorTriplePulseAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorTriplePulseAnimation.m; sourceTree = "<group>"; };
+		3300CD9C1D5D2F1F007F0A99 /* DGActivityIndicatorTripleRingsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorTripleRingsAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorTripleRingsAnimation.h; sourceTree = "<group>"; };
+		3300CD9D1D5D2F1F007F0A99 /* DGActivityIndicatorTripleRingsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorTripleRingsAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorTripleRingsAnimation.m; sourceTree = "<group>"; };
+		3300CD9E1D5D2F1F007F0A99 /* DGActivityIndicatorTwoDotsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorTwoDotsAnimation.h; path = ThirdParty/Spinner/Animations/DGActivityIndicatorTwoDotsAnimation.h; sourceTree = "<group>"; };
+		3300CD9F1D5D2F1F007F0A99 /* DGActivityIndicatorTwoDotsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorTwoDotsAnimation.m; path = ThirdParty/Spinner/Animations/DGActivityIndicatorTwoDotsAnimation.m; sourceTree = "<group>"; };
+		3300CE061D5D2F4C007F0A99 /* DGActivityIndicatorAnimationProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGActivityIndicatorAnimationProtocol.h; path = ThirdParty/Spinner/DGActivityIndicatorAnimationProtocol.h; sourceTree = "<group>"; };
+		3308FF031DB99469004D9666 /* HeartBeatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeatTests.swift; sourceTree = "<group>"; };
+		3308FF051DB99469004D9666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3308FF0B1DB99731004D9666 /* DatabaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseTest.swift; path = HeartBeatTests/DatabaseTest.swift; sourceTree = SOURCE_ROOT; };
+		33193DCD1D7BD1C800624956 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataController.swift; path = Controllers/DataController.swift; sourceTree = "<group>"; };
+		33389B071D2071F2002F09FA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
+		334130771D500FBB00758A80 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Workout.swift; path = Models/Workout.swift; sourceTree = "<group>"; };
+		33550AC51D53E64E0036122A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		33550AC81D53F4F90036122A /* QuickSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuickSort.swift; path = ThirdParty/Sort/QuickSort.swift; sourceTree = "<group>"; };
+		336AF2881D2591E400D70DA9 /* Health.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Health.swift; path = Controllers/Health.swift; sourceTree = "<group>"; };
+		336AF2941D25DCC100D70DA9 /* Bluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bluetooth.swift; path = Controllers/Bluetooth.swift; sourceTree = "<group>"; };
+		336AF2981D25DF9A00D70DA9 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
+		336C6B941D5FF3640056A088 /* HeartBeat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HeartBeat-Bridging-Header.h"; path = "ThirdParty/BridgeFiles/HeartBeat-Bridging-Header.h"; sourceTree = "<group>"; };
 		337469271D12416C008F38C4 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseVC.swift; path = ViewController/BaseVC.swift; sourceTree = "<group>"; };
 		337469281D12416C008F38C4 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainVC.swift; path = ViewController/MainVC.swift; sourceTree = "<group>"; };
 		337469301D124192008F38C4 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsVC.swift; path = ViewController/SettingsVC.swift; sourceTree = "<group>"; };
@@ -64,12 +175,27 @@
 		3374693C1D1241CE008F38C4 /* HistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryVC.swift; path = ViewController/HistoryVC.swift; sourceTree = "<group>"; };
 		3374693F1D1241F2008F38C4 /* WorkoutSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutSummaryVC.swift; path = ViewController/WorkoutSummaryVC.swift; sourceTree = "<group>"; };
 		337469421D124212008F38C4 /* WorkoutTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutTypeVC.swift; path = ViewController/WorkoutTypeVC.swift; sourceTree = "<group>"; };
-		337469451D124221008F38C4 /* AudioCuesTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioCuesTVC.swift; path = ViewController/AudioCuesTVC.swift; sourceTree = "<group>"; };
-		3374694A1D124845008F38C4 /* HeartBeat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeartBeat-Bridging-Header.h"; sourceTree = "<group>"; };
-		3374694B1D124846008F38C4 /* HeartBeatTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeartBeatTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		337469451D124221008F38C4 /* AudioCuesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioCuesVC.swift; path = ViewController/AudioCuesVC.swift; sourceTree = "<group>"; };
 		3374694C1D124846008F38C4 /* YZSwipeBetweenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZSwipeBetweenViewController.h; path = ThirdParty/SnapChatUI/YZSwipeBetweenViewController.h; sourceTree = "<group>"; };
 		3374694D1D124846008F38C4 /* YZSwipeBetweenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZSwipeBetweenViewController.m; path = ThirdParty/SnapChatUI/YZSwipeBetweenViewController.m; sourceTree = "<group>"; };
 		337469521D126920008F38C4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		3377FEAE1D2899B400D0BA98 /* BEMAverageLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMAverageLine.h; path = ThirdParty/BEMSimpleLineGraph/BEMAverageLine.h; sourceTree = "<group>"; };
+		3377FEAF1D2899B400D0BA98 /* BEMAverageLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMAverageLine.m; path = ThirdParty/BEMSimpleLineGraph/BEMAverageLine.m; sourceTree = "<group>"; };
+		3377FEB01D2899B400D0BA98 /* BEMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMCircle.h; path = ThirdParty/BEMSimpleLineGraph/BEMCircle.h; sourceTree = "<group>"; };
+		3377FEB11D2899B400D0BA98 /* BEMCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMCircle.m; path = ThirdParty/BEMSimpleLineGraph/BEMCircle.m; sourceTree = "<group>"; };
+		3377FEB21D2899B400D0BA98 /* BEMLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMLine.h; path = ThirdParty/BEMSimpleLineGraph/BEMLine.h; sourceTree = "<group>"; };
+		3377FEB31D2899B400D0BA98 /* BEMLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMLine.m; path = ThirdParty/BEMSimpleLineGraph/BEMLine.m; sourceTree = "<group>"; };
+		3377FEB41D2899B400D0BA98 /* BEMPermanentPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMPermanentPopupView.h; path = ThirdParty/BEMSimpleLineGraph/BEMPermanentPopupView.h; sourceTree = "<group>"; };
+		3377FEB51D2899B400D0BA98 /* BEMPermanentPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMPermanentPopupView.m; path = ThirdParty/BEMSimpleLineGraph/BEMPermanentPopupView.m; sourceTree = "<group>"; };
+		3377FEB61D2899B400D0BA98 /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMSimpleLineGraphView.h; path = ThirdParty/BEMSimpleLineGraph/BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
+		3377FEB71D2899B400D0BA98 /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMSimpleLineGraphView.m; path = ThirdParty/BEMSimpleLineGraph/BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
+		3377FEBD1D289E0200D0BA98 /* WorkoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutController.swift; path = Controllers/WorkoutController.swift; sourceTree = "<group>"; };
+		3377FEC21D28D5CD00D0BA98 /* NSTimer+Pause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+Pause.h"; path = "ThirdParty/NSTimer+Pause/NSTimer+Pause.h"; sourceTree = "<group>"; };
+		3377FEC31D28D5CD00D0BA98 /* NSTimer+Pause.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+Pause.m"; path = "ThirdParty/NSTimer+Pause/NSTimer+Pause.m"; sourceTree = "<group>"; };
+		3377FED11D2C793F00D0BA98 /* VO2Max.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VO2Max.swift; path = Models/VO2Max.swift; sourceTree = "<group>"; };
+		33858BCD1D5554600078127B /* CloudKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CloudKit.swift; path = Controllers/CloudKit.swift; sourceTree = "<group>"; };
+		33A93BE51D75216100770375 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreData.swift; path = Controllers/CoreData.swift; sourceTree = "<group>"; };
+		33DE2B701D2CD57D00D78811 /* SpeechUtterance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeechUtterance.swift; path = Controllers/SpeechUtterance.swift; sourceTree = "<group>"; };
 		33F271AD1D123D8500588247 /* HeartBeat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartBeat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33F271B01D123D8500588247 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33F271B51D123D8500588247 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,14 +203,9 @@
 		33F271BA1D123D8500588247 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33F271BD1D123D8500588247 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33F271BF1D123D8500588247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		33F271C41D123D8500588247 /* HeartBeatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeartBeatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		33F271C81D123D8500588247 /* HeartBeatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeatTests.swift; sourceTree = "<group>"; };
-		33F271CA1D123D8500588247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		33F271CF1D123D8500588247 /* HeartBeatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeartBeatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		33F271D31D123D8500588247 /* HeartBeatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeatUITests.swift; sourceTree = "<group>"; };
-		33F271D51D123D8500588247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33F271E11D123F1300588247 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		33F272431D123FA400588247 /* HeartBeat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HeartBeat.entitlements; sourceTree = "<group>"; };
+		33FF20C01D5FF12200EBAFDD /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewCell.swift; path = ThirdParty/CustomClasses/SettingsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,33 +213,164 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33550AC61D53E64E0036122A /* CloudKit.framework in Frameworks */,
 				33F271E21D123F1300588247 /* AVFoundation.framework in Frameworks */,
+				33389B081D2071F2002F09FA /* MapKit.framework in Frameworks */,
+				336AF2991D25DF9A00D70DA9 /* CoreBluetooth.framework in Frameworks */,
 				337469531D126920008F38C4 /* HealthKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		33F271C11D123D8500588247 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				337469541D126920008F38C4 /* HealthKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		33F271CC1D123D8500588247 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3300CD551D5D2D59007F0A99 /* Spinner */ = {
+			isa = PBXGroup;
+			children = (
+				3300CD5B1D5D2F11007F0A99 /* Animations */,
+				3300CE061D5D2F4C007F0A99 /* DGActivityIndicatorAnimationProtocol.h */,
+				3300CD561D5D2DEA007F0A99 /* DGActivityIndicatorView.h */,
+				3300CD571D5D2DEA007F0A99 /* DGActivityIndicatorView.m */,
+			);
+			name = Spinner;
+			sourceTree = "<group>";
+		};
+		3300CD5B1D5D2F11007F0A99 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				3300CD5C1D5D2F1F007F0A99 /* DGActivityIndicatorAnimation.h */,
+				3300CD5D1D5D2F1F007F0A99 /* DGActivityIndicatorAnimation.m */,
+				3300CD5E1D5D2F1F007F0A99 /* DGActivityIndicatorBallBeatAnimation.h */,
+				3300CD5F1D5D2F1F007F0A99 /* DGActivityIndicatorBallBeatAnimation.m */,
+				3300CD601D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotateAnimation.h */,
+				3300CD611D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotateAnimation.m */,
+				3300CD621D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotateMultipleAnimation.h */,
+				3300CD631D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotateMultipleAnimation.m */,
+				3300CD641D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotatePulseAnimation.h */,
+				3300CD651D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotatePulseAnimation.m */,
+				3300CD661D5D2F1F007F0A99 /* DGActivityIndicatorBallGridBeatAnimation.h */,
+				3300CD671D5D2F1F007F0A99 /* DGActivityIndicatorBallGridBeatAnimation.m */,
+				3300CD681D5D2F1F007F0A99 /* DGActivityIndicatorBallGridPulseAnimation.h */,
+				3300CD691D5D2F1F007F0A99 /* DGActivityIndicatorBallGridPulseAnimation.m */,
+				3300CD6A1D5D2F1F007F0A99 /* DGActivityIndicatorBallPulseAnimation.h */,
+				3300CD6B1D5D2F1F007F0A99 /* DGActivityIndicatorBallPulseAnimation.m */,
+				3300CD6C1D5D2F1F007F0A99 /* DGActivityIndicatorBallPulseSyncAnimation.h */,
+				3300CD6D1D5D2F1F007F0A99 /* DGActivityIndicatorBallPulseSyncAnimation.m */,
+				3300CD6E1D5D2F1F007F0A99 /* DGActivityIndicatorBallRotateAnimation.h */,
+				3300CD6F1D5D2F1F007F0A99 /* DGActivityIndicatorBallRotateAnimation.m */,
+				3300CD701D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleAnimation.h */,
+				3300CD711D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleAnimation.m */,
+				3300CD721D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleMultipleAnimation.h */,
+				3300CD731D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleMultipleAnimation.m */,
+				3300CD741D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleRippleAnimation.h */,
+				3300CD751D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleRippleAnimation.m */,
+				3300CD761D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.h */,
+				3300CD771D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m */,
+				3300CD781D5D2F1F007F0A99 /* DGActivityIndicatorBallSpinFadeLoader.h */,
+				3300CD791D5D2F1F007F0A99 /* DGActivityIndicatorBallSpinFadeLoader.m */,
+				3300CD7A1D5D2F1F007F0A99 /* DGActivityIndicatorBallTrianglePathAnimation.h */,
+				3300CD7B1D5D2F1F007F0A99 /* DGActivityIndicatorBallTrianglePathAnimation.m */,
+				3300CD7C1D5D2F1F007F0A99 /* DGActivityIndicatorBallZigZagAnimation.h */,
+				3300CD7D1D5D2F1F007F0A99 /* DGActivityIndicatorBallZigZagAnimation.m */,
+				3300CD7E1D5D2F1F007F0A99 /* DGActivityIndicatorBallZigZagDeflectAnimation.h */,
+				3300CD7F1D5D2F1F007F0A99 /* DGActivityIndicatorBallZigZagDeflectAnimation.m */,
+				3300CD801D5D2F1F007F0A99 /* DGActivityIndicatorCookieTerminatorAnimation.h */,
+				3300CD811D5D2F1F007F0A99 /* DGActivityIndicatorCookieTerminatorAnimation.m */,
+				3300CD821D5D2F1F007F0A99 /* DGActivityIndicatorDoubleBounceAnimation.h */,
+				3300CD831D5D2F1F007F0A99 /* DGActivityIndicatorDoubleBounceAnimation.m */,
+				3300CD841D5D2F1F007F0A99 /* DGActivityIndicatorFiveDotsAnimation.h */,
+				3300CD851D5D2F1F007F0A99 /* DGActivityIndicatorFiveDotsAnimation.m */,
+				3300CD861D5D2F1F007F0A99 /* DGActivityIndicatorLineScaleAnimation.h */,
+				3300CD871D5D2F1F007F0A99 /* DGActivityIndicatorLineScaleAnimation.m */,
+				3300CD881D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePartyAnimation.h */,
+				3300CD891D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePartyAnimation.m */,
+				3300CD8A1D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePulseOutAnimation.h */,
+				3300CD8B1D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePulseOutAnimation.m */,
+				3300CD8C1D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.h */,
+				3300CD8D1D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m */,
+				3300CD8E1D5D2F1F007F0A99 /* DGActivityIndicatorNineDotsAnimation.h */,
+				3300CD8F1D5D2F1F007F0A99 /* DGActivityIndicatorNineDotsAnimation.m */,
+				3300CD901D5D2F1F007F0A99 /* DGActivityIndicatorRotatingSandglassAnimation.h */,
+				3300CD911D5D2F1F007F0A99 /* DGActivityIndicatorRotatingSandglassAnimation.m */,
+				3300CD921D5D2F1F007F0A99 /* DGActivityIndicatorRotatingSquaresAnimation.h */,
+				3300CD931D5D2F1F007F0A99 /* DGActivityIndicatorRotatingSquaresAnimation.m */,
+				3300CD941D5D2F1F007F0A99 /* DGActivityIndicatorRotatingTrigonAnimation.h */,
+				3300CD951D5D2F1F007F0A99 /* DGActivityIndicatorRotatingTrigonAnimation.m */,
+				3300CD961D5D2F1F007F0A99 /* DGActivityIndicatorThreeDotsAnimation.h */,
+				3300CD971D5D2F1F007F0A99 /* DGActivityIndicatorThreeDotsAnimation.m */,
+				3300CD981D5D2F1F007F0A99 /* DGActivityIndicatorTriangleSkewSpinAnimation.h */,
+				3300CD991D5D2F1F007F0A99 /* DGActivityIndicatorTriangleSkewSpinAnimation.m */,
+				3300CD9A1D5D2F1F007F0A99 /* DGActivityIndicatorTriplePulseAnimation.h */,
+				3300CD9B1D5D2F1F007F0A99 /* DGActivityIndicatorTriplePulseAnimation.m */,
+				3300CD9C1D5D2F1F007F0A99 /* DGActivityIndicatorTripleRingsAnimation.h */,
+				3300CD9D1D5D2F1F007F0A99 /* DGActivityIndicatorTripleRingsAnimation.m */,
+				3300CD9E1D5D2F1F007F0A99 /* DGActivityIndicatorTwoDotsAnimation.h */,
+				3300CD9F1D5D2F1F007F0A99 /* DGActivityIndicatorTwoDotsAnimation.m */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
+		3308FF021DB99469004D9666 /* HeartBeatTests */ = {
+			isa = PBXGroup;
+			children = (
+				3308FF031DB99469004D9666 /* HeartBeatTests.swift */,
+				3308FF051DB99469004D9666 /* Info.plist */,
+			);
+			path = HeartBeatTests;
+			sourceTree = "<group>";
+		};
+		3308FF0D1DB99743004D9666 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				3308FF0B1DB99731004D9666 /* DatabaseTest.swift */,
+			);
+			name = Test;
+			sourceTree = "<group>";
+		};
+		33389B0C1D21DE2F002F09FA /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				33FF20C01D5FF12200EBAFDD /* SettingsTableViewCell.swift */,
+			);
+			name = "Custom Classes";
+			sourceTree = "<group>";
+		};
+		33550AC71D53F4D90036122A /* QuickSort */ = {
+			isa = PBXGroup;
+			children = (
+				33550AC81D53F4F90036122A /* QuickSort.swift */,
+			);
+			name = QuickSort;
+			sourceTree = "<group>";
+		};
+		336AF27F1D231B7100D70DA9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3377FED11D2C793F00D0BA98 /* VO2Max.swift */,
+				334130771D500FBB00758A80 /* Workout.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		336AF2871D2580FB00D70DA9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3300CD511D5C40B3007F0A99 /* UserSettings.swift */,
+				336AF2881D2591E400D70DA9 /* Health.swift */,
+				336AF2941D25DCC100D70DA9 /* Bluetooth.swift */,
+				3377FEBD1D289E0200D0BA98 /* WorkoutController.swift */,
+				33DE2B701D2CD57D00D78811 /* SpeechUtterance.swift */,
+				33858BCD1D5554600078127B /* CloudKit.swift */,
+				33A93BE51D75216100770375 /* CoreData.swift */,
+				33193DCD1D7BD1C800624956 /* DataController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		337469261D124157008F38C4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				337469451D124221008F38C4 /* AudioCuesTVC.swift */,
+				337469451D124221008F38C4 /* AudioCuesVC.swift */,
 				337469271D12416C008F38C4 /* BaseVC.swift */,
 				3374693C1D1241CE008F38C4 /* HistoryVC.swift */,
 				337469331D12419F008F38C4 /* LoginVC.swift */,
@@ -143,8 +395,7 @@
 		337469491D124811008F38C4 /* BridgeFiles */ = {
 			isa = PBXGroup;
 			children = (
-				3374694A1D124845008F38C4 /* HeartBeat-Bridging-Header.h */,
-				3374694B1D124846008F38C4 /* HeartBeatTests-Bridging-Header.h */,
+				336C6B941D5FF3640056A088 /* HeartBeat-Bridging-Header.h */,
 			);
 			name = BridgeFiles;
 			sourceTree = "<group>";
@@ -152,7 +403,13 @@
 		337469501D12485A008F38C4 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				3385C1DE1D643CBF00F01F94 /* FacebookSDK */,
+				3300CD551D5D2D59007F0A99 /* Spinner */,
+				3377FEC11D28D5A600D0BA98 /* NSTimer+Pause */,
+				3377FEAD1D28999500D0BA98 /* BEMSimpleLineGraph */,
+				33389B0C1D21DE2F002F09FA /* Custom Classes */,
 				337469481D124808008F38C4 /* SnapChatUI */,
+				33550AC71D53F4D90036122A /* QuickSort */,
 				337469491D124811008F38C4 /* BridgeFiles */,
 			);
 			name = ThirdParty;
@@ -161,18 +418,53 @@
 		337469511D1268FD008F38C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				33550AC51D53E64E0036122A /* CloudKit.framework */,
+				336AF2981D25DF9A00D70DA9 /* CoreBluetooth.framework */,
+				33389B071D2071F2002F09FA /* MapKit.framework */,
 				337469521D126920008F38C4 /* HealthKit.framework */,
 				33F271E11D123F1300588247 /* AVFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3377FEAD1D28999500D0BA98 /* BEMSimpleLineGraph */ = {
+			isa = PBXGroup;
+			children = (
+				3377FEAE1D2899B400D0BA98 /* BEMAverageLine.h */,
+				3377FEAF1D2899B400D0BA98 /* BEMAverageLine.m */,
+				3377FEB01D2899B400D0BA98 /* BEMCircle.h */,
+				3377FEB11D2899B400D0BA98 /* BEMCircle.m */,
+				3377FEB21D2899B400D0BA98 /* BEMLine.h */,
+				3377FEB31D2899B400D0BA98 /* BEMLine.m */,
+				3377FEB41D2899B400D0BA98 /* BEMPermanentPopupView.h */,
+				3377FEB51D2899B400D0BA98 /* BEMPermanentPopupView.m */,
+				3377FEB61D2899B400D0BA98 /* BEMSimpleLineGraphView.h */,
+				3377FEB71D2899B400D0BA98 /* BEMSimpleLineGraphView.m */,
+			);
+			name = BEMSimpleLineGraph;
+			sourceTree = "<group>";
+		};
+		3377FEC11D28D5A600D0BA98 /* NSTimer+Pause */ = {
+			isa = PBXGroup;
+			children = (
+				3377FEC21D28D5CD00D0BA98 /* NSTimer+Pause.h */,
+				3377FEC31D28D5CD00D0BA98 /* NSTimer+Pause.m */,
+			);
+			name = "NSTimer+Pause";
+			sourceTree = "<group>";
+		};
+		3385C1DE1D643CBF00F01F94 /* FacebookSDK */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = FacebookSDK;
+			sourceTree = "<group>";
+		};
 		33F271A41D123D8500588247 = {
 			isa = PBXGroup;
 			children = (
 				33F271AF1D123D8500588247 /* HeartBeat */,
-				33F271C71D123D8500588247 /* HeartBeatTests */,
-				33F271D21D123D8500588247 /* HeartBeatUITests */,
+				3308FF021DB99469004D9666 /* HeartBeatTests */,
 				33F271AE1D123D8500588247 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -181,8 +473,6 @@
 			isa = PBXGroup;
 			children = (
 				33F271AD1D123D8500588247 /* HeartBeat.app */,
-				33F271C41D123D8500588247 /* HeartBeatTests.xctest */,
-				33F271CF1D123D8500588247 /* HeartBeatUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,33 +483,18 @@
 				33F272431D123FA400588247 /* HeartBeat.entitlements */,
 				33F271B41D123D8500588247 /* Main.storyboard */,
 				33F271B01D123D8500588247 /* AppDelegate.swift */,
+				336AF27F1D231B7100D70DA9 /* Models */,
+				336AF2871D2580FB00D70DA9 /* Controllers */,
 				337469261D124157008F38C4 /* ViewControllers */,
 				337469501D12485A008F38C4 /* ThirdParty */,
 				337469511D1268FD008F38C4 /* Frameworks */,
+				3308FF0D1DB99743004D9666 /* Test */,
 				33F271BC1D123D8500588247 /* LaunchScreen.storyboard */,
 				33F271BA1D123D8500588247 /* Assets.xcassets */,
 				33F271BF1D123D8500588247 /* Info.plist */,
 				33F271B71D123D8500588247 /* HeartBeat.xcdatamodeld */,
 			);
 			path = HeartBeat;
-			sourceTree = "<group>";
-		};
-		33F271C71D123D8500588247 /* HeartBeatTests */ = {
-			isa = PBXGroup;
-			children = (
-				33F271C81D123D8500588247 /* HeartBeatTests.swift */,
-				33F271CA1D123D8500588247 /* Info.plist */,
-			);
-			path = HeartBeatTests;
-			sourceTree = "<group>";
-		};
-		33F271D21D123D8500588247 /* HeartBeatUITests */ = {
-			isa = PBXGroup;
-			children = (
-				33F271D31D123D8500588247 /* HeartBeatUITests.swift */,
-				33F271D51D123D8500588247 /* Info.plist */,
-			);
-			path = HeartBeatUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,55 +517,20 @@
 			productReference = 33F271AD1D123D8500588247 /* HeartBeat.app */;
 			productType = "com.apple.product-type.application";
 		};
-		33F271C31D123D8500588247 /* HeartBeatTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 33F271DB1D123D8500588247 /* Build configuration list for PBXNativeTarget "HeartBeatTests" */;
-			buildPhases = (
-				33F271C01D123D8500588247 /* Sources */,
-				33F271C11D123D8500588247 /* Frameworks */,
-				33F271C21D123D8500588247 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				33F271C61D123D8500588247 /* PBXTargetDependency */,
-			);
-			name = HeartBeatTests;
-			productName = HeartBeatTests;
-			productReference = 33F271C41D123D8500588247 /* HeartBeatTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		33F271CE1D123D8500588247 /* HeartBeatUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 33F271DE1D123D8500588247 /* Build configuration list for PBXNativeTarget "HeartBeatUITests" */;
-			buildPhases = (
-				33F271CB1D123D8500588247 /* Sources */,
-				33F271CC1D123D8500588247 /* Frameworks */,
-				33F271CD1D123D8500588247 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				33F271D11D123D8500588247 /* PBXTargetDependency */,
-			);
-			name = HeartBeatUITests;
-			productName = HeartBeatUITests;
-			productReference = 33F271CF1D123D8500588247 /* HeartBeatUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		33F271A51D123D8500588247 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Mxtapes;
 				TargetAttributes = {
 					33F271AC1D123D8500588247 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = K8YR4WT3S5;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -299,14 +539,6 @@
 								enabled = 1;
 							};
 						};
-					};
-					33F271C31D123D8500588247 = {
-						CreatedOnToolsVersion = 7.3;
-						TestTargetID = 33F271AC1D123D8500588247;
-					};
-					33F271CE1D123D8500588247 = {
-						CreatedOnToolsVersion = 7.3;
-						TestTargetID = 33F271AC1D123D8500588247;
 					};
 				};
 			};
@@ -324,8 +556,6 @@
 			projectRoot = "";
 			targets = (
 				33F271AC1D123D8500588247 /* HeartBeat */,
-				33F271C31D123D8500588247 /* HeartBeatTests */,
-				33F271CE1D123D8500588247 /* HeartBeatUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -341,20 +571,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		33F271C21D123D8500588247 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		33F271CD1D123D8500588247 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -362,60 +578,75 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3300CDE21D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePartyAnimation.m in Sources */,
+				3300CDD91D5D2F1F007F0A99 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */,
+				3300CDA91D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotateMultipleAnimation.m in Sources */,
+				336AF2951D25DCC100D70DA9 /* Bluetooth.swift in Sources */,
+				3300CE001D5D2F1F007F0A99 /* DGActivityIndicatorTripleRingsAnimation.m in Sources */,
+				3300CDDF1D5D2F1F007F0A99 /* DGActivityIndicatorLineScaleAnimation.m in Sources */,
+				3300CDE51D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePulseOutAnimation.m in Sources */,
 				33BA773E1D187E72009BD322 /* YZSwipeBetweenViewController.m in Sources */,
+				33DE2B711D2CD57D00D78811 /* SpeechUtterance.swift in Sources */,
 				337469551D126DB2008F38C4 /* AppDelegate.swift in Sources */,
+				3300CDC71D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m in Sources */,
+				33FF20C11D5FF12200EBAFDD /* SettingsTableViewCell.swift in Sources */,
+				3377FEBB1D2899B400D0BA98 /* BEMPermanentPopupView.m in Sources */,
+				3300CDF71D5D2F1F007F0A99 /* DGActivityIndicatorThreeDotsAnimation.m in Sources */,
+				3300CDA31D5D2F1F007F0A99 /* DGActivityIndicatorBallBeatAnimation.m in Sources */,
 				33F271B91D123D8500588247 /* HeartBeat.xcdatamodeld in Sources */,
 				3374693D1D1241CE008F38C4 /* HistoryVC.swift in Sources */,
+				3300CDEB1D5D2F1F007F0A99 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
 				3374692B1D12416C008F38C4 /* MainVC.swift in Sources */,
-				337469461D124221008F38C4 /* AudioCuesTVC.swift in Sources */,
+				337469461D124221008F38C4 /* AudioCuesVC.swift in Sources */,
+				3300CDD61D5D2F1F007F0A99 /* DGActivityIndicatorCookieTerminatorAnimation.m in Sources */,
+				3300CDC41D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleRippleAnimation.m in Sources */,
+				3300CD521D5C40B3007F0A99 /* UserSettings.swift in Sources */,
+				3300CD581D5D2DEA007F0A99 /* DGActivityIndicatorView.m in Sources */,
+				3377FEB91D2899B400D0BA98 /* BEMCircle.m in Sources */,
+				3300CDEE1D5D2F1F007F0A99 /* DGActivityIndicatorRotatingSandglassAnimation.m in Sources */,
+				3300CDA61D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */,
+				3300CDE81D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,
+				3300CDDC1D5D2F1F007F0A99 /* DGActivityIndicatorFiveDotsAnimation.m in Sources */,
 				337469341D12419F008F38C4 /* LoginVC.swift in Sources */,
+				3300CDD01D5D2F1F007F0A99 /* DGActivityIndicatorBallZigZagAnimation.m in Sources */,
+				33858BCE1D5554600078127B /* CloudKit.swift in Sources */,
+				3300CDBE1D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleAnimation.m in Sources */,
+				3300CDFA1D5D2F1F007F0A99 /* DGActivityIndicatorTriangleSkewSpinAnimation.m in Sources */,
 				337469431D124212008F38C4 /* WorkoutTypeVC.swift in Sources */,
 				337469291D12416C008F38C4 /* BaseVC.swift in Sources */,
+				3377FEBC1D2899B400D0BA98 /* BEMSimpleLineGraphView.m in Sources */,
+				3300CDFD1D5D2F1F007F0A99 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */,
 				337469371D1241B4008F38C4 /* WorkoutVC.swift in Sources */,
+				3300CDF41D5D2F1F007F0A99 /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */,
+				3300CDD31D5D2F1F007F0A99 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,
+				334130781D500FBB00758A80 /* Workout.swift in Sources */,
 				337469401D1241F2008F38C4 /* WorkoutSummaryVC.swift in Sources */,
+				3300CDAC1D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotatePulseAnimation.m in Sources */,
+				33A93BE61D75216100770375 /* CoreData.swift in Sources */,
+				3377FEBE1D289E0200D0BA98 /* WorkoutController.swift in Sources */,
+				3300CDCD1D5D2F1F007F0A99 /* DGActivityIndicatorBallTrianglePathAnimation.m in Sources */,
+				3377FEC41D28D5CD00D0BA98 /* NSTimer+Pause.m in Sources */,
+				3300CDC11D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleMultipleAnimation.m in Sources */,
+				3300CDB51D5D2F1F007F0A99 /* DGActivityIndicatorBallPulseAnimation.m in Sources */,
+				33193DCE1D7BD1C800624956 /* DataController.swift in Sources */,
+				3300CDAF1D5D2F1F007F0A99 /* DGActivityIndicatorBallGridBeatAnimation.m in Sources */,
+				3300CE031D5D2F1F007F0A99 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */,
+				3377FEB81D2899B400D0BA98 /* BEMAverageLine.m in Sources */,
+				3300CDB81D5D2F1F007F0A99 /* DGActivityIndicatorBallPulseSyncAnimation.m in Sources */,
+				3300CDCA1D5D2F1F007F0A99 /* DGActivityIndicatorBallSpinFadeLoader.m in Sources */,
+				3300CDF11D5D2F1F007F0A99 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */,
+				3300CDB21D5D2F1F007F0A99 /* DGActivityIndicatorBallGridPulseAnimation.m in Sources */,
+				33550AC91D53F4F90036122A /* QuickSort.swift in Sources */,
+				3377FED21D2C793F00D0BA98 /* VO2Max.swift in Sources */,
+				336AF2891D2591E400D70DA9 /* Health.swift in Sources */,
+				3377FEBA1D2899B400D0BA98 /* BEMLine.m in Sources */,
+				3300CDA01D5D2F1F007F0A99 /* DGActivityIndicatorAnimation.m in Sources */,
+				3300CDBB1D5D2F1F007F0A99 /* DGActivityIndicatorBallRotateAnimation.m in Sources */,
 				337469311D124192008F38C4 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		33F271C01D123D8500588247 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				33F271C91D123D8500588247 /* HeartBeatTests.swift in Sources */,
-				3374694F1D124846008F38C4 /* YZSwipeBetweenViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		33F271CB1D123D8500588247 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				337469561D126E6A008F38C4 /* AppDelegate.swift in Sources */,
-				33F271D41D123D8500588247 /* HeartBeatUITests.swift in Sources */,
-				337469351D12419F008F38C4 /* LoginVC.swift in Sources */,
-				337469381D1241B4008F38C4 /* WorkoutVC.swift in Sources */,
-				337469471D124221008F38C4 /* AudioCuesTVC.swift in Sources */,
-				3374693E1D1241CE008F38C4 /* HistoryVC.swift in Sources */,
-				337469441D124212008F38C4 /* WorkoutTypeVC.swift in Sources */,
-				337469321D124192008F38C4 /* SettingsVC.swift in Sources */,
-				337469411D1241F2008F38C4 /* WorkoutSummaryVC.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		33F271C61D123D8500588247 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 33F271AC1D123D8500588247 /* HeartBeat */;
-			targetProxy = 33F271C51D123D8500588247 /* PBXContainerItemProxy */;
-		};
-		33F271D11D123D8500588247 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 33F271AC1D123D8500588247 /* HeartBeat */;
-			targetProxy = 33F271D01D123D8500588247 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		33F271B41D123D8500588247 /* Main.storyboard */ = {
@@ -451,8 +682,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -478,6 +711,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = HeartBeat/ThirdParty/BridgeFiles/;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -497,8 +731,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -517,6 +753,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = HeartBeat/ThirdParty/BridgeFiles/;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -525,84 +762,46 @@
 		33F271D91D123D8500588247 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HeartBeat/HeartBeat.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HeartBeat/ThirdParty/FacebookSDK",
+				);
 				INFOPLIST_FILE = HeartBeat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inailuy.HeartBeat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/HeartBeat-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/ThirdParty/BridgeFiles/HeartBeat-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
 		33F271DA1D123D8500588247 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HeartBeat/HeartBeat.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HeartBeat/ThirdParty/FacebookSDK",
+				);
 				INFOPLIST_FILE = HeartBeat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inailuy.HeartBeat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/HeartBeat-Bridging-Header.h";
-			};
-			name = Release;
-		};
-		33F271DC1D123D8500588247 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = HeartBeatTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = inailuy.HeartBeatTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/HeartBeatTests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HeartBeat.app/HeartBeat";
-			};
-			name = Debug;
-		};
-		33F271DD1D123D8500588247 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = HeartBeatTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = inailuy.HeartBeatTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/HeartBeatTests-Bridging-Header.h";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HeartBeat.app/HeartBeat";
-			};
-			name = Release;
-		};
-		33F271DF1D123D8500588247 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = HeartBeatUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = inailuy.HeartBeatUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = HeartBeat;
-			};
-			name = Debug;
-		};
-		33F271E01D123D8500588247 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = HeartBeatUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = inailuy.HeartBeatUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = HeartBeat;
+				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/ThirdParty/BridgeFiles/HeartBeat-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -623,24 +822,6 @@
 			buildConfigurations = (
 				33F271D91D123D8500588247 /* Debug */,
 				33F271DA1D123D8500588247 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		33F271DB1D123D8500588247 /* Build configuration list for PBXNativeTarget "HeartBeatTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				33F271DC1D123D8500588247 /* Debug */,
-				33F271DD1D123D8500588247 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		33F271DE1D123D8500588247 /* Build configuration list for PBXNativeTarget "HeartBeatUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				33F271DF1D123D8500588247 /* Debug */,
-				33F271E01D123D8500588247 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

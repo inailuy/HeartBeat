@@ -2,12 +2,11 @@
 //  HeartBeatTests.swift
 //  HeartBeatTests
 //
-//  Created by inailuy on 6/15/16.
+//  Created by Yuliani Noriega on 10/20/16.
 //  Copyright © 2016 Mxtapes. All rights reserved.
 //
 
 import XCTest
-@testable import HeartBeat
 
 class HeartBeatTests: XCTestCase {
     
@@ -28,7 +27,7 @@ class HeartBeatTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }
