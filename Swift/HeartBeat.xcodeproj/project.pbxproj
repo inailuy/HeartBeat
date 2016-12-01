@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F1BF5DC301E5800B037CAA8 /* libPods-HeartBeat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0314750153042ABDDBE6B2 /* libPods-HeartBeat.a */; };
 		3300CD521D5C40B3007F0A99 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD511D5C40B3007F0A99 /* UserSettings.swift */; };
 		3300CD581D5D2DEA007F0A99 /* DGActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD571D5D2DEA007F0A99 /* DGActivityIndicatorView.m */; };
 		3300CDA01D5D2F1F007F0A99 /* DGActivityIndicatorAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD5D1D5D2F1F007F0A99 /* DGActivityIndicatorAnimation.m */; };
@@ -206,6 +207,9 @@
 		33F271E11D123F1300588247 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		33F272431D123FA400588247 /* HeartBeat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HeartBeat.entitlements; sourceTree = "<group>"; };
 		33FF20C01D5FF12200EBAFDD /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewCell.swift; path = ThirdParty/CustomClasses/SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		5D0314750153042ABDDBE6B2 /* libPods-HeartBeat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HeartBeat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		874A562BBCB9174AC2EA2A9A /* Pods-HeartBeat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartBeat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeartBeat/Pods-HeartBeat.debug.xcconfig"; sourceTree = "<group>"; };
+		FDF0355659680E709A71D8E8 /* Pods-HeartBeat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartBeat.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeartBeat/Pods-HeartBeat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,12 +222,30 @@
 				33389B081D2071F2002F09FA /* MapKit.framework in Frameworks */,
 				336AF2991D25DF9A00D70DA9 /* CoreBluetooth.framework in Frameworks */,
 				337469531D126920008F38C4 /* HealthKit.framework in Frameworks */,
+				2F1BF5DC301E5800B037CAA8 /* libPods-HeartBeat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0175E9AF51125D2CCC35525F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D0314750153042ABDDBE6B2 /* libPods-HeartBeat.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		044E9A44251CC8EB886A8F11 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				874A562BBCB9174AC2EA2A9A /* Pods-HeartBeat.debug.xcconfig */,
+				FDF0355659680E709A71D8E8 /* Pods-HeartBeat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3300CD551D5D2D59007F0A99 /* Spinner */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +488,8 @@
 				33F271AF1D123D8500588247 /* HeartBeat */,
 				3308FF021DB99469004D9666 /* HeartBeatTests */,
 				33F271AE1D123D8500588247 /* Products */,
+				044E9A44251CC8EB886A8F11 /* Pods */,
+				0175E9AF51125D2CCC35525F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -504,9 +528,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 33F271D81D123D8500588247 /* Build configuration list for PBXNativeTarget "HeartBeat" */;
 			buildPhases = (
+				D99E63C27645DB168292A043 /* [CP] Check Pods Manifest.lock */,
 				33F271A91D123D8500588247 /* Sources */,
 				33F271AA1D123D8500588247 /* Frameworks */,
 				33F271AB1D123D8500588247 /* Resources */,
+				E37627F3789B37EB52434797 /* [CP] Embed Pods Frameworks */,
+				8D8FDD3200915537207F5045 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -572,6 +599,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8D8FDD3200915537207F5045 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeartBeat/Pods-HeartBeat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D99E63C27645DB168292A043 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E37627F3789B37EB52434797 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeartBeat/Pods-HeartBeat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		33F271A91D123D8500588247 /* Sources */ = {
@@ -761,6 +836,7 @@
 		};
 		33F271D91D123D8500588247 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 874A562BBCB9174AC2EA2A9A /* Pods-HeartBeat.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -784,6 +860,7 @@
 		};
 		33F271DA1D123D8500588247 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDF0355659680E709A71D8E8 /* Pods-HeartBeat.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

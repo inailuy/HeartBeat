@@ -1,0 +1,8 @@
+platform :ios, ’9.0’
+target ‘HeartBeat’ do
+	pod 'Bolts'
+	pod 'FBSDKCoreKit'
+	pod 'FBSDKShareKit'
+	pod 'FBSDKLoginKit'
+    pod 'AccountKit'
+end
