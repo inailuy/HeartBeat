@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FDC46EA12CB9EF68EED1F839A2E836B5"
-               BuildableName = "libPods-HeartBeat.a"
+               BlueprintIdentifier = "FF035B2AE5F49D384549535113CAA12F"
+               BuildableName = "Pods_HeartBeat.framework"
                BlueprintName = "Pods-HeartBeat"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -45,8 +45,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FDC46EA12CB9EF68EED1F839A2E836B5"
-            BuildableName = "libPods-HeartBeat.a"
+            BlueprintIdentifier = "FF035B2AE5F49D384549535113CAA12F"
+            BuildableName = "Pods_HeartBeat.framework"
             BlueprintName = "Pods-HeartBeat"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FDC46EA12CB9EF68EED1F839A2E836B5"
-            BuildableName = "libPods-HeartBeat.a"
-            BlueprintName = "Pods-HeartBeat"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

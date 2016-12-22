@@ -76,12 +76,10 @@ EOM
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "AccountKit/AccountKitAdditionalStrings.bundle"
   install_resource "AccountKit/AccountKitStrings.bundle"
-  install_resource "FBSDKCoreKit/FacebookSDKStrings.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "AccountKit/AccountKitAdditionalStrings.bundle"
   install_resource "AccountKit/AccountKitStrings.bundle"
-  install_resource "FBSDKCoreKit/FacebookSDKStrings.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

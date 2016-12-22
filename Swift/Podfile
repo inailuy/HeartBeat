@@ -1,8 +1,10 @@
-platform :ios, ’9.0’
+use_frameworks!
+
+platform :ios, '10.0'
 target ‘HeartBeat’ do
 	pod 'Bolts'
 	pod 'FBSDKCoreKit'
 	pod 'FBSDKShareKit'
 	pod 'FBSDKLoginKit'
-    pod 'AccountKit'
+	pod 'AccountKit'
 end
