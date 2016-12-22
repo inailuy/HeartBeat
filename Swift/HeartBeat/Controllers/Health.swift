@@ -15,6 +15,10 @@ class Health {
     let user = UserSettings.sharedInstance
     var isHealthKitEnabled = Bool()
     
+    init() {
+        isHealthKitEnabled = user.userEnabledHealth
+    }
+    
     //MARK: Permission/Acess
     func askPermissionForHealth() {
         if HKHealthStore.isHealthDataAvailable() {
@@ -25,6 +29,7 @@ class Health {
                     return
                 } else {
                     self.isHealthKitEnabled = true
+                    UserSettings.sharedInstance.userEnabledHealth = true
                     UserSettings.sharedInstance.loadInstances()
                 }
             }

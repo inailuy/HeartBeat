@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AccountKit
 
 class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate {
     //identifiers 
@@ -183,7 +184,13 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
                 let alertController = UIAlertController(title: nil, message: "are you sure you want to log out?", preferredStyle: .ActionSheet)
                 let cancelAction = UIAlertAction(title: "cancel", style: .Cancel) { (action) in}
                 let destroyAction = UIAlertAction(title: "logout", style: .Destructive) { (action) in
-                  //TODO: perform Logout Function
+                    let accountkit = AKFAccountKit(responseType: .AccessToken)
+                    accountkit.logOut()
+                    
+                    let nc = self.appDelegate.swipeBetweenVC.viewControllers[1] as! UINavigationController
+                    let vc = nc.viewControllers.popLast() as! MainVC
+                    vc.performLoginOperation()
+                    self.appDelegate.swipeBetweenVC.scrollToViewControllerAtIndex(1)
                 }
                 alertController.addAction(cancelAction)
                 alertController.addAction(destroyAction)

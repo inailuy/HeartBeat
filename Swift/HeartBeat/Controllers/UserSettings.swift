@@ -89,7 +89,7 @@ class UserSettings {
     
     func loadFromHealthKit() {
         let health = Health.sharedInstance
-        if userEnabledHealth && health.isHealthKitEnabled {
+        if userEnabledHealth {
             do {// Age
                 let birthDay = try health.healthStore.dateOfBirth()
                 age = NSCalendar.currentCalendar().components(.Year, fromDate: birthDay, toDate: NSDate(), options: []).year

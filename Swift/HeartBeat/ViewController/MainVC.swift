@@ -8,14 +8,17 @@
 
 import Foundation
 import UIKit
-
+import AccountKit
 
 class MainVC: BaseVC {
     @IBOutlet weak var bpmLabel: UILabel!
     @IBOutlet weak var startWorkoutControllerLabel: UIButton!
     
+    var accountKit :AKFAccountKit!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.title = "heartbeat"
         let historyButton = UIBarButtonItem(title: "History", style: UIBarButtonItemStyle.Done, target: self, action: #selector(historyButtonPressed))
         let settingsButton = UIBarButtonItem(title: "Settings", style: UIBarButtonItemStyle.Done, target: self, action: #selector(settingsButtonPressed))
@@ -25,14 +28,18 @@ class MainVC: BaseVC {
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(MainVC.updateBluetoothData), userInfo:nil, repeats: true)
         //startWorkoutButtonPressed(UIButton())
         //startWorkoutButtonPressed(UIButton())
+        
+        if (accountKit == nil) {
+            // may also specify AKFResponseTypeAccessToken
+            accountKit = AKFAccountKit(responseType: .AuthorizationCode)
+            performLoginOperation()
+        }
+        print(accountKit)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        
-        //let loginVC = LoginVC()
-        //self.presentViewController(loginVC, animated: false, completion: nil)
     }
     
     func historyButtonPressed() {
@@ -42,6 +49,11 @@ class MainVC: BaseVC {
     func settingsButtonPressed() {
         appDelegate.swipeBetweenVC.scrollToViewControllerAtIndex(2, animated: true)
     }
+    
+    func performLoginOperation() {
+        performSegueWithIdentifier("loginSegue", sender: nil)
+    }
+    
     @IBAction func startWorkoutButtonPressed(sender: UIButton) {
         WorkoutController.sharedInstance.startWorkout()
         performSegueWithIdentifier("WorkoutSegue", sender: nil)

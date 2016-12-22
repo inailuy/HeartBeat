@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -46,9 +46,11 @@
 		3300CE031D5D2F1F007F0A99 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD9F1D5D2F1F007F0A99 /* DGActivityIndicatorTwoDotsAnimation.m */; };
 		33193DCE1D7BD1C800624956 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33193DCD1D7BD1C800624956 /* DataController.swift */; };
 		33389B081D2071F2002F09FA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33389B071D2071F2002F09FA /* MapKit.framework */; };
+		333B9F611DF40026003F011E /* PermissionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333B9F601DF40026003F011E /* PermissionsVC.swift */; };
 		334130781D500FBB00758A80 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334130771D500FBB00758A80 /* Workout.swift */; };
 		33550AC61D53E64E0036122A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33550AC51D53E64E0036122A /* CloudKit.framework */; };
 		33550AC91D53F4F90036122A /* QuickSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33550AC81D53F4F90036122A /* QuickSort.swift */; };
+		336714981DF3DE2700C2A0D2 /* AccountKitStrings.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 336714971DF3DE2700C2A0D2 /* AccountKitStrings.bundle */; };
 		336AF2891D2591E400D70DA9 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2881D2591E400D70DA9 /* Health.swift */; };
 		336AF2951D25DCC100D70DA9 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2941D25DCC100D70DA9 /* Bluetooth.swift */; };
 		336AF2991D25DF9A00D70DA9 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336AF2981D25DF9A00D70DA9 /* CoreBluetooth.framework */; };
@@ -75,6 +77,7 @@
 		33A93BE61D75216100770375 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A93BE51D75216100770375 /* CoreData.swift */; };
 		33BA773E1D187E72009BD322 /* YZSwipeBetweenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3374694D1D124846008F38C4 /* YZSwipeBetweenViewController.m */; };
 		33DE2B711D2CD57D00D78811 /* SpeechUtterance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DE2B701D2CD57D00D78811 /* SpeechUtterance.swift */; };
+		33E365181DF3B697004B7405 /* AccountKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33E365171DF3B697004B7405 /* AccountKit.framework */; };
 		33F271B61D123D8500588247 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33F271B41D123D8500588247 /* Main.storyboard */; };
 		33F271B91D123D8500588247 /* HeartBeat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33F271B71D123D8500588247 /* HeartBeat.xcdatamodeld */; };
 		33F271BB1D123D8500588247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33F271BA1D123D8500588247 /* Assets.xcassets */; };
@@ -161,9 +164,11 @@
 		3308FF0B1DB99731004D9666 /* DatabaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseTest.swift; path = HeartBeatTests/DatabaseTest.swift; sourceTree = SOURCE_ROOT; };
 		33193DCD1D7BD1C800624956 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataController.swift; path = Controllers/DataController.swift; sourceTree = "<group>"; };
 		33389B071D2071F2002F09FA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
+		333B9F601DF40026003F011E /* PermissionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PermissionsVC.swift; path = ViewController/PermissionsVC.swift; sourceTree = "<group>"; };
 		334130771D500FBB00758A80 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Workout.swift; path = Models/Workout.swift; sourceTree = "<group>"; };
 		33550AC51D53E64E0036122A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		33550AC81D53F4F90036122A /* QuickSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuickSort.swift; path = ThirdParty/Sort/QuickSort.swift; sourceTree = "<group>"; };
+		336714971DF3DE2700C2A0D2 /* AccountKitStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AccountKitStrings.bundle; path = Pods/AccountKit/AccountKitStrings.bundle; sourceTree = "<group>"; };
 		336AF2881D2591E400D70DA9 /* Health.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Health.swift; path = Controllers/Health.swift; sourceTree = "<group>"; };
 		336AF2941D25DCC100D70DA9 /* Bluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bluetooth.swift; path = Controllers/Bluetooth.swift; sourceTree = "<group>"; };
 		336AF2981D25DF9A00D70DA9 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
@@ -197,6 +202,7 @@
 		33858BCD1D5554600078127B /* CloudKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CloudKit.swift; path = Controllers/CloudKit.swift; sourceTree = "<group>"; };
 		33A93BE51D75216100770375 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreData.swift; path = Controllers/CoreData.swift; sourceTree = "<group>"; };
 		33DE2B701D2CD57D00D78811 /* SpeechUtterance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeechUtterance.swift; path = Controllers/SpeechUtterance.swift; sourceTree = "<group>"; };
+		33E365171DF3B697004B7405 /* AccountKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AccountKit.framework; path = Pods/AccountKit/AccountKit.framework; sourceTree = "<group>"; };
 		33F271AD1D123D8500588247 /* HeartBeat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartBeat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33F271B01D123D8500588247 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33F271B51D123D8500588247 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -217,6 +223,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				336714981DF3DE2700C2A0D2 /* AccountKitStrings.bundle in Frameworks */,
+				33E365181DF3B697004B7405 /* AccountKit.framework in Frameworks */,
 				33550AC61D53E64E0036122A /* CloudKit.framework in Frameworks */,
 				33F271E21D123F1300588247 /* AVFoundation.framework in Frameworks */,
 				33389B081D2071F2002F09FA /* MapKit.framework in Frameworks */,
@@ -232,6 +240,8 @@
 		0175E9AF51125D2CCC35525F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				336714971DF3DE2700C2A0D2 /* AccountKitStrings.bundle */,
+				33E365171DF3B697004B7405 /* AccountKit.framework */,
 				5D0314750153042ABDDBE6B2 /* libPods-HeartBeat.a */,
 			);
 			name = Frameworks;
@@ -397,6 +407,7 @@
 				3374693C1D1241CE008F38C4 /* HistoryVC.swift */,
 				337469331D12419F008F38C4 /* LoginVC.swift */,
 				337469281D12416C008F38C4 /* MainVC.swift */,
+				333B9F601DF40026003F011E /* PermissionsVC.swift */,
 				337469301D124192008F38C4 /* SettingsVC.swift */,
 				3374693F1D1241F2008F38C4 /* WorkoutSummaryVC.swift */,
 				337469421D124212008F38C4 /* WorkoutTypeVC.swift */,
@@ -570,7 +581,7 @@
 				};
 			};
 			buildConfigurationList = 33F271A81D123D8500588247 /* Build configuration list for PBXProject "HeartBeat" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -670,6 +681,7 @@
 				3300CDA31D5D2F1F007F0A99 /* DGActivityIndicatorBallBeatAnimation.m in Sources */,
 				33F271B91D123D8500588247 /* HeartBeat.xcdatamodeld in Sources */,
 				3374693D1D1241CE008F38C4 /* HistoryVC.swift in Sources */,
+				333B9F611DF40026003F011E /* PermissionsVC.swift in Sources */,
 				3300CDEB1D5D2F1F007F0A99 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
 				3374692B1D12416C008F38C4 /* MainVC.swift in Sources */,
 				337469461D124221008F38C4 /* AudioCuesVC.swift in Sources */,
@@ -788,6 +800,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = HeartBeat/ThirdParty/BridgeFiles/;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -829,6 +842,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = HeartBeat/ThirdParty/BridgeFiles/;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -844,9 +858,10 @@
 				CODE_SIGN_ENTITLEMENTS = HeartBeat/HeartBeat.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = K8YR4WT3S5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/HeartBeat/ThirdParty/FacebookSDK",
+					"$(PROJECT_DIR)/Pods/AccountKit",
 				);
 				INFOPLIST_FILE = HeartBeat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -854,7 +869,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/ThirdParty/BridgeFiles/HeartBeat-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -868,17 +883,19 @@
 				CODE_SIGN_ENTITLEMENTS = HeartBeat/HeartBeat.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = K8YR4WT3S5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/HeartBeat/ThirdParty/FacebookSDK",
+					"$(PROJECT_DIR)/Pods/AccountKit",
 				);
 				INFOPLIST_FILE = HeartBeat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inailuy.HeartBeat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/ThirdParty/BridgeFiles/HeartBeat-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

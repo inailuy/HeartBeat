@@ -40,7 +40,6 @@
     blurView.alpha = .8;
     [blurView addSubview:blurEffectView];
     [self.view addSubview:blurView];
-	
 }
 
 - (void)didReceiveMemoryWarning {

@@ -11,6 +11,7 @@ import CoreData
 import HealthKit
 import CloudKit
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -28,9 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //setting Up SnapChatUI
         setUpStoryboardUI()
-        Health.sharedInstance.askPermissionForHealth()
         UserSettings.sharedInstance.loadInstances()
         Bluetooth.sharedInstance.load()
+        if UserSettings.sharedInstance.userEnabledHealth {
+            Health.sharedInstance.askPermissionForHealth()
+        }
         
         DataController.sharedInstance.load()
         //Navigation Appearance
