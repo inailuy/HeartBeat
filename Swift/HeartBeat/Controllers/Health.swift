@@ -30,8 +30,10 @@ class Health {
                 } else {
                     self.isHealthKitEnabled = true
                     UserSettings.sharedInstance.userEnabledHealth = true
+                    UserSettings.sharedInstance.saveToDisk()
                     UserSettings.sharedInstance.loadInstances()
                 }
+                NSNotificationCenter.defaultCenter().postNotificationName("HealthStorePermission", object: nil)
             }
             let writeDataTypes = dataTypesToWrite() as! Set<HKSampleType>
             let readDataTypes = dataTypesToRead() as! Set<HKObjectType>//{ (success: Bool!, error: NSError!) -> Void in
@@ -46,8 +48,13 @@ class Health {
                 print("Error reading weight from HealthKit Store: \(error.localizedDescription)")
                 return;
             }
-            let weightSample = mostRecentWeight as! HKQuantitySample
-            let kilograms = weightSample.quantity.doubleValueForUnit(HKUnit.gramUnitWithMetricPrefix(.Kilo))
+            
+            var kilograms = 0.0
+            if mostRecentWeight != nil {
+                let weightSample = mostRecentWeight as! HKQuantitySample
+                kilograms = weightSample.quantity.doubleValueForUnit(HKUnit.gramUnitWithMetricPrefix(.Kilo))
+            }
+        
             completion(weight: Float(kilograms))
         })
     }

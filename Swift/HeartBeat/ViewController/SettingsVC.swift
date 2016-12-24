@@ -27,6 +27,7 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
         title = "settings"
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingsVC.observeredUnitsChange), name: "Units_Changed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(tableView, selector: #selector(tableView.reloadData), name: "UpdateSettings", object: nil)
         createHeartNavigationButton(Direction.left.rawValue)
         UserSettings.sharedInstance.loadFromDisk()
     }
@@ -184,8 +185,7 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
                 let alertController = UIAlertController(title: nil, message: "are you sure you want to log out?", preferredStyle: .ActionSheet)
                 let cancelAction = UIAlertAction(title: "cancel", style: .Cancel) { (action) in}
                 let destroyAction = UIAlertAction(title: "logout", style: .Destructive) { (action) in
-                    let accountkit = AKFAccountKit(responseType: .AccessToken)
-                    accountkit.logOut()
+                    self.appDelegate.accountKit.logOut()
                     
                     let nc = self.appDelegate.swipeBetweenVC.viewControllers[1] as! UINavigationController
                     let vc = nc.viewControllers.popLast() as! MainVC

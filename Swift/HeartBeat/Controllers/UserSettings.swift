@@ -112,10 +112,11 @@ class UserSettings {
             }
             // Weight
             health.weight({ (result: Float) in
-                self.weight = result
-                self.saveToDisk()
-                dispatch_async(dispatch_get_main_queue()) {
-                    NSNotificationCenter.defaultCenter().postNotificationName("Units_Changed", object: nil)
+                if result > 0.0 {
+                    self.weight = result
+                    dispatch_async(dispatch_get_main_queue()) {
+                        NSNotificationCenter.defaultCenter().postNotificationName("HealthStorePermission", object: nil)
+                    }
                 }
             })
         }
@@ -177,6 +178,8 @@ class UserSettings {
     func modifyWeight(value:Float) {
         if Unit.imperial.rawValue == unit {
             weight = value / 2.2046
+        } else {
+            weight = value
         }
     }
     

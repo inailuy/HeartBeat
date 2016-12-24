@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import HealthKit
 import CloudKit
+import AccountKit
 
 
 @UIApplicationMain
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let swipeBetweenVC: YZSwipeBetweenViewController = YZSwipeBetweenViewController()
     static let sharedInstance = AppDelegate()
+    var accountKit: AKFAccountKit!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //Register FacebookSDK
@@ -26,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let notificationSettings = UIUserNotificationSettings(forTypes: .Alert, categories: nil)
         application.registerUserNotificationSettings(notificationSettings)
         application.registerForRemoteNotifications()
+        
+        accountKit = AKFAccountKit(responseType: .AccessToken)
+        accountKit.requestAccount{(account, error) -> Void in }
         
         //setting Up SnapChatUI
         setUpStoryboardUI()

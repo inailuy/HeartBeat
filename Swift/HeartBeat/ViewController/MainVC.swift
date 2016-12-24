@@ -14,8 +14,6 @@ class MainVC: BaseVC {
     @IBOutlet weak var bpmLabel: UILabel!
     @IBOutlet weak var startWorkoutControllerLabel: UIButton!
     
-    var accountKit :AKFAccountKit!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,18 +26,15 @@ class MainVC: BaseVC {
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(MainVC.updateBluetoothData), userInfo:nil, repeats: true)
         //startWorkoutButtonPressed(UIButton())
         //startWorkoutButtonPressed(UIButton())
-        
-        if (accountKit == nil) {
-            // may also specify AKFResponseTypeAccessToken
-            accountKit = AKFAccountKit(responseType: .AuthorizationCode)
-            performLoginOperation()
-        }
-        print(accountKit)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        if (appDelegate.accountKit.currentAccessToken == nil) {
+            //User is logged out
+            performLoginOperation()
+        }
     }
     
     func historyButtonPressed() {
