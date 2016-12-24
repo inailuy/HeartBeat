@@ -35,6 +35,7 @@ class PermissionsVC: UIViewController, UITextFieldDelegate {
         //notification once health permission exits
         dispatch_async(dispatch_get_main_queue(), {
             self.updateValuesFromSettings()
+            self.unitSegmentControl.selectedSegmentIndex = 0
         })
     }
     
@@ -91,13 +92,13 @@ class PermissionsVC: UIViewController, UITextFieldDelegate {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func unitsegmentedControlPressed(sender: UISegmentedControl) {
-        if weightTextField.text == "0" || weightTextField.text == "" { return }
-        
-        if sender.selectedSegmentIndex == 0 {
-            weightTextField.text = String(UserSettings.sharedInstance.weight)
-        } else {
-            weightTextField.text = String(UserSettings.sharedInstance.weight * 2.2046)
+    @IBAction func unitSegmentedControlPressed(sender: UISegmentedControl) {
+        if UserSettings.sharedInstance.weight != 0.0 {
+            if sender.selectedSegmentIndex == 0 {
+                weightTextField.text = String(UserSettings.sharedInstance.weight)
+            } else {
+                weightTextField.text = String(UserSettings.sharedInstance.weight * 2.2046)
+            }
         }
     }
     
@@ -107,7 +108,7 @@ class PermissionsVC: UIViewController, UITextFieldDelegate {
     
     //MARK: TextFieldDelegate
     func textFieldDidBeginEditing(textField: UITextField) {
-        if Int(textField.text!) == 0 { textField.text = "" }
+        if Float(textField.text!) == 0 { textField.text = "" }
         textField.becomeFirstResponder()
     }
     
