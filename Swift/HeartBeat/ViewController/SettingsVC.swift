@@ -186,11 +186,11 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
                 let cancelAction = UIAlertAction(title: "cancel", style: .Cancel) { (action) in}
                 let destroyAction = UIAlertAction(title: "logout", style: .Destructive) { (action) in
                     self.appDelegate.accountKit.logOut()
+                    self.appDelegate.swipeBetweenVC.scrollToViewControllerAtIndex(1)
                     
                     let nc = self.appDelegate.swipeBetweenVC.viewControllers[1] as! UINavigationController
-                    let vc = nc.viewControllers.popLast() as! MainVC
+                    let vc = nc.viewControllers.last as! MainVC
                     vc.performLoginOperation()
-                    self.appDelegate.swipeBetweenVC.scrollToViewControllerAtIndex(1)
                 }
                 alertController.addAction(cancelAction)
                 alertController.addAction(destroyAction)

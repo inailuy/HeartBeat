@@ -7,7 +7,7 @@
 //
 import Foundation
 
-class PermissionsVC: UIViewController, UITextFieldDelegate {
+class PermissionsVC: BaseVC, UITextFieldDelegate {
     
     @IBOutlet weak var healthButton: UIButton!
     @IBOutlet weak var ageTextField: UITextField!
@@ -27,6 +27,8 @@ class PermissionsVC: UIViewController, UITextFieldDelegate {
             selector: #selector(healthPermissionResponse),
             name: "HealthStorePermission",
             object: nil)
+        
+        title = "Permissions"
         
         updateValuesFromSettings()
     }
@@ -89,7 +91,7 @@ class PermissionsVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func continueButtonPressed(sender: UIButton) {
         saveSettings()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func unitSegmentedControlPressed(sender: UISegmentedControl) {

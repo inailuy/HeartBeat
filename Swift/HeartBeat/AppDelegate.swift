@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Register FacebookSDK
         //FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         self.application = application
+        NSTimer.scheduledTimerWithTimeInterval(2.5, target: self, selector: #selector(self.registerNotify), userInfo:nil, repeats: false)
         
         accountKit = AKFAccountKit(responseType: .AccessToken)
         accountKit.requestAccount{(account, error) -> Void in }
@@ -45,8 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                NSForegroundColorAttributeName: UIColor.darkGrayColor()]
         UIBarButtonItem.appearance().setTitleTextAttributes(barButtonAppearance, forState: .Normal)
         UINavigationBar.appearance().titleTextAttributes = navBarApearance
-
-        NSTimer.scheduledTimerWithTimeInterval(2.5, target: self, selector: #selector(self.registerNotify), userInfo: application, repeats: true)
         
         return true
     }

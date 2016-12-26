@@ -142,7 +142,7 @@ class UserSettings {
     }
     
     func resetValues() {
-        weight = 0.0
+        weight = 0
         age = 0
         unit = 0
         sex = 0
@@ -168,7 +168,7 @@ class UserSettings {
     }
     
     func weightWithDisplayFormat() -> Int {
-        var weight = self.weight
+        var weight = self.weight > 0.0 ? self.weight : 0.0
         if Unit.imperial.rawValue == unit {
             weight = weight * 2.2046
         }
