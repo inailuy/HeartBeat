@@ -7,12 +7,9 @@
 //  Copyright (c) 2014 Sam Spencer.
 //
 
-//@import Foundation;
-//@import UIKit;
-//@import CoreGraphics;
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import <CoreGraphics/CoreGraphics.h>
+@import Foundation;
+@import UIKit;
+@import CoreGraphics;
 
 
 /// Class to draw the circle for the points.

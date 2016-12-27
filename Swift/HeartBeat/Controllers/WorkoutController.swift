@@ -123,6 +123,35 @@ class WorkoutController {
     func currentBPM() -> String {
         return String(heartBeatArray.lastObject!)
     }
+    
+    func filterHeartBeatArray() -> NSMutableArray {
+        var max = 0
+        if heartBeatArray.count < 999 {
+            max = 2
+        } else if heartBeatArray.count < 4999 {
+            max = 6
+        } else {
+            max = 8
+        }
+        
+        let array = NSMutableArray()
+        var tmpArray = [Int]()
+        for i in 0..<heartBeatArray.count {
+            if i % max == 0 && i != 0 {
+                var tmpI = 0
+                for x in tmpArray {
+                    tmpI += x
+                }
+                array.addObject(NSNumber(integer: tmpI / tmpArray.count))
+                tmpArray.removeAll()
+            } else {
+                let value = heartBeatArray[i] as! NSNumber
+                tmpArray.append(value.integerValue)
+            }
+        }
+
+        return array
+    }
 }
 
 protocol WorkoutControllerDelegate: class {

@@ -26,6 +26,11 @@ class MainVC: BaseVC {
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(MainVC.updateBluetoothData), userInfo:nil, repeats: true)
         //startWorkoutButtonPressed(UIButton())
         //startWorkoutButtonPressed(UIButton())
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         if (appDelegate.accountKit.currentAccessToken == nil) {
             //User is logged out
             performLoginOperation()

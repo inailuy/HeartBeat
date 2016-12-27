@@ -60,6 +60,7 @@ class LoginVC: UIViewController, AKFViewControllerDelegate {
         let preFillPhoneNumber = AKFPhoneNumber(countryCode: "", phoneNumber: "")
         let inputState = NSUUID().UUIDString
         let viewController = appDelegate.accountKit.viewControllerForPhoneLoginWithPhoneNumber(preFillPhoneNumber, state: inputState) as! AKFViewController
+        //let viewController = appDelegate.accountKit.viewControllerForEmailLoginWithEmail("", state: inputState) as! AKFViewController
         viewController.delegate = self
         viewController.enableSendToFacebook = true
         self.presentViewController(viewController as! UIViewController, animated: true, completion: nil)

@@ -13,7 +13,8 @@ import CoreData
 class Workout: NSManagedObject {
     
     // Insert code here to add functionality to your managed object subclass
-    
+    var filteredArrayBeatsPerMinute = NSMutableArray()
+    var lastCountedFiltered = Int()
 }
 
 extension Workout {
@@ -140,5 +141,40 @@ extension Workout {
     
     static func SortDescriptor() -> [NSSortDescriptor]!{
         return [NSSortDescriptor(key: "startTime", ascending: false)]
+    }
+    
+    func filterHeartBeatArray() -> NSMutableArray {
+        if filteredArrayBeatsPerMinute.count > 0 && arrayBeatsPerMinute?.count != lastCountedFiltered {
+            return filteredArrayBeatsPerMinute
+        }
+        
+        var max = 0
+        if arrayBeatsPerMinute?.count < 999 {
+            max = 2
+        } else if arrayBeatsPerMinute?.count < 4999 {
+            max = 6
+        } else {
+            max = 8
+        }
+        
+        let array = NSMutableArray()
+        var tmpArray = [Int]()
+        for i in 0..<arrayBeatsPerMinute!.count {
+            if i % max == 0 && i != 0 {
+                var tmpI = 0
+                for x in tmpArray {
+                    tmpI += x
+                }
+                array.addObject(NSNumber(integer: tmpI / tmpArray.count))
+                tmpArray.removeAll()
+            } else {
+                let value = arrayBeatsPerMinute![i] as! NSNumber
+               tmpArray.append(value.integerValue)
+            }
+        }
+        
+        filteredArrayBeatsPerMinute = array
+        lastCountedFiltered = arrayBeatsPerMinute!.count
+        return array
     }
 }

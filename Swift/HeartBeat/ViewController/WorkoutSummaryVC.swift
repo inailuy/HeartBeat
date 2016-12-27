@@ -69,7 +69,7 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if workout!.arrayBeatsPerMinute == nil { return }
+        //if workout!.filterHeartBeatArray() == nil { return }
         
         switch indexPath.section {
         case 0:
@@ -242,8 +242,8 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
     }
     
     func bpmCellSetup(cell:UITableViewCell) {
-        var sortedArray = NSMutableArray(array: workout.arrayBeatsPerMinute!)
-            QuickSort.sort(&sortedArray, left: 0, right: (workout.arrayBeatsPerMinute?.count)!-1)
+        var sortedArray = NSMutableArray(array: workout.filterHeartBeatArray())
+            QuickSort.sort(&sortedArray, left: 0, right: (workout.filterHeartBeatArray().count)-1)
         let lastObj = sortedArray.lastObject as! NSNumber
 
         let width :CGFloat = cell.contentView.frame.size.width / 3
@@ -277,7 +277,7 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
     }
     //MARK: BEMSimpleLineGraphView DataSource/Delegate
     func numberOfPointsInLineGraph(graph: BEMSimpleLineGraphView) -> Int {
-        return workout.arrayBeatsPerMinute!.count
+        return workout.filterHeartBeatArray().count
     }
     
     func lineGraph(graph: BEMSimpleLineGraphView, labelOnXAxisForIndex index: Int) -> String {
@@ -286,21 +286,21 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
     
     
     func numberOfYAxisLabelsOnLineGraph(graph: BEMSimpleLineGraphView) -> Int {
-        return 5
+        return 1
     }
     
     func numberOfGapsBetweenLabelsOnLineGraph(graph: BEMSimpleLineGraphView) -> Int {
-        return workout.arrayBeatsPerMinute!.count / 5
+        return workout.filterHeartBeatArray().count
     }
     
     func lineGraph(graph: BEMSimpleLineGraphView, valueForPointAtIndex index: Int) -> CGFloat {
-        let point = workout.arrayBeatsPerMinute![index]
+        let point = workout.filterHeartBeatArray()[index]
         return CGFloat(point.doubleValue)
     }
     
     func maxValueForLineGraph(graph: BEMSimpleLineGraphView) -> CGFloat {
         var max = 0
-        for num in workout.arrayBeatsPerMinute! {
+        for num in workout.filterHeartBeatArray() {
             let n = num as! NSNumber
             if max < n.integerValue {
                 max = n.integerValue
@@ -311,7 +311,7 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
     
     func minValueForLineGraph(graph: BEMSimpleLineGraphView) -> CGFloat {
         var min = 200
-        for num in workout.arrayBeatsPerMinute! {
+        for num in workout.filterHeartBeatArray() {
             let n = num as! NSNumber
             if min > n.integerValue {
                 min = n.integerValue
@@ -321,7 +321,7 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
     }
     
     func lineGraph(graph: BEMSimpleLineGraphView, didTouchGraphWithClosestIndex index: Int) {
-        let position :Float = ((Float(index) / Float(workout.arrayBeatsPerMinute!.count)) * Float(workout.minutes()))
+        let position :Float = ((Float(index) / Float(workout.filterHeartBeatArray().count)) * Float(workout.minutes()))
     
         var min = " minutes"
         if position <= 1 { min = " minute" }
@@ -329,7 +329,11 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
         durationTimeLabel.text = String(Int(position+1)) + min
     }
     
-    func didReleaseGraphWithClosestIndex(index: Float) {
+//    func didReleaseGraphWithClosestIndex(index: Float) {
+//        durationTimeLabel.text = String.localizedStringWithFormat("%i minutes", workout.minutes())
+//    }
+    
+    func lineGraph(graph: BEMSimpleLineGraphView, didReleaseTouchFromGraphWithClosestIndex index: CGFloat) {
         durationTimeLabel.text = String.localizedStringWithFormat("%i minutes", workout.minutes())
     }
 }

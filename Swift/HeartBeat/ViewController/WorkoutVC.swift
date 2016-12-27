@@ -131,7 +131,7 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
     
     //MARK: BEMSimpleLineGraphView DataSource/Delegate
     func numberOfPointsInLineGraph(graph: BEMSimpleLineGraphView) -> Int {
-        return WorkoutController.sharedInstance.heartBeatArray.count
+        return WorkoutController.sharedInstance.filterHeartBeatArray().count
     }
     
     func lineGraph(graph: BEMSimpleLineGraphView, labelOnXAxisForIndex index: Int) -> String {
@@ -144,17 +144,17 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
     }
 
     func numberOfGapsBetweenLabelsOnLineGraph(graph: BEMSimpleLineGraphView) -> Int {
-        return WorkoutController.sharedInstance.heartBeatArray.count / 5
+        return WorkoutController.sharedInstance.filterHeartBeatArray().count / 5
     }
     
     func lineGraph(graph: BEMSimpleLineGraphView, valueForPointAtIndex index: Int) -> CGFloat {
-        let point = WorkoutController.sharedInstance.heartBeatArray[index]
+        let point = WorkoutController.sharedInstance.filterHeartBeatArray()[index]
         return CGFloat(point.doubleValue)
     }
     
     func maxValueForLineGraph(graph: BEMSimpleLineGraphView) -> CGFloat {
         var max = 0
-        for num in WorkoutController.sharedInstance.heartBeatArray {
+        for num in WorkoutController.sharedInstance.filterHeartBeatArray() {
             let n = num as! NSNumber
             if max < n.integerValue {
                 max = n.integerValue
@@ -165,7 +165,7 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
     
     func minValueForLineGraph(graph: BEMSimpleLineGraphView) -> CGFloat {
         var min = 200
-        for num in WorkoutController.sharedInstance.heartBeatArray {
+        for num in WorkoutController.sharedInstance.filterHeartBeatArray() {
             let n = num as! NSNumber
             if min > n.integerValue {
                 min = n.integerValue

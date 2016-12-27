@@ -869,7 +869,11 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     }
     
     // Set the final center point of the x-axis labels
-   center = CGPointMake(positionOnXAxis, self.frame.size.height - lRect.size.height/2 - 1);
+    if (self.positionYAxisRight) {
+        center = CGPointMake(positionOnXAxis, self.frame.size.height - lRect.size.height/2);
+    } else {
+        center = CGPointMake(positionOnXAxis, self.frame.size.height - lRect.size.height/2);
+    }
     
     CGRect rect = labelXAxis.frame;
     rect.size = lRect.size;
@@ -1196,7 +1200,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
 
 - (NSNumber *)calculatePointValueAverage {
     NSArray *filteredArray = [self calculationDataPoints];
-    if (filteredArray.count == 0) return 0;
+    if (filteredArray.count == 0) return [NSNumber numberWithInt:0];
     
     NSExpression *expression = [NSExpression expressionForFunction:@"average:" arguments:@[[NSExpression expressionForConstantValue:filteredArray]]];
     NSNumber *value = [expression expressionValueWithObject:nil context:nil];
@@ -1206,7 +1210,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
 
 - (NSNumber *)calculatePointValueSum {
     NSArray *filteredArray = [self calculationDataPoints];
-    if (filteredArray.count == 0) return 0;
+    if (filteredArray.count == 0) return [NSNumber numberWithInt:0];
     
     NSExpression *expression = [NSExpression expressionForFunction:@"sum:" arguments:@[[NSExpression expressionForConstantValue:filteredArray]]];
     NSNumber *value = [expression expressionValueWithObject:nil context:nil];
@@ -1216,7 +1220,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
 
 - (NSNumber *)calculatePointValueMedian {
     NSArray *filteredArray = [self calculationDataPoints];
-    if (filteredArray.count == 0) return 0;
+    if (filteredArray.count == 0) return [NSNumber numberWithInt:0];
     
     NSExpression *expression = [NSExpression expressionForFunction:@"median:" arguments:@[[NSExpression expressionForConstantValue:filteredArray]]];
     NSNumber *value = [expression expressionValueWithObject:nil context:nil];
@@ -1226,7 +1230,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
 
 - (NSNumber *)calculatePointValueMode {
     NSArray *filteredArray = [self calculationDataPoints];
-    if (filteredArray.count == 0) return 0;
+    if (filteredArray.count == 0) return [NSNumber numberWithInt:0];
     
     NSExpression *expression = [NSExpression expressionForFunction:@"mode:" arguments:@[[NSExpression expressionForConstantValue:filteredArray]]];
     NSMutableArray *value = [expression expressionValueWithObject:nil context:nil];
@@ -1236,7 +1240,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
 
 - (NSNumber *)calculateLineGraphStandardDeviation {
     NSArray *filteredArray = [self calculationDataPoints];
-    if (filteredArray.count == 0) return 0;
+    if (filteredArray.count == 0) return [NSNumber numberWithInt:0];
     
     NSExpression *expression = [NSExpression expressionForFunction:@"stddev:" arguments:@[[NSExpression expressionForConstantValue:filteredArray]]];
     NSNumber *value = [expression expressionValueWithObject:nil context:nil];
@@ -1246,7 +1250,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
 
 - (NSNumber *)calculateMinimumPointValue {
     NSArray *filteredArray = [self calculationDataPoints];
-    if (filteredArray.count == 0) return 0;
+    if (filteredArray.count == 0) return [NSNumber numberWithInt:0];
     
     NSExpression *expression = [NSExpression expressionForFunction:@"min:" arguments:@[[NSExpression expressionForConstantValue:filteredArray]]];
     NSNumber *value = [expression expressionValueWithObject:nil context:nil];
@@ -1255,7 +1259,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
 
 - (NSNumber *)calculateMaximumPointValue {
     NSArray *filteredArray = [self calculationDataPoints];
-    if (filteredArray.count == 0) return 0;
+    if (filteredArray.count == 0) return [NSNumber numberWithInt:0];
     
     NSExpression *expression = [NSExpression expressionForFunction:@"max:" arguments:@[[NSExpression expressionForConstantValue:filteredArray]]];
     NSNumber *value = [expression expressionValueWithObject:nil context:nil];
@@ -1306,7 +1310,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
 }
 
 - (void)handleGestureAction:(UIGestureRecognizer *)recognizer {
-    CGPoint translation = [recognizer locationInView:self.viewForBaselineLayout];
+    CGPoint translation = [recognizer locationInView:self.viewForLastBaselineLayout];
     
     if (!((translation.x + self.frame.origin.x) <= self.frame.origin.x) && !((translation.x + self.frame.origin.x) >= self.frame.origin.x + self.frame.size.width)) { // To make sure the vertical line doesn't go beyond the frame of the graph.
         self.touchInputLine.frame = CGRectMake(translation.x - self.widthTouchInputLine/2, 0, self.widthTouchInputLine, self.frame.size.height);
@@ -1316,8 +1320,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     
     closestDot = [self closestDotFromtouchInputLine:self.touchInputLine];
     closestDot.alpha = 0.8;
-    
-    
+
     if (self.enablePopUpReport == YES && closestDot.tag >= DotFirstTag100 && closestDot.tag < DotLastTag1000 && [closestDot isKindOfClass:[BEMCircle class]] && self.alwaysDisplayPopUpLabels == NO) {
         [self setUpPopUpLabelAbovePoint:closestDot];
     }
@@ -1441,15 +1444,18 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     currentlyCloser = CGFLOAT_MAX;
     for (BEMCircle *point in self.subviews) {
         if (point.tag >= DotFirstTag100 && point.tag < DotLastTag1000 && [point isMemberOfClass:[BEMCircle class]]) {
+            //NSLog(@"=%@", touchInputLine);
             if (self.alwaysDisplayDots == NO && self.displayDotsOnly == NO) {
                 point.alpha = 0;
             }
+            
             if (pow(((point.center.x) - touchInputLine.center.x), 2) < currentlyCloser) {
                 currentlyCloser = pow(((point.center.x) - touchInputLine.center.x), 2);
                 closestDot = point;
             }
         }
     }
+    
     return closestDot;
 }
 
