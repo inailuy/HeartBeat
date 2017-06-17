@@ -30,36 +30,36 @@ class BaseVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
         createBlurEffect()
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        view.hidden = false
+        view.isHidden = false
     }
     
     func createBlurEffect() {
         //creating blurs variables
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         //modifying properties
         blurView.frame = view.frame
-        blurView.backgroundColor = UIColor.whiteColor()
-        view.backgroundColor = UIColor.clearColor()
+        blurView.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.clear
         blurView.alpha = 0.45
         //adding subviews
         blurView.addSubview(blurEffectView)
         view.addSubview(blurView)
-        view.sendSubviewToBack(blurView)
+        view.sendSubview(toBack: blurView)
     }
     
-    func createHeartNavigationButton(direction: Int) {
-        let btn = UIButton.init(type: UIButtonType.Custom)
-        btn.frame = CGRectMake(0, 0, 25, 25)
-        btn.setImage(UIImage(named: "heartNav.png"), forState: UIControlState.Normal)
-        btn.addTarget(self, action: #selector(BaseVC.backButtonPressed), forControlEvents: UIControlEvents.TouchUpInside)
+    func createHeartNavigationButton(_ direction: Int) {
+        let btn = UIButton.init(type: UIButtonType.custom)
+        btn.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        btn.setImage(UIImage(named: "heartNav.png"), for: UIControlState())
+        btn.addTarget(self, action: #selector(BaseVC.backButtonPressed), for: UIControlEvents.touchUpInside)
         let btnBack = UIBarButtonItem(customView: btn)
         switch direction {
         case Direction.left.rawValue:
@@ -72,13 +72,13 @@ class BaseVC: UIViewController {
         }
     }
     
-    func createSectionHeaderView(title: String) -> UIView {
-        let frame = CGRectMake(20, 0, view.bounds.size.width, 40)
+    func createSectionHeaderView(_ title: String) -> UIView {
+        let frame = CGRect(x: 20, y: 0, width: view.bounds.size.width, height: 40)
         let headerView = UIView(frame: frame)
         let label = UILabel(frame: frame)
         label.font = UIFont(name: helveticaThinFont, size: 20.0)
         
-        let style = NSParagraphStyle.defaultParagraphStyle().mutableCopy()
+        let style = NSParagraphStyle.default.mutableCopy()
         let attrText = NSAttributedString(string: title, attributes: [NSParagraphStyleAttributeName: style])
         label.numberOfLines = 0
         label.attributedText = attrText
@@ -90,17 +90,17 @@ class BaseVC: UIViewController {
     }
     
     func backButtonPressed() {
-        appDelegate.swipeBetweenVC.scrollToViewControllerAtIndex(1, animated: true)
+        appDelegate.swipeBetweenVC.scrollToViewController(at: 1, animated: true)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        super.prepareForSegue(segue, sender: sender)
-        view.hidden = true
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        view.isHidden = true
     }
     
     func startSpinner() {
         if activityIndicatorView == nil {
-            activityIndicatorView = DGActivityIndicatorView(type: .DoubleBounce, tintColor: UIColor.darkGrayColor(), size: 75.0)
+            activityIndicatorView = DGActivityIndicatorView(type: .doubleBounce, tintColor: UIColor.darkGray, size: 75.0)
             activityIndicatorView!.frame = self.view.frame
         }
         view.addSubview(activityIndicatorView!)

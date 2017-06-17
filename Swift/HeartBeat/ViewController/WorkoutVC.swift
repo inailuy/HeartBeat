@@ -26,9 +26,9 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
     let mapView = MKMapView()
     let locationManager = CLLocationManager()
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        muteButton.selected = UserSettings.sharedInstance.mute
+        muteButton.isSelected = UserSettings.sharedInstance.mute
     }
     
     override func viewDidLoad() {
@@ -41,72 +41,72 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
         lineGraphSetup()
     }
     
-    @IBAction func activityButtonPressed(sender: AnyObject) {
+    @IBAction func activityButtonPressed(_ sender: AnyObject) {
         //might delete feature
-        self.performSegueWithIdentifier("SegueCues", sender: nil)
+        self.performSegue(withIdentifier: "SegueCues", sender: nil)
     }
     
-    @IBAction func muteButtonPressed(sender: UIButton) {
-        sender.selected = !sender.selected
-        UserSettings.sharedInstance.mute = sender.selected
+    @IBAction func muteButtonPressed(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        UserSettings.sharedInstance.mute = sender.isSelected
         UserSettings.sharedInstance.saveToDisk()
     }
 
-    @IBAction func utterSummary(sender: UIButton) {
+    @IBAction func utterSummary(_ sender: UIButton) {
         SpeechUtterance.sharedInstance.speakWorkoutValues()
     }
     
-    @IBAction func endButtonPressed(sender: AnyObject) {
-        let alertController = UIAlertController(title: nil, message: "are you sure you want to end workout?", preferredStyle: .ActionSheet)
-        let cancelAction = UIAlertAction(title: "cancel", style: .Cancel) { (action) in}
-        let deleteAction = UIAlertAction(title: "delete", style: .Destructive) { (action) in
+    @IBAction func endButtonPressed(_ sender: AnyObject) {
+        let alertController = UIAlertController(title: nil, message: "are you sure you want to end workout?", preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "cancel", style: .cancel) { (action) in}
+        let deleteAction = UIAlertAction(title: "delete", style: .destructive) { (action) in
             WorkoutController.sharedInstance.endWorkout()
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
-        let saveAction = UIAlertAction(title: "save", style: .Default) { (action) in
+        let saveAction = UIAlertAction(title: "save", style: .default) { (action) in
             WorkoutController.sharedInstance.endWorkout()
             WorkoutController.sharedInstance.saveWorkout()
-            self.performSegueWithIdentifier("WorkoutSummarySegue", sender: nil)
+            self.performSegue(withIdentifier: "WorkoutSummarySegue", sender: nil)
         }
         
         alertController.addAction(cancelAction)
         alertController.addAction(deleteAction)
         alertController.addAction(saveAction)
         
-        self.presentViewController(alertController, animated: true) { }
+        self.present(alertController, animated: true) { }
     }
     
-    @IBAction func pauseButtonPressed(sender: UIButton) {
+    @IBAction func pauseButtonPressed(_ sender: UIButton) {
         if WorkoutController.sharedInstance.pause {
-            sender.setTitle("pause", forState:.Normal)
+            sender.setTitle("pause", for:UIControlState())
         } else {
-            sender.setTitle("resume", forState:.Normal)
+            sender.setTitle("resume", for:UIControlState())
         }
         WorkoutController.sharedInstance.pauseWorkout()
     }
     
     
-    @IBAction func hideGraphButtonPressed(sender: AnyObject) {
+    @IBAction func hideGraphButtonPressed(_ sender: AnyObject) {
         if WorkoutController.sharedInstance.seconds < 10 { return }
         
         if disclousureBool {
-            lineGraphView.hidden = false
-            blurView.hidden = false
+            lineGraphView.isHidden = false
+            blurView.isHidden = false
         } else {
-            lineGraphView.hidden = true
-            blurView.hidden = true
+            lineGraphView.isHidden = true
+            blurView.isHidden = true
         }
         disclousureBool = !disclousureBool
     }
     //MARK: WorkoutControllerDelegate
-    func updateUI(sender: WorkoutController) {
+    func updateUI(_ sender: WorkoutController) {
         if sender.seconds > 9 {
             
             averageBPMLabel.text = sender.averageBPMString() + " Average bpm"
             currentBPMLabel.text = sender.currentBPM() + " Current bpm"
             caloriesBurnedLabel.text = sender.grabVO2MaxData() + " Calories burned"
             if disclousureBool != true {
-                lineGraphView.hidden = false
+                lineGraphView.isHidden = false
                 if sender.minutes < 4 && sender.seconds % 5 == 0 {
                     lineGraphView.reloadGraph()
                 } else if sender.seconds % 10 == 0 {
@@ -114,13 +114,13 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
                 }
             }
         } else {
-            lineGraphView.hidden = true
+            lineGraphView.isHidden = true
         }
         timerLabel.text = sender.getTimeStr()
         currentBPMLabel.text = sender.currentBPM() + " Current bpm"
     }
     //MARK: Map & CLLocation Delegates
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+    func locationManager(_ manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         //TODO: Tracking GPS Distance for running
         
         if (mapView.showsUserLocation){
@@ -130,45 +130,45 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
     }
     
     //MARK: BEMSimpleLineGraphView DataSource/Delegate
-    func numberOfPointsInLineGraph(graph: BEMSimpleLineGraphView) -> Int {
+    func numberOfPoints(inLineGraph graph: BEMSimpleLineGraphView) -> Int {
         return WorkoutController.sharedInstance.filterHeartBeatArray().count
     }
     
-    func lineGraph(graph: BEMSimpleLineGraphView, labelOnXAxisForIndex index: Int) -> String {
+    func lineGraph(_ graph: BEMSimpleLineGraphView, labelOnXAxisFor index: Int) -> String {
             return WorkoutController.sharedInstance.getTimeFromSeconds(index)
     }
     
     
-    func numberOfYAxisLabelsOnLineGraph(graph: BEMSimpleLineGraphView) -> Int {
+    func numberOfYAxisLabels(onLineGraph graph: BEMSimpleLineGraphView) -> Int {
         return 5
     }
 
-    func numberOfGapsBetweenLabelsOnLineGraph(graph: BEMSimpleLineGraphView) -> Int {
+    func numberOfGapsBetweenLabels(onLineGraph graph: BEMSimpleLineGraphView) -> Int {
         return WorkoutController.sharedInstance.filterHeartBeatArray().count / 5
     }
     
-    func lineGraph(graph: BEMSimpleLineGraphView, valueForPointAtIndex index: Int) -> CGFloat {
+    func lineGraph(_ graph: BEMSimpleLineGraphView, valueForPointAt index: Int) -> CGFloat {
         let point = WorkoutController.sharedInstance.filterHeartBeatArray()[index]
         return CGFloat(point.doubleValue)
     }
     
-    func maxValueForLineGraph(graph: BEMSimpleLineGraphView) -> CGFloat {
+    func maxValue(forLineGraph graph: BEMSimpleLineGraphView) -> CGFloat {
         var max = 0
         for num in WorkoutController.sharedInstance.filterHeartBeatArray() {
             let n = num as! NSNumber
-            if max < n.integerValue {
-                max = n.integerValue
+            if max < n.intValue {
+                max = n.intValue
             }
         }
         return CGFloat(max)
     }
     
-    func minValueForLineGraph(graph: BEMSimpleLineGraphView) -> CGFloat {
+    func minValue(forLineGraph graph: BEMSimpleLineGraphView) -> CGFloat {
         var min = 200
         for num in WorkoutController.sharedInstance.filterHeartBeatArray() {
             let n = num as! NSNumber
-            if min > n.integerValue {
-                min = n.integerValue
+            if min > n.intValue {
+                min = n.intValue
             }
         }
         return CGFloat(min)
@@ -183,20 +183,20 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
         lineGraphView.enableReferenceXAxisLines = true
         lineGraphView.enableReferenceYAxisLines = true
         lineGraphView.enableBezierCurve = true
-        lineGraphView.animationGraphStyle = .None
+        lineGraphView.animationGraphStyle = .none
     }
     
     func mapSetup()  {
         let authstate = CLLocationManager.authorizationStatus()
-        if authstate == CLAuthorizationStatus.NotDetermined {
+        if authstate == CLAuthorizationStatus.notDetermined {
             locationManager.requestAlwaysAuthorization()
-        } else if authstate == CLAuthorizationStatus.Denied {
+        } else if authstate == CLAuthorizationStatus.denied {
             //TODO: defend against rejection
         }
         
         mapView.frame = view.frame
         view.addSubview(mapView)
-        view.sendSubviewToBack(mapView)
+        view.sendSubview(toBack: mapView)
         
         mapView.showsUserLocation = true
         if CLLocationManager.locationServicesEnabled() {
@@ -208,14 +208,14 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "WorkoutSummarySegue" {
-            let vc = segue.destinationViewController as! WorkoutSummaryVC
+            let vc = segue.destination as! WorkoutSummaryVC
             vc.shouldDisplaySaveOptions = true
             vc.region = mapView.region
             vc.workout = WorkoutController.sharedInstance.workout
         } else if segue.identifier == "SegueCues" {
-             let nc = segue.destinationViewController as! UINavigationController
+             let nc = segue.destination as! UINavigationController
             let vc = nc.viewControllers[0] as! AudioCuesVC
             vc.didAppearModally = true
         }

@@ -14,7 +14,7 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
     
     let refreshControl = UIRefreshControl()
     @IBOutlet weak var tableView: UITableView!
-    var selectedIndexPath :NSIndexPath?
+    var selectedIndexPath :IndexPath?
     
     var tableviewArray = NSMutableArray() //sorted workouts by date
     
@@ -27,13 +27,13 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
         //navigationItem.leftBarButtonItem = btnBack
         
         createHeartNavigationButton(Direction.right.rawValue)
-        NSNotificationCenter.defaultCenter().addObserver(
+        NotificationCenter.default.addObserver(
             self,
             selector: #selector(dataUpdate),
-            name: DataControllerNotificationId,
+            name: NSNotification.Name(rawValue: DataControllerNotificationId),
             object: nil)
         
-        refreshControl.addTarget(self, action: #selector(HistoryVC.refreshTableView(_:)), forControlEvents: .ValueChanged)
+        refreshControl.addTarget(self, action: #selector(HistoryVC.refreshTableView(_:)), for: .valueChanged)
         tableView.addSubview(refreshControl)
         
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(HistoryVC.longPress(_:)))
@@ -45,8 +45,8 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    @objc func dataUpdate(notification: NSNotification){
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+    @objc func dataUpdate(_ notification: Notification){
+        DispatchQueue.main.async { () -> Void in
             if notification.object != nil && self.selectedIndexPath != nil {
                 /*
                 let recordID = notification.object as! CKRecordID
@@ -72,12 +72,12 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func refreshTableView(refreshControl: UIRefreshControl) {
+    func refreshTableView(_ refreshControl: UIRefreshControl) {
         DataController.sharedInstance.loadAll()
     }
     //MARK:Tableview Delegate & Datasource
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellId")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId")
         
         let arr = tableviewArray[indexPath.section] as! NSMutableArray
         let workoutObject = arr[indexPath.row] as! Workout
@@ -91,40 +91,40 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
         return cell!
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  tableviewArray[section].count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return  (tableviewArray[section] as AnyObject).count
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return tableviewArray.count
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
         selectedIndexPath = indexPath
-        self.performSegueWithIdentifier("WorkoutSummarySegue", sender: nil)
+        self.performSegue(withIdentifier: "WorkoutSummarySegue", sender: nil)
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         //grab workout in array
         let array = tableviewArray[section] as! NSMutableArray
         let workout = array[0] as! Workout
         //create date formatter
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/YYYY";
         //create title
-        let title = dateFormatter.stringFromDate(workout.startTime!)
+        let title = dateFormatter.string(from: workout.startTime!)
         
         return createSectionHeaderView(title)
     }
     
-    func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {    
-        if longPressGestureRecognizer.state == UIGestureRecognizerState.Began {
-            let touchPoint = longPressGestureRecognizer.locationInView(tableView)
-            if let indexPath = tableView.indexPathForRowAtPoint(touchPoint) {
-                let alertController = UIAlertController(title: nil, message: "are you sure you want to delete this workout?", preferredStyle: .ActionSheet)
-                let cancelAction = UIAlertAction(title: "cancel", style: .Cancel) { (action) in }
-                let destroyAction = UIAlertAction(title: "delete", style: .Destructive) { (action) in
+    func longPress(_ longPressGestureRecognizer: UILongPressGestureRecognizer) {    
+        if longPressGestureRecognizer.state == UIGestureRecognizerState.began {
+            let touchPoint = longPressGestureRecognizer.location(in: tableView)
+            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+                let alertController = UIAlertController(title: nil, message: "are you sure you want to delete this workout?", preferredStyle: .actionSheet)
+                let cancelAction = UIAlertAction(title: "cancel", style: .cancel) { (action) in }
+                let destroyAction = UIAlertAction(title: "delete", style: .destructive) { (action) in
                     self.startSpinner()
                     self.selectedIndexPath = indexPath
 
@@ -134,7 +134,7 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
                     DataController.sharedInstance.deleteWorkout(workout, completion: { success in
                         if success {
                             self.sortWorkoutValuesForTableView()
-                            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                            DispatchQueue.main.async { () -> Void in
                                 self.tableView.reloadData()
                                 self.stopSpinner()
                             }
@@ -144,7 +144,7 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
                 alertController.addAction(cancelAction)
                 alertController.addAction(destroyAction)
                 
-                self.presentViewController(alertController, animated: true) { }
+                self.present(alertController, animated: true) { }
             }
         }
     }
@@ -162,9 +162,9 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
                 if tmpArr.count > 0 {
                     let w = tmpArr[0] as! Workout
                     //check if current value matches first arrays value
-                    if NSCalendar.currentCalendar().isDate(w.startTime!, inSameDayAsDate: workout.startTime!){
+                    if Calendar.current.isDate(w.startTime!, inSameDayAs: workout.startTime!){
                         shouldCreateNewArray = false
-                        tmpArr.addObject(workout)
+                        tmpArr.add(workout)
                         break
                     }
                 }
@@ -172,18 +172,18 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
             //if loop ends without a matched value create new subarray and insert current value
             if shouldCreateNewArray {
                 let tmpArr = NSMutableArray()
-                tmpArr.addObject(workout)
-                arr.addObject(tmpArr)
+                tmpArr.add(workout)
+                arr.add(tmpArr)
             }
         }
         //assign new array to tableviewArray
         tableviewArray = arr
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        super.prepareForSegue(segue, sender: sender)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         if segue.identifier == "WorkoutSummarySegue" {
-            let vc = segue.destinationViewController as! WorkoutSummaryVC
+            let vc = segue.destination as! WorkoutSummaryVC
             vc.shouldDisplaySaveOptions = false
             let arr = tableviewArray[selectedIndexPath!.section] as! NSMutableArray
             vc.workout = arr[selectedIndexPath!.row] as! Workout

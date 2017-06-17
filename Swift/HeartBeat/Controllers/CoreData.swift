@@ -17,7 +17,7 @@ class CoreData {
     static let sharedInstance = CoreData()
     
     func managedContext() -> NSManagedObjectContext {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.managedObjectContext
     }
     
@@ -32,12 +32,12 @@ class CoreData {
     }
  
     //MARK: Search
-    func fetchAllWorkouts(withpredicate predicate: NSPredicate?, completion: (array: [Workout]) -> Void) {
-        let fetchRequest = NSFetchRequest(entityName: workoutEntityName)
+    func fetchAllWorkouts(withpredicate predicate: NSPredicate?, completion: (_ array: [Workout]) -> Void) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: workoutEntityName)
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = Workout.SortDescriptor()
         do {
-            let results = try managedContext().executeFetchRequest(fetchRequest)
+            let results = try managedContext().fetch(fetchRequest)
             let workoutObjects = results as! [Workout]
             DataController.sharedInstance.workoutArray = workoutObjects
 
@@ -47,19 +47,19 @@ class CoreData {
         }
     }
     
-    func createPredicate(entity:String, value:String) -> NSPredicate {
+    func createPredicate(_ entity:String, value:String) -> NSPredicate {
         return NSPredicate(format: "%K == %@", entity, value)
     }
     
-    func checkIfWorkoutExists(predicate: NSPredicate) -> Workout? {
-        let fetchRequest = NSFetchRequest(entityName: workoutEntityName)
-        let entityDescription = NSEntityDescription.entityForName("Workout", inManagedObjectContext: managedContext())
+    func checkIfWorkoutExists(_ predicate: NSPredicate) -> Workout? {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: workoutEntityName)
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Workout", in: managedContext())
         
         fetchRequest.entity = entityDescription
         fetchRequest.predicate = predicate
         
         do {
-            let result = try managedContext().executeFetchRequest(fetchRequest)
+            let result = try managedContext().fetch(fetchRequest)
             if let obj = result.first {
                 return obj as? Workout
             }
@@ -73,19 +73,19 @@ class CoreData {
     
     //MARK: Create
 
-    func createWorkoutLocal(inout workout:Workout) {
-        let workoutObject = NSEntityDescription.insertNewObjectForEntityForName(workoutEntityName, inManagedObjectContext: managedContext()) as! Workout
+    func createWorkoutLocal(_ workout:inout Workout) {
+        let workoutObject = NSEntityDescription.insertNewObject(forEntityName: workoutEntityName, into: managedContext()) as! Workout
         workoutObject.withWorkout(workout)
         saveDatabase()
         workout = workoutObject
     }
     
-    func createWorkoutRemote(record: CKRecord) -> Workout {
+    func createWorkoutRemote(_ record: CKRecord) -> Workout {
         let predicate = createPredicate("recordName", value: record.recordID.recordName)
         if let workoutObject = checkIfWorkoutExists(predicate) {
             return workoutObject //found a entity matching record's id name
         } else {
-            let workoutObject = NSEntityDescription.insertNewObjectForEntityForName(workoutEntityName, inManagedObjectContext: managedContext()) as! Workout
+            let workoutObject = NSEntityDescription.insertNewObject(forEntityName: workoutEntityName, into: managedContext()) as! Workout
             workoutObject.withRecord(record)
             saveDatabase()
             
@@ -94,35 +94,35 @@ class CoreData {
     }
     
     func createEmptyWorkout() -> Workout {
-        let workout = Workout.init(entity: NSEntityDescription.entityForName(workoutEntityName, inManagedObjectContext:AppDelegate.sharedInstance.managedObjectContext)!, insertIntoManagedObjectContext: AppDelegate.sharedInstance.managedObjectContext)
-        workout.id = NSUUID().UUIDString //unique ID for workouts
+        let workout = Workout.init(entity: NSEntityDescription.entity(forEntityName: workoutEntityName, in:AppDelegate.sharedInstance.managedObjectContext)!, insertInto: AppDelegate.sharedInstance.managedObjectContext)
+        workout.id = UUID().uuidString //unique ID for workouts
         return workout
     }
     
     //MARK: Delete
     
-    func deleteWorkout(workout: Workout, completion: (success: Bool) -> Void) {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    func deleteWorkout(_ workout: Workout, completion: (_ success: Bool) -> Void) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        appDelegate.managedObjectContext.deleteObject(workout)
+        appDelegate.managedObjectContext.delete(workout)
         do {
             DataController.sharedInstance.workoutArray = DataController.sharedInstance.workoutArray.filter { $0 != workout }
 
             try appDelegate.managedObjectContext.save()
-            completion(success: true)
+            completion(true)
         } catch let error as NSError  {
-            completion(success: false)
+            completion(false)
             print("Could not save \(error), \(error.userInfo)")
         }
     }
     
     func deleteEntireDB() {
-        let fetchRequest = NSFetchRequest(entityName: workoutEntityName)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: workoutEntityName)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         
         do {
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            try appDelegate.persistentStoreCoordinator.executeRequest(deleteRequest, withContext: managedContext())
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            try appDelegate.persistentStoreCoordinator.execute(deleteRequest, with: managedContext())
         } catch let error as NSError {
             // handle the error
             print(error)
@@ -134,12 +134,12 @@ class CoreData {
     func printNumberOfEntities() {
         print("printNumberOfEntities")
         
-        let fetchRequest = NSFetchRequest(entityName: workoutEntityName)
-        let entityDescription = NSEntityDescription.entityForName("Workout", inManagedObjectContext: managedContext())
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: workoutEntityName)
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Workout", in: managedContext())
         fetchRequest.entity = entityDescription
         
         do {
-            let result = try managedContext().executeFetchRequest(fetchRequest)
+            let result = try managedContext().fetch(fetchRequest)
             print(result.count)
         } catch {
             let fetchError = error as NSError
@@ -150,12 +150,12 @@ class CoreData {
     func printAllEntitiesID() {
         print("printAllEntitiesID")
         
-        let fetchRequest = NSFetchRequest(entityName: workoutEntityName)
-        let entityDescription = NSEntityDescription.entityForName("Workout", inManagedObjectContext: managedContext())
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: workoutEntityName)
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Workout", in: managedContext())
         fetchRequest.entity = entityDescription
         
         do {
-            let result = try managedContext().executeFetchRequest(fetchRequest)
+            let result = try managedContext().fetch(fetchRequest)
             for obj in result as! [Workout] {
                 print(obj.id)
             }
@@ -168,12 +168,12 @@ class CoreData {
     func printAllEntitiesRecordName() {
         print("printNumberOfEntitiesRecordName")
         
-        let fetchRequest = NSFetchRequest(entityName: workoutEntityName)
-        let entityDescription = NSEntityDescription.entityForName("Workout", inManagedObjectContext: managedContext())
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: workoutEntityName)
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Workout", in: managedContext())
         fetchRequest.entity = entityDescription
         
         do {
-            let result = try managedContext().executeFetchRequest(fetchRequest)
+            let result = try managedContext().fetch(fetchRequest)
             for obj in result as! [Workout] {
                 print(obj.recordName)
             }

@@ -19,8 +19,8 @@ class DataController {
     var workoutArray = [Workout]()
     
     init() {
-        CKContainer.defaultContainer().accountStatusWithCompletionHandler { (accountStat, error) in
-            if (accountStat == .Available) {
+        CKContainer.default().accountStatus { (accountStat, error) in
+            if (accountStat == .available) {
                 print("iCloud is available")
                 self.isCloudKitAvailable = true
             }
@@ -81,7 +81,7 @@ class DataController {
     }
     
     //MARK: Add
-    func createWorkout(workout:Workout, completion:(success: Bool) -> Void) {
+    func createWorkout(_ workout:Workout, completion:(_ success: Bool) -> Void) {
         var w = workout
         CoreData.sharedInstance.createWorkoutLocal(&w)
         if self.isCloudKitAvailable {
@@ -90,13 +90,13 @@ class DataController {
                 CoreData.sharedInstance.saveDatabase()
             })
         }
-        self.workoutArray.insert(w, atIndex: 0)
+        self.workoutArray.insert(w, at: 0)
         postNotification()
         completion(success: true)
     }
     
     //MARK: Delete
-    func deleteWorkout(workout: Workout, completion:(success: Bool) -> Void) {
+    func deleteWorkout(_ workout: Workout, completion:@escaping @escaping @escaping @escaping @escaping (_ success: Bool) -> Void) {
         if workout.recordName != nil {
             
             // check if workout exist in CK
@@ -122,7 +122,7 @@ class DataController {
     
     //MARK: Other
     func postNotification() {
-        NSNotificationCenter.defaultCenter().postNotificationName(DataControllerNotificationId, object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: DataControllerNotificationId), object: nil)
     }
     
     //MARK: Examples

@@ -17,21 +17,21 @@ class CloudKit {
     
     static let sharedInstance =  CloudKit()
     
-    let publicDB = CKContainer.defaultContainer().publicCloudDatabase
-    let privateDB = CKContainer.defaultContainer().privateCloudDatabase
+    let publicDB = CKContainer.default().publicCloudDatabase
+    let privateDB = CKContainer.default().privateCloudDatabase
     
     init() {
         let predicate = NSPredicate(format: truePredicate, argumentArray: nil)
-        let subscription = CKSubscription(recordType: recordType, predicate: predicate, options:.FiresOnRecordCreation)
+        let subscription = CKSubscription(recordType: recordType, predicate: predicate, options:.firesOnRecordCreation)
         
-        privateDB.fetchAllSubscriptionsWithCompletionHandler({subscriptions, error in
+        privateDB.fetchAllSubscriptions(completionHandler: {subscriptions, error in
             //TODO:create delete/update subsciptions
             if error != nil {
                 print(error?.localizedDescription)
             } else if subscriptions?.count == 0 {
-                self.privateDB.saveSubscription(subscription, completionHandler: ({ returnedRecord, error in
+                self.privateDB.save(subscription, completionHandler: ({ returnedRecord, error in
                     if error == true {
-                        self.printError(error!)
+                        self.printError(error! as NSError)
                     }
                 }))
             }
@@ -39,92 +39,92 @@ class CloudKit {
     }
     
     //MARK: Query
-    func queryPublicDatabaseForRecord(type:String, with sortDescriptors:[NSSortDescriptor]?, completion: (results: [CKRecord]) -> Void) {
+    func queryPublicDatabaseForRecord(_ type:String, with sortDescriptors:[NSSortDescriptor]?, completion: (_ results: [CKRecord]) -> Void) {
         queryWithRecord(recordType, with: publicDB, and: sortDescriptors, completion: { results in
-            completion(results: results)
+            completion(results)
         })
     }
     
-    func queryPrivateDatabaseForRecord(type:String, with sortDescriptors:[NSSortDescriptor]?, completion: (results: [CKRecord]) -> Void) {
+    func queryPrivateDatabaseForRecord(_ type:String, with sortDescriptors:[NSSortDescriptor]?, completion: (_ results: [CKRecord]) -> Void) {
         queryWithRecord(recordType, with: privateDB, and: sortDescriptors, completion: { results in
-            completion(results: results)
+            completion(results)
         })
     }
     
-    func queryWithRecord(type:String, with database: CKDatabase, and sortDescriptors:[NSSortDescriptor]?, completion: (results: [CKRecord]) -> Void) {
+    func queryWithRecord(_ type:String, with database: CKDatabase, and sortDescriptors:[NSSortDescriptor]?, completion: (_ results: [CKRecord]) -> Void) {
         let query = CKQuery(recordType: recordType, predicate: NSPredicate(format: truePredicate, argumentArray: nil))
         if sortDescriptors != nil {
             query.sortDescriptors = sortDescriptors!
         }
-        database.performQuery(query, inZoneWithID: nil) { results, error in
+        database.perform(query, inZoneWith: nil) { results, error in
             if error == true {
-                self.printError(error!)
+                self.printError(error! as NSError)
             }
             else {
-                completion(results: results!)
+                completion(results!)
             }
         }
     }
     
-    func queryPublicDatabaseWithRecordID(recordID:CKRecordID) {
+    func queryPublicDatabaseWithRecordID(_ recordID:CKRecordID) {
         queryWithRecordID(recordID, with: publicDB)
     }
     
-    func queryPrivateDatabaseWithRecordID(recordID:CKRecordID) {
+    func queryPrivateDatabaseWithRecordID(_ recordID:CKRecordID) {
         queryWithRecordID(recordID, with: privateDB)
     }
     
-    func queryWithRecordID(recordID:CKRecordID, with databse: CKDatabase) {
-        privateDB.fetchRecordWithID(recordID, completionHandler: { record, error in
+    func queryWithRecordID(_ recordID:CKRecordID, with databse: CKDatabase) {
+        privateDB.fetch(withRecordID: recordID, completionHandler: { record, error in
             if error == true {
-                self.printError(error!)
+                self.printError(error! as NSError)
             } else {
                 let workout = CoreData.sharedInstance.createWorkoutRemote(record!)
-                DataController.sharedInstance.workoutArray.insert(workout, atIndex: 0)
-                NSNotificationCenter.defaultCenter().postNotificationName(CloudKitWrapperNotificationId, object: nil)
+                DataController.sharedInstance.workoutArray.insert(workout, at: 0)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: CloudKitWrapperNotificationId), object: nil)
             }
         })
     }
     
     //MARK: Save
-    func saveRecordToPublicDatabase(record:CKRecord, completion: (record: CKRecord) -> Void) {
+    func saveRecordToPublicDatabase(_ record:CKRecord, completion: (_ record: CKRecord) -> Void) {
         saveRecord(record, withDatabase: publicDB, completion: { newRecord in
-           completion(record: newRecord)
+           completion(newRecord)
         })
     }
     
-    func saveRecordToPrivateDatabase(record:CKRecord, completion: (record: CKRecord) -> Void) {
+    func saveRecordToPrivateDatabase(_ record:CKRecord, completion: (_ record: CKRecord) -> Void) {
         saveRecord(record, withDatabase: privateDB, completion: { newRecord in
-            completion(record: newRecord)
+            completion(newRecord)
         })
     }
     
-    func saveRecord(record:CKRecord, withDatabase database:CKDatabase, completion: (record: CKRecord) -> Void) {
-        database.saveRecord(record) { savedRecord, error in
-            completion(record: savedRecord!)
-        }
+    func saveRecord(_ record:CKRecord, withDatabase database:CKDatabase, completion: (_ record: CKRecord) -> Void) {
+        database.save(record, completionHandler: { savedRecord, error in
+            completion(savedRecord!)
+        }) 
     }
     
     //MARK: Delete
-    func deleteRecordFromPublicDatabase(recordID:CKRecordID, completion:(success: Bool) -> Void) {
+    func deleteRecordFromPublicDatabase(_ recordID:CKRecordID, completion:(_ success: Bool) -> Void) {
         deleteRecord(recordID, with: publicDB, completion: { success in
-            completion(success: success)
+            completion(success)
         })
     }
     
-    func deleteRecordFromPrivateDatabase(recordID:CKRecordID, completion:(success: Bool) -> Void) {
+    func deleteRecordFromPrivateDatabase(_ recordID:CKRecordID, completion:(_ success: Bool) -> Void) {
         deleteRecord(recordID, with: privateDB, completion: { success in
-            completion(success: success)
+            completion(success)
         })
     }
     
-    func deleteRecord(recordID:CKRecordID, with dabase:CKDatabase, completion:(success: Bool) -> Void) {
-        dabase.deleteRecordWithID(recordID, completionHandler: {recordID, error in
+    func deleteRecord(_ recordID:CKRecordID, with dabase:CKDatabase, completion:(_ success: Bool) -> Void) {
+        dabase.delete(withRecordID: recordID, completionHandler: {recordID, error in
             if error == true {
-                self.printError(error!)
-                completion(success: false)
+                self.printError(error! as NSError)
+                completion(false)
             } else {
-                completion(success: true)
+                completion(true)
             }
         })
     }
@@ -134,7 +134,7 @@ class CloudKit {
     //MARK: Subcriptions
     //MARK: Other
     
-    func printError(error:NSError) {
+    func printError(_ error:NSError) {
         if UserSettings.sharedInstance.debug {
             print(error.localizedDescription)
         }

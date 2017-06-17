@@ -83,6 +83,8 @@
 		33F271BE1D123D8500588247 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33F271BC1D123D8500588247 /* LaunchScreen.storyboard */; };
 		33F271E21D123F1300588247 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33F271E11D123F1300588247 /* AVFoundation.framework */; };
 		33FF20C11D5FF12200EBAFDD /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FF20C01D5FF12200EBAFDD /* SettingsTableViewCell.swift */; };
+		3ADC2A6B1E13072000C05B6C /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADC2A6A1E13072000C05B6C /* ImageIO.framework */; };
+		3ADC2A6D1E13072800C05B6C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADC2A6C1E13072800C05B6C /* MobileCoreServices.framework */; };
 		76442ACDC32C358F02BF1E2E /* Pods_HeartBeat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D8C98B6F350747B76FE2BD /* Pods_HeartBeat.framework */; };
 /* End PBXBuildFile section */
 
@@ -213,6 +215,8 @@
 		33F271E11D123F1300588247 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		33F272431D123FA400588247 /* HeartBeat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HeartBeat.entitlements; sourceTree = "<group>"; };
 		33FF20C01D5FF12200EBAFDD /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewCell.swift; path = ThirdParty/CustomClasses/SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		3ADC2A6A1E13072000C05B6C /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		3ADC2A6C1E13072800C05B6C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		75D8C98B6F350747B76FE2BD /* Pods_HeartBeat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeartBeat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		874A562BBCB9174AC2EA2A9A /* Pods-HeartBeat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartBeat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeartBeat/Pods-HeartBeat.debug.xcconfig"; sourceTree = "<group>"; };
 		FDF0355659680E709A71D8E8 /* Pods-HeartBeat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartBeat.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeartBeat/Pods-HeartBeat.release.xcconfig"; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ADC2A6D1E13072800C05B6C /* MobileCoreServices.framework in Frameworks */,
+				3ADC2A6B1E13072000C05B6C /* ImageIO.framework in Frameworks */,
 				336714981DF3DE2700C2A0D2 /* AccountKitStrings.bundle in Frameworks */,
 				33E365181DF3B697004B7405 /* AccountKit.framework in Frameworks */,
 				33550AC61D53E64E0036122A /* CloudKit.framework in Frameworks */,
@@ -240,6 +246,8 @@
 		0175E9AF51125D2CCC35525F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3ADC2A6C1E13072800C05B6C /* MobileCoreServices.framework */,
+				3ADC2A6A1E13072000C05B6C /* ImageIO.framework */,
 				336714971DF3DE2700C2A0D2 /* AccountKitStrings.bundle */,
 				33E365171DF3B697004B7405 /* AccountKit.framework */,
 				75D8C98B6F350747B76FE2BD /* Pods_HeartBeat.framework */,
@@ -568,7 +576,7 @@
 					33F271AC1D123D8500588247 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = K8YR4WT3S5;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -871,6 +879,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/ThirdParty/BridgeFiles/HeartBeat-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -897,6 +906,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/ThirdParty/BridgeFiles/HeartBeat-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -33,16 +33,16 @@ class Health {
                     UserSettings.sharedInstance.saveToDisk()
                     UserSettings.sharedInstance.loadInstances()
                 }
-                NSNotificationCenter.defaultCenter().postNotificationName("HealthStorePermission", object: nil)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "HealthStorePermission"), object: nil)
             }
             let writeDataTypes = dataTypesToWrite() as! Set<HKSampleType>
             let readDataTypes = dataTypesToRead() as! Set<HKObjectType>//{ (success: Bool!, error: NSError!) -> Void in
-            healthStore.requestAuthorizationToShareTypes(writeDataTypes, readTypes: readDataTypes, completion: newCompletion)
+            healthStore.requestAuthorization(toShare: writeDataTypes, read: readDataTypes, completion: newCompletion)
         }
     }
     //MARK: Retreive Data
-    func weight(completion: (weight: Float) -> Void)  {
-        let sampleType = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
+    func weight(_ completion: (_ weight: Float) -> Void)  {
+        let sampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)
         readMostRecentSample(sampleType!, completion: { (mostRecentWeight, error) -> Void in
             if( error != nil ) {
                 print("Error reading weight from HealthKit Store: \(error.localizedDescription)")
@@ -52,7 +52,7 @@ class Health {
             var kilograms = 0.0
             if mostRecentWeight != nil {
                 let weightSample = mostRecentWeight as! HKQuantitySample
-                kilograms = weightSample.quantity.doubleValueForUnit(HKUnit.gramUnitWithMetricPrefix(.Kilo))
+                kilograms = weightSample.quantity.doubleValue(for: HKUnit.gramUnit(with: .kilo))
             }
         
             completion(weight: Float(kilograms))
@@ -60,11 +60,11 @@ class Health {
     }
     // Function from HealthKit Tutorial with Swift: Getting Started
     // www.raywenderlich.com/86336/ios-8-healthkit-swift-getting-started
-    func readMostRecentSample(sampleType:HKSampleType , completion: ((HKSample!, NSError!) -> Void)!) {
+    func readMostRecentSample(_ sampleType:HKSampleType , completion: ((HKSample!, NSError!) -> Void)!) {
         // 1. Build the Predicate
-        let past = NSDate.distantPast()
-        let now   = NSDate()
-        let mostRecentPredicate = HKQuery.predicateForSamplesWithStartDate(past, endDate:now, options: .None)
+        let past = Date.distantPast
+        let now   = Date()
+        let mostRecentPredicate = HKQuery.predicateForSamples(withStart: past, end:now, options: HKQueryOptions())
         // 2. Build the sort descriptor to return the samples in descending order
         let sortDescriptor = NSSortDescriptor(key:HKSampleSortIdentifierStartDate, ascending: false)
         // 3. we want to limit the number of samples returned by the query to just 1 (the most recent)
@@ -84,14 +84,14 @@ class Health {
             }
         }
         // 5. Execute the Query
-        healthStore.executeQuery(sampleQuery)
+        healthStore.execute(sampleQuery)
     }
     //MARK: Modify/Save
-    func saveWorkoutToHealthKit(workout:Workout) {
+    func saveWorkoutToHealthKit(_ workout:Workout) {
         //1.check if can/should save
         if HKHealthStore.isHealthDataAvailable() && UserSettings.sharedInstance.userEnabledHealth {
             //2.create all variables
-            let energyBurnedQuantity = HKQuantity(unit: HKUnit.kilocalorieUnit(), doubleValue: Double(workout.caloriesBurned!))
+            let energyBurnedQuantity = HKQuantity(unit: HKUnit.kilocalorie(), doubleValue: Double(workout.caloriesBurned!))
             let metadata: [String: AnyObject] = [
                 HKMetadataKeyGroupFitness: false,
                 HKMetadataKeyIndoorWorkout: false,
@@ -99,9 +99,9 @@ class Health {
             ]
             //3.create hkworkout object
             let workoutSample = HKWorkout(
-                activityType: .FunctionalStrengthTraining,
-                startDate: workout.startTime!,
-                endDate: workout.endTime!,
+                activityType: .functionalStrengthTraining,
+                start: workout.startTime!,
+                end: workout.endTime!,
                 workoutEvents: nil,
                 totalEnergyBurned: energyBurnedQuantity,
                 totalDistance: nil,
@@ -109,31 +109,31 @@ class Health {
                 metadata: metadata
             )
             //4.call healthkit save function
-            healthStore.saveObject(workoutSample) { (success: Bool, error: NSError?) -> Void in
+            healthStore.save(workoutSample, withCompletion: { (success: Bool, error: NSError?) -> Void in
                 if success == false {
                     // Workout was not successfully saved
                     print(error?.localizedDescription)
                 }
-            }
+            }) 
         }
     }
     //MARK: Misc
     func dataTypesToWrite() -> NSSet {
         let set = NSMutableSet()
-        set.addObject(HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount)!)
-        set.addObject(HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierDistanceWalkingRunning)!)
-        set.addObject(HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierActiveEnergyBurned)!)
-        set.addObject(HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)!)
-        set.addObject(HKObjectType.workoutType())
+        set.add(HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!)
+        set.add(HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)!)
+        set.add(HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)!)
+        set.add(HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!)
+        set.add(HKObjectType.workoutType())
         
         return set
     }
     
     func dataTypesToRead() -> NSSet {
         let set = NSMutableSet()
-        set.addObject(HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)!)
-        set.addObject(HKObjectType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierDateOfBirth)!)
-        set.addObject(HKObjectType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierBiologicalSex)!)
+        set.add(HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!)
+        set.add(HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.dateOfBirth)!)
+        set.add(HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.biologicalSex)!)
 
         return set
     }

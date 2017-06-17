@@ -6,6 +6,30 @@
 //  Copyright © 2016 Mxtapes. All rights reserved.
 //
 import Foundation
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class PermissionsVC: BaseVC, UITextFieldDelegate {
     
@@ -19,13 +43,13 @@ class PermissionsVC: BaseVC, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ageTextField.addTarget(self, action: #selector(textFieldDidChange), forControlEvents: .EditingChanged)
-        weightTextField.addTarget(self, action: #selector(textFieldDidChange), forControlEvents: .EditingChanged)
+        ageTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        weightTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         
-        NSNotificationCenter.defaultCenter().addObserver(
+        NotificationCenter.default.addObserver(
             self,
             selector: #selector(healthPermissionResponse),
-            name: "HealthStorePermission",
+            name: NSNotification.Name(rawValue: "HealthStorePermission"),
             object: nil)
         
         title = "Permissions"
@@ -33,9 +57,9 @@ class PermissionsVC: BaseVC, UITextFieldDelegate {
         updateValuesFromSettings()
     }
     
-    @objc func healthPermissionResponse(notification: NSNotification){
+    @objc func healthPermissionResponse(_ notification: Notification){
         //notification once health permission exits
-        dispatch_async(dispatch_get_main_queue(), {
+        DispatchQueue.main.async(execute: {
             self.updateValuesFromSettings()
             self.unitSegmentControl.selectedSegmentIndex = 0
         })
@@ -43,7 +67,7 @@ class PermissionsVC: BaseVC, UITextFieldDelegate {
     
     func updateValuesFromSettings() {
         let settings = UserSettings.sharedInstance
-        healthButton.enabled = !settings.userEnabledHealth
+        healthButton.isEnabled = !settings.userEnabledHealth
         
         sexSegmentControl.selectedSegmentIndex = settings.sex
         unitSegmentControl.selectedSegmentIndex = settings.unit
@@ -70,31 +94,31 @@ class PermissionsVC: BaseVC, UITextFieldDelegate {
         }
         
         settings.saveToDisk()
-        NSNotificationCenter.defaultCenter().postNotificationName("UpdateSettings", object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "UpdateSettings"), object: nil)
     }
     
     func shouldContinueButtonBeEnabled() {
         //check if continue button should be enabled
-        continueButton.enabled = true
+        continueButton.isEnabled = true
         if ageTextField.text == "" || weightTextField.text == "" ||
             Int(ageTextField.text!) == 0 || Int(weightTextField.text!) == 0 ||
             ageTextField.text == nil || weightTextField.text == nil
         {
-            continueButton.enabled = false
+            continueButton.isEnabled = false
         }
     }
     
     //MARK: Button Pressed
-    @IBAction func healthButtonPressed(sender: AnyObject) {
+    @IBAction func healthButtonPressed(_ sender: AnyObject) {
         Health.sharedInstance.askPermissionForHealth()
     }
     
-    @IBAction func continueButtonPressed(sender: UIButton) {
+    @IBAction func continueButtonPressed(_ sender: UIButton) {
         saveSettings()
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func unitSegmentedControlPressed(sender: UISegmentedControl) {
+    @IBAction func unitSegmentedControlPressed(_ sender: UISegmentedControl) {
         if UserSettings.sharedInstance.weight != 0.0 {
             if sender.selectedSegmentIndex == 0 {
                 weightTextField.text = String(UserSettings.sharedInstance.weight)
@@ -104,21 +128,21 @@ class PermissionsVC: BaseVC, UITextFieldDelegate {
         }
     }
     
-    @IBAction func dismissKeyboard(sender: AnyObject) {
+    @IBAction func dismissKeyboard(_ sender: AnyObject) {
         view.window?.endEditing(true)
     }
     
     //MARK: TextFieldDelegate
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         if Float(textField.text!) == 0 { textField.text = "" }
         textField.becomeFirstResponder()
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         shouldContinueButtonBeEnabled()
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
     }
     

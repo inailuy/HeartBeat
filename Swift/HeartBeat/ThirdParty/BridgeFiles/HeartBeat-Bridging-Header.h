@@ -12,6 +12,9 @@
 #import "DGActivityIndicatorView.h"
 
 // facebooksdk header files
+/*
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <AccountKit/AccountKit.h>
+#import <FBNotifications/FBNotifications.h>
+ */

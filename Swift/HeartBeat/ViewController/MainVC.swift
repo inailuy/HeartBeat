@@ -18,18 +18,18 @@ class MainVC: BaseVC {
         super.viewDidLoad()
 
         self.title = "heartbeat"
-        let historyButton = UIBarButtonItem(title: "History", style: UIBarButtonItemStyle.Done, target: self, action: #selector(historyButtonPressed))
-        let settingsButton = UIBarButtonItem(title: "Settings", style: UIBarButtonItemStyle.Done, target: self, action: #selector(settingsButtonPressed))
+        let historyButton = UIBarButtonItem(title: "History", style: UIBarButtonItemStyle.done, target: self, action: #selector(historyButtonPressed))
+        let settingsButton = UIBarButtonItem(title: "Settings", style: UIBarButtonItemStyle.done, target: self, action: #selector(settingsButtonPressed))
         navigationItem.leftBarButtonItem = historyButton
         navigationItem.rightBarButtonItem = settingsButton
         
-        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(MainVC.updateBluetoothData), userInfo:nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(MainVC.updateBluetoothData), userInfo:nil, repeats: true)
         //startWorkoutButtonPressed(UIButton())
         //startWorkoutButtonPressed(UIButton())
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if (appDelegate.accountKit.currentAccessToken == nil) {
             //User is logged out
@@ -38,20 +38,20 @@ class MainVC: BaseVC {
     }
     
     func historyButtonPressed() {
-        appDelegate.swipeBetweenVC.scrollToViewControllerAtIndex(0, animated: true)
+        appDelegate.swipeBetweenVC.scrollToViewController(at: 0, animated: true)
     }
     
     func settingsButtonPressed() {
-        appDelegate.swipeBetweenVC.scrollToViewControllerAtIndex(2, animated: true)
+        appDelegate.swipeBetweenVC.scrollToViewController(at: 2, animated: true)
     }
     
     func performLoginOperation() {
-        performSegueWithIdentifier("loginSegue", sender: nil)
+        performSegue(withIdentifier: "loginSegue", sender: nil)
     }
     
-    @IBAction func startWorkoutButtonPressed(sender: UIButton) {
+    @IBAction func startWorkoutButtonPressed(_ sender: UIButton) {
         WorkoutController.sharedInstance.startWorkout()
-        performSegueWithIdentifier("WorkoutSegue", sender: nil)
+        performSegue(withIdentifier: "WorkoutSegue", sender: nil)
     }
     
     func updateBluetoothData() {
