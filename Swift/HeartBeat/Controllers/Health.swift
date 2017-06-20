@@ -37,15 +37,15 @@ class Health {
             }
             let writeDataTypes = dataTypesToWrite() as! Set<HKSampleType>
             let readDataTypes = dataTypesToRead() as! Set<HKObjectType>//{ (success: Bool!, error: NSError!) -> Void in
-            healthStore.requestAuthorization(toShare: writeDataTypes, read: readDataTypes, completion: newCompletion)
+            healthStore.requestAuthorization(toShare: writeDataTypes, read: readDataTypes, completion: newCompletion as! (Bool, Error?) -> Void)
         }
     }
     //MARK: Retreive Data
-    func weight(_ completion: (_ weight: Float) -> Void)  {
+    func weight(_ completion: @escaping (_ weight: Float) -> Void)  {
         let sampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)
         readMostRecentSample(sampleType!, completion: { (mostRecentWeight, error) -> Void in
             if( error != nil ) {
-                print("Error reading weight from HealthKit Store: \(error.localizedDescription)")
+                print("Error reading weight from HealthKit Store: \(String(describing: error?.localizedDescription))")
                 return;
             }
             
@@ -55,12 +55,12 @@ class Health {
                 kilograms = weightSample.quantity.doubleValue(for: HKUnit.gramUnit(with: .kilo))
             }
         
-            completion(weight: Float(kilograms))
+            completion(Float(kilograms))
         })
     }
     // Function from HealthKit Tutorial with Swift: Getting Started
     // www.raywenderlich.com/86336/ios-8-healthkit-swift-getting-started
-    func readMostRecentSample(_ sampleType:HKSampleType , completion: ((HKSample!, NSError!) -> Void)!) {
+    func readMostRecentSample(_ sampleType:HKSampleType , completion: ((HKSample?, NSError?) -> Void)!) {
         // 1. Build the Predicate
         let past = Date.distantPast
         let now   = Date()
@@ -73,7 +73,7 @@ class Health {
         let sampleQuery = HKSampleQuery(sampleType: sampleType, predicate: mostRecentPredicate, limit: limit, sortDescriptors: [sortDescriptor])
         { (sampleQuery, results, error ) -> Void in
             if let queryError = error {
-                completion(nil,queryError)
+                completion(nil,queryError as NSError)
                 return;
             }
             // Get the first sample
@@ -93,9 +93,9 @@ class Health {
             //2.create all variables
             let energyBurnedQuantity = HKQuantity(unit: HKUnit.kilocalorie(), doubleValue: Double(workout.caloriesBurned!))
             let metadata: [String: AnyObject] = [
-                HKMetadataKeyGroupFitness: false,
-                HKMetadataKeyIndoorWorkout: false,
-                HKMetadataKeyCoachedWorkout: true
+                HKMetadataKeyGroupFitness: false as AnyObject,
+                HKMetadataKeyIndoorWorkout: false as AnyObject,
+                HKMetadataKeyCoachedWorkout: true as AnyObject
             ]
             //3.create hkworkout object
             let workoutSample = HKWorkout(
@@ -109,12 +109,12 @@ class Health {
                 metadata: metadata
             )
             //4.call healthkit save function
-            healthStore.save(workoutSample, withCompletion: { (success: Bool, error: NSError?) -> Void in
+            healthStore.save(workoutSample, withCompletion: { (success, error) in
                 if success == false {
                     // Workout was not successfully saved
                     print(error?.localizedDescription)
                 }
-            }) 
+            })
         }
     }
     //MARK: Misc

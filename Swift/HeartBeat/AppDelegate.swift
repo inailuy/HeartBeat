@@ -11,8 +11,8 @@ import CoreData
 import HealthKit
 import CloudKit
 import AccountKit
-import FBSDKCoreKit
-import FBNotifications
+//import FBSDKCoreKit
+//import FBNotifications
 
 
 @UIApplicationMain

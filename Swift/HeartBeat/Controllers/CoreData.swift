@@ -41,7 +41,7 @@ class CoreData {
             let workoutObjects = results as! [Workout]
             DataController.sharedInstance.workoutArray = workoutObjects
 
-            completion(array: workoutObjects)
+            completion(workoutObjects)
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
@@ -157,7 +157,7 @@ class CoreData {
         do {
             let result = try managedContext().fetch(fetchRequest)
             for obj in result as! [Workout] {
-                print(obj.id)
+                print(obj.id!)
             }
         } catch {
             let fetchError = error as NSError
@@ -175,7 +175,7 @@ class CoreData {
         do {
             let result = try managedContext().fetch(fetchRequest)
             for obj in result as! [Workout] {
-                print(obj.recordName)
+                print(obj.recordName!)
             }
         } catch {
             let fetchError = error as NSError

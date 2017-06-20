@@ -92,11 +92,11 @@ class DataController {
         }
         self.workoutArray.insert(w, at: 0)
         postNotification()
-        completion(success: true)
+        completion(true)
     }
     
     //MARK: Delete
-    func deleteWorkout(_ workout: Workout, completion:@escaping @escaping @escaping @escaping @escaping (_ success: Bool) -> Void) {
+    func deleteWorkout(_ workout: Workout, completion:@escaping (_ success: Bool) -> Void) {
         if workout.recordName != nil {
             
             // check if workout exist in CK
@@ -105,16 +105,16 @@ class DataController {
                 CloudKit.sharedInstance.deleteRecordFromPrivateDatabase(recordID, completion: { success in
                     if success {
                         CoreData.sharedInstance.deleteWorkout(workout, completion: { success in
-                            completion(success: success)
+                            completion(success)
                         })
                     } else {
-                        completion(success: success)
+                        completion(success)
                     }
                 })
             }
         } else {
             CoreData.sharedInstance.deleteWorkout(workout, completion: { success in
-                completion(success: success)
+                completion(success)
             })
         }
         

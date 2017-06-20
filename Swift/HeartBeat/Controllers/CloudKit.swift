@@ -27,10 +27,10 @@ class CloudKit {
         privateDB.fetchAllSubscriptions(completionHandler: {subscriptions, error in
             //TODO:create delete/update subsciptions
             if error != nil {
-                print(error?.localizedDescription)
+                print(error?.localizedDescription as Any)
             } else if subscriptions?.count == 0 {
                 self.privateDB.save(subscription, completionHandler: ({ returnedRecord, error in
-                    if error == true {
+                    if (error != nil) {
                         self.printError(error! as NSError)
                     }
                 }))
@@ -39,25 +39,25 @@ class CloudKit {
     }
     
     //MARK: Query
-    func queryPublicDatabaseForRecord(_ type:String, with sortDescriptors:[NSSortDescriptor]?, completion: (_ results: [CKRecord]) -> Void) {
+    func queryPublicDatabaseForRecord(_ type:String, with sortDescriptors:[NSSortDescriptor]?, completion: @escaping (_ results: [CKRecord]) -> Void) {
         queryWithRecord(recordType, with: publicDB, and: sortDescriptors, completion: { results in
             completion(results)
         })
     }
     
-    func queryPrivateDatabaseForRecord(_ type:String, with sortDescriptors:[NSSortDescriptor]?, completion: (_ results: [CKRecord]) -> Void) {
+    func queryPrivateDatabaseForRecord(_ type:String, with sortDescriptors:[NSSortDescriptor]?, completion: @escaping (_ results: [CKRecord]) -> Void) {
         queryWithRecord(recordType, with: privateDB, and: sortDescriptors, completion: { results in
             completion(results)
         })
     }
     
-    func queryWithRecord(_ type:String, with database: CKDatabase, and sortDescriptors:[NSSortDescriptor]?, completion: (_ results: [CKRecord]) -> Void) {
+    func queryWithRecord(_ type:String, with database: CKDatabase, and sortDescriptors:[NSSortDescriptor]?, completion: @escaping (_ results: [CKRecord]) -> Void) {
         let query = CKQuery(recordType: recordType, predicate: NSPredicate(format: truePredicate, argumentArray: nil))
         if sortDescriptors != nil {
             query.sortDescriptors = sortDescriptors!
         }
         database.perform(query, inZoneWith: nil) { results, error in
-            if error == true {
+            if error != nil {
                 self.printError(error! as NSError)
             }
             else {
@@ -76,7 +76,7 @@ class CloudKit {
     
     func queryWithRecordID(_ recordID:CKRecordID, with databse: CKDatabase) {
         privateDB.fetch(withRecordID: recordID, completionHandler: { record, error in
-            if error == true {
+            if error != nil {
                 self.printError(error! as NSError)
             } else {
                 let workout = CoreData.sharedInstance.createWorkoutRemote(record!)
@@ -87,40 +87,40 @@ class CloudKit {
     }
     
     //MARK: Save
-    func saveRecordToPublicDatabase(_ record:CKRecord, completion: (_ record: CKRecord) -> Void) {
+    func saveRecordToPublicDatabase(_ record:CKRecord, completion: @escaping (_ record: CKRecord) -> Void) {
         saveRecord(record, withDatabase: publicDB, completion: { newRecord in
            completion(newRecord)
         })
     }
     
-    func saveRecordToPrivateDatabase(_ record:CKRecord, completion: (_ record: CKRecord) -> Void) {
+    func saveRecordToPrivateDatabase(_ record:CKRecord, completion: @escaping (_ record: CKRecord) -> Void) {
         saveRecord(record, withDatabase: privateDB, completion: { newRecord in
             completion(newRecord)
         })
     }
     
-    func saveRecord(_ record:CKRecord, withDatabase database:CKDatabase, completion: (_ record: CKRecord) -> Void) {
+    func saveRecord(_ record:CKRecord, withDatabase database:CKDatabase, completion: @escaping (_ record: CKRecord) -> Void) {
         database.save(record, completionHandler: { savedRecord, error in
             completion(savedRecord!)
         }) 
     }
     
     //MARK: Delete
-    func deleteRecordFromPublicDatabase(_ recordID:CKRecordID, completion:(_ success: Bool) -> Void) {
+    func deleteRecordFromPublicDatabase(_ recordID:CKRecordID, completion:@escaping (_ success: Bool) -> Void) {
         deleteRecord(recordID, with: publicDB, completion: { success in
             completion(success)
         })
     }
     
-    func deleteRecordFromPrivateDatabase(_ recordID:CKRecordID, completion:(_ success: Bool) -> Void) {
+    func deleteRecordFromPrivateDatabase(_ recordID:CKRecordID, completion:@escaping (_ success: Bool) -> Void) {
         deleteRecord(recordID, with: privateDB, completion: { success in
             completion(success)
         })
     }
     
-    func deleteRecord(_ recordID:CKRecordID, with dabase:CKDatabase, completion:(_ success: Bool) -> Void) {
+    func deleteRecord(_ recordID:CKRecordID, with dabase:CKDatabase, completion:@escaping (_ success: Bool) -> Void) {
         dabase.delete(withRecordID: recordID, completionHandler: {recordID, error in
-            if error == true {
+            if error != nil {
                 self.printError(error! as NSError)
                 completion(false)
             } else {

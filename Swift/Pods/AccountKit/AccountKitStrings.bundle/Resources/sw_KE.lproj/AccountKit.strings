@@ -28,16 +28,20 @@
 "com_accountkit_button_log_in" = "Ingia";
 "com_accountkit_button_next" = "Inayofuata";
 "com_accountkit_button_ok" = "Sawa";
-"com_accountkit_button_resend_code_in" = "Tuma Msimbo Tena kwenye %1$d";
-"com_accountkit_button_resend_sms" = "Tuma Msimbo Tena";
+"com_accountkit_button_resend_code_in" = "Tuma tena SMS kwenye %1$d";
+"com_accountkit_button_resend_sms" = "Tuma tena SMS";
 "com_accountkit_button_send" = "Tuma";
+"com_accountkit_button_send_code_in_call" = "Pata Simu";
+"com_accountkit_button_send_code_in_call_details" = "Pata msimbo wako kwenye simu ya sauti";
+"com_accountkit_button_send_code_in_call_from_facebook_details" = "Pata msimbo wako kwenye simu ya sauti kutoka kwenye Facebook";
 "com_accountkit_button_send_code_in_fb" = "Pata Msimbo kwenye Facebook";
+"com_accountkit_button_send_code_in_fb_details" = "Msimbo utawasili kama taarifa ya Facebook";
 "com_accountkit_button_send_code_in_fb_disclosure" = "Donoa \"Pata Msimbo kwenye Facebook\" ili kupokea msimbo wako kama taarifa kwenye Facebook.";
 "com_accountkit_button_start" = "Washa";
 "com_accountkit_button_start_over" = "Jaribu Tena";
 "com_accountkit_button_submit" = "Wasilisha";
 "com_accountkit_check_email" = "Fungua Barua pepe yako";
-"com_accountkit_code_sent_to" = "Thibitisha %1$@ ni nambari yako ya simu.";
+"com_accountkit_code_sent_to" = "Thibitisha nambari yako ya simu ya mkononi %1$@";
 "com_accountkit_confirmation_code_agreement" = "Donoa %1$@ ili kukubali <a
             href=\"%2$@\">Masharti</a>, <a
             href=\"%3$@\">Sera ya Data</a> na <a href=\"%4$@\">matumizi ya kidakuzi cha Facebook</a>.";
@@ -78,16 +82,18 @@
 "com_accountkit_error_title" = "Kosa la mfumo limetokea. Tafadhali jaribu tena.";
 "com_accountkit_facebook_code_entry_title" = "Ingiza msimbo wako kutoka kwenye Facebook";
 "com_accountkit_logging_in" = "Unaingia...";
+"com_accountkit_other_ways_to_get_code" = "Njia nyingine za kupata msimbo:";
 "com_accountkit_phone_error_title" = "Tafadhali ingiza nambari halali ya simu ya mkononi.";
 "com_accountkit_phone_loading_title" = "Inathibitisha nambari yako...";
 "com_accountkit_phone_login_retry_title" = "Thibitisha nambari yako ya simu ya mkononi";
 "com_accountkit_phone_login_text" = "Donoa %1$@ ili kuthibitisha akaunti yako kwa Kikasha cha Akaunti kinachoendeshwa na Facebook. Huhitaji akaunti ya Facebook ili kutumia Kikasha cha Akaunti. SMS inaweza kutumwa ili kuthibitisha nambari yako. Viwango vya ujumbe na data vinaweza kutekelezwa. <a href=\"%2$@\">Jifunze jinsi Facebook inavyotumia maelezo yako</a>.";
 "com_accountkit_phone_login_title" = "Ingiza nambari yako ya simu ya mkononi";
-"com_accountkit_resend_check" = "Tafadhali angalia nambari kabla ya kutuma upya msimbo.";
+"com_accountkit_resend_check" = "Angalia kikasha pokezi chako cha SMS";
 "com_accountkit_resend_email_text" = "Tuma Barua pepe Mpya";
-"com_accountkit_resend_title" = "Angalia ujumbe wako kwa SMS na msimbo wako.";
+"com_accountkit_resend_title" = "Iwapo bado hujapata msimbo:";
 "com_accountkit_sent_title" = "Imetumwa!";
 "com_accountkit_success_title" = "Imethibitishwa!";
 "com_accountkit_toolbar_title" = "Ingia Kwenye %1$@";
 "com_accountkit_verify_confirmation_code_title" = "Tusingethibitisha msimbo wako.\nTafadhali jaribu tena:";
 "com_accountkit_verify_title" = "Inathibitisha msimbo wako...";
+"com_accountkit_voice_call_code_entry_title" = "Ingiza msimbo wako kutoka kwenye Simu ya Sauti";

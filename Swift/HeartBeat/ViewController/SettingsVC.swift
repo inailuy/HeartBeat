@@ -26,8 +26,8 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
         super.viewDidLoad()
         title = "settings"
 
-        NotificationCenter.default.addObserver(self, selector: #selector(SettingsVC.observeredUnitsChange), name: "Units_Changed", object: nil)
-        NotificationCenter.default.addObserver(tableView, selector: #selector(tableView.reloadData), name: "UpdateSettings", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingsVC.observeredUnitsChange), name: NSNotification.Name(rawValue: "Units_Changed"), object: nil)
+        NotificationCenter.default.addObserver(tableView, selector: #selector(tableView.reloadData), name: NSNotification.Name(rawValue: "UpdateSettings"), object: nil)
         createHeartNavigationButton(Direction.left.rawValue)
         UserSettings.sharedInstance.loadFromDisk()
     }
@@ -54,7 +54,7 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
             case 2: //SEX
                 title = "Sex"
                 reuseID = IDENTIFIER.segmentedSexCell.rawValue
-                itemBool = Bool(user.sex)
+                itemBool = Bool(user.sex as NSNumber)
                 break
             default: break
             }
@@ -63,7 +63,7 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
             case 0: //Units
                 title = "Units"
                 reuseID = IDENTIFIER.segmentedMetricCell.rawValue
-                itemBool = Bool(user.unit)
+                itemBool = Bool(user.unit as NSNumber)
                 break
             case 1: //Health
                 title = "Health App"

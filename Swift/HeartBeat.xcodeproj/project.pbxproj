@@ -64,11 +64,6 @@
 		337469461D124221008F38C4 /* AudioCuesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469451D124221008F38C4 /* AudioCuesVC.swift */; };
 		337469531D126920008F38C4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 337469521D126920008F38C4 /* HealthKit.framework */; };
 		337469551D126DB2008F38C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F271B01D123D8500588247 /* AppDelegate.swift */; };
-		3377FEB81D2899B400D0BA98 /* BEMAverageLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEAF1D2899B400D0BA98 /* BEMAverageLine.m */; };
-		3377FEB91D2899B400D0BA98 /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEB11D2899B400D0BA98 /* BEMCircle.m */; };
-		3377FEBA1D2899B400D0BA98 /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEB31D2899B400D0BA98 /* BEMLine.m */; };
-		3377FEBB1D2899B400D0BA98 /* BEMPermanentPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEB51D2899B400D0BA98 /* BEMPermanentPopupView.m */; };
-		3377FEBC1D2899B400D0BA98 /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEB71D2899B400D0BA98 /* BEMSimpleLineGraphView.m */; };
 		3377FEBE1D289E0200D0BA98 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEBD1D289E0200D0BA98 /* WorkoutController.swift */; };
 		3377FEC41D28D5CD00D0BA98 /* NSTimer+Pause.m in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEC31D28D5CD00D0BA98 /* NSTimer+Pause.m */; };
 		3377FED21D2C793F00D0BA98 /* VO2Max.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3377FED11D2C793F00D0BA98 /* VO2Max.swift */; };
@@ -83,9 +78,14 @@
 		33F271BE1D123D8500588247 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33F271BC1D123D8500588247 /* LaunchScreen.storyboard */; };
 		33F271E21D123F1300588247 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33F271E11D123F1300588247 /* AVFoundation.framework */; };
 		33FF20C11D5FF12200EBAFDD /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FF20C01D5FF12200EBAFDD /* SettingsTableViewCell.swift */; };
+		3A6F93561EF9B67F00A81FF1 /* BEMAverageLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F934D1EF9B67F00A81FF1 /* BEMAverageLine.m */; };
+		3A6F93571EF9B67F00A81FF1 /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F934F1EF9B67F00A81FF1 /* BEMCircle.m */; };
+		3A6F93581EF9B67F00A81FF1 /* BEMGraphCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F93511EF9B67F00A81FF1 /* BEMGraphCalculator.m */; };
+		3A6F93591EF9B67F00A81FF1 /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F93531EF9B67F00A81FF1 /* BEMLine.m */; };
+		3A6F935A1EF9B67F00A81FF1 /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F93551EF9B67F00A81FF1 /* BEMSimpleLineGraphView.m */; };
 		3ADC2A6B1E13072000C05B6C /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADC2A6A1E13072000C05B6C /* ImageIO.framework */; };
 		3ADC2A6D1E13072800C05B6C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADC2A6C1E13072800C05B6C /* MobileCoreServices.framework */; };
-		76442ACDC32C358F02BF1E2E /* Pods_HeartBeat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D8C98B6F350747B76FE2BD /* Pods_HeartBeat.framework */; };
+		AC0CA1DD9616AA426683B58C /* libPods-HeartBeat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B4ABA89F999A405E14FF20 /* libPods-HeartBeat.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -187,16 +187,6 @@
 		3374694C1D124846008F38C4 /* YZSwipeBetweenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZSwipeBetweenViewController.h; path = ThirdParty/SnapChatUI/YZSwipeBetweenViewController.h; sourceTree = "<group>"; };
 		3374694D1D124846008F38C4 /* YZSwipeBetweenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZSwipeBetweenViewController.m; path = ThirdParty/SnapChatUI/YZSwipeBetweenViewController.m; sourceTree = "<group>"; };
 		337469521D126920008F38C4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
-		3377FEAE1D2899B400D0BA98 /* BEMAverageLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMAverageLine.h; path = ThirdParty/BEMSimpleLineGraph/BEMAverageLine.h; sourceTree = "<group>"; };
-		3377FEAF1D2899B400D0BA98 /* BEMAverageLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMAverageLine.m; path = ThirdParty/BEMSimpleLineGraph/BEMAverageLine.m; sourceTree = "<group>"; };
-		3377FEB01D2899B400D0BA98 /* BEMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMCircle.h; path = ThirdParty/BEMSimpleLineGraph/BEMCircle.h; sourceTree = "<group>"; };
-		3377FEB11D2899B400D0BA98 /* BEMCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMCircle.m; path = ThirdParty/BEMSimpleLineGraph/BEMCircle.m; sourceTree = "<group>"; };
-		3377FEB21D2899B400D0BA98 /* BEMLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMLine.h; path = ThirdParty/BEMSimpleLineGraph/BEMLine.h; sourceTree = "<group>"; };
-		3377FEB31D2899B400D0BA98 /* BEMLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMLine.m; path = ThirdParty/BEMSimpleLineGraph/BEMLine.m; sourceTree = "<group>"; };
-		3377FEB41D2899B400D0BA98 /* BEMPermanentPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMPermanentPopupView.h; path = ThirdParty/BEMSimpleLineGraph/BEMPermanentPopupView.h; sourceTree = "<group>"; };
-		3377FEB51D2899B400D0BA98 /* BEMPermanentPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMPermanentPopupView.m; path = ThirdParty/BEMSimpleLineGraph/BEMPermanentPopupView.m; sourceTree = "<group>"; };
-		3377FEB61D2899B400D0BA98 /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMSimpleLineGraphView.h; path = ThirdParty/BEMSimpleLineGraph/BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
-		3377FEB71D2899B400D0BA98 /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMSimpleLineGraphView.m; path = ThirdParty/BEMSimpleLineGraph/BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
 		3377FEBD1D289E0200D0BA98 /* WorkoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutController.swift; path = Controllers/WorkoutController.swift; sourceTree = "<group>"; };
 		3377FEC21D28D5CD00D0BA98 /* NSTimer+Pause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+Pause.h"; path = "ThirdParty/NSTimer+Pause/NSTimer+Pause.h"; sourceTree = "<group>"; };
 		3377FEC31D28D5CD00D0BA98 /* NSTimer+Pause.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+Pause.m"; path = "ThirdParty/NSTimer+Pause/NSTimer+Pause.m"; sourceTree = "<group>"; };
@@ -215,10 +205,20 @@
 		33F271E11D123F1300588247 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		33F272431D123FA400588247 /* HeartBeat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HeartBeat.entitlements; sourceTree = "<group>"; };
 		33FF20C01D5FF12200EBAFDD /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewCell.swift; path = ThirdParty/CustomClasses/SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		3A6F934C1EF9B67F00A81FF1 /* BEMAverageLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMAverageLine.h; path = ThirdParty/BEMLineGraph/BEMAverageLine.h; sourceTree = "<group>"; };
+		3A6F934D1EF9B67F00A81FF1 /* BEMAverageLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMAverageLine.m; path = ThirdParty/BEMLineGraph/BEMAverageLine.m; sourceTree = "<group>"; };
+		3A6F934E1EF9B67F00A81FF1 /* BEMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMCircle.h; path = ThirdParty/BEMLineGraph/BEMCircle.h; sourceTree = "<group>"; };
+		3A6F934F1EF9B67F00A81FF1 /* BEMCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMCircle.m; path = ThirdParty/BEMLineGraph/BEMCircle.m; sourceTree = "<group>"; };
+		3A6F93501EF9B67F00A81FF1 /* BEMGraphCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMGraphCalculator.h; path = ThirdParty/BEMLineGraph/BEMGraphCalculator.h; sourceTree = "<group>"; };
+		3A6F93511EF9B67F00A81FF1 /* BEMGraphCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMGraphCalculator.m; path = ThirdParty/BEMLineGraph/BEMGraphCalculator.m; sourceTree = "<group>"; };
+		3A6F93521EF9B67F00A81FF1 /* BEMLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMLine.h; path = ThirdParty/BEMLineGraph/BEMLine.h; sourceTree = "<group>"; };
+		3A6F93531EF9B67F00A81FF1 /* BEMLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMLine.m; path = ThirdParty/BEMLineGraph/BEMLine.m; sourceTree = "<group>"; };
+		3A6F93541EF9B67F00A81FF1 /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMSimpleLineGraphView.h; path = ThirdParty/BEMLineGraph/BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
+		3A6F93551EF9B67F00A81FF1 /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMSimpleLineGraphView.m; path = ThirdParty/BEMLineGraph/BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
 		3ADC2A6A1E13072000C05B6C /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		3ADC2A6C1E13072800C05B6C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		75D8C98B6F350747B76FE2BD /* Pods_HeartBeat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeartBeat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		874A562BBCB9174AC2EA2A9A /* Pods-HeartBeat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartBeat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeartBeat/Pods-HeartBeat.debug.xcconfig"; sourceTree = "<group>"; };
+		D4B4ABA89F999A405E14FF20 /* libPods-HeartBeat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HeartBeat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDF0355659680E709A71D8E8 /* Pods-HeartBeat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartBeat.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeartBeat/Pods-HeartBeat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -236,7 +236,7 @@
 				33389B081D2071F2002F09FA /* MapKit.framework in Frameworks */,
 				336AF2991D25DF9A00D70DA9 /* CoreBluetooth.framework in Frameworks */,
 				337469531D126920008F38C4 /* HealthKit.framework in Frameworks */,
-				76442ACDC32C358F02BF1E2E /* Pods_HeartBeat.framework in Frameworks */,
+				AC0CA1DD9616AA426683B58C /* libPods-HeartBeat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +250,7 @@
 				3ADC2A6A1E13072000C05B6C /* ImageIO.framework */,
 				336714971DF3DE2700C2A0D2 /* AccountKitStrings.bundle */,
 				33E365171DF3B697004B7405 /* AccountKit.framework */,
-				75D8C98B6F350747B76FE2BD /* Pods_HeartBeat.framework */,
+				D4B4ABA89F999A405E14FF20 /* libPods-HeartBeat.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -471,16 +471,16 @@
 		3377FEAD1D28999500D0BA98 /* BEMSimpleLineGraph */ = {
 			isa = PBXGroup;
 			children = (
-				3377FEAE1D2899B400D0BA98 /* BEMAverageLine.h */,
-				3377FEAF1D2899B400D0BA98 /* BEMAverageLine.m */,
-				3377FEB01D2899B400D0BA98 /* BEMCircle.h */,
-				3377FEB11D2899B400D0BA98 /* BEMCircle.m */,
-				3377FEB21D2899B400D0BA98 /* BEMLine.h */,
-				3377FEB31D2899B400D0BA98 /* BEMLine.m */,
-				3377FEB41D2899B400D0BA98 /* BEMPermanentPopupView.h */,
-				3377FEB51D2899B400D0BA98 /* BEMPermanentPopupView.m */,
-				3377FEB61D2899B400D0BA98 /* BEMSimpleLineGraphView.h */,
-				3377FEB71D2899B400D0BA98 /* BEMSimpleLineGraphView.m */,
+				3A6F934C1EF9B67F00A81FF1 /* BEMAverageLine.h */,
+				3A6F934D1EF9B67F00A81FF1 /* BEMAverageLine.m */,
+				3A6F934E1EF9B67F00A81FF1 /* BEMCircle.h */,
+				3A6F934F1EF9B67F00A81FF1 /* BEMCircle.m */,
+				3A6F93501EF9B67F00A81FF1 /* BEMGraphCalculator.h */,
+				3A6F93511EF9B67F00A81FF1 /* BEMGraphCalculator.m */,
+				3A6F93521EF9B67F00A81FF1 /* BEMLine.h */,
+				3A6F93531EF9B67F00A81FF1 /* BEMLine.m */,
+				3A6F93541EF9B67F00A81FF1 /* BEMSimpleLineGraphView.h */,
+				3A6F93551EF9B67F00A81FF1 /* BEMSimpleLineGraphView.m */,
 			);
 			name = BEMSimpleLineGraph;
 			sourceTree = "<group>";
@@ -647,7 +647,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E37627F3789B37EB52434797 /* [CP] Embed Pods Frameworks */ = {
@@ -680,11 +680,11 @@
 				3300CDDF1D5D2F1F007F0A99 /* DGActivityIndicatorLineScaleAnimation.m in Sources */,
 				3300CDE51D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePulseOutAnimation.m in Sources */,
 				33BA773E1D187E72009BD322 /* YZSwipeBetweenViewController.m in Sources */,
+				3A6F93571EF9B67F00A81FF1 /* BEMCircle.m in Sources */,
 				33DE2B711D2CD57D00D78811 /* SpeechUtterance.swift in Sources */,
 				337469551D126DB2008F38C4 /* AppDelegate.swift in Sources */,
 				3300CDC71D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m in Sources */,
 				33FF20C11D5FF12200EBAFDD /* SettingsTableViewCell.swift in Sources */,
-				3377FEBB1D2899B400D0BA98 /* BEMPermanentPopupView.m in Sources */,
 				3300CDF71D5D2F1F007F0A99 /* DGActivityIndicatorThreeDotsAnimation.m in Sources */,
 				3300CDA31D5D2F1F007F0A99 /* DGActivityIndicatorBallBeatAnimation.m in Sources */,
 				33F271B91D123D8500588247 /* HeartBeat.xcdatamodeld in Sources */,
@@ -692,12 +692,12 @@
 				333B9F611DF40026003F011E /* PermissionsVC.swift in Sources */,
 				3300CDEB1D5D2F1F007F0A99 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
 				3374692B1D12416C008F38C4 /* MainVC.swift in Sources */,
+				3A6F93591EF9B67F00A81FF1 /* BEMLine.m in Sources */,
 				337469461D124221008F38C4 /* AudioCuesVC.swift in Sources */,
 				3300CDD61D5D2F1F007F0A99 /* DGActivityIndicatorCookieTerminatorAnimation.m in Sources */,
 				3300CDC41D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleRippleAnimation.m in Sources */,
 				3300CD521D5C40B3007F0A99 /* UserSettings.swift in Sources */,
 				3300CD581D5D2DEA007F0A99 /* DGActivityIndicatorView.m in Sources */,
-				3377FEB91D2899B400D0BA98 /* BEMCircle.m in Sources */,
 				3300CDEE1D5D2F1F007F0A99 /* DGActivityIndicatorRotatingSandglassAnimation.m in Sources */,
 				3300CDA61D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */,
 				3300CDE81D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,
@@ -709,7 +709,6 @@
 				3300CDFA1D5D2F1F007F0A99 /* DGActivityIndicatorTriangleSkewSpinAnimation.m in Sources */,
 				337469431D124212008F38C4 /* WorkoutTypeVC.swift in Sources */,
 				337469291D12416C008F38C4 /* BaseVC.swift in Sources */,
-				3377FEBC1D2899B400D0BA98 /* BEMSimpleLineGraphView.m in Sources */,
 				3300CDFD1D5D2F1F007F0A99 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */,
 				337469371D1241B4008F38C4 /* WorkoutVC.swift in Sources */,
 				3300CDF41D5D2F1F007F0A99 /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */,
@@ -717,16 +716,17 @@
 				334130781D500FBB00758A80 /* Workout.swift in Sources */,
 				337469401D1241F2008F38C4 /* WorkoutSummaryVC.swift in Sources */,
 				3300CDAC1D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotatePulseAnimation.m in Sources */,
+				3A6F935A1EF9B67F00A81FF1 /* BEMSimpleLineGraphView.m in Sources */,
 				33A93BE61D75216100770375 /* CoreData.swift in Sources */,
 				3377FEBE1D289E0200D0BA98 /* WorkoutController.swift in Sources */,
 				3300CDCD1D5D2F1F007F0A99 /* DGActivityIndicatorBallTrianglePathAnimation.m in Sources */,
 				3377FEC41D28D5CD00D0BA98 /* NSTimer+Pause.m in Sources */,
+				3A6F93561EF9B67F00A81FF1 /* BEMAverageLine.m in Sources */,
 				3300CDC11D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleMultipleAnimation.m in Sources */,
 				3300CDB51D5D2F1F007F0A99 /* DGActivityIndicatorBallPulseAnimation.m in Sources */,
 				33193DCE1D7BD1C800624956 /* DataController.swift in Sources */,
 				3300CDAF1D5D2F1F007F0A99 /* DGActivityIndicatorBallGridBeatAnimation.m in Sources */,
 				3300CE031D5D2F1F007F0A99 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */,
-				3377FEB81D2899B400D0BA98 /* BEMAverageLine.m in Sources */,
 				3300CDB81D5D2F1F007F0A99 /* DGActivityIndicatorBallPulseSyncAnimation.m in Sources */,
 				3300CDCA1D5D2F1F007F0A99 /* DGActivityIndicatorBallSpinFadeLoader.m in Sources */,
 				3300CDF11D5D2F1F007F0A99 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */,
@@ -734,10 +734,10 @@
 				33550AC91D53F4F90036122A /* QuickSort.swift in Sources */,
 				3377FED21D2C793F00D0BA98 /* VO2Max.swift in Sources */,
 				336AF2891D2591E400D70DA9 /* Health.swift in Sources */,
-				3377FEBA1D2899B400D0BA98 /* BEMLine.m in Sources */,
 				3300CDA01D5D2F1F007F0A99 /* DGActivityIndicatorAnimation.m in Sources */,
 				3300CDBB1D5D2F1F007F0A99 /* DGActivityIndicatorBallRotateAnimation.m in Sources */,
 				337469311D124192008F38C4 /* SettingsVC.swift in Sources */,
+				3A6F93581EF9B67F00A81FF1 /* BEMGraphCalculator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,6 +767,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -817,6 +818,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -868,10 +870,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = K8YR4WT3S5;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/AccountKit",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = HeartBeat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
@@ -895,10 +894,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = K8YR4WT3S5;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/AccountKit",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = HeartBeat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-D DEBUG";

@@ -73,9 +73,9 @@ extension Workout {
         recordName = workout.recordName
         workoutType = workout.workoutType
         id = workout.id
-        
-        let priority = DispatchQueue.GlobalQueuePriority.default
-        DispatchQueue.global(priority: priority).async {
+
+        let priority = DispatchQoS.QoSClass.default
+        DispatchQueue.global(qos: priority).async {
             self.filterHeartBeatArray()
         }
     }
@@ -94,8 +94,8 @@ extension Workout {
         workoutType = record.value(forKey: "workoutType") as? String
         id = record.value(forKey: "id") as? String
         
-        let priority = DispatchQueue.GlobalQueuePriority.default
-        DispatchQueue.global(priority: priority).async {
+        let priority = DispatchQoS.QoSClass.default
+        DispatchQueue.global(qos: priority).async {
             self.filterHeartBeatArray()
         }
     }

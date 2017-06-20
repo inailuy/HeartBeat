@@ -45,9 +45,9 @@ class WorkoutController {
         timer.pause()
         //populating workout
         workout!.arrayBeatsPerMinute = heartBeatArray
-        workout!.caloriesBurned = caloriesBurned
-        workout!.secondsElapsed = seconds
-        workout!.beatsPerMinuteAverage = averageBPMInt()
+        workout!.caloriesBurned = caloriesBurned as NSNumber
+        workout!.secondsElapsed = seconds as NSNumber
+        workout!.beatsPerMinuteAverage = averageBPMInt() as NSNumber
         workout!.endTime = Date()
     }
     
@@ -121,7 +121,7 @@ class WorkoutController {
     }
     
     func currentBPM() -> String {
-        return String(heartBeatArray.lastObject!)
+        return String(describing: heartBeatArray.lastObject!)
     }
     
     func filterHeartBeatArray() -> NSMutableArray {

@@ -11,6 +11,15 @@ import MapKit
 import UIKit
 
 class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMSimpleLineGraphDelegate, BEMSimpleLineGraphDataSource {
+
+    func numberOfPoints(inLineGraph graph: BEMSimpleLineGraphView) -> UInt {
+        return 0
+    }
+    
+    func lineGraph(_ graph: BEMSimpleLineGraphView, valueForPointAt index: UInt) -> CGFloat {
+        return 0.0
+    }
+    
     var workout :Workout!
     
     var region :MKCoordinateRegion?
@@ -276,10 +285,6 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
         cell.contentView.addSubview(maxBpmLabel)
     }
     //MARK: BEMSimpleLineGraphView DataSource/Delegate
-    func numberOfPoints(inLineGraph graph: BEMSimpleLineGraphView) -> Int {
-        return workout.filterHeartBeatArray().count
-    }
-    
     func lineGraph(_ graph: BEMSimpleLineGraphView, labelOnXAxisFor index: Int) -> String {
         return workout.getTimeFromSeconds(index)
     }

@@ -11,6 +11,7 @@ import UIKit
 import MapKit
 
 class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, BEMSimpleLineGraphDataSource,CLLocationManagerDelegate {
+
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var averageBPMLabel: UILabel!
     @IBOutlet weak var currentBPMLabel: UILabel!
@@ -120,25 +121,33 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
         currentBPMLabel.text = sender.currentBPM() + " Current bpm"
     }
     //MARK: Map & CLLocation Delegates
-    func locationManager(_ manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //TODO: Tracking GPS Distance for running
-        
         if (mapView.showsUserLocation){
+            let newLocation = locations[0]
             let region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 100, 100)
             mapView.setRegion(region, animated: true)
         }
     }
     
     //MARK: BEMSimpleLineGraphView DataSource/Delegate
-    func numberOfPoints(inLineGraph graph: BEMSimpleLineGraphView) -> Int {
-        return WorkoutController.sharedInstance.filterHeartBeatArray().count
+    /** The vertical position for a point at the given index. It corresponds to the Y-axis value of the Graph.
+     @param graph The graph object requesting the point value.
+     @param index The index from left to right of a given point (X-axis). The first value for the index is 0.
+     @return The Y-axis value at a given index. */
+    func lineGraph(_ graph: BEMSimpleLineGraphView, valueForPointAt index: UInt) -> CGFloat {
+            let point = WorkoutController.sharedInstance.filterHeartBeatArray()[Int(index)]
+            return CGFloat(point as! NSNumber)
+    }
+    
+    func numberOfPoints(inLineGraph graph: BEMSimpleLineGraphView) -> UInt {
+        return UInt(WorkoutController.sharedInstance.filterHeartBeatArray().count)
     }
     
     func lineGraph(_ graph: BEMSimpleLineGraphView, labelOnXAxisFor index: Int) -> String {
             return WorkoutController.sharedInstance.getTimeFromSeconds(index)
     }
-    
-    
+
     func numberOfYAxisLabels(onLineGraph graph: BEMSimpleLineGraphView) -> Int {
         return 5
     }
@@ -149,9 +158,9 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
     
     func lineGraph(_ graph: BEMSimpleLineGraphView, valueForPointAt index: Int) -> CGFloat {
         let point = WorkoutController.sharedInstance.filterHeartBeatArray()[index]
-        return CGFloat(point.doubleValue)
+        return CGFloat(point as! NSNumber)
     }
-    
+
     func maxValue(forLineGraph graph: BEMSimpleLineGraphView) -> CGFloat {
         var max = 0
         for num in WorkoutController.sharedInstance.filterHeartBeatArray() {

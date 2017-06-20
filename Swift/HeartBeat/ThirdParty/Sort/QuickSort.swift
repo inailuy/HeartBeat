@@ -24,11 +24,11 @@ class QuickSort {
     }
     
     class func partition(_ arr:inout NSMutableArray, left:Int, right:Int) -> Int {
-        let partition = arr[right].int32Value
+        let partition = (arr[right] as AnyObject).int32Value
         var sortedIndex = left
         
         for i in left..<right {
-            if arr[i].int32Value < partition {
+            if (arr[i] as AnyObject).int32Value < partition! {
                 swap(&arr, a: i, b: sortedIndex)
                 sortedIndex += 1
             }
