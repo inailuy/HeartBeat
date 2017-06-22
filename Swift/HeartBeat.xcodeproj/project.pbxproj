@@ -83,10 +83,61 @@
 		3A6F93581EF9B67F00A81FF1 /* BEMGraphCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F93511EF9B67F00A81FF1 /* BEMGraphCalculator.m */; };
 		3A6F93591EF9B67F00A81FF1 /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F93531EF9B67F00A81FF1 /* BEMLine.m */; };
 		3A6F935A1EF9B67F00A81FF1 /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F93551EF9B67F00A81FF1 /* BEMSimpleLineGraphView.m */; };
+		3AB1FE601EFB5268006720A6 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1FE5E1EFB5268006720A6 /* Interface.storyboard */; };
+		3AB1FE621EFB5268006720A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1FE611EFB5268006720A6 /* Assets.xcassets */; };
+		3AB1FE691EFB5268006720A6 /* HeartBeatWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3AB1FE681EFB5268006720A6 /* HeartBeatWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3AB1FE701EFB5268006720A6 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1FE6F1EFB5268006720A6 /* InterfaceController.swift */; };
+		3AB1FE721EFB5268006720A6 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1FE711EFB5268006720A6 /* ExtensionDelegate.swift */; };
+		3AB1FE741EFB5268006720A6 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1FE731EFB5268006720A6 /* NotificationController.swift */; };
+		3AB1FE761EFB5268006720A6 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1FE751EFB5268006720A6 /* ComplicationController.swift */; };
+		3AB1FE781EFB5268006720A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1FE771EFB5268006720A6 /* Assets.xcassets */; };
+		3AB1FE7C1EFB5268006720A6 /* HeartBeatWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3AB1FE5C1EFB5268006720A6 /* HeartBeatWatch.app */; };
 		3ADC2A6B1E13072000C05B6C /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADC2A6A1E13072000C05B6C /* ImageIO.framework */; };
 		3ADC2A6D1E13072800C05B6C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADC2A6C1E13072800C05B6C /* MobileCoreServices.framework */; };
 		AC0CA1DD9616AA426683B58C /* libPods-HeartBeat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B4ABA89F999A405E14FF20 /* libPods-HeartBeat.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3AB1FE6A1EFB5268006720A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33F271A51D123D8500588247 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AB1FE671EFB5268006720A6;
+			remoteInfo = "HeartBeatWatch Extension";
+		};
+		3AB1FE7A1EFB5268006720A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33F271A51D123D8500588247 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AB1FE5B1EFB5268006720A6;
+			remoteInfo = HeartBeatWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3AB1FE801EFB5268006720A6 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3AB1FE691EFB5268006720A6 /* HeartBeatWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AB1FE841EFB5268006720A6 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				3AB1FE7C1EFB5268006720A6 /* HeartBeatWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3300CD511D5C40B3007F0A99 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSettings.swift; path = Controllers/UserSettings.swift; sourceTree = "<group>"; };
@@ -174,7 +225,6 @@
 		336AF2881D2591E400D70DA9 /* Health.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Health.swift; path = Controllers/Health.swift; sourceTree = "<group>"; };
 		336AF2941D25DCC100D70DA9 /* Bluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bluetooth.swift; path = Controllers/Bluetooth.swift; sourceTree = "<group>"; };
 		336AF2981D25DF9A00D70DA9 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
-		336C6B941D5FF3640056A088 /* HeartBeat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HeartBeat-Bridging-Header.h"; path = "ThirdParty/BridgeFiles/HeartBeat-Bridging-Header.h"; sourceTree = "<group>"; };
 		337469271D12416C008F38C4 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseVC.swift; path = ViewController/BaseVC.swift; sourceTree = "<group>"; };
 		337469281D12416C008F38C4 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainVC.swift; path = ViewController/MainVC.swift; sourceTree = "<group>"; };
 		337469301D124192008F38C4 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsVC.swift; path = ViewController/SettingsVC.swift; sourceTree = "<group>"; };
@@ -215,6 +265,19 @@
 		3A6F93531EF9B67F00A81FF1 /* BEMLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMLine.m; path = ThirdParty/BEMLineGraph/BEMLine.m; sourceTree = "<group>"; };
 		3A6F93541EF9B67F00A81FF1 /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMSimpleLineGraphView.h; path = ThirdParty/BEMLineGraph/BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
 		3A6F93551EF9B67F00A81FF1 /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMSimpleLineGraphView.m; path = ThirdParty/BEMLineGraph/BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
+		3AB1FE5C1EFB5268006720A6 /* HeartBeatWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartBeatWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AB1FE5F1EFB5268006720A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		3AB1FE611EFB5268006720A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3AB1FE631EFB5268006720A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AB1FE681EFB5268006720A6 /* HeartBeatWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HeartBeatWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AB1FE6E1EFB5268006720A6 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		3AB1FE6F1EFB5268006720A6 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		3AB1FE711EFB5268006720A6 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		3AB1FE731EFB5268006720A6 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		3AB1FE751EFB5268006720A6 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		3AB1FE771EFB5268006720A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3AB1FE791EFB5268006720A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AB1FE851EFB54E0006720A6 /* HeartBeat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HeartBeat-Bridging-Header.h"; path = "ThirdParty/BridgeFiles/HeartBeat-Bridging-Header.h"; sourceTree = "<group>"; };
 		3ADC2A6A1E13072000C05B6C /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		3ADC2A6C1E13072800C05B6C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		874A562BBCB9174AC2EA2A9A /* Pods-HeartBeat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartBeat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeartBeat/Pods-HeartBeat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -237,6 +300,13 @@
 				336AF2991D25DF9A00D70DA9 /* CoreBluetooth.framework in Frameworks */,
 				337469531D126920008F38C4 /* HealthKit.framework in Frameworks */,
 				AC0CA1DD9616AA426683B58C /* libPods-HeartBeat.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AB1FE651EFB5268006720A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,7 +506,7 @@
 		337469491D124811008F38C4 /* BridgeFiles */ = {
 			isa = PBXGroup;
 			children = (
-				336C6B941D5FF3640056A088 /* HeartBeat-Bridging-Header.h */,
+				3AB1FE851EFB54E0006720A6 /* HeartBeat-Bridging-Header.h */,
 			);
 			name = BridgeFiles;
 			sourceTree = "<group>";
@@ -506,6 +576,8 @@
 			children = (
 				33F271AF1D123D8500588247 /* HeartBeat */,
 				3308FF021DB99469004D9666 /* HeartBeatTests */,
+				3AB1FE5D1EFB5268006720A6 /* HeartBeatWatch */,
+				3AB1FE6C1EFB5268006720A6 /* HeartBeatWatch Extension */,
 				33F271AE1D123D8500588247 /* Products */,
 				044E9A44251CC8EB886A8F11 /* Pods */,
 				0175E9AF51125D2CCC35525F /* Frameworks */,
@@ -516,6 +588,8 @@
 			isa = PBXGroup;
 			children = (
 				33F271AD1D123D8500588247 /* HeartBeat.app */,
+				3AB1FE5C1EFB5268006720A6 /* HeartBeatWatch.app */,
+				3AB1FE681EFB5268006720A6 /* HeartBeatWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -540,6 +614,38 @@
 			path = HeartBeat;
 			sourceTree = "<group>";
 		};
+		3AB1FE5D1EFB5268006720A6 /* HeartBeatWatch */ = {
+			isa = PBXGroup;
+			children = (
+				3AB1FE5E1EFB5268006720A6 /* Interface.storyboard */,
+				3AB1FE611EFB5268006720A6 /* Assets.xcassets */,
+				3AB1FE631EFB5268006720A6 /* Info.plist */,
+			);
+			path = HeartBeatWatch;
+			sourceTree = "<group>";
+		};
+		3AB1FE6C1EFB5268006720A6 /* HeartBeatWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3AB1FE6F1EFB5268006720A6 /* InterfaceController.swift */,
+				3AB1FE711EFB5268006720A6 /* ExtensionDelegate.swift */,
+				3AB1FE731EFB5268006720A6 /* NotificationController.swift */,
+				3AB1FE751EFB5268006720A6 /* ComplicationController.swift */,
+				3AB1FE771EFB5268006720A6 /* Assets.xcassets */,
+				3AB1FE791EFB5268006720A6 /* Info.plist */,
+				3AB1FE6D1EFB5268006720A6 /* Supporting Files */,
+			);
+			path = "HeartBeatWatch Extension";
+			sourceTree = "<group>";
+		};
+		3AB1FE6D1EFB5268006720A6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3AB1FE6E1EFB5268006720A6 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -553,15 +659,51 @@
 				33F271AB1D123D8500588247 /* Resources */,
 				E37627F3789B37EB52434797 /* [CP] Embed Pods Frameworks */,
 				8D8FDD3200915537207F5045 /* [CP] Copy Pods Resources */,
+				3AB1FE841EFB5268006720A6 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3AB1FE7B1EFB5268006720A6 /* PBXTargetDependency */,
 			);
 			name = HeartBeat;
 			productName = HeartBeat;
 			productReference = 33F271AD1D123D8500588247 /* HeartBeat.app */;
 			productType = "com.apple.product-type.application";
+		};
+		3AB1FE5B1EFB5268006720A6 /* HeartBeatWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AB1FE811EFB5268006720A6 /* Build configuration list for PBXNativeTarget "HeartBeatWatch" */;
+			buildPhases = (
+				3AB1FE5A1EFB5268006720A6 /* Resources */,
+				3AB1FE801EFB5268006720A6 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3AB1FE6B1EFB5268006720A6 /* PBXTargetDependency */,
+			);
+			name = HeartBeatWatch;
+			productName = HeartBeatWatch;
+			productReference = 3AB1FE5C1EFB5268006720A6 /* HeartBeatWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		3AB1FE671EFB5268006720A6 /* HeartBeatWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AB1FE7D1EFB5268006720A6 /* Build configuration list for PBXNativeTarget "HeartBeatWatch Extension" */;
+			buildPhases = (
+				3AB1FE641EFB5268006720A6 /* Sources */,
+				3AB1FE651EFB5268006720A6 /* Frameworks */,
+				3AB1FE661EFB5268006720A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HeartBeatWatch Extension";
+			productName = "HeartBeatWatch Extension";
+			productReference = 3AB1FE681EFB5268006720A6 /* HeartBeatWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -569,14 +711,14 @@
 		33F271A51D123D8500588247 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Mxtapes;
 				TargetAttributes = {
 					33F271AC1D123D8500588247 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = K8YR4WT3S5;
 						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -585,6 +727,14 @@
 								enabled = 1;
 							};
 						};
+					};
+					3AB1FE5B1EFB5268006720A6 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+					3AB1FE671EFB5268006720A6 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -602,6 +752,8 @@
 			projectRoot = "";
 			targets = (
 				33F271AC1D123D8500588247 /* HeartBeat */,
+				3AB1FE5B1EFB5268006720A6 /* HeartBeatWatch */,
+				3AB1FE671EFB5268006720A6 /* HeartBeatWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -614,6 +766,23 @@
 				33F271BE1D123D8500588247 /* LaunchScreen.storyboard in Resources */,
 				33F271BB1D123D8500588247 /* Assets.xcassets in Resources */,
 				33F271B61D123D8500588247 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AB1FE5A1EFB5268006720A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AB1FE621EFB5268006720A6 /* Assets.xcassets in Resources */,
+				3AB1FE601EFB5268006720A6 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AB1FE661EFB5268006720A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AB1FE781EFB5268006720A6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,7 +910,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3AB1FE641EFB5268006720A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AB1FE741EFB5268006720A6 /* NotificationController.swift in Sources */,
+				3AB1FE761EFB5268006720A6 /* ComplicationController.swift in Sources */,
+				3AB1FE721EFB5268006720A6 /* ExtensionDelegate.swift in Sources */,
+				3AB1FE701EFB5268006720A6 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3AB1FE6B1EFB5268006720A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AB1FE671EFB5268006720A6 /* HeartBeatWatch Extension */;
+			targetProxy = 3AB1FE6A1EFB5268006720A6 /* PBXContainerItemProxy */;
+		};
+		3AB1FE7B1EFB5268006720A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AB1FE5B1EFB5268006720A6 /* HeartBeatWatch */;
+			targetProxy = 3AB1FE7A1EFB5268006720A6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		33F271B41D123D8500588247 /* Main.storyboard */ = {
@@ -758,6 +951,14 @@
 				33F271BD1D123D8500588247 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3AB1FE5E1EFB5268006720A6 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3AB1FE5F1EFB5268006720A6 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -807,7 +1008,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = HeartBeat/ThirdParty/BridgeFiles/;
+				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/ThirdParty/BridgeFiles/HeartBeat-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -851,7 +1052,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = HeartBeat/ThirdParty/BridgeFiles/;
+				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/ThirdParty/BridgeFiles/HeartBeat-Bridging-Header.h";
 				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -868,6 +1069,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HeartBeat/HeartBeat.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = K8YR4WT3S5;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -876,6 +1078,8 @@
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inailuy.HeartBeat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/ThirdParty/BridgeFiles/HeartBeat-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -892,6 +1096,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HeartBeat/HeartBeat.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = K8YR4WT3S5;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -900,9 +1105,101 @@
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inailuy.HeartBeat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/ThirdParty/BridgeFiles/HeartBeat-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		3AB1FE7E1EFB5268006720A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = K8YR4WT3S5;
+				INFOPLIST_FILE = "HeartBeatWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.inailuy.HeartBeat.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		3AB1FE7F1EFB5268006720A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = K8YR4WT3S5;
+				INFOPLIST_FILE = "HeartBeatWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.inailuy.HeartBeat.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
+		3AB1FE821EFB5268006720A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = K8YR4WT3S5;
+				IBSC_MODULE = HeartBeatWatch_Extension;
+				INFOPLIST_FILE = HeartBeatWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inailuy.HeartBeat.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		3AB1FE831EFB5268006720A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = K8YR4WT3S5;
+				IBSC_MODULE = HeartBeatWatch_Extension;
+				INFOPLIST_FILE = HeartBeatWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inailuy.HeartBeat.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
 		};
@@ -923,6 +1220,24 @@
 			buildConfigurations = (
 				33F271D91D123D8500588247 /* Debug */,
 				33F271DA1D123D8500588247 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AB1FE7D1EFB5268006720A6 /* Build configuration list for PBXNativeTarget "HeartBeatWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AB1FE7E1EFB5268006720A6 /* Debug */,
+				3AB1FE7F1EFB5268006720A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AB1FE811EFB5268006720A6 /* Build configuration list for PBXNativeTarget "HeartBeatWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AB1FE821EFB5268006720A6 /* Debug */,
+				3AB1FE831EFB5268006720A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

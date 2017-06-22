@@ -19,7 +19,7 @@ class Health {
         isHealthKitEnabled = user.userEnabledHealth
     }
     
-    //MARK: Permission/Acess
+    //MARK: Permission/Acess`
     func askPermissionForHealth() {
         if HKHealthStore.isHealthDataAvailable() {
             let newCompletion: ((Bool, NSError?) -> Void) = {
@@ -37,7 +37,8 @@ class Health {
             }
             let writeDataTypes = dataTypesToWrite() as! Set<HKSampleType>
             let readDataTypes = dataTypesToRead() as! Set<HKObjectType>//{ (success: Bool!, error: NSError!) -> Void in
-            healthStore.requestAuthorization(toShare: writeDataTypes, read: readDataTypes, completion: newCompletion as! (Bool, Error?) -> Void)
+            
+            healthStore.requestAuthorization(toShare: writeDataTypes, read: readDataTypes) { (success, error) -> Void in }
         }
     }
     //MARK: Retreive Data
@@ -117,6 +118,72 @@ class Health {
             })
         }
     }
+    
+    func readWorkoutData() {
+        if HKHealthStore.isHealthDataAvailable() && UserSettings.sharedInstance.userEnabledHealth {
+           
+          
+            let sampleType = HKObjectType.workoutType()
+           
+            let startDate = NSDate()
+            let endDate = startDate.addingTimeInterval(-3600)
+            
+            let predicate = HKQuery.predicateForSamples(withStart: startDate as Date, end: endDate as Date, options: .strictStartDate)
+            let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+            let limit = 0
+            
+            let query = HKSampleQuery(sampleType: sampleType, predicate: nil, limit: limit, sortDescriptors:[sortDescriptor], resultsHandler: { (query, results: [HKSample]?, error) in
+                var workouts: [HKWorkout] = []
+                
+                if let results = results {
+                    for result in results {
+                        if let workout = result as? HKWorkout {
+                            // Here's a HKWorkout object
+                            workouts.append(workout)
+                            print(workout.totalDistance)
+                        }
+                    }
+                    //print(workouts)
+                }
+                else {  
+                    // No results were returned, check the error
+                }
+            })
+            
+            healthStore.execute(query)
+//            {
+//                
+//                // Use a sortDescriptor to get the recent data first
+//                let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+//                
+//                // we create our query with a block completion to execute
+//                let query = HKSampleQuery(sampleType: sampleType, predicate: nil, limit: 30, sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
+//                    
+//                    if error != nil {
+//                        
+//                        // something happened
+//                        return
+//                        
+//                    }
+//                    
+//                    if let result = tmpResult {
+//                        
+//                        // do something with my data
+//                        for item in result {
+//                            if let sample = item as? HKCategorySample {
+//                                //let value = (sample.value == HKCategoryValueSleepAnalysis.inBed.rawValue) ? "InBed" : "Asleep"
+//                                print("Healthkit workout: \(sample)")
+//                            }
+//                        }
+//                    }
+//                }
+//                
+//                // finally, we execute our query
+//                healthStore.execute(query)
+//            }
+        }
+    }
+    
     //MARK: Misc
     func dataTypesToWrite() -> NSSet {
         let set = NSMutableSet()
@@ -134,7 +201,7 @@ class Health {
         set.add(HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!)
         set.add(HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.dateOfBirth)!)
         set.add(HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.biologicalSex)!)
-
+        set.add(HKObjectType.workoutType())
         return set
     }
 }

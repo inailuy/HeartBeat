@@ -43,6 +43,8 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
             sortWorkoutValuesForTableView()
             tableView.reloadData()
         }
+        
+        Health.sharedInstance.readWorkoutData()
     }
     
     @objc func dataUpdate(_ notification: Notification){

@@ -164,7 +164,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let nav1 = UINavigationController(rootViewController: historyVC)
         let nav2 = UINavigationController(rootViewController: mainVC)
         let nav3 = UINavigationController(rootViewController: settingsVC)
-        swipeBetweenVC.viewControllers = [nav1,nav2,nav3]
+        swipeBetweenVC.viewControllers = [nav2,nav1,nav3]
         //add everything into UIWindow
         let frame = UIScreen.main.bounds
         window?.frame = frame
