@@ -89,7 +89,7 @@ class BaseVC: UIViewController {
         return headerView
     }
     
-    @objc func backButtonPressed() {
+    func backButtonPressed() {
         appDelegate.swipeBetweenVC.scrollToViewController(at: 1, animated: true)
     }
     

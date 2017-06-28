@@ -36,7 +36,7 @@ class Bluetooth: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         isFirstLaunch = true
     }  
     //MARK: CBCentralManagerDelegate
-    @objc func centralManagerDidUpdateState(_ central: CBCentralManager) {
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
         peripheralStatusString = "centralManagerDidUpdateState " + String(describing: central.state)
         if central.state == .poweredOn {
             peripheralStatusString = "Scanning For Peripherals"
@@ -46,7 +46,7 @@ class Bluetooth: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         printStatus()
     }
     
-    @objc func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         peripheralStatusString = "Did Discorver Peripheral"
         activePeripheral = peripheral
         peripheralArray.add(peripheral)
@@ -58,18 +58,18 @@ class Bluetooth: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         printStatus()
     }
     
-    @objc func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         peripheralStatusString = "Did Connect Peripheral"
         peripheral.discoverServices(nil)
         printStatus()
     }
     
-    @objc func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         peripheralStatusString = "Did Disconnect Peripheral";
         printStatus()
     }
     //MARK: CBPeripheralDelegate
-    @objc func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         if error != nil {
             let errorMessage = "Error discovering service: " + (error?.localizedDescription)!
             print(errorMessage)
@@ -84,7 +84,7 @@ class Bluetooth: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         printStatus()
     }
     
-    @objc func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         if error != nil {
             let errorMessage = "Error discovering service: " + (error?.localizedDescription)!
             print(errorMessage)
@@ -101,7 +101,7 @@ class Bluetooth: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         printStatus()
     }
     
-    @objc func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         if error != nil {
             let errorMessage = "Error discovering service: " + (error?.localizedDescription)!
             print(errorMessage)

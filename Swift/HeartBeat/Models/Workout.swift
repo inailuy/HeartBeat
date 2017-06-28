@@ -76,7 +76,7 @@ extension Workout {
 
         let priority = DispatchQoS.QoSClass.default
         DispatchQueue.global(qos: priority).async {
-            self.filterHeartBeatArray()
+            _ = self.filterHeartBeatArray()
         }
     }
     
@@ -96,7 +96,7 @@ extension Workout {
         
         let priority = DispatchQoS.QoSClass.default
         DispatchQueue.global(qos: priority).async {
-            self.filterHeartBeatArray()
+            _ = self.filterHeartBeatArray()
         }
     }
     

@@ -90,6 +90,7 @@ class SpeechUtterance: NSObject, AVSpeechSynthesizerDelegate {
             if speech != "" {
                 canSpeakLimitsValues = true
                 Timer.scheduledTimer(timeInterval: 45.0, target: self, selector: #selector(SpeechUtterance.resetSpeechLimits), userInfo:nil, repeats: false)
+               
             }
         }
     }

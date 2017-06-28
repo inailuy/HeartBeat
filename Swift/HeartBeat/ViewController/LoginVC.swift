@@ -67,7 +67,7 @@ class LoginVC: UIViewController, AKFViewControllerDelegate {
     }
     
     //MARK: AKFViewControllerDelegate
-    func viewController(_ viewController: UIViewController!, didCompleteLoginWith accessToken: AKFAccessToken!, state: String!) {
+    private func viewController(_ viewController: UIViewController!, didCompleteLoginWith accessToken: AKFAccessToken!, state: String!) {
 
        Timer.scheduledTimer(timeInterval: 0.6, target: self, selector: #selector(self.permissionSegue), userInfo:nil, repeats: false)
         

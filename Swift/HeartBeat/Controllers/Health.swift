@@ -22,7 +22,7 @@ class Health {
     //MARK: Permission/Acess`
     func askPermissionForHealth() {
         if HKHealthStore.isHealthDataAvailable() {
-            let newCompletion: ((Bool, NSError?) -> Void) = {
+            let _: ((Bool, NSError?) -> Void) = {
                 (success, error) -> Void in
                 if !success {
                     print("You didn't allow HealthKit to access these write data types.\nThe error was:\n \(error!.description).")
@@ -113,7 +113,7 @@ class Health {
             healthStore.save(workoutSample, withCompletion: { (success, error) in
                 if success == false {
                     // Workout was not successfully saved
-                    print(error?.localizedDescription)
+                    print(error?.localizedDescription ?? "Error")
                 }
             })
         }
@@ -128,7 +128,7 @@ class Health {
             let startDate = NSDate()
             let endDate = startDate.addingTimeInterval(-3600)
             
-            let predicate = HKQuery.predicateForSamples(withStart: startDate as Date, end: endDate as Date, options: .strictStartDate)
+            _ = HKQuery.predicateForSamples(withStart: startDate as Date, end: endDate as Date, options: .strictStartDate)
             let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
             let limit = 0
             
@@ -140,7 +140,7 @@ class Health {
                         if let workout = result as? HKWorkout {
                             // Here's a HKWorkout object
                             workouts.append(workout)
-                            print(workout.totalDistance)
+                            print(workout.totalDistance ?? "Error")
                         }
                     }
                     //print(workouts)

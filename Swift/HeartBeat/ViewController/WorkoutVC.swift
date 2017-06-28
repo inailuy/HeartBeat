@@ -144,15 +144,15 @@ class WorkoutVC: BaseVC, WorkoutControllerDelegate, BEMSimpleLineGraphDelegate, 
         return UInt(WorkoutController.sharedInstance.filterHeartBeatArray().count)
     }
     
-    func lineGraph(_ graph: BEMSimpleLineGraphView, labelOnXAxisFor index: Int) -> String {
+    private func lineGraph(_ graph: BEMSimpleLineGraphView, labelOnXAxisFor index: Int) -> String {
             return WorkoutController.sharedInstance.getTimeFromSeconds(index)
     }
 
-    func numberOfYAxisLabels(onLineGraph graph: BEMSimpleLineGraphView) -> Int {
+    private func numberOfYAxisLabels(onLineGraph graph: BEMSimpleLineGraphView) -> Int {
         return 5
     }
 
-    func numberOfGapsBetweenLabels(onLineGraph graph: BEMSimpleLineGraphView) -> Int {
+    private func numberOfGapsBetweenLabels(onLineGraph graph: BEMSimpleLineGraphView) -> Int {
         return WorkoutController.sharedInstance.filterHeartBeatArray().count / 5
     }
     

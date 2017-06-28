@@ -285,16 +285,16 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
         cell.contentView.addSubview(maxBpmLabel)
     }
     //MARK: BEMSimpleLineGraphView DataSource/Delegate
-    func lineGraph(_ graph: BEMSimpleLineGraphView, labelOnXAxisFor index: Int) -> String {
+    private func lineGraph(_ graph: BEMSimpleLineGraphView, labelOnXAxisFor index: Int) -> String {
         return workout.getTimeFromSeconds(index)
     }
     
     
-    func numberOfYAxisLabels(onLineGraph graph: BEMSimpleLineGraphView) -> Int {
+    private func numberOfYAxisLabels(onLineGraph graph: BEMSimpleLineGraphView) -> Int {
         return 1
     }
     
-    func numberOfGapsBetweenLabels(onLineGraph graph: BEMSimpleLineGraphView) -> Int {
+    @nonobjc func numberOfGapsBetweenLabels(onLineGraph graph: BEMSimpleLineGraphView) -> Int {
         return workout.filterHeartBeatArray().count
     }
     
@@ -325,7 +325,7 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
         return CGFloat(min)
     }
     
-    func lineGraph(_ graph: BEMSimpleLineGraphView, didTouchGraphWithClosestIndex index: Int) {
+    private func lineGraph(_ graph: BEMSimpleLineGraphView, didTouchGraphWithClosestIndex index: Int) {
         let position :Float = ((Float(index) / Float(workout.filterHeartBeatArray().count)) * Float(workout.minutes()))
     
         var min = " minutes"
