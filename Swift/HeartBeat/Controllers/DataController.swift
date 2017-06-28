@@ -36,7 +36,7 @@ class DataController {
         CoreData.sharedInstance.fetchAllWorkouts(withpredicate: nil, completion: { array in
             self.workoutArray = array
             if self.isCloudKitAvailable {
-                CloudKit.sharedInstance.queryPrivateDatabaseForRecord(recordType, with: Workout.SortDescriptor(), completion: { results in
+                CloudController.sharedInstance.queryPrivateDatabaseForRecord(recordType, with: Workout.SortDescriptor(), completion: { results in
                     var array = [Workout]()
                     
                     for record in results {
@@ -62,7 +62,7 @@ class DataController {
             self.postNotification()
             
             if self.isCloudKitAvailable {
-                CloudKit.sharedInstance.queryPrivateDatabaseForRecord(recordType, with: Workout.SortDescriptor(), completion: { results in
+                CloudController.sharedInstance.queryPrivateDatabaseForRecord(recordType, with: Workout.SortDescriptor(), completion: { results in
                     var array = [Workout]()
                     
                     for record in results {
@@ -85,7 +85,7 @@ class DataController {
         var w = workout
         CoreData.sharedInstance.createWorkoutLocal(&w)
         if self.isCloudKitAvailable {
-            CloudKit.sharedInstance.saveRecordToPrivateDatabase(w.record(), completion: { record in
+            CloudController.sharedInstance.saveRecordToPrivateDatabase(w.record(), completion: { record in
                 w.recordName = record.recordID.recordName
                 CoreData.sharedInstance.saveDatabase()
             })
@@ -102,7 +102,7 @@ class DataController {
             // check if workout exist in CK
             let recordID = CKRecordID(recordName: workout.recordName!)
             if isCloudKitAvailable {
-                CloudKit.sharedInstance.deleteRecordFromPrivateDatabase(recordID, completion: { success in
+                CloudController.sharedInstance.deleteRecordFromPrivateDatabase(recordID, completion: { success in
                     if success {
                         CoreData.sharedInstance.deleteWorkout(workout, completion: { success in
                             completion(success)
@@ -151,7 +151,7 @@ class DataController {
             CoreData.sharedInstance.printNumberOfEntities()
             
             // update model CK
-            CloudKit.sharedInstance.queryPrivateDatabaseForRecord(recordType, with: Workout.SortDescriptor(), completion: { results in
+            CloudController.sharedInstance.queryPrivateDatabaseForRecord(recordType, with: Workout.SortDescriptor(), completion: { results in
                 var array = [Workout]()
                 
                 for record in results {

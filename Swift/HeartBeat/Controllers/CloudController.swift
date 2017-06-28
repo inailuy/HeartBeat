@@ -13,29 +13,29 @@ let CloudKitWrapperNotificationId = "CloudKitWrapper"
 let recordType = "Workout"
 let truePredicate = "TRUEPREDICATE"
 
-class CloudKit {
+class CloudController {
     
-    static let sharedInstance =  CloudKit()
+    static let sharedInstance =  CloudController()
     
     let publicDB = CKContainer.default().publicCloudDatabase
     let privateDB = CKContainer.default().privateCloudDatabase
     
     init() {
-        let predicate = NSPredicate(format: truePredicate, argumentArray: nil)
-        let subscription = CKSubscription(recordType: recordType, predicate: predicate, options:.firesOnRecordCreation)
+//      let predicate = NSPredicate(format: truePredicate, argumentArray: nil)
+//       let subscription = CKSubscription(recordType: recordType, predicate: predicate, options:.firesOnRecordCreation)
         
-        privateDB.fetchAllSubscriptions(completionHandler: {subscriptions, error in
-            //TODO:create delete/update subsciptions
-            if error != nil {
-                print(error?.localizedDescription as Any)
-            } else if subscriptions?.count == 0 {
-                self.privateDB.save(subscription, completionHandler: ({ returnedRecord, error in
-                    if (error != nil) {
-                        self.printError(error! as NSError)
-                    }
-                }))
-            }
-        })
+//        privateDB.fetchAllSubscriptions(completionHandler: {nil, error in
+//            //TODO:create delete/update subsciptions
+//            if error != nil {
+//                print(error?.localizedDescription as Any)
+//            } else if subscriptions?.count == 0 {
+//                self.privateDB.save(subscription, completionHandler: ({ returnedRecord, error in
+//                    if (error != nil) {
+//                        self.printError(error! as NSError)
+//                    }
+//                }))
+//            }
+//        })
     }
     
     //MARK: Query

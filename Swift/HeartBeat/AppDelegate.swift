@@ -11,9 +11,6 @@ import CoreData
 import HealthKit
 import CloudKit
 import AccountKit
-//import FBSDKCoreKit
-//import FBNotifications
-
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -179,7 +176,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let queryNotification = ckNotification as? CKQueryNotification
         {
             if queryNotification.queryNotificationReason == .recordCreated {
-                CloudKit.sharedInstance.queryPrivateDatabaseWithRecordID(queryNotification.recordID!)
+                CloudController.sharedInstance.queryPrivateDatabaseWithRecordID(queryNotification.recordID!)
             } else if queryNotification.queryNotificationReason == .recordDeleted {
                 // delete
             } else if queryNotification.queryNotificationReason == .recordUpdated {

@@ -15,13 +15,13 @@ class WorkoutController {
     var pause = Bool()
     var caloriesBurned = Int()
     var heartBeatArray = NSMutableArray()
-    var timer = Timer()
+    var timer = TimeTracker()
     var seconds = Int()
     var minutes = Int()
     weak var delegate:WorkoutControllerDelegate?
     
     func startWorkout() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(WorkoutController.secondsInterval), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(WorkoutController.secondsInterval), userInfo: nil, repeats: true) as! TimeTracker
         heartBeatArray.removeAllObjects()
         seconds = 0
         pause = false
@@ -33,16 +33,16 @@ class WorkoutController {
     
     func pauseWorkout() {
         if pause == false {
-            timer.pause()
+            timer.pauseTimer()
         } else {
-            timer.resume()
+            timer.resumeTimer()
         }
         pause = !pause
         SpeechUtterance.sharedInstance.speakPauseValues()
     }
     
     func endWorkout() {
-        timer.pause()
+        timer.pauseTimer()
         //populating workout
         workout!.arrayBeatsPerMinute = heartBeatArray
         workout!.caloriesBurned = caloriesBurned as NSNumber

@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
     </dependencies>
@@ -14,11 +13,29 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="HeartBeatWatch" customModuleProvider="target">
                     <items>
-                        <button width="1" alignment="left" title="HELLO WORLD" id="IUJ-1k-rfd"/>
+                        <button width="1" alignment="left" title="Start" id="IUJ-1k-rfd">
+                            <connections>
+                                <action selector="buttonPressed" destination="AgC-eL-Hgc" id="1Vm-g0-jPu"/>
+                            </connections>
+                        </button>
+                        <label width="131" height="36" alignment="left" text="Label" textAlignment="center" id="Phd-BZ-EHM"/>
+                        <label width="131" height="36" alignment="left" text="Label" textAlignment="center" id="fRZ-5R-EMr"/>
                     </items>
+                    <connections>
+                        <outlet property="currentBPMLabel" destination="fRZ-5R-EMr" id="ocH-RM-nFL"/>
+                        <outlet property="helloButton" destination="IUJ-1k-rfd" id="gDZ-lZ-iXS"/>
+                        <outlet property="timerLabel" destination="Phd-BZ-EHM" id="mUc-9K-DK1"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="LcZ-Bq-Nd0">
+            <objects>
+                <controller id="xFW-WW-90y"/>
+            </objects>
+            <point key="canvasLocation" x="459" y="339"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
