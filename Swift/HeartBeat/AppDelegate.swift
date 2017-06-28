@@ -41,16 +41,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         DataController.sharedInstance.load()
         //Navigation Appearance
-        let barButtonAppearance = [NSFontAttributeName : UIFont(name: helveticaLightFont, size: 18)!]
-        let navBarApearance = [NSFontAttributeName : UIFont(name: helveticaLightFont, size: 24)!,
-                               NSForegroundColorAttributeName: UIColor.darkGray]
+        let barButtonAppearance : [String:Any] = [NSAttributedStringKey.font.rawValue : UIFont(name: helveticaLightFont, size: 18)!]
+        let navBarApearance : [String:Any] = [NSAttributedStringKey.font.rawValue : UIFont(name: helveticaLightFont, size: 24)!,
+                                              NSAttributedStringKey.foregroundColor.rawValue: UIColor.darkGray]
         UIBarButtonItem.appearance().setTitleTextAttributes(barButtonAppearance, for: UIControlState())
         UINavigationBar.appearance().titleTextAttributes = navBarApearance
         
         return true
     }
 
-    func registerNotify() {
+    @objc func registerNotify() {
         // Register for push notifications
         let notificationSettings = UIUserNotificationSettings(types: .alert, categories: nil)
         application.registerUserNotificationSettings(notificationSettings)

@@ -74,7 +74,7 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func refreshTableView(_ refreshControl: UIRefreshControl) {
+    @objc func refreshTableView(_ refreshControl: UIRefreshControl) {
         DataController.sharedInstance.loadAll()
     }
     //MARK:Tableview Delegate & Datasource
@@ -120,7 +120,7 @@ class HistoryVC: BaseVC, UITableViewDelegate, UITableViewDataSource {
         return createSectionHeaderView(title)
     }
     
-    func longPress(_ longPressGestureRecognizer: UILongPressGestureRecognizer) {    
+    @objc func longPress(_ longPressGestureRecognizer: UILongPressGestureRecognizer) {    
         if longPressGestureRecognizer.state == UIGestureRecognizerState.began {
             let touchPoint = longPressGestureRecognizer.location(in: tableView)
             if let indexPath = tableView.indexPathForRow(at: touchPoint) {

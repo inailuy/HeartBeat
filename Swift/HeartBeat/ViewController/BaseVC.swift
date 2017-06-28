@@ -79,7 +79,7 @@ class BaseVC: UIViewController {
         label.font = UIFont(name: helveticaThinFont, size: 20.0)
         
         let style = NSParagraphStyle.default.mutableCopy()
-        let attrText = NSAttributedString(string: title, attributes: [NSParagraphStyleAttributeName: style])
+        let attrText = NSAttributedString(string: title, attributes: [NSAttributedStringKey.paragraphStyle: style])
         label.numberOfLines = 0
         label.attributedText = attrText
         
@@ -89,7 +89,7 @@ class BaseVC: UIViewController {
         return headerView
     }
     
-    func backButtonPressed() {
+    @objc func backButtonPressed() {
         appDelegate.swipeBetweenVC.scrollToViewController(at: 1, animated: true)
     }
     

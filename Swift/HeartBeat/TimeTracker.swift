@@ -41,7 +41,7 @@ class TimeTracker : Timer {
         newTimer()
     }
     
-    func handleTimer(){
+    @objc func handleTimer(){
         let currentTime = Date.timeIntervalSinceReferenceDate
         elapsedTime = currentTime - pausedTimeDifference - startTime!
         //delegate!.handleTime(elapsedTime)

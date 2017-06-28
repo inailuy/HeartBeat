@@ -208,7 +208,7 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
         view.window?.endEditing(true)
     }
     
-    func observeredUnitsChange() {
+    @objc func observeredUnitsChange() {
         tableView.reloadData()//needs better implementation
     }
     // TODO: create tap gesture to cancel textfield input

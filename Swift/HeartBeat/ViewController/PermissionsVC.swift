@@ -146,7 +146,7 @@ class PermissionsVC: BaseVC, UITextFieldDelegate {
         return true
     }
     
-    func textFieldDidChange() {
+    @objc func textFieldDidChange() {
         shouldContinueButtonBeEnabled()
     }
 }

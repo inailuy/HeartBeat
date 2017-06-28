@@ -37,11 +37,11 @@ class MainVC: BaseVC {
         }
     }
     
-    func historyButtonPressed() {
+    @objc func historyButtonPressed() {
         appDelegate.swipeBetweenVC.scrollToViewController(at: 0, animated: true)
     }
     
-    func settingsButtonPressed() {
+    @objc func settingsButtonPressed() {
         appDelegate.swipeBetweenVC.scrollToViewController(at: 2, animated: true)
     }
     
@@ -54,7 +54,7 @@ class MainVC: BaseVC {
         performSegue(withIdentifier: "WorkoutSegue", sender: nil)
     }
     
-    func updateBluetoothData() {
+    @objc func updateBluetoothData() {
         bpmLabel.text = String(Bluetooth.sharedInstance.beatPerMinuteValue) + " bpm"
     }
 }

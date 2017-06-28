@@ -94,7 +94,7 @@ class SpeechUtterance: NSObject, AVSpeechSynthesizerDelegate {
         }
     }
     
-    func resetSpeechLimits() {
+    @objc func resetSpeechLimits() {
         canSpeakLimitsValues = false
     }
     

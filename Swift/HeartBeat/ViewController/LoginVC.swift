@@ -59,7 +59,7 @@ class LoginVC: UIViewController, AKFViewControllerDelegate {
     @IBAction func loginWithPhone(_ sender: UIButton) {
         let preFillPhoneNumber = AKFPhoneNumber(countryCode: "", phoneNumber: "")
         let inputState = UUID().uuidString
-        let viewController = appDelegate.accountKit.viewControllerForPhoneLogin(with: preFillPhoneNumber, state: inputState) as! AKFViewController
+        let viewController = appDelegate.accountKit.viewControllerForPhoneLogin(with: preFillPhoneNumber, state: inputState) as AKFViewController
         //let viewController = appDelegate.accountKit.viewControllerForEmailLoginWithEmail("", state: inputState) as! AKFViewController
         viewController.delegate = self
         viewController.enableSendToFacebook = true
@@ -83,7 +83,7 @@ class LoginVC: UIViewController, AKFViewControllerDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func permissionSegue() {
+    @objc func permissionSegue() {
         performSegue(withIdentifier: "permissionSegue", sender: nil)
     }
 }

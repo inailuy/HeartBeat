@@ -52,7 +52,7 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
         title = workout.workoutType
     }
     
-    func pressedOptionHideButton(_ sender: UIButton!) {
+    @objc func pressedOptionHideButton(_ sender: UIButton!) {
         dismiss(animated: true, completion: nil)
     }
     //MARK: TableView Delegate/Datasource

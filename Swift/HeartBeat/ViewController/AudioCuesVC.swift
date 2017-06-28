@@ -153,7 +153,7 @@ class AudioCuesVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UITextFie
         view.window?.endEditing(true)
     }
     
-    func dismissView() {
+    @objc func dismissView() {
         dismiss(animated: true, completion: nil)
     }
 }
