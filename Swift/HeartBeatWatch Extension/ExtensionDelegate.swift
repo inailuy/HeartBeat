@@ -12,6 +12,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
+        UserSettings.sharedInstance.loadInstances()
+        Bluetooth.sharedInstance.load()
+        DataController.sharedInstance.load()
     }
 
     func applicationDidBecomeActive() {

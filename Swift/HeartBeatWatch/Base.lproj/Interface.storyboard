@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tly-YX-4H7">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,27 +9,27 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13034"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
-        <scene sceneID="aou-V4-d1y">
+        <!--Main Interface Controller-->
+        <scene sceneID="fg4-kV-OQz">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="HeartBeatWatch_Extension">
+                <controller id="tly-YX-4H7" customClass="MainInterfaceController" customModule="HeartBeatWatch" customModuleProvider="target">
                     <items>
-                        <button width="1" alignment="left" title="Start" id="IUJ-1k-rfd">
+                        <button width="1" alignment="left" title="Button" id="WpP-N4-Q0x">
                             <connections>
-                                <action selector="buttonPressed" destination="AgC-eL-Hgc" id="1Vm-g0-jPu"/>
+                                <action selector="buttonPressed" destination="tly-YX-4H7" id="vaZ-dh-KZA"/>
                             </connections>
                         </button>
-                        <label width="131" height="36" alignment="left" text="Label" textAlignment="center" id="Phd-BZ-EHM"/>
-                        <label width="131" height="36" alignment="left" text="Label" textAlignment="center" id="fRZ-5R-EMr"/>
+                        <label width="136" height="46" alignment="left" text="Label" textAlignment="center" id="txz-B2-uXn"/>
+                        <label width="136" height="38" alignment="left" text="Label" textAlignment="center" id="VDd-DX-s0I"/>
                     </items>
                     <connections>
-                        <outlet property="currentBPMLabel" destination="fRZ-5R-EMr" id="ocH-RM-nFL"/>
-                        <outlet property="helloButton" destination="IUJ-1k-rfd" id="gDZ-lZ-iXS"/>
-                        <outlet property="timerLabel" destination="Phd-BZ-EHM" id="mUc-9K-DK1"/>
+                        <outlet property="currentBPMLabel" destination="VDd-DX-s0I" id="9lY-jl-ySz"/>
+                        <outlet property="startButton" destination="WpP-N4-Q0x" id="VUP-ZB-Mv1"/>
+                        <outlet property="timerLabel" destination="txz-B2-uXn" id="hXf-yI-CuD"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="209" y="318"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

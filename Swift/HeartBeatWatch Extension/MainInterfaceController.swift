@@ -10,9 +10,9 @@ import WatchKit
 import Foundation
 
 
-class InterfaceController: WKInterfaceController,WorkoutControllerDelegate {
+class MainInterfaceController: WKInterfaceController, WorkoutControllerDelegate {
 
-    @IBOutlet var helloButton: WKInterfaceButton!
+    @IBOutlet var startButton: WKInterfaceButton!
     @IBOutlet var timerLabel: WKInterfaceLabel!
     @IBOutlet var currentBPMLabel: WKInterfaceLabel!
 
@@ -41,12 +41,13 @@ class InterfaceController: WKInterfaceController,WorkoutControllerDelegate {
     
     @IBAction func buttonPressed() {
         startBool = !startBool
-        helloButton.setTitle("Stop")
+        startButton.setTitle("Stop")
         if startBool == true {
-         helloButton.setTitle("Start")
-            //WorkoutController.sharedInstance.endWorkout()
+            startButton.setTitle("Start")
+            WorkoutController.sharedInstance.endWorkout()
+            WorkoutController.sharedInstance.saveWorkout()
         } else {
-            //WorkoutController.sharedInstance.startWorkout()
+            WorkoutController.sharedInstance.startWorkout()
         }
         
     }
@@ -59,5 +60,5 @@ class InterfaceController: WKInterfaceController,WorkoutControllerDelegate {
         currentBPMLabel.setText(sender.currentBPM() + " Current bpm")
         timerLabel.setText(sender.getTimeStr())
     }
-
+    
 }

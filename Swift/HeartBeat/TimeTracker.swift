@@ -10,7 +10,7 @@ import Foundation
 
 class TimeTracker : Timer {
     private var startTime:TimeInterval?
-    private var timer:Timer?
+    var timer:Timer?
     private var elapsedTime = 0.0
     private var pausedTimeDifference = 0.0
     private var timeUserPaused = 0.0

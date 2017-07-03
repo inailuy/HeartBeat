@@ -21,7 +21,7 @@ class WorkoutController {
     weak var delegate:WorkoutControllerDelegate?
     
     func startWorkout() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(WorkoutController.secondsInterval), userInfo: nil, repeats: true) as! TimeTracker
+        timer.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(WorkoutController.secondsInterval), userInfo: nil, repeats: true)
         heartBeatArray.removeAllObjects()
         seconds = 0
         pause = false
