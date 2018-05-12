@@ -4,5 +4,5 @@ target ‘HeartBeat’ do
 	pod 'FBSDKCoreKit'
 	pod 'FBSDKShareKit'
 	pod 'FBSDKLoginKit'
-    pod 'AccountKit'
+    	pod 'AccountKit'
 end

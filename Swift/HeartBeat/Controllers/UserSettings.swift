@@ -59,11 +59,11 @@ class UserSettings {
         var numberObject = numberObjectForKey(Key.weight.rawValue)
         weight = numberObject.floatValue
         numberObject = numberObjectForKey(Key.age.rawValue)
-        age = numberObject.integerValue
+        age = numberObject.intValue
         numberObject = numberObjectForKey(Key.unit.rawValue)
-        unit = numberObject.integerValue
+        unit = numberObject.intValue
         numberObject = numberObjectForKey(Key.sex.rawValue)
-        sex = numberObject.integerValue
+        sex = numberObject.intValue
         numberObject = numberObjectForKey(Key.debug.rawValue)
         debug = numberObject.boolValue
         numberObject = numberObjectForKey(Key.userEnabledHealth.rawValue)
@@ -71,16 +71,16 @@ class UserSettings {
         numberObject = numberObjectForKey(Key.session.rawValue)
         sessionActive = numberObject.boolValue
         numberObject = numberObjectForKey(Key.audioTiming.rawValue)
-        audioTiming = numberObject.integerValue
+        audioTiming = numberObject.intValue
         numberObject = numberObjectForKey(Key.mute.rawValue)
         mute = numberObject.boolValue
         numberObject = numberObjectForKey(Key.minimumBPM.rawValue)
-        minimumBPM = numberObject.integerValue
+        minimumBPM = numberObject.intValue
         numberObject = numberObjectForKey(Key.maximumBPM.rawValue)
-        maximunBPM = numberObject.integerValue
+        maximunBPM = numberObject.intValue
         
-        if (NSUserDefaults.standardUserDefaults().objectForKey(Key.spokenCues.rawValue) != nil) {
-            let arr = NSUserDefaults.standardUserDefaults().objectForKey(Key.spokenCues.rawValue) as! NSArray
+        if (UserDefaults.standard.object(forKey: Key.spokenCues.rawValue) != nil) {
+            let arr = UserDefaults.standard.object(forKey: Key.spokenCues.rawValue) as! NSArray
             spokenCues = NSMutableArray(array: arr)
         } else {
             spokenCues = [0,0,0,0]
@@ -89,20 +89,20 @@ class UserSettings {
     
     func loadFromHealthKit() {
         let health = Health.sharedInstance
-        if userEnabledHealth && health.isHealthKitEnabled {
+        if userEnabledHealth {
             do {// Age
                 let birthDay = try health.healthStore.dateOfBirth()
-                age = NSCalendar.currentCalendar().components(.Year, fromDate: birthDay, toDate: NSDate(), options: []).year
+                age = (Calendar.current as NSCalendar).components(.year, from: birthDay, to: Date(), options: []).year!
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
             do {// Sex
                 let bioSexObject = try health.healthStore.biologicalSex()
                 switch bioSexObject.biologicalSex {
-                case .Female:
+                case .female:
                     sex = Sex.female.rawValue
                     break
-                case .Male:
+                case .male:
                     sex = Sex.male.rawValue
                     break
                 default: break
@@ -112,10 +112,11 @@ class UserSettings {
             }
             // Weight
             health.weight({ (result: Float) in
-                self.weight = result
-                self.saveToDisk()
-                dispatch_async(dispatch_get_main_queue()) {
-                    NSNotificationCenter.defaultCenter().postNotificationName("Units_Changed", object: nil)
+                if result > 0.0 {
+                    self.weight = result
+                    DispatchQueue.main.async {
+                        NotificationCenter.default.post(name: Notification.Name(rawValue: "HealthStorePermission"), object: nil)
+                    }
                 }
             })
         }
@@ -123,25 +124,25 @@ class UserSettings {
     }
     
     func saveToDisk() {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.setFloat(weight, forKey: Key.weight.rawValue)
-        userDefaults.setInteger(age, forKey: Key.age.rawValue)
-        userDefaults.setInteger(unit, forKey: Key.unit.rawValue)
-        userDefaults.setInteger(sex, forKey: Key.sex.rawValue)
-        userDefaults.setBool(debug, forKey: Key.debug.rawValue)
-        userDefaults.setBool(userEnabledHealth, forKey: Key.userEnabledHealth.rawValue)
-        userDefaults.setBool(sessionActive, forKey: Key.session.rawValue)
-        userDefaults.setInteger(audioTiming, forKey: Key.audioTiming.rawValue)
-        userDefaults.setObject(spokenCues, forKey: Key.spokenCues.rawValue)
-        userDefaults.setObject(mute, forKey: Key.mute.rawValue)
-        userDefaults.setInteger(minimumBPM, forKey: Key.minimumBPM.rawValue)
-        userDefaults.setInteger(maximunBPM, forKey: Key.maximumBPM.rawValue)
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(weight, forKey: Key.weight.rawValue)
+        userDefaults.set(age, forKey: Key.age.rawValue)
+        userDefaults.set(unit, forKey: Key.unit.rawValue)
+        userDefaults.set(sex, forKey: Key.sex.rawValue)
+        userDefaults.set(debug, forKey: Key.debug.rawValue)
+        userDefaults.set(userEnabledHealth, forKey: Key.userEnabledHealth.rawValue)
+        userDefaults.set(sessionActive, forKey: Key.session.rawValue)
+        userDefaults.set(audioTiming, forKey: Key.audioTiming.rawValue)
+        userDefaults.set(spokenCues, forKey: Key.spokenCues.rawValue)
+        userDefaults.set(mute, forKey: Key.mute.rawValue)
+        userDefaults.set(minimumBPM, forKey: Key.minimumBPM.rawValue)
+        userDefaults.set(maximunBPM, forKey: Key.maximumBPM.rawValue)
         
         userDefaults.synchronize()
     }
     
     func resetValues() {
-        weight = 0.0
+        weight = 0
         age = 0
         unit = 0
         sex = 0
@@ -157,30 +158,32 @@ class UserSettings {
         saveToDisk()
     }
     
-    func numberObjectForKey(key: String) -> NSNumber {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
+    func numberObjectForKey(_ key: String) -> NSNumber {
+        let userDefaults = UserDefaults.standard
         var number = NSNumber()
-        if (userDefaults.objectForKey(key) != nil) {
-            number = userDefaults.objectForKey(key) as! NSNumber
+        if (userDefaults.object(forKey: key) != nil) {
+            number = userDefaults.object(forKey: key) as! NSNumber
         }
         return  number
     }
     
     func weightWithDisplayFormat() -> Int {
-        var weight = self.weight
+        var weight = self.weight > 0.0 ? self.weight : 0.0
         if Unit.imperial.rawValue == unit {
             weight = weight * 2.2046
         }
         return Int(weight)
     }
     
-    func modifyWeight(value:Float) {
+    func modifyWeight(_ value:Float) {
         if Unit.imperial.rawValue == unit {
             weight = value / 2.2046
+        } else {
+            weight = value
         }
     }
     
-    func checkSpokenCueIndex(index:Int) -> Bool {
+    func checkSpokenCueIndex(_ index:Int) -> Bool {
         let check = spokenCues[index] as! NSNumber
         if check.boolValue {
             return true

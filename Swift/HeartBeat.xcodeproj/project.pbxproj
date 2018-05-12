@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F1BF5DC301E5800B037CAA8 /* libPods-HeartBeat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0314750153042ABDDBE6B2 /* libPods-HeartBeat.a */; };
 		3300CD521D5C40B3007F0A99 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD511D5C40B3007F0A99 /* UserSettings.swift */; };
 		3300CD581D5D2DEA007F0A99 /* DGActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD571D5D2DEA007F0A99 /* DGActivityIndicatorView.m */; };
 		3300CDA01D5D2F1F007F0A99 /* DGActivityIndicatorAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD5D1D5D2F1F007F0A99 /* DGActivityIndicatorAnimation.m */; };
@@ -46,9 +45,11 @@
 		3300CE031D5D2F1F007F0A99 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD9F1D5D2F1F007F0A99 /* DGActivityIndicatorTwoDotsAnimation.m */; };
 		33193DCE1D7BD1C800624956 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33193DCD1D7BD1C800624956 /* DataController.swift */; };
 		33389B081D2071F2002F09FA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33389B071D2071F2002F09FA /* MapKit.framework */; };
+		333B9F611DF40026003F011E /* PermissionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333B9F601DF40026003F011E /* PermissionsVC.swift */; };
 		334130781D500FBB00758A80 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334130771D500FBB00758A80 /* Workout.swift */; };
 		33550AC61D53E64E0036122A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33550AC51D53E64E0036122A /* CloudKit.framework */; };
 		33550AC91D53F4F90036122A /* QuickSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33550AC81D53F4F90036122A /* QuickSort.swift */; };
+		336714981DF3DE2700C2A0D2 /* AccountKitStrings.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 336714971DF3DE2700C2A0D2 /* AccountKitStrings.bundle */; };
 		336AF2891D2591E400D70DA9 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2881D2591E400D70DA9 /* Health.swift */; };
 		336AF2951D25DCC100D70DA9 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2941D25DCC100D70DA9 /* Bluetooth.swift */; };
 		336AF2991D25DF9A00D70DA9 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336AF2981D25DF9A00D70DA9 /* CoreBluetooth.framework */; };
@@ -63,25 +64,108 @@
 		337469461D124221008F38C4 /* AudioCuesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337469451D124221008F38C4 /* AudioCuesVC.swift */; };
 		337469531D126920008F38C4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 337469521D126920008F38C4 /* HealthKit.framework */; };
 		337469551D126DB2008F38C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F271B01D123D8500588247 /* AppDelegate.swift */; };
-		3377FEB81D2899B400D0BA98 /* BEMAverageLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEAF1D2899B400D0BA98 /* BEMAverageLine.m */; };
-		3377FEB91D2899B400D0BA98 /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEB11D2899B400D0BA98 /* BEMCircle.m */; };
-		3377FEBA1D2899B400D0BA98 /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEB31D2899B400D0BA98 /* BEMLine.m */; };
-		3377FEBB1D2899B400D0BA98 /* BEMPermanentPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEB51D2899B400D0BA98 /* BEMPermanentPopupView.m */; };
-		3377FEBC1D2899B400D0BA98 /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEB71D2899B400D0BA98 /* BEMSimpleLineGraphView.m */; };
 		3377FEBE1D289E0200D0BA98 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEBD1D289E0200D0BA98 /* WorkoutController.swift */; };
-		3377FEC41D28D5CD00D0BA98 /* NSTimer+Pause.m in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEC31D28D5CD00D0BA98 /* NSTimer+Pause.m */; };
 		3377FED21D2C793F00D0BA98 /* VO2Max.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3377FED11D2C793F00D0BA98 /* VO2Max.swift */; };
-		33858BCE1D5554600078127B /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33858BCD1D5554600078127B /* CloudKit.swift */; };
+		33858BCE1D5554600078127B /* CloudController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33858BCD1D5554600078127B /* CloudController.swift */; };
 		33A93BE61D75216100770375 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A93BE51D75216100770375 /* CoreData.swift */; };
 		33BA773E1D187E72009BD322 /* YZSwipeBetweenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3374694D1D124846008F38C4 /* YZSwipeBetweenViewController.m */; };
 		33DE2B711D2CD57D00D78811 /* SpeechUtterance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DE2B701D2CD57D00D78811 /* SpeechUtterance.swift */; };
+		33E365181DF3B697004B7405 /* AccountKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33E365171DF3B697004B7405 /* AccountKit.framework */; };
 		33F271B61D123D8500588247 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33F271B41D123D8500588247 /* Main.storyboard */; };
 		33F271B91D123D8500588247 /* HeartBeat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33F271B71D123D8500588247 /* HeartBeat.xcdatamodeld */; };
 		33F271BB1D123D8500588247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33F271BA1D123D8500588247 /* Assets.xcassets */; };
 		33F271BE1D123D8500588247 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33F271BC1D123D8500588247 /* LaunchScreen.storyboard */; };
 		33F271E21D123F1300588247 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33F271E11D123F1300588247 /* AVFoundation.framework */; };
 		33FF20C11D5FF12200EBAFDD /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FF20C01D5FF12200EBAFDD /* SettingsTableViewCell.swift */; };
+		3A25E2901F0A95BA00C77CC4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A25E28F1F0A95BA00C77CC4 /* CloudKit.framework */; };
+		3A25E2921F0A95D500C77CC4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A25E2911F0A95D500C77CC4 /* HealthKit.framework */; };
+		3A38543F1F032F4D00576944 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A38543E1F032F4D00576944 /* CoreBluetooth.framework */; };
+		3A3854411F032F6D00576944 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3854401F032F6D00576944 /* CoreData.framework */; };
+		3A3854421F032F9200576944 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3854401F032F6D00576944 /* CoreData.framework */; };
+		3A3854431F03306D00576944 /* CloudController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33858BCD1D5554600078127B /* CloudController.swift */; };
+		3A3854491F033B1600576944 /* TimeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3854481F033B1600576944 /* TimeTracker.swift */; };
+		3A38544A1F033B1600576944 /* TimeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3854481F033B1600576944 /* TimeTracker.swift */; };
+		3A38544C1F033F9F00576944 /* Workout.swift in Resources */ = {isa = PBXBuildFile; fileRef = 334130771D500FBB00758A80 /* Workout.swift */; };
+		3A38544D1F033FB100576944 /* SpeechUtterance.swift in Resources */ = {isa = PBXBuildFile; fileRef = 33DE2B701D2CD57D00D78811 /* SpeechUtterance.swift */; };
+		3A38544E1F033FC900576944 /* UserSettings.swift in Resources */ = {isa = PBXBuildFile; fileRef = 3300CD511D5C40B3007F0A99 /* UserSettings.swift */; };
+		3A38544F1F033FD500576944 /* Health.swift in Resources */ = {isa = PBXBuildFile; fileRef = 336AF2881D2591E400D70DA9 /* Health.swift */; };
+		3A3854501F033FD500576944 /* Bluetooth.swift in Resources */ = {isa = PBXBuildFile; fileRef = 336AF2941D25DCC100D70DA9 /* Bluetooth.swift */; };
+		3A3854511F033FD500576944 /* CloudController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 33858BCD1D5554600078127B /* CloudController.swift */; };
+		3A3854521F033FD500576944 /* CoreData.swift in Resources */ = {isa = PBXBuildFile; fileRef = 33A93BE51D75216100770375 /* CoreData.swift */; };
+		3A3854531F033FD500576944 /* DataController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 33193DCD1D7BD1C800624956 /* DataController.swift */; };
+		3A3854541F033FE700576944 /* TimeTracker.swift in Resources */ = {isa = PBXBuildFile; fileRef = 3A3854481F033B1600576944 /* TimeTracker.swift */; };
+		3A3854551F033FF100576944 /* VO2Max.swift in Resources */ = {isa = PBXBuildFile; fileRef = 3377FED11D2C793F00D0BA98 /* VO2Max.swift */; };
+		3A48165F1EFDBADF007B48BD /* VO2Max.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3377FED11D2C793F00D0BA98 /* VO2Max.swift */; };
+		3A4816601EFDBADF007B48BD /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334130771D500FBB00758A80 /* Workout.swift */; };
+		3A4816611EFDBADF007B48BD /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3300CD511D5C40B3007F0A99 /* UserSettings.swift */; };
+		3A4816621EFDBADF007B48BD /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2881D2591E400D70DA9 /* Health.swift */; };
+		3A4816631EFDBADF007B48BD /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336AF2941D25DCC100D70DA9 /* Bluetooth.swift */; };
+		3A4816641EFDBADF007B48BD /* SpeechUtterance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DE2B701D2CD57D00D78811 /* SpeechUtterance.swift */; };
+		3A4816661EFDBADF007B48BD /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A93BE51D75216100770375 /* CoreData.swift */; };
+		3A4816671EFDBADF007B48BD /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33193DCD1D7BD1C800624956 /* DataController.swift */; };
+		3A6F93561EF9B67F00A81FF1 /* BEMAverageLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F934D1EF9B67F00A81FF1 /* BEMAverageLine.m */; };
+		3A6F93571EF9B67F00A81FF1 /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F934F1EF9B67F00A81FF1 /* BEMCircle.m */; };
+		3A6F93581EF9B67F00A81FF1 /* BEMGraphCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F93511EF9B67F00A81FF1 /* BEMGraphCalculator.m */; };
+		3A6F93591EF9B67F00A81FF1 /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F93531EF9B67F00A81FF1 /* BEMLine.m */; };
+		3A6F935A1EF9B67F00A81FF1 /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6F93551EF9B67F00A81FF1 /* BEMSimpleLineGraphView.m */; };
+		3A8048831EFC930D00C29872 /* WorkoutController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 3377FEBD1D289E0200D0BA98 /* WorkoutController.swift */; };
+		3A8048841EFC934F00C29872 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3377FEBD1D289E0200D0BA98 /* WorkoutController.swift */; };
+		3AB1FE601EFB5268006720A6 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1FE5E1EFB5268006720A6 /* Interface.storyboard */; };
+		3AB1FE621EFB5268006720A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1FE611EFB5268006720A6 /* Assets.xcassets */; };
+		3AB1FE691EFB5268006720A6 /* HeartBeatWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3AB1FE681EFB5268006720A6 /* HeartBeatWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3AB1FE701EFB5268006720A6 /* MainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1FE6F1EFB5268006720A6 /* MainInterfaceController.swift */; };
+		3AB1FE721EFB5268006720A6 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1FE711EFB5268006720A6 /* ExtensionDelegate.swift */; };
+		3AB1FE741EFB5268006720A6 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1FE731EFB5268006720A6 /* NotificationController.swift */; };
+		3AB1FE761EFB5268006720A6 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1FE751EFB5268006720A6 /* ComplicationController.swift */; };
+		3AB1FE781EFB5268006720A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1FE771EFB5268006720A6 /* Assets.xcassets */; };
+		3AB1FE7C1EFB5268006720A6 /* HeartBeatWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3AB1FE5C1EFB5268006720A6 /* HeartBeatWatch.app */; };
+		3ACEE4871F0A8A76002B9981 /* HeartBeat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33F271B71D123D8500588247 /* HeartBeat.xcdatamodeld */; };
+		3ADC2A6B1E13072000C05B6C /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADC2A6A1E13072000C05B6C /* ImageIO.framework */; };
+		3ADC2A6D1E13072800C05B6C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADC2A6C1E13072800C05B6C /* MobileCoreServices.framework */; };
+		AC0CA1DD9616AA426683B58C /* libPods-HeartBeat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B4ABA89F999A405E14FF20 /* libPods-HeartBeat.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3AB1FE6A1EFB5268006720A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33F271A51D123D8500588247 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AB1FE671EFB5268006720A6;
+			remoteInfo = "HeartBeatWatch Extension";
+		};
+		3AB1FE7A1EFB5268006720A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33F271A51D123D8500588247 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AB1FE5B1EFB5268006720A6;
+			remoteInfo = HeartBeatWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3AB1FE801EFB5268006720A6 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3AB1FE691EFB5268006720A6 /* HeartBeatWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AB1FE841EFB5268006720A6 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				3AB1FE7C1EFB5268006720A6 /* HeartBeatWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3300CD511D5C40B3007F0A99 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSettings.swift; path = Controllers/UserSettings.swift; sourceTree = "<group>"; };
@@ -161,13 +245,14 @@
 		3308FF0B1DB99731004D9666 /* DatabaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseTest.swift; path = HeartBeatTests/DatabaseTest.swift; sourceTree = SOURCE_ROOT; };
 		33193DCD1D7BD1C800624956 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataController.swift; path = Controllers/DataController.swift; sourceTree = "<group>"; };
 		33389B071D2071F2002F09FA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
+		333B9F601DF40026003F011E /* PermissionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PermissionsVC.swift; path = ViewController/PermissionsVC.swift; sourceTree = "<group>"; };
 		334130771D500FBB00758A80 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Workout.swift; path = Models/Workout.swift; sourceTree = "<group>"; };
 		33550AC51D53E64E0036122A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		33550AC81D53F4F90036122A /* QuickSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuickSort.swift; path = ThirdParty/Sort/QuickSort.swift; sourceTree = "<group>"; };
+		336714971DF3DE2700C2A0D2 /* AccountKitStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AccountKitStrings.bundle; path = Pods/AccountKit/AccountKitStrings.bundle; sourceTree = "<group>"; };
 		336AF2881D2591E400D70DA9 /* Health.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Health.swift; path = Controllers/Health.swift; sourceTree = "<group>"; };
 		336AF2941D25DCC100D70DA9 /* Bluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bluetooth.swift; path = Controllers/Bluetooth.swift; sourceTree = "<group>"; };
 		336AF2981D25DF9A00D70DA9 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
-		336C6B941D5FF3640056A088 /* HeartBeat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HeartBeat-Bridging-Header.h"; path = "ThirdParty/BridgeFiles/HeartBeat-Bridging-Header.h"; sourceTree = "<group>"; };
 		337469271D12416C008F38C4 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseVC.swift; path = ViewController/BaseVC.swift; sourceTree = "<group>"; };
 		337469281D12416C008F38C4 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainVC.swift; path = ViewController/MainVC.swift; sourceTree = "<group>"; };
 		337469301D124192008F38C4 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsVC.swift; path = ViewController/SettingsVC.swift; sourceTree = "<group>"; };
@@ -180,23 +265,12 @@
 		3374694C1D124846008F38C4 /* YZSwipeBetweenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZSwipeBetweenViewController.h; path = ThirdParty/SnapChatUI/YZSwipeBetweenViewController.h; sourceTree = "<group>"; };
 		3374694D1D124846008F38C4 /* YZSwipeBetweenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZSwipeBetweenViewController.m; path = ThirdParty/SnapChatUI/YZSwipeBetweenViewController.m; sourceTree = "<group>"; };
 		337469521D126920008F38C4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
-		3377FEAE1D2899B400D0BA98 /* BEMAverageLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMAverageLine.h; path = ThirdParty/BEMSimpleLineGraph/BEMAverageLine.h; sourceTree = "<group>"; };
-		3377FEAF1D2899B400D0BA98 /* BEMAverageLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMAverageLine.m; path = ThirdParty/BEMSimpleLineGraph/BEMAverageLine.m; sourceTree = "<group>"; };
-		3377FEB01D2899B400D0BA98 /* BEMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMCircle.h; path = ThirdParty/BEMSimpleLineGraph/BEMCircle.h; sourceTree = "<group>"; };
-		3377FEB11D2899B400D0BA98 /* BEMCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMCircle.m; path = ThirdParty/BEMSimpleLineGraph/BEMCircle.m; sourceTree = "<group>"; };
-		3377FEB21D2899B400D0BA98 /* BEMLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMLine.h; path = ThirdParty/BEMSimpleLineGraph/BEMLine.h; sourceTree = "<group>"; };
-		3377FEB31D2899B400D0BA98 /* BEMLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMLine.m; path = ThirdParty/BEMSimpleLineGraph/BEMLine.m; sourceTree = "<group>"; };
-		3377FEB41D2899B400D0BA98 /* BEMPermanentPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMPermanentPopupView.h; path = ThirdParty/BEMSimpleLineGraph/BEMPermanentPopupView.h; sourceTree = "<group>"; };
-		3377FEB51D2899B400D0BA98 /* BEMPermanentPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMPermanentPopupView.m; path = ThirdParty/BEMSimpleLineGraph/BEMPermanentPopupView.m; sourceTree = "<group>"; };
-		3377FEB61D2899B400D0BA98 /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMSimpleLineGraphView.h; path = ThirdParty/BEMSimpleLineGraph/BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
-		3377FEB71D2899B400D0BA98 /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMSimpleLineGraphView.m; path = ThirdParty/BEMSimpleLineGraph/BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
 		3377FEBD1D289E0200D0BA98 /* WorkoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutController.swift; path = Controllers/WorkoutController.swift; sourceTree = "<group>"; };
-		3377FEC21D28D5CD00D0BA98 /* NSTimer+Pause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+Pause.h"; path = "ThirdParty/NSTimer+Pause/NSTimer+Pause.h"; sourceTree = "<group>"; };
-		3377FEC31D28D5CD00D0BA98 /* NSTimer+Pause.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+Pause.m"; path = "ThirdParty/NSTimer+Pause/NSTimer+Pause.m"; sourceTree = "<group>"; };
 		3377FED11D2C793F00D0BA98 /* VO2Max.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VO2Max.swift; path = Models/VO2Max.swift; sourceTree = "<group>"; };
-		33858BCD1D5554600078127B /* CloudKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CloudKit.swift; path = Controllers/CloudKit.swift; sourceTree = "<group>"; };
+		33858BCD1D5554600078127B /* CloudController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CloudController.swift; path = Controllers/CloudController.swift; sourceTree = "<group>"; };
 		33A93BE51D75216100770375 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreData.swift; path = Controllers/CoreData.swift; sourceTree = "<group>"; };
 		33DE2B701D2CD57D00D78811 /* SpeechUtterance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeechUtterance.swift; path = Controllers/SpeechUtterance.swift; sourceTree = "<group>"; };
+		33E365171DF3B697004B7405 /* AccountKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AccountKit.framework; path = Pods/AccountKit/AccountKit.framework; sourceTree = "<group>"; };
 		33F271AD1D123D8500588247 /* HeartBeat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartBeat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33F271B01D123D8500588247 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33F271B51D123D8500588247 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -207,8 +281,40 @@
 		33F271E11D123F1300588247 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		33F272431D123FA400588247 /* HeartBeat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HeartBeat.entitlements; sourceTree = "<group>"; };
 		33FF20C01D5FF12200EBAFDD /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewCell.swift; path = ThirdParty/CustomClasses/SettingsTableViewCell.swift; sourceTree = "<group>"; };
-		5D0314750153042ABDDBE6B2 /* libPods-HeartBeat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HeartBeat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A25E28E1F0A95B600C77CC4 /* HeartBeatWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HeartBeatWatch Extension.entitlements"; sourceTree = "<group>"; };
+		3A25E28F1F0A95BA00C77CC4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		3A25E2911F0A95D500C77CC4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		3A38543E1F032F4D00576944 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.0.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
+		3A3854401F032F6D00576944 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.0.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		3A3854471F033B1500576944 /* HeartBeatWatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeartBeatWatch-Bridging-Header.h"; sourceTree = "<group>"; };
+		3A3854481F033B1600576944 /* TimeTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTracker.swift; sourceTree = "<group>"; };
+		3A6F934C1EF9B67F00A81FF1 /* BEMAverageLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMAverageLine.h; path = ThirdParty/BEMLineGraph/BEMAverageLine.h; sourceTree = "<group>"; };
+		3A6F934D1EF9B67F00A81FF1 /* BEMAverageLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMAverageLine.m; path = ThirdParty/BEMLineGraph/BEMAverageLine.m; sourceTree = "<group>"; };
+		3A6F934E1EF9B67F00A81FF1 /* BEMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMCircle.h; path = ThirdParty/BEMLineGraph/BEMCircle.h; sourceTree = "<group>"; };
+		3A6F934F1EF9B67F00A81FF1 /* BEMCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMCircle.m; path = ThirdParty/BEMLineGraph/BEMCircle.m; sourceTree = "<group>"; };
+		3A6F93501EF9B67F00A81FF1 /* BEMGraphCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMGraphCalculator.h; path = ThirdParty/BEMLineGraph/BEMGraphCalculator.h; sourceTree = "<group>"; };
+		3A6F93511EF9B67F00A81FF1 /* BEMGraphCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMGraphCalculator.m; path = ThirdParty/BEMLineGraph/BEMGraphCalculator.m; sourceTree = "<group>"; };
+		3A6F93521EF9B67F00A81FF1 /* BEMLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMLine.h; path = ThirdParty/BEMLineGraph/BEMLine.h; sourceTree = "<group>"; };
+		3A6F93531EF9B67F00A81FF1 /* BEMLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMLine.m; path = ThirdParty/BEMLineGraph/BEMLine.m; sourceTree = "<group>"; };
+		3A6F93541EF9B67F00A81FF1 /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEMSimpleLineGraphView.h; path = ThirdParty/BEMLineGraph/BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
+		3A6F93551EF9B67F00A81FF1 /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMSimpleLineGraphView.m; path = ThirdParty/BEMLineGraph/BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
+		3AB1FE5C1EFB5268006720A6 /* HeartBeatWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartBeatWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AB1FE5F1EFB5268006720A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		3AB1FE611EFB5268006720A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3AB1FE631EFB5268006720A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AB1FE681EFB5268006720A6 /* HeartBeatWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HeartBeatWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AB1FE6E1EFB5268006720A6 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		3AB1FE6F1EFB5268006720A6 /* MainInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterfaceController.swift; sourceTree = "<group>"; };
+		3AB1FE711EFB5268006720A6 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		3AB1FE731EFB5268006720A6 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		3AB1FE751EFB5268006720A6 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		3AB1FE771EFB5268006720A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3AB1FE791EFB5268006720A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AB1FE851EFB54E0006720A6 /* HeartBeat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HeartBeat-Bridging-Header.h"; path = "ThirdParty/BridgeFiles/HeartBeat-Bridging-Header.h"; sourceTree = "<group>"; };
+		3ADC2A6A1E13072000C05B6C /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		3ADC2A6C1E13072800C05B6C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		874A562BBCB9174AC2EA2A9A /* Pods-HeartBeat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartBeat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeartBeat/Pods-HeartBeat.debug.xcconfig"; sourceTree = "<group>"; };
+		D4B4ABA89F999A405E14FF20 /* libPods-HeartBeat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HeartBeat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDF0355659680E709A71D8E8 /* Pods-HeartBeat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeartBeat.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeartBeat/Pods-HeartBeat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,12 +323,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ADC2A6D1E13072800C05B6C /* MobileCoreServices.framework in Frameworks */,
+				3ADC2A6B1E13072000C05B6C /* ImageIO.framework in Frameworks */,
+				336714981DF3DE2700C2A0D2 /* AccountKitStrings.bundle in Frameworks */,
+				33E365181DF3B697004B7405 /* AccountKit.framework in Frameworks */,
 				33550AC61D53E64E0036122A /* CloudKit.framework in Frameworks */,
 				33F271E21D123F1300588247 /* AVFoundation.framework in Frameworks */,
 				33389B081D2071F2002F09FA /* MapKit.framework in Frameworks */,
 				336AF2991D25DF9A00D70DA9 /* CoreBluetooth.framework in Frameworks */,
 				337469531D126920008F38C4 /* HealthKit.framework in Frameworks */,
-				2F1BF5DC301E5800B037CAA8 /* libPods-HeartBeat.a in Frameworks */,
+				AC0CA1DD9616AA426683B58C /* libPods-HeartBeat.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A38543C1F032E2B00576944 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A3854421F032F9200576944 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AB1FE651EFB5268006720A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A25E2901F0A95BA00C77CC4 /* CloudKit.framework in Frameworks */,
+				3A25E2921F0A95D500C77CC4 /* HealthKit.framework in Frameworks */,
+				3A3854411F032F6D00576944 /* CoreData.framework in Frameworks */,
+				3A38543F1F032F4D00576944 /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +361,15 @@
 		0175E9AF51125D2CCC35525F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5D0314750153042ABDDBE6B2 /* libPods-HeartBeat.a */,
+				3A25E2911F0A95D500C77CC4 /* HealthKit.framework */,
+				3A25E28F1F0A95BA00C77CC4 /* CloudKit.framework */,
+				3A3854401F032F6D00576944 /* CoreData.framework */,
+				3A38543E1F032F4D00576944 /* CoreBluetooth.framework */,
+				3ADC2A6C1E13072800C05B6C /* MobileCoreServices.framework */,
+				3ADC2A6A1E13072000C05B6C /* ImageIO.framework */,
+				336714971DF3DE2700C2A0D2 /* AccountKitStrings.bundle */,
+				33E365171DF3B697004B7405 /* AccountKit.framework */,
+				D4B4ABA89F999A405E14FF20 /* libPods-HeartBeat.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -382,7 +519,7 @@
 				336AF2941D25DCC100D70DA9 /* Bluetooth.swift */,
 				3377FEBD1D289E0200D0BA98 /* WorkoutController.swift */,
 				33DE2B701D2CD57D00D78811 /* SpeechUtterance.swift */,
-				33858BCD1D5554600078127B /* CloudKit.swift */,
+				33858BCD1D5554600078127B /* CloudController.swift */,
 				33A93BE51D75216100770375 /* CoreData.swift */,
 				33193DCD1D7BD1C800624956 /* DataController.swift */,
 			);
@@ -397,6 +534,7 @@
 				3374693C1D1241CE008F38C4 /* HistoryVC.swift */,
 				337469331D12419F008F38C4 /* LoginVC.swift */,
 				337469281D12416C008F38C4 /* MainVC.swift */,
+				333B9F601DF40026003F011E /* PermissionsVC.swift */,
 				337469301D124192008F38C4 /* SettingsVC.swift */,
 				3374693F1D1241F2008F38C4 /* WorkoutSummaryVC.swift */,
 				337469421D124212008F38C4 /* WorkoutTypeVC.swift */,
@@ -417,7 +555,8 @@
 		337469491D124811008F38C4 /* BridgeFiles */ = {
 			isa = PBXGroup;
 			children = (
-				336C6B941D5FF3640056A088 /* HeartBeat-Bridging-Header.h */,
+				3A3854471F033B1500576944 /* HeartBeatWatch-Bridging-Header.h */,
+				3AB1FE851EFB54E0006720A6 /* HeartBeat-Bridging-Header.h */,
 			);
 			name = BridgeFiles;
 			sourceTree = "<group>";
@@ -452,16 +591,16 @@
 		3377FEAD1D28999500D0BA98 /* BEMSimpleLineGraph */ = {
 			isa = PBXGroup;
 			children = (
-				3377FEAE1D2899B400D0BA98 /* BEMAverageLine.h */,
-				3377FEAF1D2899B400D0BA98 /* BEMAverageLine.m */,
-				3377FEB01D2899B400D0BA98 /* BEMCircle.h */,
-				3377FEB11D2899B400D0BA98 /* BEMCircle.m */,
-				3377FEB21D2899B400D0BA98 /* BEMLine.h */,
-				3377FEB31D2899B400D0BA98 /* BEMLine.m */,
-				3377FEB41D2899B400D0BA98 /* BEMPermanentPopupView.h */,
-				3377FEB51D2899B400D0BA98 /* BEMPermanentPopupView.m */,
-				3377FEB61D2899B400D0BA98 /* BEMSimpleLineGraphView.h */,
-				3377FEB71D2899B400D0BA98 /* BEMSimpleLineGraphView.m */,
+				3A6F934C1EF9B67F00A81FF1 /* BEMAverageLine.h */,
+				3A6F934D1EF9B67F00A81FF1 /* BEMAverageLine.m */,
+				3A6F934E1EF9B67F00A81FF1 /* BEMCircle.h */,
+				3A6F934F1EF9B67F00A81FF1 /* BEMCircle.m */,
+				3A6F93501EF9B67F00A81FF1 /* BEMGraphCalculator.h */,
+				3A6F93511EF9B67F00A81FF1 /* BEMGraphCalculator.m */,
+				3A6F93521EF9B67F00A81FF1 /* BEMLine.h */,
+				3A6F93531EF9B67F00A81FF1 /* BEMLine.m */,
+				3A6F93541EF9B67F00A81FF1 /* BEMSimpleLineGraphView.h */,
+				3A6F93551EF9B67F00A81FF1 /* BEMSimpleLineGraphView.m */,
 			);
 			name = BEMSimpleLineGraph;
 			sourceTree = "<group>";
@@ -469,8 +608,7 @@
 		3377FEC11D28D5A600D0BA98 /* NSTimer+Pause */ = {
 			isa = PBXGroup;
 			children = (
-				3377FEC21D28D5CD00D0BA98 /* NSTimer+Pause.h */,
-				3377FEC31D28D5CD00D0BA98 /* NSTimer+Pause.m */,
+				3A3854481F033B1600576944 /* TimeTracker.swift */,
 			);
 			name = "NSTimer+Pause";
 			sourceTree = "<group>";
@@ -487,6 +625,8 @@
 			children = (
 				33F271AF1D123D8500588247 /* HeartBeat */,
 				3308FF021DB99469004D9666 /* HeartBeatTests */,
+				3AB1FE5D1EFB5268006720A6 /* HeartBeatWatch */,
+				3AB1FE6C1EFB5268006720A6 /* HeartBeatWatch Extension */,
 				33F271AE1D123D8500588247 /* Products */,
 				044E9A44251CC8EB886A8F11 /* Pods */,
 				0175E9AF51125D2CCC35525F /* Frameworks */,
@@ -497,6 +637,8 @@
 			isa = PBXGroup;
 			children = (
 				33F271AD1D123D8500588247 /* HeartBeat.app */,
+				3AB1FE5C1EFB5268006720A6 /* HeartBeatWatch.app */,
+				3AB1FE681EFB5268006720A6 /* HeartBeatWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -521,6 +663,39 @@
 			path = HeartBeat;
 			sourceTree = "<group>";
 		};
+		3AB1FE5D1EFB5268006720A6 /* HeartBeatWatch */ = {
+			isa = PBXGroup;
+			children = (
+				3AB1FE5E1EFB5268006720A6 /* Interface.storyboard */,
+				3AB1FE611EFB5268006720A6 /* Assets.xcassets */,
+				3AB1FE631EFB5268006720A6 /* Info.plist */,
+			);
+			path = HeartBeatWatch;
+			sourceTree = "<group>";
+		};
+		3AB1FE6C1EFB5268006720A6 /* HeartBeatWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3A25E28E1F0A95B600C77CC4 /* HeartBeatWatch Extension.entitlements */,
+				3AB1FE6F1EFB5268006720A6 /* MainInterfaceController.swift */,
+				3AB1FE711EFB5268006720A6 /* ExtensionDelegate.swift */,
+				3AB1FE731EFB5268006720A6 /* NotificationController.swift */,
+				3AB1FE751EFB5268006720A6 /* ComplicationController.swift */,
+				3AB1FE771EFB5268006720A6 /* Assets.xcassets */,
+				3AB1FE791EFB5268006720A6 /* Info.plist */,
+				3AB1FE6D1EFB5268006720A6 /* Supporting Files */,
+			);
+			path = "HeartBeatWatch Extension";
+			sourceTree = "<group>";
+		};
+		3AB1FE6D1EFB5268006720A6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3AB1FE6E1EFB5268006720A6 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -534,15 +709,52 @@
 				33F271AB1D123D8500588247 /* Resources */,
 				E37627F3789B37EB52434797 /* [CP] Embed Pods Frameworks */,
 				8D8FDD3200915537207F5045 /* [CP] Copy Pods Resources */,
+				3AB1FE841EFB5268006720A6 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3AB1FE7B1EFB5268006720A6 /* PBXTargetDependency */,
 			);
 			name = HeartBeat;
 			productName = HeartBeat;
 			productReference = 33F271AD1D123D8500588247 /* HeartBeat.app */;
 			productType = "com.apple.product-type.application";
+		};
+		3AB1FE5B1EFB5268006720A6 /* HeartBeatWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AB1FE811EFB5268006720A6 /* Build configuration list for PBXNativeTarget "HeartBeatWatch" */;
+			buildPhases = (
+				3AB1FE5A1EFB5268006720A6 /* Resources */,
+				3AB1FE801EFB5268006720A6 /* Embed App Extensions */,
+				3A38543C1F032E2B00576944 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3AB1FE6B1EFB5268006720A6 /* PBXTargetDependency */,
+			);
+			name = HeartBeatWatch;
+			productName = HeartBeatWatch;
+			productReference = 3AB1FE5C1EFB5268006720A6 /* HeartBeatWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		3AB1FE671EFB5268006720A6 /* HeartBeatWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AB1FE7D1EFB5268006720A6 /* Build configuration list for PBXNativeTarget "HeartBeatWatch Extension" */;
+			buildPhases = (
+				3AB1FE641EFB5268006720A6 /* Sources */,
+				3AB1FE651EFB5268006720A6 /* Frameworks */,
+				3AB1FE661EFB5268006720A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HeartBeatWatch Extension";
+			productName = "HeartBeatWatch Extension";
+			productReference = 3AB1FE681EFB5268006720A6 /* HeartBeatWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -550,16 +762,37 @@
 		33F271A51D123D8500588247 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = Mxtapes;
 				TargetAttributes = {
 					33F271AC1D123D8500588247 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = K8YR4WT3S5;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+					3AB1FE5B1EFB5268006720A6 = {
+						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+					3AB1FE671EFB5268006720A6 = {
+						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit.watchos = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 							com.apple.iCloud = {
@@ -570,7 +803,7 @@
 				};
 			};
 			buildConfigurationList = 33F271A81D123D8500588247 /* Build configuration list for PBXProject "HeartBeat" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -583,6 +816,8 @@
 			projectRoot = "";
 			targets = (
 				33F271AC1D123D8500588247 /* HeartBeat */,
+				3AB1FE5B1EFB5268006720A6 /* HeartBeatWatch */,
+				3AB1FE671EFB5268006720A6 /* HeartBeatWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -595,6 +830,34 @@
 				33F271BE1D123D8500588247 /* LaunchScreen.storyboard in Resources */,
 				33F271BB1D123D8500588247 /* Assets.xcassets in Resources */,
 				33F271B61D123D8500588247 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AB1FE5A1EFB5268006720A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A3854551F033FF100576944 /* VO2Max.swift in Resources */,
+				3A3854541F033FE700576944 /* TimeTracker.swift in Resources */,
+				3A38544F1F033FD500576944 /* Health.swift in Resources */,
+				3A3854501F033FD500576944 /* Bluetooth.swift in Resources */,
+				3A3854511F033FD500576944 /* CloudController.swift in Resources */,
+				3A3854521F033FD500576944 /* CoreData.swift in Resources */,
+				3A3854531F033FD500576944 /* DataController.swift in Resources */,
+				3A38544E1F033FC900576944 /* UserSettings.swift in Resources */,
+				3A38544D1F033FB100576944 /* SpeechUtterance.swift in Resources */,
+				3A38544C1F033F9F00576944 /* Workout.swift in Resources */,
+				3A8048831EFC930D00C29872 /* WorkoutController.swift in Resources */,
+				3AB1FE621EFB5268006720A6 /* Assets.xcassets in Resources */,
+				3AB1FE601EFB5268006720A6 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AB1FE661EFB5268006720A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AB1FE781EFB5268006720A6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,7 +891,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E37627F3789B37EB52434797 /* [CP] Embed Pods Frameworks */ = {
@@ -661,35 +924,35 @@
 				3300CDDF1D5D2F1F007F0A99 /* DGActivityIndicatorLineScaleAnimation.m in Sources */,
 				3300CDE51D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePulseOutAnimation.m in Sources */,
 				33BA773E1D187E72009BD322 /* YZSwipeBetweenViewController.m in Sources */,
+				3A6F93571EF9B67F00A81FF1 /* BEMCircle.m in Sources */,
 				33DE2B711D2CD57D00D78811 /* SpeechUtterance.swift in Sources */,
 				337469551D126DB2008F38C4 /* AppDelegate.swift in Sources */,
 				3300CDC71D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m in Sources */,
 				33FF20C11D5FF12200EBAFDD /* SettingsTableViewCell.swift in Sources */,
-				3377FEBB1D2899B400D0BA98 /* BEMPermanentPopupView.m in Sources */,
 				3300CDF71D5D2F1F007F0A99 /* DGActivityIndicatorThreeDotsAnimation.m in Sources */,
 				3300CDA31D5D2F1F007F0A99 /* DGActivityIndicatorBallBeatAnimation.m in Sources */,
 				33F271B91D123D8500588247 /* HeartBeat.xcdatamodeld in Sources */,
 				3374693D1D1241CE008F38C4 /* HistoryVC.swift in Sources */,
+				333B9F611DF40026003F011E /* PermissionsVC.swift in Sources */,
 				3300CDEB1D5D2F1F007F0A99 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
 				3374692B1D12416C008F38C4 /* MainVC.swift in Sources */,
+				3A6F93591EF9B67F00A81FF1 /* BEMLine.m in Sources */,
 				337469461D124221008F38C4 /* AudioCuesVC.swift in Sources */,
 				3300CDD61D5D2F1F007F0A99 /* DGActivityIndicatorCookieTerminatorAnimation.m in Sources */,
 				3300CDC41D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleRippleAnimation.m in Sources */,
 				3300CD521D5C40B3007F0A99 /* UserSettings.swift in Sources */,
 				3300CD581D5D2DEA007F0A99 /* DGActivityIndicatorView.m in Sources */,
-				3377FEB91D2899B400D0BA98 /* BEMCircle.m in Sources */,
 				3300CDEE1D5D2F1F007F0A99 /* DGActivityIndicatorRotatingSandglassAnimation.m in Sources */,
 				3300CDA61D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */,
 				3300CDE81D5D2F1F007F0A99 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,
 				3300CDDC1D5D2F1F007F0A99 /* DGActivityIndicatorFiveDotsAnimation.m in Sources */,
 				337469341D12419F008F38C4 /* LoginVC.swift in Sources */,
 				3300CDD01D5D2F1F007F0A99 /* DGActivityIndicatorBallZigZagAnimation.m in Sources */,
-				33858BCE1D5554600078127B /* CloudKit.swift in Sources */,
+				33858BCE1D5554600078127B /* CloudController.swift in Sources */,
 				3300CDBE1D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleAnimation.m in Sources */,
 				3300CDFA1D5D2F1F007F0A99 /* DGActivityIndicatorTriangleSkewSpinAnimation.m in Sources */,
 				337469431D124212008F38C4 /* WorkoutTypeVC.swift in Sources */,
 				337469291D12416C008F38C4 /* BaseVC.swift in Sources */,
-				3377FEBC1D2899B400D0BA98 /* BEMSimpleLineGraphView.m in Sources */,
 				3300CDFD1D5D2F1F007F0A99 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */,
 				337469371D1241B4008F38C4 /* WorkoutVC.swift in Sources */,
 				3300CDF41D5D2F1F007F0A99 /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */,
@@ -697,16 +960,17 @@
 				334130781D500FBB00758A80 /* Workout.swift in Sources */,
 				337469401D1241F2008F38C4 /* WorkoutSummaryVC.swift in Sources */,
 				3300CDAC1D5D2F1F007F0A99 /* DGActivityIndicatorBallClipRotatePulseAnimation.m in Sources */,
+				3A6F935A1EF9B67F00A81FF1 /* BEMSimpleLineGraphView.m in Sources */,
 				33A93BE61D75216100770375 /* CoreData.swift in Sources */,
 				3377FEBE1D289E0200D0BA98 /* WorkoutController.swift in Sources */,
 				3300CDCD1D5D2F1F007F0A99 /* DGActivityIndicatorBallTrianglePathAnimation.m in Sources */,
-				3377FEC41D28D5CD00D0BA98 /* NSTimer+Pause.m in Sources */,
+				3A6F93561EF9B67F00A81FF1 /* BEMAverageLine.m in Sources */,
+				3A3854491F033B1600576944 /* TimeTracker.swift in Sources */,
 				3300CDC11D5D2F1F007F0A99 /* DGActivityIndicatorBallScaleMultipleAnimation.m in Sources */,
 				3300CDB51D5D2F1F007F0A99 /* DGActivityIndicatorBallPulseAnimation.m in Sources */,
 				33193DCE1D7BD1C800624956 /* DataController.swift in Sources */,
 				3300CDAF1D5D2F1F007F0A99 /* DGActivityIndicatorBallGridBeatAnimation.m in Sources */,
 				3300CE031D5D2F1F007F0A99 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */,
-				3377FEB81D2899B400D0BA98 /* BEMAverageLine.m in Sources */,
 				3300CDB81D5D2F1F007F0A99 /* DGActivityIndicatorBallPulseSyncAnimation.m in Sources */,
 				3300CDCA1D5D2F1F007F0A99 /* DGActivityIndicatorBallSpinFadeLoader.m in Sources */,
 				3300CDF11D5D2F1F007F0A99 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */,
@@ -714,14 +978,50 @@
 				33550AC91D53F4F90036122A /* QuickSort.swift in Sources */,
 				3377FED21D2C793F00D0BA98 /* VO2Max.swift in Sources */,
 				336AF2891D2591E400D70DA9 /* Health.swift in Sources */,
-				3377FEBA1D2899B400D0BA98 /* BEMLine.m in Sources */,
 				3300CDA01D5D2F1F007F0A99 /* DGActivityIndicatorAnimation.m in Sources */,
 				3300CDBB1D5D2F1F007F0A99 /* DGActivityIndicatorBallRotateAnimation.m in Sources */,
 				337469311D124192008F38C4 /* SettingsVC.swift in Sources */,
+				3A6F93581EF9B67F00A81FF1 /* BEMGraphCalculator.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AB1FE641EFB5268006720A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A48165F1EFDBADF007B48BD /* VO2Max.swift in Sources */,
+				3A4816601EFDBADF007B48BD /* Workout.swift in Sources */,
+				3A4816611EFDBADF007B48BD /* UserSettings.swift in Sources */,
+				3A4816621EFDBADF007B48BD /* Health.swift in Sources */,
+				3A4816631EFDBADF007B48BD /* Bluetooth.swift in Sources */,
+				3A4816641EFDBADF007B48BD /* SpeechUtterance.swift in Sources */,
+				3A4816661EFDBADF007B48BD /* CoreData.swift in Sources */,
+				3A4816671EFDBADF007B48BD /* DataController.swift in Sources */,
+				3A8048841EFC934F00C29872 /* WorkoutController.swift in Sources */,
+				3A3854431F03306D00576944 /* CloudController.swift in Sources */,
+				3A38544A1F033B1600576944 /* TimeTracker.swift in Sources */,
+				3AB1FE741EFB5268006720A6 /* NotificationController.swift in Sources */,
+				3AB1FE761EFB5268006720A6 /* ComplicationController.swift in Sources */,
+				3AB1FE721EFB5268006720A6 /* ExtensionDelegate.swift in Sources */,
+				3ACEE4871F0A8A76002B9981 /* HeartBeat.xcdatamodeld in Sources */,
+				3AB1FE701EFB5268006720A6 /* MainInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3AB1FE6B1EFB5268006720A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AB1FE671EFB5268006720A6 /* HeartBeatWatch Extension */;
+			targetProxy = 3AB1FE6A1EFB5268006720A6 /* PBXContainerItemProxy */;
+		};
+		3AB1FE7B1EFB5268006720A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AB1FE5B1EFB5268006720A6 /* HeartBeatWatch */;
+			targetProxy = 3AB1FE7A1EFB5268006720A6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		33F271B41D123D8500588247 /* Main.storyboard */ = {
@@ -740,6 +1040,14 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		3AB1FE5E1EFB5268006720A6 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3AB1FE5F1EFB5268006720A6 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -747,19 +1055,26 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -782,12 +1097,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = HeartBeat/ThirdParty/BridgeFiles/;
+				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/ThirdParty/BridgeFiles/HeartBeat-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -796,19 +1112,26 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -825,10 +1148,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = HeartBeat/ThirdParty/BridgeFiles/;
+				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/ThirdParty/BridgeFiles/HeartBeat-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -840,21 +1164,54 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HeartBeat/HeartBeat.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/HeartBeat/ThirdParty/FacebookSDK",
-				);
+				DEVELOPMENT_TEAM = K8YR4WT3S5;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = HeartBeat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Bolts\"",
+					"-l\"FBSDKCoreKit\"",
+					"-l\"FBSDKLoginKit\"",
+					"-l\"FBSDKShareKit\"",
+					"-framework",
+					"\"AccountKit\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"AudioToolbox\"",
+					"-weak_framework",
+					"\"CoreGraphics\"",
+					"-weak_framework",
+					"\"CoreLocation\"",
+					"-weak_framework",
+					"\"Foundation\"",
+					"-weak_framework",
+					"\"QuartzCore\"",
+					"-weak_framework",
+					"\"Security\"",
+					"-weak_framework",
+					"\"Social\"",
+					"-weak_framework",
+					"\"UIKit\"",
+				);
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inailuy.HeartBeat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/ThirdParty/BridgeFiles/HeartBeat-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -864,21 +1221,173 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HeartBeat/HeartBeat.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/HeartBeat/ThirdParty/FacebookSDK",
-				);
+				DEVELOPMENT_TEAM = K8YR4WT3S5;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = HeartBeat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Bolts\"",
+					"-l\"FBSDKCoreKit\"",
+					"-l\"FBSDKLoginKit\"",
+					"-l\"FBSDKShareKit\"",
+					"-framework",
+					"\"AccountKit\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"AudioToolbox\"",
+					"-weak_framework",
+					"\"CoreGraphics\"",
+					"-weak_framework",
+					"\"CoreLocation\"",
+					"-weak_framework",
+					"\"Foundation\"",
+					"-weak_framework",
+					"\"QuartzCore\"",
+					"-weak_framework",
+					"\"Security\"",
+					"-weak_framework",
+					"\"Social\"",
+					"-weak_framework",
+					"\"UIKit\"",
+				);
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inailuy.HeartBeat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/ThirdParty/BridgeFiles/HeartBeat-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		3AB1FE7E1EFB5268006720A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = "HeartBeatWatch Extension/HeartBeatWatch Extension.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K8YR4WT3S5;
+				INFOPLIST_FILE = "HeartBeatWatch Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.inailuy.HeartBeat.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Debug;
+		};
+		3AB1FE7F1EFB5268006720A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = "HeartBeatWatch Extension/HeartBeatWatch Extension.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K8YR4WT3S5;
+				INFOPLIST_FILE = "HeartBeatWatch Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.inailuy.HeartBeat.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Release;
+		};
+		3AB1FE821EFB5268006720A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K8YR4WT3S5;
+				IBSC_MODULE = HeartBeatWatch_Extension;
+				INFOPLIST_FILE = HeartBeatWatch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = com.inailuy.HeartBeat.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/HeartBeatWatch-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Debug;
+		};
+		3AB1FE831EFB5268006720A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K8YR4WT3S5;
+				IBSC_MODULE = HeartBeatWatch_Extension;
+				INFOPLIST_FILE = HeartBeatWatch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = com.inailuy.HeartBeat.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HeartBeat/HeartBeatWatch-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Release;
 		};
@@ -899,6 +1408,24 @@
 			buildConfigurations = (
 				33F271D91D123D8500588247 /* Debug */,
 				33F271DA1D123D8500588247 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AB1FE7D1EFB5268006720A6 /* Build configuration list for PBXNativeTarget "HeartBeatWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AB1FE7E1EFB5268006720A6 /* Debug */,
+				3AB1FE7F1EFB5268006720A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AB1FE811EFB5268006720A6 /* Build configuration list for PBXNativeTarget "HeartBeatWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AB1FE821EFB5268006720A6 /* Debug */,
+				3AB1FE831EFB5268006720A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

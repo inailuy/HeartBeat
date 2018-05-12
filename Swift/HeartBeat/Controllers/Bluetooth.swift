@@ -32,95 +32,95 @@ class Bluetooth: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     func load() {
         centralManager = CBCentralManager(delegate: self, queue: nil)
         let myServiceUUID = CBUUID(string: HeartRate.Service.rawValue)
-        centralManager.scanForPeripheralsWithServices([myServiceUUID], options: nil)
+        centralManager.scanForPeripherals(withServices: [myServiceUUID], options: nil)
         isFirstLaunch = true
     }  
     //MARK: CBCentralManagerDelegate
-    @objc func centralManagerDidUpdateState(central: CBCentralManager) {
-        peripheralStatusString = "centralManagerDidUpdateState " + String(central.state)
-        if central.state == .PoweredOn {
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        peripheralStatusString = "centralManagerDidUpdateState " + String(describing: central.state)
+        if central.state == .poweredOn {
             peripheralStatusString = "Scanning For Peripherals"
             let myServiceUUID = CBUUID(string: HeartRate.Service.rawValue)
-            centralManager.scanForPeripheralsWithServices([myServiceUUID], options: nil)
+            centralManager.scanForPeripherals(withServices: [myServiceUUID], options: nil)
         }
         printStatus()
     }
     
-    @objc func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
+    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         peripheralStatusString = "Did Discorver Peripheral"
         activePeripheral = peripheral
-        peripheralArray.addObject(peripheral)
+        peripheralArray.add(peripheral)
         peripheral.delegate = self
         if isWorkoutControllerActive || isFirstLaunch {
-            centralManager.connectPeripheral(activePeripheral!, options: nil)
+            centralManager.connect(activePeripheral!, options: nil)
             isFirstLaunch = false
         }
         printStatus()
     }
     
-    @objc func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
+    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         peripheralStatusString = "Did Connect Peripheral"
         peripheral.discoverServices(nil)
         printStatus()
     }
     
-    @objc func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
+    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         peripheralStatusString = "Did Disconnect Peripheral";
         printStatus()
     }
     //MARK: CBPeripheralDelegate
-    @objc func peripheral(peripheral: CBPeripheral, didDiscoverServices error: NSError?) {
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         if error != nil {
             let errorMessage = "Error discovering service: " + (error?.localizedDescription)!
             print(errorMessage)
             return
         }
         for service in peripheral.services! as [CBService] {
-            if service.UUID == CBUUID(string: HeartRate.Service.rawValue) {
+            if service.uuid == CBUUID(string: HeartRate.Service.rawValue) {
                 peripheralStatusString = "Did Discover Service"
-                peripheral.discoverCharacteristics(nil, forService: service)
+                peripheral.discoverCharacteristics(nil, for: service)
             }
         }
         printStatus()
     }
     
-    @objc func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         if error != nil {
             let errorMessage = "Error discovering service: " + (error?.localizedDescription)!
             print(errorMessage)
             return
         }
-        if service.UUID == CBUUID(string: HeartRate.Service.rawValue) {
+        if service.uuid == CBUUID(string: HeartRate.Service.rawValue) {
             for characteristic in service.characteristics! as [CBCharacteristic] {
                 peripheralStatusString = "Did Discover Characteristic For Service"
-                if characteristic.UUID == CBUUID(string: HeartRate.Measurement.rawValue) {
-                    peripheral.setNotifyValue(true, forCharacteristic: characteristic)
+                if characteristic.uuid == CBUUID(string: HeartRate.Measurement.rawValue) {
+                    peripheral.setNotifyValue(true, for: characteristic)
                 }
             }
         }
         printStatus()
     }
     
-    @objc func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
+    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         if error != nil {
             let errorMessage = "Error discovering service: " + (error?.localizedDescription)!
             print(errorMessage)
             return
         }
         //updated value for heart rate measurement received
-        if characteristic.UUID == CBUUID(string: PolarCharacteristicUUID.Measurement.rawValue) {
+        if characteristic.uuid == CBUUID(string: PolarCharacteristicUUID.Measurement.rawValue) {
             //get the Heart Rate Monitor BPM
             getHeartBPMData(characteristic)
         }
         printStatus()
     }
     
-    func getHeartBPMData(characteristic: CBCharacteristic) {
+    func getHeartBPMData(_ characteristic: CBCharacteristic) {
         let data = characteristic.value
-        let count = data!.length / sizeof(__uint8_t)
-        var array = [__uint8_t](count:count, repeatedValue:0)
+        let count = data!.count / MemoryLayout<__uint8_t>.size
+        var array = [__uint8_t](repeating: 0, count: count)
         
-        data?.getBytes(&array, length: count * sizeof(__uint8_t))
+        (data as NSData?)?.getBytes(&array, length: count * MemoryLayout<__uint8_t>.size)
         if(( (characteristic.value)) != nil) {
             beatPerMinuteValue = Int(array[1])
             if UserSettings.sharedInstance.debug {
@@ -131,7 +131,7 @@ class Bluetooth: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     //MARK: Misc
     func connectPeripheral() {
         if activePeripheral != nil {
-            centralManager.connectPeripheral(activePeripheral!, options: nil)
+            centralManager.connect(activePeripheral!, options: nil)
         }
     }
     
@@ -143,7 +143,7 @@ class Bluetooth: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     func isPeripheralConnected() -> Bool {
         var connected = false
-        if activePeripheral?.state == .Connected {
+        if activePeripheral?.state == .connected {
             connected = true
         }
         return connected

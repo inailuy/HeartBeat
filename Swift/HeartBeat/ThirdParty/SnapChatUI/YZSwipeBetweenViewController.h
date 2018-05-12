@@ -12,7 +12,8 @@
  
  */
 
-@import UIKit;
+//@import UIKit;
+#import <UIKit/UIKit.h>
 
 @interface YZSwipeBetweenViewController : UIViewController
 

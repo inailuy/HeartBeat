@@ -9,7 +9,7 @@
 import Foundation
 
 class QuickSort {
-    class func sort(inout arr:NSMutableArray, left:Int, right:Int) {
+    class func sort(_ arr:inout NSMutableArray, left:Int, right:Int) {
         if left < right {
             let p = partition(&arr, left: left, right: right)
             sort(&arr, left: left, right: p-1)
@@ -17,18 +17,18 @@ class QuickSort {
         }
     }
     
-    class func swap(inout arr:NSMutableArray, a:Int, b:Int) {
+    class func swap(_ arr:inout NSMutableArray, a:Int, b:Int) {
         let temp = arr[a]
         arr[a] = arr[b]
         arr[b] = temp
     }
     
-    class func partition(inout arr:NSMutableArray, left:Int, right:Int) -> Int {
-        let partition = arr[right].intValue
+    class func partition(_ arr:inout NSMutableArray, left:Int, right:Int) -> Int {
+        let partition = (arr[right] as AnyObject).int32Value
         var sortedIndex = left
         
         for i in left..<right {
-            if arr[i].intValue < partition {
+            if (arr[i] as AnyObject).int32Value < partition! {
                 swap(&arr, a: i, b: sortedIndex)
                 sortedIndex += 1
             }

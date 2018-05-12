@@ -6,10 +6,12 @@
 //  Copyright © 2016 Mxtapes. All rights reserved.
 //
 
+
 import UIKit
 import CoreData
 import HealthKit
 import CloudKit
+import AccountKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,52 +19,65 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let swipeBetweenVC: YZSwipeBetweenViewController = YZSwipeBetweenViewController()
     static let sharedInstance = AppDelegate()
+    var accountKit: AKFAccountKit!
+    var application :UIApplication!
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //Register FacebookSDK
-        //FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        // Register for push notifications
-        let notificationSettings = UIUserNotificationSettings(forTypes: .Alert, categories: nil)
-        application.registerUserNotificationSettings(notificationSettings)
-        application.registerForRemoteNotifications()
+        self.application = application
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(self.registerNotify), userInfo:nil, repeats: false)
         
-        //setting Up SnapChatUI
+        //setup accountkit
+        accountKit = AKFAccountKit(responseType: .accessToken)
+        accountKit.requestAccount{(account, error) -> Void in }
+        
+        //setup SnapChatUI
         setUpStoryboardUI()
-        Health.sharedInstance.askPermissionForHealth()
         UserSettings.sharedInstance.loadInstances()
         Bluetooth.sharedInstance.load()
+        if UserSettings.sharedInstance.userEnabledHealth {
+            Health.sharedInstance.askPermissionForHealth()
+        }
         
         DataController.sharedInstance.load()
         //Navigation Appearance
-        let barButtonAppearance = [NSFontAttributeName : UIFont(name: helveticaLightFont, size: 18)!]
-        let navBarApearance = [NSFontAttributeName : UIFont(name: helveticaLightFont, size: 24)!,
-                               NSForegroundColorAttributeName: UIColor.darkGrayColor()]
-        UIBarButtonItem.appearance().setTitleTextAttributes(barButtonAppearance, forState: .Normal)
+        let barButtonAppearance : [String:Any] = [NSAttributedStringKey.font.rawValue : UIFont(name: helveticaLightFont, size: 18)!]
+        let navBarApearance : [String:Any] = [NSAttributedStringKey.font.rawValue : UIFont(name: helveticaLightFont, size: 24)!,
+                                              NSAttributedStringKey.foregroundColor.rawValue: UIColor.darkGray]
+        UIBarButtonItem.appearance().setTitleTextAttributes(barButtonAppearance, for: UIControlState())
         UINavigationBar.appearance().titleTextAttributes = navBarApearance
-
+        
         return true
     }
 
-    func applicationWillResignActive(application: UIApplication) {
+    @objc func registerNotify() {
+        // Register for push notifications
+        let notificationSettings = UIUserNotificationSettings(types: .alert, categories: nil)
+        application.registerUserNotificationSettings(notificationSettings)
+        application.registerForRemoteNotifications()
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
 
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
 
-    func applicationWillEnterForeground(application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
 
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         //FBSDKAppEvents.activateApp()
     }
 
-    func applicationWillTerminate(application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
@@ -74,31 +89,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     */
     // MARK: - Core Data stack
 
-    lazy var applicationDocumentsDirectory: NSURL = {
+    lazy var applicationDocumentsDirectory: URL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "inailuy.HeartBeat" in the application's documents Application Support directory.
-        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return urls[urls.count-1]
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle.mainBundle().URLForResource("HeartBeat", withExtension: "momd")!
-        return NSManagedObjectModel(contentsOfURL: modelURL)!
+        let modelURL = Bundle.main.url(forResource: "HeartBeat", withExtension: "momd")!
+        return NSManagedObjectModel(contentsOf: modelURL)!
     }()
 
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
         // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
         // Create the coordinator and store
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("SingleViewCoreData.sqlite")
+        let url = self.applicationDocumentsDirectory.appendingPathComponent("SingleViewCoreData.sqlite")
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
-            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
         } catch {
             // Report any error we got.
             var dict = [String: AnyObject]()
-            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
-            dict[NSLocalizedFailureReasonErrorKey] = failureReason
+            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data" as AnyObject
+            dict[NSLocalizedFailureReasonErrorKey] = failureReason as AnyObject
 
             dict[NSUnderlyingErrorKey] = error as NSError
             let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
@@ -114,7 +129,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var managedObjectContext: NSManagedObjectContext = {
         // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
         let coordinator = self.persistentStoreCoordinator
-        var managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
@@ -141,38 +156,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         swipeBetweenVC.scrollView.alwaysBounceVertical = false
         //creating ViewControllers and NavigationsControllers
         let storyBoard = UIStoryboard(name:"Main", bundle: nil)
-        let historyVC = storyBoard.instantiateViewControllerWithIdentifier("historyID")
-        let mainVC = storyBoard.instantiateViewControllerWithIdentifier("mainID")
-        let settingsVC = storyBoard.instantiateViewControllerWithIdentifier("settingsID")
+        let historyVC = storyBoard.instantiateViewController(withIdentifier: "historyID")
+        let mainVC = storyBoard.instantiateViewController(withIdentifier: "mainID")
+        let settingsVC = storyBoard.instantiateViewController(withIdentifier: "settingsID")
         let nav1 = UINavigationController(rootViewController: historyVC)
         let nav2 = UINavigationController(rootViewController: mainVC)
         let nav3 = UINavigationController(rootViewController: settingsVC)
         swipeBetweenVC.viewControllers = [nav1,nav2,nav3]
         //add everything into UIWindow
-        let frame = UIScreen.mainScreen().bounds
+        let frame = UIScreen.main.bounds
         window?.frame = frame
         window!.rootViewController = swipeBetweenVC
         window!.makeKeyAndVisible()
     }
     
     // MARK: - Notifications
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         let ckNotification = CKNotification(fromRemoteNotificationDictionary: userInfo as! [String : NSObject])
-        if ckNotification.notificationType == .Query,
+        if ckNotification.notificationType == .query,
             let queryNotification = ckNotification as? CKQueryNotification
         {
-            if queryNotification.queryNotificationReason == .RecordCreated {
-                CloudKit.sharedInstance.queryPrivateDatabaseWithRecordID(queryNotification.recordID!)
-            } else if queryNotification.queryNotificationReason == .RecordDeleted {
+            if queryNotification.queryNotificationReason == .recordCreated {
+                CloudController.sharedInstance.queryPrivateDatabaseWithRecordID(queryNotification.recordID!)
+            } else if queryNotification.queryNotificationReason == .recordDeleted {
                 // delete
-            } else if queryNotification.queryNotificationReason == .RecordUpdated {
+            } else if queryNotification.queryNotificationReason == .recordUpdated {
                 // updated
             }
         }
     }
     
-    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         //print(error.localizedDescription)
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        FBSDKAppEvents.setPushNotificationsDeviceToken(deviceToken)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        FBSDKAppEvents.logPushNotificationOpen(userInfo)
+    }
+    
+    func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [AnyHashable: Any], completionHandler: @escaping () -> Void) {
+        FBSDKAppEvents.logPushNotificationOpen(userInfo, action: identifier)
     }
 }
 

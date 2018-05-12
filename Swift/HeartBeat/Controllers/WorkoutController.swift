@@ -15,40 +15,40 @@ class WorkoutController {
     var pause = Bool()
     var caloriesBurned = Int()
     var heartBeatArray = NSMutableArray()
-    var timer = NSTimer()
+    var timer = TimeTracker()
     var seconds = Int()
     var minutes = Int()
     weak var delegate:WorkoutControllerDelegate?
     
     func startWorkout() {
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(WorkoutController.secondsInterval), userInfo: nil, repeats: true)
+        timer.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(WorkoutController.secondsInterval), userInfo: nil, repeats: true)
         heartBeatArray.removeAllObjects()
         seconds = 0
         pause = false
         SpeechUtterance.sharedInstance.speakStartWorkout()
         
         workout = CoreData.sharedInstance.createEmptyWorkout()
-        workout?.startTime = NSDate()
+        workout?.startTime = Date()
     }
     
     func pauseWorkout() {
         if pause == false {
-            timer.pause()
+            timer.pauseTimer()
         } else {
-            timer.resume()
+            timer.resumeTimer()
         }
         pause = !pause
         SpeechUtterance.sharedInstance.speakPauseValues()
     }
     
     func endWorkout() {
-        timer.pause()
+        timer.pauseTimer()
         //populating workout
         workout!.arrayBeatsPerMinute = heartBeatArray
-        workout!.caloriesBurned = caloriesBurned
-        workout!.secondsElapsed = seconds
-        workout!.beatsPerMinuteAverage = averageBPMInt()
-        workout!.endTime = NSDate()
+        workout!.caloriesBurned = caloriesBurned as NSNumber
+        workout!.secondsElapsed = seconds as NSNumber
+        workout!.beatsPerMinuteAverage = averageBPMInt() as NSNumber
+        workout!.endTime = Date()
     }
     
     func saveWorkout() {
@@ -61,7 +61,7 @@ class WorkoutController {
     @objc func secondsInterval()  {
         let bpm = Int(Bluetooth.sharedInstance.beatPerMinuteValue)
         //add beats to array
-        heartBeatArray.addObject(bpm)
+        heartBeatArray.add(bpm)
         //modify variables
         seconds += 1
         //refreash UI
@@ -95,7 +95,7 @@ class WorkoutController {
         return String(format: "%02d:%02d", minutes, sec)
     }
     
-    func getTimeFromSeconds(seconds: Int) -> String {
+    func getTimeFromSeconds(_ seconds: Int) -> String {
         let sec = seconds % 60
         minutes = seconds / 60
         return String(format: "%02d:%02d", minutes, sec)
@@ -121,10 +121,39 @@ class WorkoutController {
     }
     
     func currentBPM() -> String {
-        return String(heartBeatArray.lastObject!)
+        return String(describing: heartBeatArray.lastObject!)
+    }
+    
+    func filterHeartBeatArray() -> NSMutableArray {
+        var max = 0
+        if heartBeatArray.count < 999 {
+            max = 2
+        } else if heartBeatArray.count < 4999 {
+            max = 6
+        } else {
+            max = 8
+        }
+        
+        let array = NSMutableArray()
+        var tmpArray = [Int]()
+        for i in 0..<heartBeatArray.count {
+            if i % max == 0 && i != 0 {
+                var tmpI = 0
+                for x in tmpArray {
+                    tmpI += x
+                }
+                array.add(NSNumber(value: tmpI / tmpArray.count as Int))
+                tmpArray.removeAll()
+            } else {
+                let value = heartBeatArray[i] as! NSNumber
+                tmpArray.append(value.intValue)
+            }
+        }
+
+        return array
     }
 }
 
 protocol WorkoutControllerDelegate: class {
-    func updateUI(sender: WorkoutController)
+    func updateUI(_ sender: WorkoutController)
 }

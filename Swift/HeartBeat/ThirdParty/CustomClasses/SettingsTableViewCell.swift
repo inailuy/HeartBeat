@@ -27,13 +27,13 @@ class SettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
             break
         case "Units":
             user.unit = segmentedControl.selectedSegmentIndex
-            NSNotificationCenter.defaultCenter().postNotificationName("Units_Changed", object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "Units_Changed"), object: nil)
             break
         case "Health App":
-            user.userEnabledHealth = switchCell.on
+            user.userEnabledHealth = switchCell.isOn
             break
         case "Debug Mode":
-            user.debug = switchCell.on
+            user.debug = switchCell.isOn
             break
         case "Age":
             let num = Int(text)
@@ -58,28 +58,28 @@ class SettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
         resignFirstResponder()
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.text == "0" { textField.text = "" }
         textField.becomeFirstResponder()
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         updateSettings()
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
     }
     
-    @IBAction func textFieldDidChange(sender: UITextField) {
+    @IBAction func textFieldDidChange(_ sender: UITextField) {
         updateSettings()
     }
     
-    @IBAction func switchPressed(sender: UISwitch) {
+    @IBAction func switchPressed(_ sender: UISwitch) {
         updateSettings()
     }
     
-    @IBAction func segmentedControlPressed(sender: UISegmentedControl) {
+    @IBAction func segmentedControlPressed(_ sender: UISegmentedControl) {
         updateSettings()
     }
     

@@ -12,8 +12,8 @@ import UIKit
 class AudioCuesVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     @IBOutlet weak var tableView: UITableView!
     var user = UserSettings.sharedInstance
-    var selectedIndexPath = NSIndexPath()
-    var selectedTextFieldIndexPath :NSIndexPath?
+    var selectedIndexPath = IndexPath()
+    var selectedTextFieldIndexPath :IndexPath?
     let minutesArray = [0, 1, 2, 5, 10]
     let typesArray = ["Elapsed Time", "Current Heartbeat", "Average Heartbeat", "Calories Burned"]
     var didAppearModally = Bool()
@@ -21,21 +21,21 @@ class AudioCuesVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UITextFie
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Audio Cues"
-        let index = minutesArray.indexOf(user.audioTiming)
-        selectedIndexPath = NSIndexPath(forItem: index!, inSection: 1)
+        let index = minutesArray.index(of: user.audioTiming)
+        selectedIndexPath = IndexPath(item: index!, section: 1)
         
         if didAppearModally {
-            let navButton = UIBarButtonItem(title: "hide", style: .Done, target: self, action: #selector(AudioCuesVC.dismissView))
+            let navButton = UIBarButtonItem(title: "hide", style: .done, target: self, action: #selector(AudioCuesVC.dismissView))
             navigationItem.leftBarButtonItem = navButton
-            tableView.backgroundColor = UIColor.whiteColor()
+            tableView.backgroundColor = UIColor.white
         }
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
             return 2
@@ -48,9 +48,9 @@ class AudioCuesVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UITextFie
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellID = indexPath.section == 0 ? "textFieldCell" : "audioCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellID, forIndexPath: indexPath) as! SettingsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! SettingsTableViewCell
         cell.textLabel!.font = UIFont(name: helveticaThinFont, size: 22.0)
         
         switch indexPath.section {
@@ -68,36 +68,36 @@ class AudioCuesVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UITextFie
         case 1:
             cell.textLabel!.text = String(format:"     %d Minutes", minutesArray[indexPath.row])
             if selectedIndexPath == indexPath {
-                cell.accessoryType = .Checkmark
+                cell.accessoryType = .checkmark
             }
             break
         case 2:
             cell.textLabel!.text = String(format:"     %@", typesArray[indexPath.row])
             if user.checkSpokenCueIndex(indexPath.row) {
-                cell.accessoryType = .Checkmark
+                cell.accessoryType = .checkmark
             }
         default: break
         }
         return cell
     }
     
-    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        let previousCell = tableView.cellForRowAtIndexPath(selectedIndexPath)
-        let currentCell = tableView.cellForRowAtIndexPath(indexPath)
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        let previousCell = tableView.cellForRow(at: selectedIndexPath)
+        let currentCell = tableView.cellForRow(at: indexPath)
         switch indexPath.section {
         case 0:
             selectedTextFieldIndexPath = indexPath
             break
         case 1:
             selectedIndexPath = indexPath
-            previousCell?.accessoryType = .None
-            currentCell!.accessoryType = .Checkmark
+            previousCell?.accessoryType = .none
+            currentCell!.accessoryType = .checkmark
             break
         case 2:
-            if currentCell?.accessoryType == .Checkmark {
-                currentCell?.accessoryType = .None
+            if currentCell?.accessoryType == .checkmark {
+                currentCell?.accessoryType = .none
             } else {
-                currentCell?.accessoryType = .Checkmark
+                currentCell?.accessoryType = .checkmark
             }
             break
         default: break
@@ -105,33 +105,33 @@ class AudioCuesVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UITextFie
         return indexPath
     }
  
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
         switch indexPath.section {
         case 0://Limites
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            let cell = tableView.cellForRow(at: indexPath)
             let textField = cell?.viewWithTag(100) as! UITextField
             textField.becomeFirstResponder()
             break
         case 1://Audio Timing
             let number = minutesArray[indexPath.row] as NSNumber
-            user.audioTiming = number.integerValue
+            user.audioTiming = number.intValue
             user.saveToDisk()
             break
         case 2://Spoken Cues
             var check = false
-            let currentCell = tableView.cellForRowAtIndexPath(indexPath)
-            if currentCell?.accessoryType == .Checkmark {
+            let currentCell = tableView.cellForRow(at: indexPath)
+            if currentCell?.accessoryType == .checkmark {
                 check = true
             }
-            user.spokenCues.replaceObjectAtIndex(indexPath.row, withObject: NSNumber(bool: check))
+            user.spokenCues.replaceObject(at: indexPath.row, with: NSNumber(value: check as Bool))
             user.saveToDisk()
             break
         default: break
         }
     }
  
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         var title = ""
         switch (section) {
         case 0:
@@ -148,12 +148,12 @@ class AudioCuesVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UITextFie
         return createSectionHeaderView(title)
     }
     
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         user.saveToDisk()
         view.window?.endEditing(true)
     }
     
-    func dismissView() {
-        dismissViewControllerAnimated(true, completion: nil)
+    @objc func dismissView() {
+        dismiss(animated: true, completion: nil)
     }
 }

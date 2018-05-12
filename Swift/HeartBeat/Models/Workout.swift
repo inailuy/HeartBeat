@@ -9,11 +9,25 @@
 import Foundation
 import CloudKit
 import CoreData
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 class Workout: NSManagedObject {
     
     // Insert code here to add functionality to your managed object subclass
-    
+    var filteredArrayBeatsPerMinute = NSMutableArray()
+    var lastCountedFiltered = Int()
 }
 
 extension Workout {
@@ -21,11 +35,11 @@ extension Workout {
     @NSManaged var arrayBeatsPerMinute: NSMutableArray?
     @NSManaged var beatsPerMinuteAverage: NSNumber?
     @NSManaged var caloriesBurned: NSNumber?
-    @NSManaged var endTime: NSDate?
+    @NSManaged var endTime: Date?
     @NSManaged var savedToCloudKit: NSNumber?
     @NSManaged var savedToHealthKit: NSNumber?
     @NSManaged var secondsElapsed: NSNumber?
-    @NSManaged var startTime: NSDate?
+    @NSManaged var startTime: Date?
     @NSManaged var workoutType: String?
     @NSManaged var recordName: String?
     @NSManaged var id: String?
@@ -49,7 +63,7 @@ extension Workout {
     */
     
     
-    func withWorkout(workout:Workout) {
+    func withWorkout(_ workout:Workout) {
         arrayBeatsPerMinute = workout.arrayBeatsPerMinute
         beatsPerMinuteAverage = workout.beatsPerMinuteAverage
         caloriesBurned = workout.caloriesBurned
@@ -59,30 +73,39 @@ extension Workout {
         recordName = workout.recordName
         workoutType = workout.workoutType
         id = workout.id
+
+        let priority = DispatchQoS.QoSClass.default
+        DispatchQueue.global(qos: priority).async {
+            _ = self.filterHeartBeatArray()
+        }
     }
     
-    func withRecord(record:CKRecord) {
-        arrayBeatsPerMinute = record.valueForKey("arrayBeatsPerMinute") as? NSMutableArray
-        var temp = record.valueForKey("beatsPerMinuteAverage") as! NSNumber
-        beatsPerMinuteAverage = temp.integerValue
-        temp = record.valueForKey("caloriesBurned") as! NSNumber
-        caloriesBurned = temp.integerValue
-        startTime = record.valueForKey("startTime") as? NSDate
-        endTime = record.valueForKey("endTime") as? NSDate
-        temp = record.valueForKey("secondsElapsed") as! NSNumber
-        secondsElapsed = temp.integerValue
+    func withRecord(_ record:CKRecord) {
+        arrayBeatsPerMinute = record.value(forKey: "arrayBeatsPerMinute") as? NSMutableArray
+        var temp = record.value(forKey: "beatsPerMinuteAverage") as! NSNumber
+        beatsPerMinuteAverage = temp.intValue as NSNumber
+        temp = record.value(forKey: "caloriesBurned") as! NSNumber
+        caloriesBurned = temp.intValue as NSNumber
+        startTime = record.value(forKey: "startTime") as? Date
+        endTime = record.value(forKey: "endTime") as? Date
+        temp = record.value(forKey: "secondsElapsed") as! NSNumber
+        secondsElapsed = temp.intValue as NSNumber
         recordName = record.recordID.recordName
-        workoutType = record.valueForKey("workoutType") as? String
-        id = record.valueForKey("id") as? String
+        workoutType = record.value(forKey: "workoutType") as? String
+        id = record.value(forKey: "id") as? String
         
+        let priority = DispatchQoS.QoSClass.default
+        DispatchQueue.global(qos: priority).async {
+            _ = self.filterHeartBeatArray()
+        }
     }
     
     func createDummy() {
         arrayBeatsPerMinute = [4,6,4,5,5,6,3,35]
         beatsPerMinuteAverage = 5
         caloriesBurned = 150
-        startTime = NSDate()
-        endTime = NSDate()
+        startTime = Date()
+        endTime = Date()
         secondsElapsed = 1500
         workoutType = "workoutType"
     }
@@ -121,10 +144,10 @@ extension Workout {
     }
     */
     func minutes() -> Int {
-        return Int(secondsElapsed!.integerValue / 60)
+        return Int(secondsElapsed!.intValue / 60)
     }
     
-    func getTimeFromSeconds(seconds: Int) -> String {
+    func getTimeFromSeconds(_ seconds: Int) -> String {
         let sec = seconds % 60
         let minutes = seconds / 60
         return String(format: "%02d:%02d", minutes, sec)
@@ -140,5 +163,40 @@ extension Workout {
     
     static func SortDescriptor() -> [NSSortDescriptor]!{
         return [NSSortDescriptor(key: "startTime", ascending: false)]
+    }
+    //TODO: find a way to only do this once!
+    func filterHeartBeatArray() -> NSMutableArray {
+        if filteredArrayBeatsPerMinute.count > 0 && arrayBeatsPerMinute?.count == lastCountedFiltered {
+            return filteredArrayBeatsPerMinute
+        }
+        
+        var max = 0
+        if arrayBeatsPerMinute?.count < 999 {
+            max = 2
+        } else if arrayBeatsPerMinute?.count < 4999 {
+            max = 6
+        } else {
+            max = 8
+        }
+        
+        let array = NSMutableArray()
+        var tmpArray = [Int]()
+        for i in 0..<arrayBeatsPerMinute!.count {
+            if i % max == 0 && i != 0 {
+                var tmpI = 0
+                for x in tmpArray {
+                    tmpI += x
+                }
+                array.add(NSNumber(value: tmpI / tmpArray.count as Int))
+                tmpArray.removeAll()
+            } else {
+                let value = arrayBeatsPerMinute![i] as! NSNumber
+               tmpArray.append(value.intValue)
+            }
+        }
+        
+        filteredArrayBeatsPerMinute = array
+        lastCountedFiltered = arrayBeatsPerMinute!.count
+        return array
     }
 }

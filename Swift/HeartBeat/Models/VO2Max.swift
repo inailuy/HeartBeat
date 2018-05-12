@@ -43,7 +43,7 @@ struct VO2Max {
         self.sex = sex
     }
     
-    func modifyAge(age:Double) -> Double {
+    func modifyAge(_ age:Double) -> Double {
         if sex == UserSettings.Sex.male.rawValue {
             return age * Age.male.rawValue
         } else {
@@ -51,7 +51,7 @@ struct VO2Max {
         }
     }
     
-    func modifyWeight(weight:Double) -> Double {
+    func modifyWeight(_ weight:Double) -> Double {
         if sex == UserSettings.Sex.male.rawValue {
             return weight * Weight.male.rawValue
         } else {
@@ -59,7 +59,7 @@ struct VO2Max {
         }
     }
     
-    func modifyBPM(bpm:Double) -> Double {
+    func modifyBPM(_ bpm:Double) -> Double {
         if sex == UserSettings.Sex.male.rawValue {
             return bpm * BPM.male.rawValue
         } else {
@@ -67,7 +67,7 @@ struct VO2Max {
         }
     }
     
-    func calculateVO2Max(age:Double, weight:Double, bpm:Double, minutes:Double) -> Int {
+    func calculateVO2Max(_ age:Double, weight:Double, bpm:Double, minutes:Double) -> Int {
         var result = age + weight + bpm
         if sex == UserSettings.Sex.male.rawValue {
             result = result - Minutes.male.rawValue

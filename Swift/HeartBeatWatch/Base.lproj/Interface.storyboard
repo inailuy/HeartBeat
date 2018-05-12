@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tly-YX-4H7">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13034"/>
+    </dependencies>
+    <scenes>
+        <!--Main Interface Controller-->
+        <scene sceneID="fg4-kV-OQz">
+            <objects>
+                <controller id="tly-YX-4H7" customClass="MainInterfaceController" customModule="HeartBeatWatch" customModuleProvider="target">
+                    <items>
+                        <button width="1" alignment="left" title="Button" id="WpP-N4-Q0x">
+                            <connections>
+                                <action selector="buttonPressed" destination="tly-YX-4H7" id="vaZ-dh-KZA"/>
+                            </connections>
+                        </button>
+                        <label width="136" height="46" alignment="left" text="Label" textAlignment="center" id="txz-B2-uXn"/>
+                        <label width="136" height="38" alignment="left" text="Label" textAlignment="center" id="VDd-DX-s0I"/>
+                    </items>
+                    <connections>
+                        <outlet property="currentBPMLabel" destination="VDd-DX-s0I" id="9lY-jl-ySz"/>
+                        <outlet property="startButton" destination="WpP-N4-Q0x" id="VUP-ZB-Mv1"/>
+                        <outlet property="timerLabel" destination="txz-B2-uXn" id="hXf-yI-CuD"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="209" y="318"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="HeartBeatWatch" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>

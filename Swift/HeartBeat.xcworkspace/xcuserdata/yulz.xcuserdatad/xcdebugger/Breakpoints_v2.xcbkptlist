@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SwiftErrorBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HeartBeat/ViewController/LoginVC.swift"
+            timestampString = "520788949.704586"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "permissionSegue()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HeartBeat.LoginVC.loginWithFacebook(__C.UIButton) -&gt; ()"
+                  moduleName = "HeartBeat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yulz/Documents/HeartBeat/Swift/HeartBeat/ViewController/LoginVC.swift"
+                  timestampString = "520791086.954004"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "@objc HeartBeat.LoginVC.loginWithFacebook(__C.UIButton) -&gt; ()"
+                  moduleName = "HeartBeat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yulz/Documents/HeartBeat/Swift/HeartBeat/ViewController/LoginVC.swift"
+                  timestampString = "520791086.956484"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HeartBeat.LoginVC.permissionSegue() -&gt; ()"
+                  moduleName = "HeartBeat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yulz/Documents/HeartBeat/Swift/HeartBeat/ViewController/LoginVC.swift"
+                  timestampString = "520791086.959354"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "@objc HeartBeat.LoginVC.permissionSegue() -&gt; ()"
+                  moduleName = "HeartBeat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yulz/Documents/HeartBeat/Swift/HeartBeat/ViewController/LoginVC.swift"
+                  timestampString = "520791086.96702"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HeartBeat/ViewController/LoginVC.swift"
+            timestampString = "520789033.164348"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "viewController(_:didCompleteLoginWith:state:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HeartBeat.LoginVC.dismiss() -&gt; ()"
+                  moduleName = "HeartBeat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yulz/Documents/HeartBeat/Swift/HeartBeat/ViewController/LoginVC.swift"
+                  timestampString = "520791086.976745"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "@objc HeartBeat.LoginVC.dismiss() -&gt; ()"
+                  moduleName = "HeartBeat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yulz/Documents/HeartBeat/Swift/HeartBeat/ViewController/LoginVC.swift"
+                  timestampString = "520791086.979292"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -22,7 +22,7 @@ class SpeechUtterance: NSObject, AVSpeechSynthesizerDelegate {
         speechSynthesizer.delegate = self
         
         let session = AVAudioSession.sharedInstance()
-        try! session.setCategory(AVAudioSessionCategoryPlayback, withOptions: .DuckOthers)
+        try! session.setCategory(AVAudioSessionCategoryPlayback, with: .duckOthers)
         try! session.setActive(true)
     }
     // Create All Spoken Cues
@@ -47,19 +47,19 @@ class SpeechUtterance: NSObject, AVSpeechSynthesizerDelegate {
         check = user.spokenCues[1] as! NSNumber
         if check.boolValue {
             let str = "current heart rate " + workoutController.currentBPM() + comma
-            utter = utter.stringByAppendingString(str)
+            utter = utter + str
         }
         //average heartbeat
         check = user.spokenCues[2] as! NSNumber
         if check.boolValue {
             let str = "average heart rate " + String(workoutController.averageBPMInt()) + comma
-            utter = utter.stringByAppendingString(str)
+            utter = utter + str
         }
         //calories burned
         check = user.spokenCues[3] as! NSNumber
         if check.boolValue {
             let str = "calories burned " + String(workoutController.caloriesBurned) + comma
-            utter = utter.stringByAppendingString(str)
+            utter = utter + str
         }
         speak(utter)
     }
@@ -89,25 +89,26 @@ class SpeechUtterance: NSObject, AVSpeechSynthesizerDelegate {
             }
             if speech != "" {
                 canSpeakLimitsValues = true
-                NSTimer.scheduledTimerWithTimeInterval(45.0, target: self, selector: #selector(SpeechUtterance.resetSpeechLimits), userInfo:nil, repeats: false)
+                Timer.scheduledTimer(timeInterval: 45.0, target: self, selector: #selector(SpeechUtterance.resetSpeechLimits), userInfo:nil, repeats: false)
+               
             }
         }
     }
     
-    func resetSpeechLimits() {
+    @objc func resetSpeechLimits() {
         canSpeakLimitsValues = false
     }
     
     // Talk
-    func speak(utter:String) {
+    func speak(_ utter:String) {
         if UserSettings.sharedInstance.mute { return }
         
         speechUtterance = AVSpeechUtterance(string: utter)
         speechUtterance.rate = UTTERANCE_RATE
-        speechSynthesizer.speakUtterance(speechUtterance)
+        speechSynthesizer.speak(speechUtterance)
     }
     //MARK: AVSpeechSynthesizerDelegate
-    func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didStartSpeechUtterance utterance: AVSpeechUtterance) {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
         do {
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
@@ -115,7 +116,7 @@ class SpeechUtterance: NSObject, AVSpeechSynthesizerDelegate {
         }
     }
     
-    func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didFinishSpeechUtterance utterance: AVSpeechUtterance) {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         do {
             try AVAudioSession.sharedInstance().setActive(false)
         } catch { }

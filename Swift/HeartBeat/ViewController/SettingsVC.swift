@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AccountKit
 
 class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate {
     //identifiers 
@@ -25,12 +26,13 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
         super.viewDidLoad()
         title = "settings"
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingsVC.observeredUnitsChange), name: "Units_Changed", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingsVC.observeredUnitsChange), name: NSNotification.Name(rawValue: "Units_Changed"), object: nil)
+        NotificationCenter.default.addObserver(tableView, selector: #selector(tableView.reloadData), name: NSNotification.Name(rawValue: "UpdateSettings"), object: nil)
         createHeartNavigationButton(Direction.left.rawValue)
         UserSettings.sharedInstance.loadFromDisk()
     }
     // MARK: - TableView Delegate/DataSource
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var title = ""
         var reuseID = ""
         var itemBool = false
@@ -52,7 +54,7 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
             case 2: //SEX
                 title = "Sex"
                 reuseID = IDENTIFIER.segmentedSexCell.rawValue
-                itemBool = Bool(user.sex)
+                itemBool = Bool(user.sex as NSNumber)
                 break
             default: break
             }
@@ -61,7 +63,7 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
             case 0: //Units
                 title = "Units"
                 reuseID = IDENTIFIER.segmentedMetricCell.rawValue
-                itemBool = Bool(user.unit)
+                itemBool = Bool(user.unit as NSNumber)
                 break
             case 1: //Health
                 title = "Health App"
@@ -94,16 +96,16 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
         default: break
         }
  
-        let cell = tableView.dequeueReusableCellWithIdentifier(reuseID) as! SettingsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseID) as! SettingsTableViewCell
         if reuseID == IDENTIFIER.normalCell.rawValue ||
             reuseID == IDENTIFIER.textfieldCell.rawValue {
-            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         }
         
         if cell.reuseIdentifier == IDENTIFIER.textfieldCell.rawValue {
             cell.textField.text = text
         } else if cell.reuseIdentifier == IDENTIFIER.switchCell.rawValue {
-            cell.switchCell.on = itemBool
+            cell.switchCell.isOn = itemBool
         } else if cell.reuseIdentifier == IDENTIFIER.segmentedMetricCell.rawValue ||
             cell.reuseIdentifier == IDENTIFIER.segmentedSexCell.rawValue {
             cell.segmentedControl.selectedSegmentIndex = itemBool ? 1 : 0
@@ -113,13 +115,13 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
         cell.textLabel?.text = title
         cell.textLabel?.font = UIFont(name: helveticaThinFont, size: 22.0)
         if title == "Log Out" {
-            cell.textLabel?.textAlignment = .Center
-            cell.accessoryType = .None
+            cell.textLabel?.textAlignment = .center
+            cell.accessoryType = .none
         }
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var sect = 0
         if section == 0 {
             sect = 3
@@ -131,11 +133,11 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
         return sect
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         var title = ""
         switch section {
         case 0:
@@ -152,8 +154,8 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
         return createSectionHeaderView(title)
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! SettingsTableViewCell
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! SettingsTableViewCell
         if cell.reuseIdentifier == IDENTIFIER.textfieldCell.rawValue {
             cell.textField.becomeFirstResponder()
         }
@@ -162,7 +164,7 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
         case 1:
             switch indexPath.row {
             case 2://Audio Segue
-                performSegueWithIdentifier("audioSegue", sender: self)
+                performSegue(withIdentifier: "audioSegue", sender: self)
                 break
             case 3://Bluetooth
                 let bluetooth = Bluetooth.sharedInstance
@@ -180,24 +182,29 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
             case 0://Debug
                 break
             case 1://LogOut
-                let alertController = UIAlertController(title: nil, message: "are you sure you want to log out?", preferredStyle: .ActionSheet)
-                let cancelAction = UIAlertAction(title: "cancel", style: .Cancel) { (action) in}
-                let destroyAction = UIAlertAction(title: "logout", style: .Destructive) { (action) in
-                  //TODO: perform Logout Function
+                let alertController = UIAlertController(title: nil, message: "are you sure you want to log out?", preferredStyle: .actionSheet)
+                let cancelAction = UIAlertAction(title: "cancel", style: .cancel) { (action) in}
+                let destroyAction = UIAlertAction(title: "logout", style: .destructive) { (action) in
+                    self.appDelegate.accountKit.logOut()
+                    self.appDelegate.swipeBetweenVC.scrollToViewController(at: 1)
+                    
+                    let nc = self.appDelegate.swipeBetweenVC.viewControllers[1] as! UINavigationController
+                    let vc = nc.viewControllers.last as! MainVC
+                    vc.performLoginOperation()
                 }
                 alertController.addAction(cancelAction)
                 alertController.addAction(destroyAction)
                 
-                self.presentViewController(alertController, animated: true) { }
+                self.present(alertController, animated: true) { }
                 break
             default: break
             }
         default: break
         }
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     // MARK: - End Editing
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         view.window?.endEditing(true)
     }
     

@@ -11,6 +11,15 @@ import MapKit
 import UIKit
 
 class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMSimpleLineGraphDelegate, BEMSimpleLineGraphDataSource {
+
+    func numberOfPoints(inLineGraph graph: BEMSimpleLineGraphView) -> UInt {
+        return 0
+    }
+    
+    func lineGraph(_ graph: BEMSimpleLineGraphView, valueForPointAt index: UInt) -> CGFloat {
+        return 0.0
+    }
+    
     var workout :Workout!
     
     var region :MKCoordinateRegion?
@@ -43,11 +52,11 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
         title = workout.workoutType
     }
     
-    func pressedOptionHideButton(sender: UIButton!) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @objc func pressedOptionHideButton(_ sender: UIButton!) {
+        dismiss(animated: true, completion: nil)
     }
     //MARK: TableView Delegate/Datasource
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var stringId = ""
         if indexPath.row == 0 {
             stringId = "duration"
@@ -59,17 +68,17 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
             stringId = "bpm"
         }
         
-        var cell = tableview.dequeueReusableCellWithIdentifier(stringId)
+        var cell = tableview.dequeueReusableCell(withIdentifier: stringId)
         if cell == nil {
             cell = UITableViewCell()
-            cell?.backgroundColor = UIColor.clearColor()
+            cell?.backgroundColor = UIColor.clear
         }
-        cell!.selectionStyle = .None
+        cell!.selectionStyle = .none
         return cell!
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if workout!.arrayBeatsPerMinute == nil { return }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //if workout!.filterHeartBeatArray() == nil { return }
         
         switch indexPath.section {
         case 0:
@@ -96,19 +105,19 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
         }
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return section == 0 ? 4 : 0
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         var height :CGFloat
         switch indexPath.row {
         case 0:
@@ -133,8 +142,8 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
     func createSaveOptionView(){
         if shouldDisplaySaveOptions {
             mapView.setRegion(region!, animated: false)
-            mapView.hidden = false
-            view.sendSubviewToBack(mapView)
+            mapView.isHidden = false
+            view.sendSubview(toBack: mapView)
             
             let height:CGFloat = 75
             let y = self.view.frame.size.height - height
@@ -146,11 +155,11 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
             let buttonWidth = bottomView.frame.size.width
             let font = UIFont(name: helveticaThinFont, size: 22)
             // creating save button
-            let saveButton = UIButton(type: .System)
+            let saveButton = UIButton(type: .system)
             saveButton.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: height)
-            saveButton.setTitle("hide", forState: UIControlState.Normal)
+            saveButton.setTitle("hide", for: UIControlState())
             saveButton.titleLabel?.font = font
-            saveButton.addTarget(self, action: #selector(WorkoutSummaryVC.pressedOptionHideButton(_:)), forControlEvents: .TouchUpInside)
+            saveButton.addTarget(self, action: #selector(WorkoutSummaryVC.pressedOptionHideButton(_:)), for: .touchUpInside)
             bottomView.addSubview(saveButton)
             
             view.addSubview(bottomView)
@@ -173,19 +182,19 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
         }
     }
     
-    func timeCellSetup(cell:UITableViewCell) {
-        let dateFormatter = NSDateFormatter()
+    func timeCellSetup(_ cell:UITableViewCell) {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mm a"
         
-        startTimeLabel.text = dateFormatter.stringFromDate(workout.startTime!)
+        startTimeLabel.text = dateFormatter.string(from: workout.startTime!)
         durationTimeLabel.text = String.localizedStringWithFormat("%i minutes", workout.minutes())
-        endTimeLabel.text = dateFormatter.stringFromDate(workout.endTime!)
+        endTimeLabel.text = dateFormatter.string(from: workout.endTime!)
         
         startTimeLabel.font = UIFont(name: helveticaMediumFont, size: 14)
         durationTimeLabel.font = UIFont(name: helveticaLightFont, size: 26)
         endTimeLabel.font = UIFont(name: helveticaMediumFont, size: 14)
         
-        let fontColor = UIColor.darkGrayColor()
+        let fontColor = UIColor.darkGray
         startTimeLabel.textColor = fontColor
         durationTimeLabel.textColor = fontColor
         endTimeLabel.textColor = fontColor
@@ -214,7 +223,7 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
         cell.contentView.addSubview(endTimeLabel)
     }
     
-    func lineGraphCellSetup(cell:UITableViewCell) {
+    func lineGraphCellSetup(_ cell:UITableViewCell) {
         lineGraphView.frame = cell.contentView.frame
         
         lineGraphView.enableBezierCurve = true
@@ -225,25 +234,25 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
         lineGraphView.enableReferenceXAxisLines = true
         lineGraphView.enableReferenceYAxisLines = true
         lineGraphView.enableBezierCurve = true
-        lineGraphView.animationGraphStyle = .None
+        lineGraphView.animationGraphStyle = .none
         
         lineGraphView.reloadGraph()
         cell.contentView.addSubview(lineGraphView)
     }
     
-    func caloriesBurnedCellSetup(cell:UITableViewCell) {
+    func caloriesBurnedCellSetup(_ cell:UITableViewCell) {
         caloriesBurnedLabel.frame = cell.contentView.frame
         caloriesBurnedLabel.text = String.localizedStringWithFormat("%i calories burned", workout.caloriesBurned!)
-        caloriesBurnedLabel.textAlignment = .Center
+        caloriesBurnedLabel.textAlignment = .center
         caloriesBurnedLabel.font = UIFont(name: helveticaLightFont, size: 24)
-        caloriesBurnedLabel.textColor = UIColor.darkGrayColor()
+        caloriesBurnedLabel.textColor = UIColor.darkGray
         
         cell.contentView.addSubview(caloriesBurnedLabel)
     }
     
-    func bpmCellSetup(cell:UITableViewCell) {
-        var sortedArray = NSMutableArray(array: workout.arrayBeatsPerMinute!)
-            QuickSort.sort(&sortedArray, left: 0, right: (workout.arrayBeatsPerMinute?.count)!-1)
+    func bpmCellSetup(_ cell:UITableViewCell) {
+        var sortedArray = NSMutableArray(array: workout.filterHeartBeatArray())
+            QuickSort.sort(&sortedArray, left: 0, right: (workout.filterHeartBeatArray().count)-1)
         let lastObj = sortedArray.lastObject as! NSNumber
 
         let width :CGFloat = cell.contentView.frame.size.width / 3
@@ -253,20 +262,20 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
         avgBpmLabel = UILabel(frame: CGRect(x: width, y: 0, width: width, height: height))
         maxBpmLabel = UILabel(frame: CGRect(x: width*2, y: 0, width: width, height: height))
         
-        minBpmLabel.text = String.localizedStringWithFormat("%i min", sortedArray[0].intValue)
+        minBpmLabel.text = String.localizedStringWithFormat("%i min", (sortedArray[0] as AnyObject).int32Value)
         avgBpmLabel.text = String.localizedStringWithFormat("%i avg", workout.beatsPerMinuteAverage!)
-        maxBpmLabel.text = String.localizedStringWithFormat("%i max", lastObj.intValue)
+        maxBpmLabel.text = String.localizedStringWithFormat("%i max", lastObj.int32Value)
         
-        minBpmLabel.textAlignment = .Center
-        avgBpmLabel.textAlignment = .Center
-        maxBpmLabel.textAlignment = .Center
+        minBpmLabel.textAlignment = .center
+        avgBpmLabel.textAlignment = .center
+        maxBpmLabel.textAlignment = .center
         
         let font = UIFont(name: helveticaFont, size: 20)
         minBpmLabel.font = font
         avgBpmLabel.font = font
         maxBpmLabel.font = font
         
-        let color = UIColor.darkGrayColor()
+        let color = UIColor.darkGray
         minBpmLabel.textColor = color
         avgBpmLabel.textColor = color
         maxBpmLabel.textColor = color
@@ -276,52 +285,48 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
         cell.contentView.addSubview(maxBpmLabel)
     }
     //MARK: BEMSimpleLineGraphView DataSource/Delegate
-    func numberOfPointsInLineGraph(graph: BEMSimpleLineGraphView) -> Int {
-        return workout.arrayBeatsPerMinute!.count
-    }
-    
-    func lineGraph(graph: BEMSimpleLineGraphView, labelOnXAxisForIndex index: Int) -> String {
+    private func lineGraph(_ graph: BEMSimpleLineGraphView, labelOnXAxisFor index: Int) -> String {
         return workout.getTimeFromSeconds(index)
     }
     
     
-    func numberOfYAxisLabelsOnLineGraph(graph: BEMSimpleLineGraphView) -> Int {
-        return 5
+    private func numberOfYAxisLabels(onLineGraph graph: BEMSimpleLineGraphView) -> Int {
+        return 1
     }
     
-    func numberOfGapsBetweenLabelsOnLineGraph(graph: BEMSimpleLineGraphView) -> Int {
-        return workout.arrayBeatsPerMinute!.count / 5
+    @nonobjc func numberOfGapsBetweenLabels(onLineGraph graph: BEMSimpleLineGraphView) -> Int {
+        return workout.filterHeartBeatArray().count
     }
     
-    func lineGraph(graph: BEMSimpleLineGraphView, valueForPointAtIndex index: Int) -> CGFloat {
-        let point = workout.arrayBeatsPerMinute![index]
-        return CGFloat(point.doubleValue)
+    func lineGraph(_ graph: BEMSimpleLineGraphView, valueForPointAt index: Int) -> CGFloat {
+        let point = workout.filterHeartBeatArray()[index]
+        return CGFloat((point as AnyObject).doubleValue)
     }
     
-    func maxValueForLineGraph(graph: BEMSimpleLineGraphView) -> CGFloat {
+    func maxValue(forLineGraph graph: BEMSimpleLineGraphView) -> CGFloat {
         var max = 0
-        for num in workout.arrayBeatsPerMinute! {
+        for num in workout.filterHeartBeatArray() {
             let n = num as! NSNumber
-            if max < n.integerValue {
-                max = n.integerValue
+            if max < n.intValue {
+                max = n.intValue
             }
         }
         return CGFloat(max)
     }
     
-    func minValueForLineGraph(graph: BEMSimpleLineGraphView) -> CGFloat {
+    func minValue(forLineGraph graph: BEMSimpleLineGraphView) -> CGFloat {
         var min = 200
-        for num in workout.arrayBeatsPerMinute! {
+        for num in workout.filterHeartBeatArray() {
             let n = num as! NSNumber
-            if min > n.integerValue {
-                min = n.integerValue
+            if min > n.intValue {
+                min = n.intValue
             }
         }
         return CGFloat(min)
     }
     
-    func lineGraph(graph: BEMSimpleLineGraphView, didTouchGraphWithClosestIndex index: Int) {
-        let position :Float = ((Float(index) / Float(workout.arrayBeatsPerMinute!.count)) * Float(workout.minutes()))
+    private func lineGraph(_ graph: BEMSimpleLineGraphView, didTouchGraphWithClosestIndex index: Int) {
+        let position :Float = ((Float(index) / Float(workout.filterHeartBeatArray().count)) * Float(workout.minutes()))
     
         var min = " minutes"
         if position <= 1 { min = " minute" }
@@ -329,7 +334,11 @@ class WorkoutSummaryVC: BaseVC, UITableViewDelegate, UITableViewDataSource, BEMS
         durationTimeLabel.text = String(Int(position+1)) + min
     }
     
-    func didReleaseGraphWithClosestIndex(index: Float) {
+//    func didReleaseGraphWithClosestIndex(index: Float) {
+//        durationTimeLabel.text = String.localizedStringWithFormat("%i minutes", workout.minutes())
+//    }
+    
+    func lineGraph(_ graph: BEMSimpleLineGraphView, didReleaseTouchFromGraphWithClosestIndex index: CGFloat) {
         durationTimeLabel.text = String.localizedStringWithFormat("%i minutes", workout.minutes())
     }
 }
