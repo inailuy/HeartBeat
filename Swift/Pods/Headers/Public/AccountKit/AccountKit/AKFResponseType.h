@@ -1,1 +1,0 @@
-../../../../AccountKit/AccountKit.framework/Headers/AKFResponseType.h
