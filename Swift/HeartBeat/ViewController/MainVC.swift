@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import AccountKit
+//import AccountKit
 
 class MainVC: BaseVC {
     @IBOutlet weak var bpmLabel: UILabel!
@@ -31,10 +31,12 @@ class MainVC: BaseVC {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        /*
         if (appDelegate.accountKit.currentAccessToken == nil) {
             //User is logged out
             performLoginOperation()
         }
+        */
     }
     
     @objc func historyButtonPressed() {

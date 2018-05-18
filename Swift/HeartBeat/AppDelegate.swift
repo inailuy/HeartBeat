@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 import HealthKit
 import CloudKit
-import AccountKit
+//import AccountKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,19 +19,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let swipeBetweenVC: YZSwipeBetweenViewController = YZSwipeBetweenViewController()
     static let sharedInstance = AppDelegate()
-    var accountKit: AKFAccountKit!
+    //var accountKit: AKFAccountKit!
     var application :UIApplication!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //Register FacebookSDK
         self.application = application
+        /*
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(self.registerNotify), userInfo:nil, repeats: false)
         
         //setup accountkit
         accountKit = AKFAccountKit(responseType: .accessToken)
         accountKit.requestAccount{(account, error) -> Void in }
-        
+        */
         //setup SnapChatUI
         setUpStoryboardUI()
         UserSettings.sharedInstance.loadInstances()
@@ -45,19 +46,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let barButtonAppearance : [String:Any] = [NSAttributedStringKey.font.rawValue : UIFont(name: helveticaLightFont, size: 18)!]
         let navBarApearance : [String:Any] = [NSAttributedStringKey.font.rawValue : UIFont(name: helveticaLightFont, size: 24)!,
                                               NSAttributedStringKey.foregroundColor.rawValue: UIColor.darkGray]
-        UIBarButtonItem.appearance().setTitleTextAttributes(barButtonAppearance, for: UIControlState())
-        UINavigationBar.appearance().titleTextAttributes = navBarApearance
+        //UIBarButtonItem.appearance().setTitleTextAttributes(barButtonAppearance, for: UIControlState())
+        //UINavigationBar.appearance().titleTextAttributes = navBarApearance
         
         return true
     }
-
+/*
     @objc func registerNotify() {
         // Register for push notifications
         let notificationSettings = UIUserNotificationSettings(types: .alert, categories: nil)
         application.registerUserNotificationSettings(notificationSettings)
         application.registerForRemoteNotifications()
     }
-    
+*/
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -189,7 +190,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         //print(error.localizedDescription)
     }
-    
+    /*
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         FBSDKAppEvents.setPushNotificationsDeviceToken(deviceToken)
     }
@@ -201,5 +202,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [AnyHashable: Any], completionHandler: @escaping () -> Void) {
         FBSDKAppEvents.logPushNotificationOpen(userInfo, action: identifier)
     }
+    */
 }
 

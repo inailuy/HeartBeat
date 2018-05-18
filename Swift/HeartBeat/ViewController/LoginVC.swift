@@ -8,10 +8,10 @@
 
 import Foundation
 import UIKit
-import AccountKit
+//import AccountKit
 
 
-class LoginVC: UIViewController, AKFViewControllerDelegate {
+class LoginVC: UIViewController/*, AKFViewControllerDelegate*/ {
     var pendingLoginViewController :UIViewController!
     var authorizationCode :String!
     var state :String!
@@ -50,12 +50,12 @@ class LoginVC: UIViewController, AKFViewControllerDelegate {
                 })
         })
     }
-    
+    /*
     @IBAction func loginWithFacebook(_ sender: UIButton) {
         //TODO: Finish FB Login
         permissionSegue()
     }
-    
+
     @IBAction func loginWithPhone(_ sender: UIButton) {
         let preFillPhoneNumber = AKFPhoneNumber(countryCode: "", phoneNumber: "")
         let inputState = UUID().uuidString
@@ -65,7 +65,7 @@ class LoginVC: UIViewController, AKFViewControllerDelegate {
         viewController.enableSendToFacebook = true
         self.present(viewController as! UIViewController, animated: true, completion: nil)
     }
-    
+
     //MARK: AKFViewControllerDelegate
     private func viewController(_ viewController: UIViewController!, didCompleteLoginWith accessToken: AKFAccessToken!, state: String!) {
 
@@ -78,7 +78,7 @@ class LoginVC: UIViewController, AKFViewControllerDelegate {
         })
         */
     }
-    
+    */
     func dismiss() {
         self.dismiss(animated: true, completion: nil)
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import AccountKit
+//import AccountKit
 
 class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate {
     //identifiers 
@@ -185,7 +185,7 @@ class SettingsVC: BaseVC, UITableViewDelegate, UITableViewDataSource, UIPickerVi
                 let alertController = UIAlertController(title: nil, message: "are you sure you want to log out?", preferredStyle: .actionSheet)
                 let cancelAction = UIAlertAction(title: "cancel", style: .cancel) { (action) in}
                 let destroyAction = UIAlertAction(title: "logout", style: .destructive) { (action) in
-                    self.appDelegate.accountKit.logOut()
+                    //self.appDelegate.accountKit.logOut()
                     self.appDelegate.swipeBetweenVC.scrollToViewController(at: 1)
                     
                     let nc = self.appDelegate.swipeBetweenVC.viewControllers[1] as! UINavigationController
