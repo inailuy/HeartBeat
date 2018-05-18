@@ -43,11 +43,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         DataController.sharedInstance.load()
         //Navigation Appearance
-        let barButtonAppearance : [String:Any] = [NSAttributedStringKey.font.rawValue : UIFont(name: helveticaLightFont, size: 18)!]
-        let navBarApearance : [String:Any] = [NSAttributedStringKey.font.rawValue : UIFont(name: helveticaLightFont, size: 24)!,
-                                              NSAttributedStringKey.foregroundColor.rawValue: UIColor.darkGray]
-        //UIBarButtonItem.appearance().setTitleTextAttributes(barButtonAppearance, for: UIControlState())
-        //UINavigationBar.appearance().titleTextAttributes = navBarApearance
+        let barButtonAppearance : [NSAttributedStringKey:Any] = [NSAttributedStringKey(rawValue: NSAttributedStringKey.font.rawValue) : UIFont(name: helveticaLightFont, size: 18)!]
+        let navBarApearance : [NSAttributedStringKey:Any] = [NSAttributedStringKey(rawValue: NSAttributedStringKey.font.rawValue) : UIFont(name: helveticaLightFont, size: 24)!,
+                                                             NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): UIColor.darkGray]
+        UIBarButtonItem.appearance().setTitleTextAttributes(barButtonAppearance, for: UIControlState())
+        UINavigationBar.appearance().titleTextAttributes = navBarApearance
         
         return true
     }
